@@ -4,8 +4,7 @@ import PropTypes from "prop-types";
 
 const BorderPath = styled.path`
   stroke: #5a60ab;
-  stroke-miterlimit: 10;
-  stroke-width: 2px;
+  stroke-width: 2;
 `;
 
 const SyringeColor = styled(BorderPath)`
@@ -21,16 +20,15 @@ const BlueFillPath = styled.path`
 `;
 
 const MovingPath = styled.path`
-  fill: #9cb2f8;
+  fill: #dce4fc;
   stroke: #5a60ab;
-  strokemiterlimit: 10;
-  strokewidth: 2px;
+  stroke-width: 2;
   transition: all linear 1s;
 `;
 
 const Text = styled.text`
   fill: #5a60ab;
-  font-size: 40px;
+  font-size: 2rem;
   font-family: Roboto-Regular, Roboto;
 `;
 
@@ -47,7 +45,7 @@ export const Syringe = ({ percentage, length = 1000, country, index = 0, color =
           d="M506.2-449.91h60v999h-60z"
         />
         <BorderPath d="M1235.7 50.24H35.7" />
-        <BlueFillPath transform="rotate(180 277.25 50.235)" d="M4.25 46.24h546v8h-546z" />
+        <BlueFillPath d="M4.25 46.24h1050v8h-1050z" />
         <MovingPath d={path} />
         <BorderPath d="M37 10.24h4v80h-4zM1 25.24h4v50H1z" />
         <SyringeTop d="M1036.04 32.98h10V67.5h-10zM1046.54 45.94h7v12.55h-7z" />

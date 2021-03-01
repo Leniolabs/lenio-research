@@ -13,7 +13,8 @@ const GlobalStyle = createGlobalStyle`
     &:before, &:after { box-sizing: inherit; }
   }
   header {
-    background: url("bg-research.png") no-repeat;
+    background: url("/bg-research.png") no-repeat bottom left;
+    background-size: cover;
   }
   .logo {
     align-items: center;
