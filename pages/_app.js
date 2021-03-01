@@ -71,12 +71,14 @@ const GlobalStyle = createGlobalStyle`
   .chart-wrapper {
     background-color: #f8f3dc;
     .main-chart {
-      height: 650px;    
+      height: 520px;
+      margin-top: 5rem;
       width: 100%;
     }
   }
   .legend { 
     align-items: center;
+    color: #5a60ab;
     display: inline-flex;
     font-size: 1rem;
     margin: 1rem;
