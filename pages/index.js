@@ -114,17 +114,17 @@ export const Index = () => {
             <text transform="translate(1020 390)" fill="#5a60ab">100%</text>
             <Syringe index={6} color="#f79fad" country="Israel" percentage={israel} population="8.884M" />
             <Syringe index={5} color="#f7de9f" country="United Kingdom" percentage={unitedKingdom} population="66.65M" />
-            <Syringe index={4} country="Chile" percentage={chile} population="18.73M" />
+            <Syringe index={4} color="#b0a3e5" country="Chile" percentage={chile} population="18.73M" />
             <Syringe index={3} color="#9ff4e4" country="United States" percentage={US} population="328.2M" />
             <Syringe index={2} color="#f79fad" country="Turkey" percentage={turkey} population="82M" />
             <Syringe index={1} color="#f7de9f" country="European Union" percentage={EU} population="447.7M" />
-            <Syringe index={0} country="Brazil" percentage={brazil} population="209.5M" />
+            <Syringe index={0} color="#b0a3e5" country="Brazil" percentage={brazil} population="209.5M" />
           </svg>
           <div className="legends">
             <span className="legend"><svg width="20" height="20" overflow="visible" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#f79fad" stroke="#5a60ab"/></svg> Asia</span>
             <span className="legend"><svg width="20" height="20" overflow="visible" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#f7de9f" stroke="#5a60ab"/></svg> Europe</span>
             <span className="legend"><svg width="20" height="20" overflow="visible" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#9ff4e4" stroke="#5a60ab"/></svg> North America</span>
-            <span className="legend"><svg width="20" height="20" overflow="visible" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#dce4fc" stroke="#5a60ab"/></svg> South America</span>
+            <span className="legend"><svg width="20" height="20" overflow="visible" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#b0a3e5" stroke="#5a60ab"/></svg> South America</span>
             <span className="legend"><svg width="20" height="20" viewBox="0 0 20 20" overflow="visible"><rect x="2" width="18" height="20" fill="#dce4fc" stroke="#5a60ab"/><line x1="2" y1="10" x2="20" y2="10" stroke="#5a60ab" stroke-width="3" /></svg> People vaccinated</span>
           </div>
           <button className="btn download-btn">Download .csv</button>
