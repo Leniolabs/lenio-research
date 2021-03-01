@@ -69,10 +69,17 @@ const GlobalStyle = createGlobalStyle`
   }
   .chart-wrapper {
     background-color: #f8f3dc;
-    svg {
+    .main-chart {
       height: 650px;    
       width: 100%;
     }
+  }
+  .legend { 
+    align-items: center;
+    display: inline-flex;
+    font-size: 1rem;
+    margin: 1rem;
+    svg { margin-right: .5rem; }
   }
   .btn {
     background-color: #69b29a;

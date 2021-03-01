@@ -104,7 +104,7 @@ export const Index = () => {
         <div className="row-container">
           <SecondTitle>People Vaccinated</SecondTitle>
           <p>Our data on COVID-19 vaccinations is updated each morning (Chilean time), with the most recent official numbers up to the previous day.</p>
-          <svg overflow="visible" viewBox="0 0 1235.7 91.24">
+          <svg className="main-chart" overflow="visible" viewBox="0 0 1235.7 91.24">
             <Syringe index={6} color="#f79fad" country="Israel" percentage={israel} />
             <Syringe index={5} color="#f7de9f" country="United Kingdom" percentage={unitedKingdom} />
             <Syringe index={4} country="Chile" percentage={chile} />
@@ -113,6 +113,13 @@ export const Index = () => {
             <Syringe index={1} color="#f7de9f" country="European Union" percentage={EU} />
             <Syringe index={0} country="Brazil" percentage={brazil} />
           </svg>
+          <div className="legends">
+            <span className="legend"><svg width="20" height="20" overflow="visible" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#f79fad" stroke="currentColor"/></svg> Asia</span>
+            <span className="legend"><svg width="20" height="20" overflow="visible" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#f7de9f" stroke="currentColor"/></svg> Europe</span>
+            <span className="legend"><svg width="20" height="20" overflow="visible" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#9ff4e4" stroke="currentColor"/></svg> North America</span>
+            <span className="legend"><svg width="20" height="20" overflow="visible" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="#dce4fc" stroke="currentColor"/></svg> South America</span>
+            <span className="legend"><svg width="20" height="20" viewBox="0 0 20 20" overflow="visible"><rect x="2" width="18" height="20" fill="#dce4fc" stroke="currentColor"/><line x1="2" y1="10" x2="20" y2="10" stroke="currentColor" fill="none" stroke-width="2" /></svg> People vaccinated</span>
+          </div>
           <button className="btn download-btn">Download .csv</button>
         </div>
       </section>
