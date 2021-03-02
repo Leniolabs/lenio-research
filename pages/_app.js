@@ -1,7 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
   body {
     background-color: #FCFCF4;
     box-sizing: border-box;
