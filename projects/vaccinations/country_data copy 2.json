@@ -1,0 +1,312 @@
+[
+  {
+    "countryCode": "AL",
+    "name": "Albania",
+    "population": 2877800
+  },
+  {
+    "countryCode": "AR",
+    "name": "Argentina",
+    "population": 45195777
+  },
+  {
+    "countryCode": "AT",
+    "name": "Austria",
+    "population": 9006400
+  },
+  {
+    "countryCode": "BE",
+    "name": "Belgium",
+    "population": 11589616
+  },
+  {
+    "countryCode": "BM",
+    "name": "Bermuda",
+    "population": 62273
+  },
+  {
+    "countryCode": "BR",
+    "name": "Brazil",
+    "population": 212559409
+  },
+  {
+    "countryCode": "BG",
+    "name": "Bulgaria",
+    "population": 6948445
+  },
+  {
+    "countryCode": "KY",
+    "name": "Cayman Islands",
+    "population": 65720
+  },
+  {
+    "countryCode": "CL",
+    "name": "Chile",
+    "population": 19116209
+  },
+  {
+    "countryCode": "CR",
+    "name": "Costa Rica",
+    "population": 5094114
+  },
+  {
+    "countryCode": "HR",
+    "name": "Croatia",
+    "population": 4105268
+  },
+  {
+    "countryCode": "CY",
+    "name": "Cyprus",
+    "population": 875899
+  },
+  {
+    "countryCode": "ASDSA",
+    "name": "Czechia",
+    "population": 10708982
+  },
+  {
+    "countryCode": "DK",
+    "name": "Denmark",
+    "population": 5792203
+  },
+  {
+    "countryCode": "EC",
+    "name": "Ecuador",
+    "population": 17643060
+  },
+  {
+    "countryCode": "EE",
+    "name": "Estonia",
+    "population": 1326539
+  },
+  {
+    "countryCode": "EU",
+    "name": "European Union",
+    "population": 444919060
+  },
+  {
+    "countryCode": "FO",
+    "name": "Faeroe Islands",
+    "population": 48865
+  },
+  {
+    "countryCode": "FI",
+    "name": "Finland",
+    "population": 5540718
+  },
+  {
+    "countryCode": "FR",
+    "name": "France",
+    "population": 65273512
+  },
+  {
+    "countryCode": "DE",
+    "name": "Germany",
+    "population": 83783945
+  },
+  {
+    "countryCode": "GI",
+    "name": "Gibraltar",
+    "population": 33691
+  },
+  {
+    "countryCode": "GR",
+    "name": "Greece",
+    "population": 10423056
+  },
+  {
+    "countryCode": "GG",
+    "name": "Guernsey",
+    "population": 67052
+  },
+  {
+    "countryCode": "HU",
+    "name": "Hungary",
+    "population": 9660350
+  },
+  {
+    "countryCode": "IS",
+    "name": "Iceland",
+    "population": 341250
+  },
+  {
+    "countryCode": "IN",
+    "name": "India",
+    "population": 1380004385
+  },
+  {
+    "countryCode": "ID",
+    "name": "Indonesia",
+    "population": 273523621
+  },
+  {
+    "countryCode": "IE",
+    "name": "Ireland",
+    "population": 4937796
+  },
+  {
+    "countryCode": "IM",
+    "name": "Isle of Man",
+    "population": 85032
+  },
+  {
+    "countryCode": "IL",
+    "name": "Israel",
+    "population": 8655541
+  },
+  {
+    "countryCode": "IT",
+    "name": "Italy",
+    "population": 60461828
+  },
+  {
+    "countryCode": "JE",
+    "name": "Jersey",
+    "population": 101073
+  },
+  {
+    "countryCode": "JO",
+    "name": "Jordan",
+    "population": 10203140
+  },
+  {
+    "countryCode": "KZ",
+    "name": "Kazakhstan",
+    "population": 18776707
+  },
+  {
+    "countryCode": "KW",
+    "name": "Kuwait",
+    "population": 4270563
+  },
+  {
+    "countryCode": "LV",
+    "name": "Latvia",
+    "population": 1886202
+  },
+  {
+    "countryCode": "LT",
+    "name": "Lithuania",
+    "population": 2722291
+  },
+  {
+    "countryCode": "LU",
+    "name": "Luxembourg",
+    "population": 625976
+  },
+  {
+    "countryCode": "MT",
+    "name": "Malta",
+    "population": 441539
+  },
+  {
+    "countryCode": "MX",
+    "name": "Mexico",
+    "population": 128932753
+  },
+  {
+    "countryCode": "MA",
+    "name": "Morocco",
+    "population": 36910558
+  },
+  {
+    "countryCode": "NO",
+    "name": "Norway",
+    "population": 5421242
+  },
+  {
+    "countryCode": "OM",
+    "name": "Oman",
+    "population": 5106622
+  },
+  {
+    "countryCode": "PL",
+    "name": "Poland",
+    "population": 37846605
+  },
+  {
+    "countryCode": "PT",
+    "name": "Portugal",
+    "population": 10196707
+  },
+  {
+    "countryCode": "RO",
+    "name": "Romania",
+    "population": 19237682
+  },
+  {
+    "countryCode": "RU",
+    "name": "Russia",
+    "population": 145934460
+  },
+  {
+    "countryCode": "RS",
+    "name": "Serbia",
+    "population": 6804596
+  },
+  {
+    "countryCode": "SC",
+    "name": "Seychelles",
+    "population": 98340
+  },
+  {
+    "countryCode": "SG",
+    "name": "Singapore",
+    "population": 5850343
+  },
+  {
+    "countryCode": "SK",
+    "name": "Slovakia",
+    "population": 5459643
+  },
+  {
+    "countryCode": "SI",
+    "name": "Slovenia",
+    "population": 2078932
+  },
+  {
+    "countryCode": "ZA",
+    "name": "South Africa",
+    "population": 59308690
+  },
+  {
+    "countryCode": "ES",
+    "name": "Spain",
+    "population": 46754783
+  },
+  {
+    "countryCode": "SE",
+    "name": "Sweden",
+    "population": 10099270
+  },
+  {
+    "countryCode": "CH",
+    "name": "Switzerland",
+    "population": 8654618
+  },
+  {
+    "countryCode": "TR",
+    "name": "Turkey",
+    "population": 84339067
+  },
+  {
+    "countryCode": "AE",
+    "name": "United Arab Emirates",
+    "population": 9890400
+  },
+  {
+    "countryCode": "GB",
+    "name": "United Kingdom",
+    "population": 67886004
+  },
+  {
+    "countryCode": "US",
+    "name": "United States",
+    "population": 331002647
+  },
+  {
+    "countryCode": "ASDSD",
+    "name": "World",
+    "population": 7794798729
+  }
+]

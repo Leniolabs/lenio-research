@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     &:before, &:after { box-sizing: inherit; }
   }
-  header {
+  header.with-background {
     background: url("/bg-research.png") no-repeat bottom left;
     background-size: cover;
   }
@@ -72,17 +72,8 @@ const GlobalStyle = createGlobalStyle`
     background-color: #f8f3dc;
     .main-chart {
       height: 520px;
-      margin-top: 5rem;
       width: 100%;
     }
-  }
-  .legend { 
-    align-items: center;
-    color: #5a60ab;
-    display: inline-flex;
-    font-size: 1rem;
-    margin: 1rem;
-    svg { margin-right: .5rem; }
   }
   .btn {
     background-color: #69b29a;
@@ -94,12 +85,6 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 600;
     padding: .6rem 1.7rem .7rem;
     &:hover { background-color: #549b81}
-  }
-  .footer-logo {
-    align-items: center;
-    display:flex;
-    justify-content: flex-end;
-    p { font-size: 1rem; margin: 0 1rem 0 0; }
   }
 `;
 

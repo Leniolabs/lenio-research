@@ -1,0 +1,498 @@
+[
+  {
+    "name": "Albania",
+    "population": 2877800,
+    "continent": "Europe",
+    "countryCode": "AL",
+    "humanDevelopmentIndex": 0.795,
+    "gdpPerCapita": 11803.431
+  },
+  {
+    "name": "Argentina",
+    "population": 45195777,
+    "continent": "South America",
+    "countryCode": "AR",
+    "humanDevelopmentIndex": 0.845,
+    "gdpPerCapita": 18933.907
+  },
+  {
+    "name": "Austria",
+    "population": 9006400,
+    "continent": "Europe",
+    "countryCode": "AT",
+    "humanDevelopmentIndex": 0.922,
+    "gdpPerCapita": 45436.686
+  },
+  {
+    "name": "Belgium",
+    "population": 11589616,
+    "continent": "Europe",
+    "countryCode": "BE",
+    "humanDevelopmentIndex": 0.931,
+    "gdpPerCapita": 42658.576
+  },
+  {
+    "name": "Bermuda",
+    "population": 62273,
+    "continent": "North America",
+    "countryCode": "BM",
+    "humanDevelopmentIndex": null,
+    "gdpPerCapita": 50669.315
+  },
+  {
+    "name": "Brazil",
+    "population": 212559409,
+    "continent": "South America",
+    "countryCode": "BR",
+    "humanDevelopmentIndex": 0.765,
+    "gdpPerCapita": 14103.452
+  },
+  {
+    "name": "Bulgaria",
+    "population": 6948445,
+    "continent": "Europe",
+    "countryCode": "BG",
+    "humanDevelopmentIndex": 0.816,
+    "gdpPerCapita": 18563.307
+  },
+  {
+    "name": "Cayman Islands",
+    "population": 65720,
+    "continent": "North America",
+    "countryCode": "KY",
+    "humanDevelopmentIndex": null,
+    "gdpPerCapita": 49903.029
+  },
+  {
+    "name": "Chile",
+    "population": 19116209,
+    "continent": "South America",
+    "countryCode": "CL",
+    "humanDevelopmentIndex": 0.851,
+    "gdpPerCapita": 22767.037
+  },
+  {
+    "name": "Costa Rica",
+    "population": 5094114,
+    "continent": "North America",
+    "countryCode": "CR",
+    "humanDevelopmentIndex": 0.81,
+    "gdpPerCapita": 15524.995
+  },
+  {
+    "name": "Croatia",
+    "population": 4105268,
+    "continent": "Europe",
+    "countryCode": "HR",
+    "humanDevelopmentIndex": 0.851,
+    "gdpPerCapita": 22669.797
+  },
+  {
+    "name": "Cyprus",
+    "population": 875899,
+    "continent": "Europe",
+    "countryCode": "CY",
+    "humanDevelopmentIndex": 0.887,
+    "gdpPerCapita": 32415.132
+  },
+  {
+    "name": "Czechia",
+    "population": 10708982,
+    "continent": "Europe",
+    "countryCode": "ASDASD",
+    "humanDevelopmentIndex": 0.9,
+    "gdpPerCapita": 32605.906
+  },
+  {
+    "name": "Denmark",
+    "population": 5792203,
+    "continent": "Europe",
+    "countryCode": "DK",
+    "humanDevelopmentIndex": 0.94,
+    "gdpPerCapita": 46682.515
+  },
+  {
+    "name": "Ecuador",
+    "population": 17643060,
+    "continent": "South America",
+    "countryCode": "EC",
+    "humanDevelopmentIndex": 0.759,
+    "gdpPerCapita": 10581.936
+  },
+  {
+    "name": "Estonia",
+    "population": 1326539,
+    "continent": "Europe",
+    "countryCode": "EE",
+    "humanDevelopmentIndex": 0.892,
+    "gdpPerCapita": 29481.252
+  },
+  {
+    "name": "European Union",
+    "population": 444919060,
+    "continent": "Europe",
+    "countryCode": "EU",
+    "humanDevelopmentIndex": null,
+    "gdpPerCapita": null
+  },
+  {
+    "name": "Faeroe Islands",
+    "population": 48865,
+    "continent": "Europe",
+    "countryCode": "FO",
+    "humanDevelopmentIndex": null,
+    "gdpPerCapita": null
+  },
+  {
+    "name": "Finland",
+    "population": 5540718,
+    "continent": "Europe",
+    "countryCode": "FI",
+    "humanDevelopmentIndex": 0.938,
+    "gdpPerCapita": 40585.721
+  },
+  {
+    "name": "France",
+    "population": 65273512,
+    "continent": "Europe",
+    "countryCode": "FR",
+    "humanDevelopmentIndex": 0.901,
+    "gdpPerCapita": 38605.671
+  },
+  {
+    "name": "Germany",
+    "population": 83783945,
+    "continent": "Europe",
+    "countryCode": "DE",
+    "humanDevelopmentIndex": 0.947,
+    "gdpPerCapita": 45229.245
+  },
+  {
+    "name": "Gibraltar",
+    "population": 33691,
+    "continent": "Europe",
+    "countryCode": "GI",
+    "humanDevelopmentIndex": null,
+    "gdpPerCapita": null
+  },
+  {
+    "name": "Greece",
+    "population": 10423056,
+    "continent": "Europe",
+    "countryCode": "GR",
+    "humanDevelopmentIndex": 0.888,
+    "gdpPerCapita": 24574.382
+  },
+  {
+    "name": "Guernsey",
+    "population": 67052,
+    "continent": "Europe",
+    "countryCode": "GG",
+    "humanDevelopmentIndex": null,
+    "gdpPerCapita": null
+  },
+  {
+    "name": "Hungary",
+    "population": 9660350,
+    "continent": "Europe",
+    "countryCode": "HU",
+    "humanDevelopmentIndex": 0.854,
+    "gdpPerCapita": 26777.561
+  },
+  {
+    "name": "Iceland",
+    "population": 341250,
+    "continent": "Europe",
+    "countryCode": "IS",
+    "humanDevelopmentIndex": 0.949,
+    "gdpPerCapita": 46482.958
+  },
+  {
+    "name": "India",
+    "population": 1380004385,
+    "continent": "Asia",
+    "countryCode": "IN",
+    "humanDevelopmentIndex": 0.645,
+    "gdpPerCapita": 6426.674
+  },
+  {
+    "name": "Indonesia",
+    "population": 273523621,
+    "continent": "Asia",
+    "countryCode": "ID",
+    "humanDevelopmentIndex": 0.718,
+    "gdpPerCapita": 11188.744
+  },
+  {
+    "name": "Ireland",
+    "population": 4937796,
+    "continent": "Europe",
+    "countryCode": "IE",
+    "humanDevelopmentIndex": 0.955,
+    "gdpPerCapita": 67335.293
+  },
+  {
+    "name": "Isle of Man",
+    "population": 85032,
+    "continent": "Europe",
+    "countryCode": "IM",
+    "humanDevelopmentIndex": null,
+    "gdpPerCapita": null
+  },
+  {
+    "name": "Israel",
+    "population": 8655541,
+    "continent": "Asia",
+    "countryCode": "IL",
+    "humanDevelopmentIndex": 0.919,
+    "gdpPerCapita": 33132.32
+  },
+  {
+    "name": "Italy",
+    "population": 60461828,
+    "continent": "Europe",
+    "countryCode": "IT",
+    "humanDevelopmentIndex": 0.892,
+    "gdpPerCapita": 35220.084
+  },
+  {
+    "name": "Jersey",
+    "population": 101073,
+    "continent": "Europe",
+    "countryCode": "JE",
+    "humanDevelopmentIndex": null,
+    "gdpPerCapita": null
+  },
+  {
+    "name": "Jordan",
+    "population": 10203140,
+    "continent": "Asia",
+    "countryCode": "JO",
+    "humanDevelopmentIndex": 0.729,
+    "gdpPerCapita": 8337.49
+  },
+  {
+    "name": "Kazakhstan",
+    "population": 18776707,
+    "continent": "Asia",
+    "countryCode": "KZ",
+    "humanDevelopmentIndex": 0.825,
+    "gdpPerCapita": 24055.588
+  },
+  {
+    "name": "Kuwait",
+    "population": 4270563,
+    "continent": "Asia",
+    "countryCode": "KW",
+    "humanDevelopmentIndex": 0.806,
+    "gdpPerCapita": 65530.537
+  },
+  {
+    "name": "Latvia",
+    "population": 1886202,
+    "continent": "Europe",
+    "countryCode": "LV",
+    "humanDevelopmentIndex": 0.866,
+    "gdpPerCapita": 25063.846
+  },
+  {
+    "name": "Lithuania",
+    "population": 2722291,
+    "continent": "Europe",
+    "countryCode": "LT",
+    "humanDevelopmentIndex": 0.882,
+    "gdpPerCapita": 29524.265
+  },
+  {
+    "name": "Luxembourg",
+    "population": 625976,
+    "continent": "Europe",
+    "countryCode": "LU",
+    "humanDevelopmentIndex": 0.916,
+    "gdpPerCapita": 94277.965
+  },
+  {
+    "name": "Malta",
+    "population": 441539,
+    "continent": "Europe",
+    "countryCode": "MT",
+    "humanDevelopmentIndex": 0.895,
+    "gdpPerCapita": 36513.323
+  },
+  {
+    "name": "Mexico",
+    "population": 128932753,
+    "continent": "North America",
+    "countryCode": "MX",
+    "humanDevelopmentIndex": 0.779,
+    "gdpPerCapita": 17336.469
+  },
+  {
+    "name": "Morocco",
+    "population": 36910558,
+    "continent": "Africa",
+    "countryCode": "MA",
+    "humanDevelopmentIndex": 0.686,
+    "gdpPerCapita": 7485.013
+  },
+  {
+    "name": "Norway",
+    "population": 5421242,
+    "continent": "Europe",
+    "countryCode": "NO",
+    "humanDevelopmentIndex": 0.957,
+    "gdpPerCapita": 64800.057
+  },
+  {
+    "name": "Oman",
+    "population": 5106622,
+    "continent": "Asia",
+    "countryCode": "OM",
+    "humanDevelopmentIndex": 0.813,
+    "gdpPerCapita": 37960.709
+  },
+  {
+    "name": "Poland",
+    "population": 37846605,
+    "continent": "Europe",
+    "countryCode": "PL",
+    "humanDevelopmentIndex": 0.88,
+    "gdpPerCapita": 27216.445
+  },
+  {
+    "name": "Portugal",
+    "population": 10196707,
+    "continent": "Europe",
+    "countryCode": "PT",
+    "humanDevelopmentIndex": 0.864,
+    "gdpPerCapita": 27936.896
+  },
+  {
+    "name": "Romania",
+    "population": 19237682,
+    "continent": "Europe",
+    "countryCode": "RO",
+    "humanDevelopmentIndex": 0.828,
+    "gdpPerCapita": 23313.199
+  },
+  {
+    "name": "Russia",
+    "population": 145934460,
+    "continent": "Europe",
+    "countryCode": "RU",
+    "humanDevelopmentIndex": 0.824,
+    "gdpPerCapita": 24765.954
+  },
+  {
+    "name": "Serbia",
+    "population": 6804596,
+    "continent": "Europe",
+    "countryCode": "RS",
+    "humanDevelopmentIndex": 0.806,
+    "gdpPerCapita": 14048.881
+  },
+  {
+    "name": "Seychelles",
+    "population": 98340,
+    "continent": "Africa",
+    "countryCode": "SC",
+    "humanDevelopmentIndex": 0.796,
+    "gdpPerCapita": 26382.287
+  },
+  {
+    "name": "Singapore",
+    "population": 5850343,
+    "continent": "Asia",
+    "countryCode": "SG",
+    "humanDevelopmentIndex": 0.938,
+    "gdpPerCapita": 85535.383
+  },
+  {
+    "name": "Slovakia",
+    "population": 5459643,
+    "continent": "Europe",
+    "countryCode": "SK",
+    "humanDevelopmentIndex": 0.86,
+    "gdpPerCapita": 30155.152
+  },
+  {
+    "name": "Slovenia",
+    "population": 2078932,
+    "continent": "Europe",
+    "countryCode": "SI",
+    "humanDevelopmentIndex": 0.917,
+    "gdpPerCapita": 31400.84
+  },
+  {
+    "name": "South Africa",
+    "population": 59308690,
+    "continent": "Africa",
+    "countryCode": "ZA",
+    "humanDevelopmentIndex": 0.709,
+    "gdpPerCapita": 12294.876
+  },
+  {
+    "name": "Spain",
+    "population": 46754783,
+    "continent": "Europe",
+    "countryCode": "ES",
+    "humanDevelopmentIndex": 0.904,
+    "gdpPerCapita": 34272.36
+  },
+  {
+    "name": "Sweden",
+    "population": 10099270,
+    "continent": "Europe",
+    "countryCode": "SE",
+    "humanDevelopmentIndex": 0.945,
+    "gdpPerCapita": 46949.283
+  },
+  {
+    "name": "Switzerland",
+    "population": 8654618,
+    "continent": "Europe",
+    "countryCode": "CH",
+    "humanDevelopmentIndex": 0.955,
+    "gdpPerCapita": 57410.166
+  },
+  {
+    "name": "Turkey",
+    "population": 84339067,
+    "continent": "Asia",
+    "countryCode": "TR",
+    "humanDevelopmentIndex": 0.82,
+    "gdpPerCapita": 25129.341
+  },
+  {
+    "name": "United Arab Emirates",
+    "population": 9890400,
+    "continent": "Asia",
+    "countryCode": "AE",
+    "humanDevelopmentIndex": 0.89,
+    "gdpPerCapita": 67293.483
+  },
+  {
+    "name": "United Kingdom",
+    "population": 67886004,
+    "continent": "Europe",
+    "countryCode": "GB",
+    "humanDevelopmentIndex": 0.932,
+    "gdpPerCapita": 39753.244
+  },
+  {
+    "name": "United States",
+    "population": 331002647,
+    "continent": "North America",
+    "countryCode": "US",
+    "humanDevelopmentIndex": 0.926,
+    "gdpPerCapita": 54225.446
+  },
+  {
+    "name": "World",
+    "population": 7794798729,
+    "continent": null,
+    "countryCode": "ASDASDSADSD",
+    "humanDevelopmentIndex": 0.737,
+    "gdpPerCapita": 15469.207
+  }
+]
