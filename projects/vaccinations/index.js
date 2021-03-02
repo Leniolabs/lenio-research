@@ -40,7 +40,7 @@ export const Index = ({ countryList }) => {
     setParsedData(getParsedData(data[dataIndex].data, undefined, countryList));
   }, [dataIndex]);
 
-  const svgHeight = parsedData.length * 100;
+  const svgHeight = 90;
 
   return (
     <section className="chart-wrapper">
@@ -53,35 +53,37 @@ export const Index = ({ countryList }) => {
         <svg
           className="main-chart"
           overflow="visible"
-          viewBox="0 0 1235.7 91.24"
-          style={{ height: svgHeight }}>
-          <line x1="40" y1="-470%" x2="40" y2="400%" stroke="#5a60ab" strokeWidth="2" />
+          viewBox={`0 0 1235.7 ${svgHeight * parsedData.length}`}
+
+          // style={{ height: svgHeight }}
+          >
+          <line x1="40" y1="-20" x2="40" y2={`${svgHeight * parsedData.length + 20}`} stroke="#5a60ab" strokeWidth="2" />
           <line
             x1="45%"
-            y1="-470%"
+            y1="-20"
             x2="45%"
-            y2="400%"
+            y2={`${svgHeight * parsedData.length + 20}`}
             stroke="#5a60ab"
             strokeWidth="2"
             strokeDasharray="10 10"
           />
           <line
             x1="84%"
-            y1="-470%"
+            y1="-20"
             x2="84%"
-            y2="400%"
+            y2={`${svgHeight * parsedData.length + 20}`}
             stroke="#5a60ab"
             strokeWidth="2"
             strokeDasharray="10 10"
           />
-          <line y1="380%" x2="100%" y2="380%" stroke="#5a60ab" strokeWidth="2" />
-          <text transform="translate(0 390)" fill="#5a60ab">
+          <line y1={`${svgHeight * parsedData.length + 20}`} x2="88%" y2={`${svgHeight * parsedData.length + 20}`} stroke="#5a60ab" strokeWidth="2" />
+          <text transform={`translate(0 ${svgHeight * parsedData.length + 50})`} fill="#5a60ab">
             Population
           </text>
-          <text transform="translate(540 390)" fill="#5a60ab">
+          <text transform={`translate(540 ${svgHeight * parsedData.length + 50})`} fill="#5a60ab">
             50%
           </text>
-          <text transform="translate(1020 390)" fill="#5a60ab">
+          <text transform={`translate(1020 ${svgHeight * parsedData.length + 50})`} fill="#5a60ab">
             100%
           </text>
           {parsedData.map((row, idx) => {

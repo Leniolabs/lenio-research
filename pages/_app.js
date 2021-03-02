@@ -71,7 +71,7 @@ const GlobalStyle = createGlobalStyle`
   .chart-wrapper {
     background-color: #f8f3dc;
     .main-chart {
-      height: 520px;
+      margin: 2rem 0 3rem;
       width: 100%;
     }
   }
@@ -85,6 +85,12 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 600;
     padding: .6rem 1.7rem .7rem;
     &:hover { background-color: #549b81}
+  }
+  .footer-logo {
+    background-color: #354156;
+    color: #fcfcf4;
+    padding: 2rem;
+    text-align: right;
   }
 `;
 

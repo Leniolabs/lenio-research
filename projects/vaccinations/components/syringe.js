@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const BorderPath = styled.path`
+  fill: #5a60ab;
   stroke: #5a60ab;
   stroke-width: 2;
 `;
@@ -52,7 +53,7 @@ export const Syringe = ({
   length = 1000,
   country,
   countryCode = "be",
-  svgHeight = 520,
+  svgHeight = 90,
   population,
   index = 0,
   color = "#dce4fc"
@@ -65,7 +66,7 @@ export const Syringe = ({
 
   return (
     <>
-      <g transform={`translate(0, ${-svgHeight + 300 + index * 100})`}>
+      <g transform={`translate(0, ${index * 90})`}>
         <defs>
           <ImagePattern
             id={`flag${countryCode}`}
@@ -88,7 +89,7 @@ export const Syringe = ({
           <MovingPath d={getPath(percentage)} />
         </clipPath>
         <SyringeColor
-          transform="rotate(90 536.2 49.59)"
+          transform="rotate(90 536 50)"
           color={color}
           d="M506.2-449.91h60v999h-60z"
         />
