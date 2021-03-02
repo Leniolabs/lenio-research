@@ -127,6 +127,18 @@ export const Index = ({ countryList }) => {
             South America
           </Legend>
           <Legend>
+            <svg width="20" height="20" overflow="visible" viewBox="0 0 20 20">
+              <circle cx="10" cy="10" r="8" fill="#7ae290" stroke="#5a60ab" />
+            </svg>{" "}
+            Africa
+          </Legend>
+          <Legend>
+            <svg width="20" height="20" overflow="visible" viewBox="0 0 20 20">
+              <circle cx="10" cy="10" r="8" fill="#5298cc" stroke="#5a60ab" />
+            </svg>{" "}
+            Oceania
+          </Legend>
+          <Legend>
             <svg width="20" height="20" viewBox="0 0 20 20" overflow="visible">
               <rect x="2" width="18" height="20" fill="#dce4fc" stroke="#5a60ab" />
               <line x1="2" y1="10" x2="20" y2="10" stroke="#5a60ab" strokeWidth="3" />
