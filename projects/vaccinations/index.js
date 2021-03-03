@@ -40,7 +40,7 @@ export const Index = ({ countryList, seeMore = false }) => {
     if (dataIndex !== data.length - 1 && isPlaying) {
       setTimeout(() => {
         setDataIndex(dataIndex + 1);
-      }, 200);
+      }, 100);
     } else {
       setIsPlaying(false);
     }
@@ -75,10 +75,12 @@ export const Index = ({ countryList, seeMore = false }) => {
         <CustomSelect
           options={options}
           selectedOption={options[dataIndex]}
+          label="Select Date"
           onChange={onChangeCallback}></CustomSelect>
         <CustomSelect
           options={colorMapperOptions}
-          selectedOption={colorMapperOptions[colorMapper]}
+          selectedOption={colorMapperOptions.find((option) => option.value === colorMapper)}
+          label="Color"
           onChange={onColorMapperChange}></CustomSelect>
         <svg
           className="main-chart"

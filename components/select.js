@@ -14,7 +14,7 @@ const LabelPositioner = styled.div`
 const Label = styled.div`
   font-size: 0.9rem;
   text-align: left;
-  width: 100%;
+  width: 40%;
   padding-left: 14px;
 `;
 
@@ -41,20 +41,19 @@ const Control = ({ children, ...props }) => {
 };
 
 const colourStyles = {
-  container: (provided, state) => ({ 
-    ...provided, 
-    // width: state.selectProps.width,
+  container: (provided) => ({
+    ...provided,
     float: "left",
     marginRight: "1rem",
     marginBottom: "1rem",
     width: "100%",
-    maxWidth: 300,
+    maxWidth: 300
   }),
   control: (provided, state) => ({
     ...provided,
     width: state.selectProps.width,
     backgroundColor: "white",
-    borderRadius: 20,
+    borderRadius: 20
   }),
   menu: (provided, state) => ({
     ...provided,
@@ -62,17 +61,24 @@ const colourStyles = {
   }),
   input: (provided) => ({ ...provided }),
   placeholder: (provided, state) => ({ ...provided, width: state.selectProps.width }),
-  singleValue: (provided, state) => ({ ...provided, width: state.selectProps.width, color: "#45486d", fontSize: "1rem" })
+  singleValue: (provided, state) => ({
+    ...provided,
+    width: state.selectProps.width,
+    color: "#45486d",
+    fontSize: "1rem",
+    textAlign: "right",
+    maxWidth: `calc(${provided.maxWidth} - 4px)`
+  })
 };
 
-export const CustomSelect = ({ options, width = 280, selectedOption, ...restProps }) => {
+export const CustomSelect = ({ options, width = 280, label, selectedOption, ...restProps }) => {
   return (
     <Select
       {...restProps}
       defaultValue={options[options.length - 1]}
       value={selectedOption}
       components={{ Control, IndicatorSeparator: () => null }}
-      label="Select Date"
+      label={label}
       width={width}
       options={options}
       styles={colourStyles}
@@ -82,6 +88,7 @@ export const CustomSelect = ({ options, width = 280, selectedOption, ...restProp
 
 CustomSelect.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({ label: PropTypes.string, value: PropTypes.any })),
+  label: PropTypes.string,
   width: PropTypes.number,
   selectedOption: PropTypes.any
 };

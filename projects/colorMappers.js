@@ -9,16 +9,16 @@ export const CONTINENT_COLOR_MAP = {
 };
 
 export const GDP_COLOR_MAP = {
-  Mean: "#f79fad",
-  "1+ Standard Deviation Greater": "#f7de9f",
-  "1+ Standard Deviation Lesser": "#9ff4e4",
+  "1+ Standard Deviation Lesser": "#f79fad",
+  Mean: "#f7de9f",
+  "1+ Standard Deviation Greater": "#9ff4e4",
   Unknown: "#b0a3e5"
 };
 
 export const HDI_COLOR_MAP = {
-  Mean: "#f79fad",
-  "1+ Standard Deviation Greater": "#f7de9f",
-  "1+ Standard Deviation Lesser": "#9ff4e4",
+  "1+ Standard Deviation Lesser": "#f79fad",
+  Mean: "#f7de9f",
+  "1+ Standard Deviation Greater": "#9ff4e4",
   Unknown: "#b0a3e5"
 };
 
