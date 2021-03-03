@@ -1,7 +1,6 @@
 import country_data from "./country_data.json";
-import { CONTINENT_COLOR_MAP } from "../constants";
 
-export const getParsedData = (data, colorMap = CONTINENT_COLOR_MAP, countryList) => {
+export const getParsedData = (data, colorMapper, countryList) => {
   let countries = country_data;
   if (countryList) {
     countries = country_data.filter((r) => countryList.includes(r.countryCode));
@@ -14,7 +13,7 @@ export const getParsedData = (data, colorMap = CONTINENT_COLOR_MAP, countryList)
         countryCode: country.countryCode,
         value: 1 - data[country.name] / 100,
         population: (country.population / 1000000).toFixed(2),
-        color: colorMap[country.continent]
+        color: colorMapper(country)
       };
     })
     .sort((a, b) => a.value - b.value);

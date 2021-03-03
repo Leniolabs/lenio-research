@@ -1,7 +1,7 @@
 import * as React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { CONTINENT_COLOR_MAP } from "@projects/constants";
+import { CONTINENT_COLOR_MAP } from "@projects/colorMappers";
 
 const LegendsContainer = styled.div``;
 const Element = styled.span`
