@@ -55,7 +55,7 @@ export const Index = () => {
           </div>
         </RowContainer>
       </header>
-      <VaccinationMainSnippet />
+      <VaccinationMainSnippet seeMore={false} />
       <Footer>
         <FooterLogo>
           <p>Created by</p>

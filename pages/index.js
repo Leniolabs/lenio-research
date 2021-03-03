@@ -96,7 +96,7 @@ export const Index = () => {
           </div>
         </div>
       </section>
-      <VaccinationMainSnippet countryList={INTERESTING_COUNTRIES} />
+      <VaccinationMainSnippet countryList={INTERESTING_COUNTRIES} seeMore />
       <Footer>
         <FooterLogo>
           <p>Created by</p>

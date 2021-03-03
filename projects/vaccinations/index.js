@@ -1,4 +1,5 @@
 import * as React from "react";
+import Link from "next/link";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { CustomSelect } from "@components/select";
@@ -7,6 +8,7 @@ import { Legend } from "./components/legend";
 import data from "./data.json";
 import { generateOptions, getParsedData } from "./utils";
 import { SVGText } from "./components/styled";
+import { COLOR_MAPPERS, COLOR_MAPS } from "../colorMappers";
 
 const SectionTitle = styled.h2`
   font-size: 2rem;
@@ -20,11 +22,17 @@ const PlayText = styled(SVGText)`
 `;
 
 const options = generateOptions(data);
+const colorMapperOptions = [
+  { value: "continent", label: "By Continent" },
+  { value: "gdp", label: "By GDP per capita" },
+  { value: "hdi", label: "By Human Development Index" }
+];
 
-export const Index = ({ countryList }) => {
+export const Index = ({ countryList, seeMore = false }) => {
   const [dataIndex, setDataIndex] = React.useState(0);
+  const [colorMapper, setColorMapper] = React.useState("continent");
   const [parsedData, setParsedData] = React.useState(
-    getParsedData(data[dataIndex].data, undefined, countryList)
+    getParsedData(data[dataIndex].data, COLOR_MAPPERS[colorMapper], countryList)
   );
   const [isPlaying, setIsPlaying] = React.useState(true);
 
@@ -32,15 +40,15 @@ export const Index = ({ countryList }) => {
     if (dataIndex !== data.length - 1 && isPlaying) {
       setTimeout(() => {
         setDataIndex(dataIndex + 1);
-      }, 500);
+      }, 200);
     } else {
       setIsPlaying(false);
     }
   }, [dataIndex, isPlaying]);
 
   React.useEffect(() => {
-    setParsedData(getParsedData(data[dataIndex].data, undefined, countryList));
-  }, [dataIndex]);
+    setParsedData(getParsedData(data[dataIndex].data, COLOR_MAPPERS[colorMapper], countryList));
+  }, [dataIndex, colorMapper]);
 
   const onPlay = React.useCallback(() => {
     setIsPlaying(!isPlaying);
@@ -48,6 +56,10 @@ export const Index = ({ countryList }) => {
 
   const onChangeCallback = React.useCallback((option) => {
     setDataIndex(option.value);
+  });
+
+  const onColorMapperChange = React.useCallback((option) => {
+    setColorMapper(option.value);
   });
 
   const svgHeight = 90;
@@ -64,13 +76,14 @@ export const Index = ({ countryList }) => {
           options={options}
           selectedOption={options[dataIndex]}
           onChange={onChangeCallback}></CustomSelect>
+        <CustomSelect
+          options={colorMapperOptions}
+          selectedOption={colorMapperOptions[colorMapper]}
+          onChange={onColorMapperChange}></CustomSelect>
         <svg
           className="main-chart"
           overflow="visible"
-          viewBox={`0 0 1235.7 ${svgHeight * parsedData.length}`}
-
-          // style={{ height: svgHeight }}
-        >
+          viewBox={`0 0 1235.7 ${svgHeight * parsedData.length}`}>
           <PlayText x="50" onClick={onPlay}>
             {isPlaying ? "Stop" : "Play"}
           </PlayText>
@@ -120,7 +133,7 @@ export const Index = ({ countryList }) => {
             return (
               <Syringe
                 svgHeight={svgHeight}
-                key={idx}
+                key={`syringe${row.countryCode}`}
                 index={idx}
                 color={row.color}
                 country={row.country}
@@ -131,17 +144,26 @@ export const Index = ({ countryList }) => {
             );
           })}
         </svg>
-        <Legend />
-        <a href="/data.json">
-          <button className="btn download-btn">Download Data</button>
-        </a>
+        <Legend series={COLOR_MAPS[colorMapper]} />
+        {!seeMore ? (
+          <a href="/data.json">
+            <button className="btn download-btn">Download Data</button>
+          </a>
+        ) : (
+          <Link href="/vaccinations">
+            <a>
+              <button className="btn download-btn">See more</button>
+            </a>
+          </Link>
+        )}
       </div>
     </section>
   );
 };
 
 Index.propTypes = {
-  countryList: PropTypes.array
+  countryList: PropTypes.array,
+  seeMore: PropTypes.bool
 };
 
 export default Index;
