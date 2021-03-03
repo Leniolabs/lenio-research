@@ -96,7 +96,7 @@ export const Syringe = ({
         <SVGText className="cls-7" transform="translate(1084.62 37.22)">
           {country} <TSpan> [{population}M]</TSpan>
         </SVGText>
-        <SVGText transform="translate(940 60)" className="cls-7">
+        <SVGText transform="translate(940 70)" className="cls-7">
           {((1 - percentage) * 100).toFixed(2)}%
         </SVGText>
 

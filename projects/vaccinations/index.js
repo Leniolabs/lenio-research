@@ -15,7 +15,7 @@ const SectionTitle = styled.h2`
 `;
 
 const PlayText = styled(SVGText)`
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bolder;
 `;
 
@@ -92,9 +92,9 @@ export const Index = ({ countryList }) => {
             strokeDasharray="10 10"
           />
           <line
-            x1="84%"
+            x1="83.8%"
             y1="-20"
-            x2="84%"
+            x2="83.8%"
             y2={`${svgHeight * parsedData.length + 20}`}
             stroke="#5a60ab"
             strokeWidth="2"

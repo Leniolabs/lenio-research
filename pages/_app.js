@@ -2,9 +2,9 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #FCFCF4;
+    background-color: #f3f1e5;
     box-sizing: border-box;
-    color: #223042;
+    color: #45486d;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.2rem;
     margin: 0 auto;
@@ -68,7 +68,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: bold;
   }
   .chart-wrapper {
-    background-color: #f8f3dc;
+    background-color: #fffbf3;
     .main-chart {
       margin: 2rem 0 3rem;
       width: 100%;
@@ -95,7 +95,7 @@ const GlobalStyle = createGlobalStyle`
 
 const theme = {
   colors: {
-    primary: "#354156"
+    primary: "#45486d"
   }
 };
 
