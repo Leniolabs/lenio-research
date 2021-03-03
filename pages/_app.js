@@ -75,15 +75,18 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   .btn {
-    background-color: #69b29a;
-    border: 0;
+    background-color: transparent;
+    border: 2px solid #3baacc;
     border-radius: 50px;
-    color: white;
+    color: #3baacc;
+    cursor: pointer;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
-    padding: .6rem 1.7rem .7rem;
-    &:hover { background-color: #549b81}
+    margin-top: 2rem;
+    padding: .4rem 1.7rem .5rem;
+    text-decoration: none;
+    &:hover { background-color: #3baacc; color: white; }
   }
   .footer-logo {
     background-color: #354156;
