@@ -41,12 +41,20 @@ const Control = ({ children, ...props }) => {
 };
 
 const colourStyles = {
-  container: (provided, state) => ({ ...provided, width: state.selectProps.width }),
+  container: (provided, state) => ({ 
+    ...provided, 
+    // width: state.selectProps.width,
+    float: "left",
+    marginRight: "1rem",
+    marginBottom: "1rem",
+    width: "100%",
+    maxWidth: 300,
+  }),
   control: (provided, state) => ({
     ...provided,
     width: state.selectProps.width,
     backgroundColor: "white",
-    borderRadius: 20
+    borderRadius: 20,
   }),
   menu: (provided, state) => ({
     ...provided,
@@ -54,10 +62,10 @@ const colourStyles = {
   }),
   input: (provided) => ({ ...provided }),
   placeholder: (provided, state) => ({ ...provided, width: state.selectProps.width }),
-  singleValue: (provided, state) => ({ ...provided, width: state.selectProps.width })
+  singleValue: (provided, state) => ({ ...provided, width: state.selectProps.width, color: "#45486d", fontSize: "1rem" })
 };
 
-export const CustomSelect = ({ options, width = 300, selectedOption, ...restProps }) => {
+export const CustomSelect = ({ options, width = 280, selectedOption, ...restProps }) => {
   return (
     <Select
       {...restProps}

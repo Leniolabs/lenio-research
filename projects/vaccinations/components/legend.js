@@ -9,7 +9,7 @@ const Element = styled.span`
   color: #5a60ab;
   display: inline-flex;
   font-size: 1rem;
-  margin: 1rem;
+  margin: .5rem 1.5rem .5rem 0;
   svg {
     margin-right: 0.5rem;
   }
