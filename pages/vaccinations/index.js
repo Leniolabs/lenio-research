@@ -37,7 +37,7 @@ export const Index = () => {
           content="Beautiful Visualizations of the current state of vaccinations"
         />
         <meta name="title" content="Leniolabs_ Research: Vaccinations" key="title" />
-        <meta name="twitter:card" content="/summary-image.png" />
+        <meta name="twitter:card" content="/data-research.png" />
         <meta name="twitter:site" content="https://research.leniolabs.com/" />
         <meta name="twitter:creator" content="@Leniolabs_" />
         <meta name="twitter:title" content="Leniolabs_ Research: Vaccinations" />
@@ -45,7 +45,7 @@ export const Index = () => {
           name="twitter:description"
           content="Beautiful Visualizations of the current state of vaccinations"
         />
-        <meta name="twitter:image" content="/twitter-cover.png" />
+        <meta name="twitter:image" content="/data-research.png" />
       </Head>
       <header>
         <RowContainer>
