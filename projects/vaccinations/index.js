@@ -18,6 +18,7 @@ import { COLOR_MAPPERS, COLOR_MAPS, LEGEND_FILTERS } from "../colorMappers";
 import { CountrySelect } from "./components/countrySelect";
 
 const SVG_HEIGHT = 90;
+const SELECT_WIDTH = 270;
 
 const SectionTitle = styled.h2`
   font-size: 2rem;
@@ -43,11 +44,11 @@ const PlayText = styled.button`
 `;
 
 const options = generateOptions(fully_vaccinations_per_hundred);
-const colorMapperOptions = [
-  { value: "continent", label: "By Continent" },
-  { value: "gdp", label: "By GDP per capita" },
-  { value: "hdi", label: "By Human Development Index" }
-];
+// const colorMapperOptions = [
+//   { value: "continent", label: "By Continent" },
+//   { value: "gdp", label: "By GDP per capita" },
+//   { value: "hdi", label: "By Human Development Index" }
+// ];
 
 const DATA_MAPPER = {
   fully: fully_vaccinations_per_hundred,
@@ -64,6 +65,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
     seeMore ? INTERESTING_COUNTRIES : MORE_COUNTRIES
   );
   const [dataIndex, setDataIndex] = React.useState(0);
+  // eslint-disable-next-line no-unused-vars
   const [colorMapper, setColorMapper] = React.useState("continent");
   const [dataName, setDataName] = React.useState("fully");
   const [parsedData, setParsedData] = React.useState([]);
@@ -103,9 +105,9 @@ export const Index = ({ seeMore = false, animated = false }) => {
     setDataIndex(option.value);
   });
 
-  const onColorMapperChange = React.useCallback((option) => {
-    setColorMapper(option.value);
-  });
+  // const onColorMapperChange = React.useCallback((option) => {
+  //   setColorMapper(option.value);
+  // });
 
   const onDataChange = React.useCallback((option) => {
     setDataName(option.value);
@@ -138,24 +140,28 @@ export const Index = ({ seeMore = false, animated = false }) => {
           repository.
         </p>
         <CustomSelect
+          width={SELECT_WIDTH}
           options={options}
           selectedOption={options[dataIndex]}
           label="Select Date"
           onChange={onChangeCallback}
         />
-        <CustomSelect
+        {/* <CustomSelect
+          width={400}
           options={colorMapperOptions}
           selectedOption={colorMapperOptions.find((option) => option.value === colorMapper)}
           label="Color"
           onChange={onColorMapperChange}
-        />
+        /> */}
         <CustomSelect
+          width={SELECT_WIDTH}
           options={dataOptions}
           selectedOption={dataOptions.find((option) => option.value === dataName)}
           label="Fully Vaccinated"
           onChange={onDataChange}
         />
         <CountrySelect
+          width={SELECT_WIDTH}
           options={countryOptions}
           selectedOption={countryOptions.filter((option) => countryList.includes(option.value))}
           label="Countries"
