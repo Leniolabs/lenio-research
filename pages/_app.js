@@ -16,10 +16,6 @@ const GlobalStyle = createGlobalStyle`
     background: url("/bg-research.png") no-repeat bottom left;
     background-size: cover;
   }
-  .logo {
-    align-items: center;
-    display: flex;
-  }
   .lenio-iso-text {
     font-size: 1.2rem;
     margin: 0 0 0 1.2rem;

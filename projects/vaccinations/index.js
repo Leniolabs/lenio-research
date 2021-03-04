@@ -89,8 +89,12 @@ export const Index = ({ countryList, seeMore = false, animated = false }) => {
       <div className="row-container">
         <SectionTitle>People Vaccinated</SectionTitle>
         <p>
-          Our data on COVID-19 vaccinations is updated each morning (Chilean time), with the most
-          recent official numbers up to the previous day.
+          Our data on COVID-19 vaccinations is updated every day, with the most recent numbers from
+          the&nbsp;
+          <Link href="https://github.com/owid/covid-19-data/tree/master/public/data">
+            Our World In Data
+          </Link>{" "}
+          repository .
         </p>
         <CustomSelect
           options={options}
