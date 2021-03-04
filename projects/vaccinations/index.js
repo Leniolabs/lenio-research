@@ -7,13 +7,18 @@ import { Syringe } from "./components/syringe";
 import { Legend } from "./components/legend";
 import vaccinations_per_hundred from "./vaccinations_per_hundred.json";
 import fully_vaccinations_per_hundred from "./data.json";
-import { generateOptions, getParsedData, countryOptions } from "./utils";
+import {
+  generateOptions,
+  getParsedData,
+  countryOptions,
+  INTERESTING_COUNTRIES,
+  ALL_COUNTRIES
+} from "./utils";
 import { SVGText } from "./components/styled";
 import { COLOR_MAPPERS, COLOR_MAPS, LEGEND_FILTERS } from "../colorMappers";
 import { CountrySelect } from "./components/countrySelect";
 
 const SVG_HEIGHT = 90;
-const INTERESTING_COUNTRIES = ["IL", "CL", "GB", "US", "TR", "BR", "EU"];
 
 const SectionTitle = styled.h2`
   font-size: 2rem;
@@ -44,7 +49,9 @@ const dataOptions = [
 ];
 
 export const Index = ({ seeMore = false, animated = false }) => {
-  const [countryList, setCountryList] = React.useState(INTERESTING_COUNTRIES);
+  const [countryList, setCountryList] = React.useState(
+    seeMore ? INTERESTING_COUNTRIES : ALL_COUNTRIES
+  );
   const [dataIndex, setDataIndex] = React.useState(0);
   const [colorMapper, setColorMapper] = React.useState("continent");
   const [dataName, setDataName] = React.useState("fully");

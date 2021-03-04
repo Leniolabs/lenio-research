@@ -30,3 +30,6 @@ export const countryOptions = country_data.map((country) => ({
   value: country.countryCode,
   label: country.name
 }));
+
+export const ALL_COUNTRIES = country_data.map((country) => country.countryCode);
+export const INTERESTING_COUNTRIES = ["IL", "CL", "GB", "US", "TR", "BR", "EU"];
