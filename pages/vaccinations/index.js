@@ -37,7 +37,7 @@ export const Index = () => {
           content="Beautiful Visualizations of the current state of vaccinations"
         />
         <meta name="title" content="Leniolabs_ Research: Vaccinations" key="title" />
-        <meta name="twitter:card" content="vaccinations_twitter_cover" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="https://research.leniolabs.com/" />
         <meta name="twitter:creator" content="@Leniolabs_" />
         <meta name="twitter:title" content="Leniolabs_ Research: Vaccinations" />
