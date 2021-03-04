@@ -33,7 +33,7 @@ export const countryOptions = country_data.map((country) => ({
   label: country.name
 }));
 
-export const ALL_COUNTRIES = country_data.map((country) => country.countryCode);
+export const ALL_COUNTRIES = country_data.map((country) => country.name);
 export const INTERESTING_COUNTRIES = [
   "Israel",
   "Chile",
