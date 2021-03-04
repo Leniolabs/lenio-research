@@ -12,9 +12,8 @@ import {
   getParsedData,
   countryOptions,
   INTERESTING_COUNTRIES,
-  ALL_COUNTRIES
+  MORE_COUNTRIES
 } from "./utils";
-import { SVGText } from "./components/styled";
 import { COLOR_MAPPERS, COLOR_MAPS, LEGEND_FILTERS } from "../colorMappers";
 import { CountrySelect } from "./components/countrySelect";
 
@@ -62,7 +61,7 @@ const dataOptions = [
 
 export const Index = ({ seeMore = false, animated = false }) => {
   const [countryList, setCountryList] = React.useState(
-    seeMore ? INTERESTING_COUNTRIES : ALL_COUNTRIES
+    seeMore ? INTERESTING_COUNTRIES : MORE_COUNTRIES
   );
   const [dataIndex, setDataIndex] = React.useState(0);
   const [colorMapper, setColorMapper] = React.useState("continent");
@@ -136,7 +135,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
           <Link href="https://github.com/owid/covid-19-data/tree/master/public/data">
             Our World In Data
           </Link>{" "}
-          repository .
+          repository.
         </p>
         <CustomSelect
           options={options}
@@ -167,16 +166,16 @@ export const Index = ({ seeMore = false, animated = false }) => {
           onSeriesClick={onSeriesClick}
           legendFilter={legendFilter}
         />
-          <PlayText x="50" onClick={onPlay}>
-            {isPlaying ? "⏹️ Stop" : "▶️ Play"}
-          </PlayText>
+        <PlayText x="50" onClick={onPlay}>
+          {isPlaying ? "⏹️ Stop" : "▶️ Play"}
+        </PlayText>
         <svg className="main-chart" overflow="visible" viewBox={`0 0 1235.7 ${calculatedHeight}`}>
           {/* <PlayText x="50" onClick={onPlay}>
             {isPlaying ? "Stop" : "Play"}
           </PlayText> */}
           <line
             x1="40"
-            y1="-20"
+            y1="0"
             x2="40"
             y2={`${calculatedHeight + 20}`}
             stroke="#5a60ab"
@@ -184,7 +183,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
           />
           <line
             x1="45%"
-            y1="-20"
+            y1="0"
             x2="45%"
             y2={`${calculatedHeight + 20}`}
             stroke="#5a60ab"
@@ -193,7 +192,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
           />
           <line
             x1="83.8%"
-            y1="-20"
+            y1="0"
             x2="83.8%"
             y2={`${calculatedHeight + 20}`}
             stroke="#5a60ab"

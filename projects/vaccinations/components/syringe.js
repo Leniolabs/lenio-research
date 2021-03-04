@@ -34,39 +34,6 @@ const TSpan = styled.tspan`
   font-weight: bold;
 `;
 
-// const ImagePattern = styled.pattern``;
-// const PatternRect = styled.rect`
-//   fill: #dce4fc;
-// `;
-
-// const FlagContainer = styled.path`
-//   stroke: #5a60ab;
-//   stroke-width: 10;
-// `;
-
-function animate({ timing, draw, duration }) {
-  let start = performance.now();
-
-  requestAnimationFrame(function animate(time) {
-    // timeFraction goes from 0 to 1
-    let timeFraction = (time - start) / duration;
-    if (timeFraction > 1) timeFraction = 1;
-
-    // calculate the current animation state
-    let progress = timing(timeFraction);
-
-    draw(progress); // draw it
-
-    if (timeFraction < 1) {
-      requestAnimationFrame(animate);
-    }
-  });
-}
-
-function linear(timeFraction) {
-  return timeFraction;
-}
-
 export const Syringe = ({
   percentage,
   length = 1000,
@@ -76,54 +43,19 @@ export const Syringe = ({
   color = "#dce4fc",
   animated = false
 }) => {
-  const [position, setPosition] = React.useState(index * 90);
   const getPath = React.useCallback((value) => {
     let calculatedLength = value * length;
     if (calculatedLength < 0) calculatedLength = 0;
     return `M1035.7 20.24h-${calculatedLength}v60h${calculatedLength}v-60z`;
   });
 
-  const oldPosition = React.useRef(index);
-
-  // React.useEffect(() => {
-  //   oldPosition.current = position;
-  //   if (animated) {
-  //     animate({
-  //       duration: 200,
-  //       timing: linear,
-  //       draw: (progress) =>
-  //         setPosition(oldPosition.current + (index * 90 - oldPosition.current) * progress)
-  //     });
-  //   } else {
-  //     setPosition(index * 90);
-  //   }
-  // }, [index]);
-
   return (
     <g
       style={{
         transform: `translateY(${index * 90}px)`,
         backfaceVisibility: "hidden",
-        transition: "all 0.2s linear"
+        transition: animated ? "all 0.2s linear" : "none"
       }}>
-      {/* <defs>
-          <ImagePattern
-            id={`flag${countryCode}`}
-            preserveAspectRatio="none"
-            patternUnits="userSpaceOnUse"
-            width="500"
-            height="500">
-            <PatternRect x="0" y="0" width="500" height="500" />
-            <image
-              href={`https://www.countryflags.io/${countryCode}/flat/64.png`}
-              x="0"
-              y="100"
-              preserveAspectRatio="none"
-              width="500"
-              height="500"
-            />
-          </ImagePattern>
-        </defs> */}
       <clipPath id={`clipBar${index}`}>
         <MovingPath d={getPath(percentage)} />
       </clipPath>
@@ -143,14 +75,6 @@ export const Syringe = ({
       <SVGText transform="translate(940 70)" className="cls-7">
         {((1 - percentage) * 100).toFixed(2)}%
       </SVGText>
-
-      {/* <FlagContainer
-          transform={`translate(1222, 50) scale(.05)`}
-          fill={`url(#flag${countryCode})`}
-          d="M316.099,85.846c-24.586-35.32-45.821-65.827-50.974-80.433c-1.139-3.215-4.145-5.372-7.554-5.414
-			c-3.15,0.096-6.476,2.044-7.68,5.227c-5.244,13.812-25.405,42.765-48.752,76.314C147.671,158.326,74.447,263.494,74.447,331.917
-			c0,100.926,82.103,183.034,183.029,183.034s183.029-82.108,183.029-183.034C440.505,264.6,368.599,161.285,316.099,85.846z"
-        /> */}
     </g>
   );
 };
