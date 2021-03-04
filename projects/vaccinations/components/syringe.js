@@ -25,7 +25,7 @@ const MovingPath = styled.path`
   fill: #dce4fc;
   stroke: #5a60ab;
   stroke-width: 2;
-  transition: d 0.4s linear;
+  transition: d 0.2s linear;
 `;
 
 const TSpan = styled.tspan`

@@ -1,5 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import Head from "next/head";
+import { TrackingProvider } from "analytics/context";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -111,7 +112,9 @@ export default function App({ Component, pageProps }) {
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <TrackingProvider>
+          <Component {...pageProps} />
+        </TrackingProvider>
       </ThemeProvider>
     </>
   );

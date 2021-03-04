@@ -12,10 +12,11 @@ import {
   getParsedData,
   countryOptions,
   INTERESTING_COUNTRIES,
-  MORE_COUNTRIES
+  ALL_COUNTRIES
 } from "./utils";
 import { COLOR_MAPPERS, COLOR_MAPS, LEGEND_FILTERS } from "../colorMappers";
 import { CountrySelect } from "./components/countrySelect";
+import { useTracking } from "analytics/context";
 
 const SVG_HEIGHT = 90;
 const SELECT_WIDTH = 270;
@@ -62,7 +63,7 @@ const dataOptions = [
 
 export const Index = ({ seeMore = false, animated = false }) => {
   const [countryList, setCountryList] = React.useState(
-    seeMore ? INTERESTING_COUNTRIES : MORE_COUNTRIES
+    seeMore ? INTERESTING_COUNTRIES : ALL_COUNTRIES
   );
   const [dataIndex, setDataIndex] = React.useState(0);
   // eslint-disable-next-line no-unused-vars
@@ -71,6 +72,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
   const [parsedData, setParsedData] = React.useState([]);
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [legendFilter, setLegendFilter] = React.useState(null);
+  const { logEvent } = useTracking();
 
   React.useEffect(() => {
     if (dataIndex !== DATA_MAPPER[dataName].length - 1 && isPlaying) {
@@ -98,27 +100,58 @@ export const Index = ({ seeMore = false, animated = false }) => {
   }, [dataName, dataIndex, colorMapper, legendFilter, countryList]);
 
   const onPlay = React.useCallback(() => {
+    logEvent({
+      category: "Vaccinations",
+      action: "Pressed Play",
+      label: isPlaying ? "play" : "stop"
+    });
     setIsPlaying(!isPlaying);
   }, [isPlaying]);
 
   const onChangeCallback = React.useCallback((option) => {
+    logEvent({
+      category: "Vaccinations",
+      action: "Changed Date",
+      label: option.value
+    });
     setDataIndex(option.value);
   });
 
   // const onColorMapperChange = React.useCallback((option) => {
+  //   logEvent({
+  //     category: "Vaccinations",
+  //     action: "Changed Color",
+  //     label: option.value
+  //   });
   //   setColorMapper(option.value);
   // });
 
   const onDataChange = React.useCallback((option) => {
+    logEvent({
+      category: "Vaccinations",
+      action: "Changed Data",
+      label: option.value
+    });
     setDataName(option.value);
   });
 
   const onSeriesClick = React.useCallback((value) => {
+    logEvent({
+      category: "Vaccinations",
+      action: "Changed Filter",
+      label: value
+    });
     setLegendFilter(value);
   });
 
   const onCountriesChange = React.useCallback((options) => {
-    setCountryList(options.map((o) => o.value));
+    const newList = options.map((o) => o.value);
+    logEvent({
+      category: "Vaccinations",
+      action: "Changed Date",
+      label: newList.join(",")
+    });
+    setCountryList(newList);
   });
 
   const calculatedHeight = React.useMemo(() => {
