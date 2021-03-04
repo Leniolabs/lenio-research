@@ -33,7 +33,7 @@ const Control = ({ children, ...props }) => {
   return (
     <components.Control {...props}>
       <LabelPositioner>
-        <Label>{label}</Label>
+        {label && <Label>{label}</Label>}
         <ControlContainer>{children}</ControlContainer>
       </LabelPositioner>
     </components.Control>
@@ -67,13 +67,21 @@ export const customStyles = {
     width: state.selectProps.width
   }),
   input: (provided) => ({ ...provided }),
-  placeholder: (provided, state) => ({ ...provided, width: state.selectProps.width }),
+  placeholder: (provided, state) => ({
+    ...provided,
+    width: state.selectProps.width,
+    fontSize: "1rem"
+  }),
+  valueContainer: (provided, state) => ({
+    ...provided,
+    flexWrap: state.selectProps.isMulti ? "nowrap" : provided.flexWrap
+  }),
   singleValue: (provided, state) => ({
     ...provided,
     width: state.selectProps.width,
     color: "#45486d",
     fontSize: "1rem",
-    textAlign: "right",
+    textAlign: state.selectProps.label ? "right" : "left",
     maxWidth: `calc(${provided.maxWidth} - 4px)`
   })
 };
@@ -87,6 +95,7 @@ export const CustomSelect = ({ options, width = 400, label, selectedOption, ...r
       components={{ Control, IndicatorSeparator: () => null }}
       theme={(theme) => ({ ...theme, colors: { ...theme.colors, ...customThemeColors } })}
       label={label}
+      isSearchable={!!label}
       width={width}
       options={options}
       styles={customStyles}

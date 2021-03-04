@@ -12,7 +12,8 @@ import {
   getParsedData,
   countryOptions,
   INTERESTING_COUNTRIES,
-  ALL_COUNTRIES
+  MORE_COUNTRIES,
+  groupedOptions
 } from "./utils";
 import { COLOR_MAPPERS, COLOR_MAPS, LEGEND_FILTERS } from "../colorMappers";
 import { CountrySelect } from "./components/countrySelect";
@@ -44,6 +45,14 @@ const PlayText = styled.button`
   }
 `;
 
+const StickyContainer = styled.div`
+  background: rgba(255, 251, 243, 8.5);
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+`;
+
 const options = generateOptions(fully_vaccinations_per_hundred);
 // const colorMapperOptions = [
 //   { value: "continent", label: "By Continent" },
@@ -57,13 +66,13 @@ const DATA_MAPPER = {
 };
 
 const dataOptions = [
-  { value: "fully", label: "Yes" },
-  { value: "not-fully", label: "No" }
+  { value: "fully", label: "Fully Vaccinated" },
+  { value: "not-fully", label: "Only One Dose" }
 ];
 
 export const Index = ({ seeMore = false, animated = false }) => {
   const [countryList, setCountryList] = React.useState(
-    seeMore ? INTERESTING_COUNTRIES : ALL_COUNTRIES
+    seeMore ? INTERESTING_COUNTRIES : MORE_COUNTRIES
   );
   const [dataIndex, setDataIndex] = React.useState(0);
   // eslint-disable-next-line no-unused-vars
@@ -105,8 +114,11 @@ export const Index = ({ seeMore = false, animated = false }) => {
       action: "Pressed Play",
       label: isPlaying ? "play" : "stop"
     });
+    if (dataIndex === DATA_MAPPER[dataName].length - 1) {
+      setDataIndex(0);
+    }
     setIsPlaying(!isPlaying);
-  }, [isPlaying]);
+  }, [dataIndex, isPlaying, dataName]);
 
   const onChangeCallback = React.useCallback((option) => {
     logEvent({
@@ -115,7 +127,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
       label: option.value
     });
     setDataIndex(option.value);
-  });
+  }, []);
 
   // const onColorMapperChange = React.useCallback((option) => {
   //   logEvent({
@@ -133,7 +145,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
       label: option.value
     });
     setDataName(option.value);
-  });
+  }, []);
 
   const onSeriesClick = React.useCallback((value) => {
     logEvent({
@@ -142,17 +154,33 @@ export const Index = ({ seeMore = false, animated = false }) => {
       label: value
     });
     setLegendFilter(value);
-  });
+  }, []);
 
-  const onCountriesChange = React.useCallback((options) => {
+  const onCountriesChange = React.useCallback((options, action) => {
     const newList = options.map((o) => o.value);
-    logEvent({
-      category: "Vaccinations",
-      action: "Changed Date",
-      label: newList.join(",")
-    });
-    setCountryList(newList);
-  });
+    if (action.option.value === "Select All") {
+      logEvent({
+        category: "Vaccinations",
+        action: "Changed Countries",
+        label: "Select All"
+      });
+      setCountryList(countryOptions.map((option) => option.value));
+    } else if (action.option.value === "Unselect All") {
+      logEvent({
+        category: "Vaccinations",
+        action: "Changed Countries",
+        label: "Unselect All"
+      });
+      setCountryList([]);
+    } else {
+      logEvent({
+        category: "Vaccinations",
+        action: "Changed Date",
+        label: newList.join(",")
+      });
+      setCountryList(newList);
+    }
+  }, []);
 
   const calculatedHeight = React.useMemo(() => {
     let s = SVG_HEIGHT * countryList.length;
@@ -172,39 +200,41 @@ export const Index = ({ seeMore = false, animated = false }) => {
           </Link>{" "}
           repository.
         </p>
-        <CustomSelect
-          width={SELECT_WIDTH}
-          options={options}
-          selectedOption={options[dataIndex]}
-          label="Select Date"
-          onChange={onChangeCallback}
-        />
-        {/* <CustomSelect
-          width={400}
-          options={colorMapperOptions}
-          selectedOption={colorMapperOptions.find((option) => option.value === colorMapper)}
-          label="Color"
-          onChange={onColorMapperChange}
-        /> */}
-        <CustomSelect
-          width={SELECT_WIDTH}
-          options={dataOptions}
-          selectedOption={dataOptions.find((option) => option.value === dataName)}
-          label="Fully Vaccinated"
-          onChange={onDataChange}
-        />
-        <CountrySelect
-          width={SELECT_WIDTH}
-          options={countryOptions}
-          selectedOption={countryOptions.filter((option) => countryList.includes(option.value))}
-          label="Countries"
-          onChange={onCountriesChange}
-        />
-        <Legend
-          series={COLOR_MAPS[colorMapper]}
-          onSeriesClick={onSeriesClick}
-          legendFilter={legendFilter}
-        />
+        <StickyContainer>
+          <CustomSelect
+            width={SELECT_WIDTH}
+            options={options}
+            selectedOption={options[dataIndex]}
+            label="Select Date"
+            onChange={onChangeCallback}
+          />
+          {/* <CustomSelect
+            width={400}
+            options={colorMapperOptions}
+            selectedOption={colorMapperOptions.find((option) => option.value === colorMapper)}
+            label="Color"
+            onChange={onColorMapperChange}
+          /> */}
+          <CustomSelect
+            width={SELECT_WIDTH}
+            options={dataOptions}
+            selectedOption={dataOptions.find((option) => option.value === dataName)}
+            label=""
+            onChange={onDataChange}
+          />
+          <CountrySelect
+            width={SELECT_WIDTH}
+            options={groupedOptions}
+            selectedOption={countryOptions.filter((option) => countryList.includes(option.value))}
+            label="Countries"
+            onChange={onCountriesChange}
+          />
+          <Legend
+            series={COLOR_MAPS[colorMapper]}
+            onSeriesClick={onSeriesClick}
+            legendFilter={legendFilter}
+          />
+        </StickyContainer>
         <PlayText x="50" onClick={onPlay}>
           {isPlaying ? "⏹️ Stop" : "▶️ Play"}
         </PlayText>
