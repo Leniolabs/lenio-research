@@ -19,7 +19,9 @@ export const getParsedData = (data, colorMapper, countryList, legendFilter) => {
         color: colorMapper(country)
       };
     })
-    .sort((a, b) => a.value - b.value);
+    .sort((a, b) => a.value - b.value)
+    .map((country, position) => ({ ...country, position }))
+    .sort((a, b) => (a.countryCode > b.countryCode ? 1 : -1));
 };
 
 export const generateOptions = (dateArray) => {

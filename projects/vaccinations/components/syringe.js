@@ -85,27 +85,26 @@ export const Syringe = ({
 
   const oldPosition = React.useRef(index);
 
-  React.useEffect(() => {
-    oldPosition.current = position;
-    if (animated) {
-      animate({
-        duration: 200,
-        timing: linear,
-        draw: (progress) =>
-          setPosition(oldPosition.current + (index * 90 - oldPosition.current) * progress)
-      });
-    } else {
-      setPosition(index * 90);
-    }
-  }, [index]);
+  // React.useEffect(() => {
+  //   oldPosition.current = position;
+  //   if (animated) {
+  //     animate({
+  //       duration: 200,
+  //       timing: linear,
+  //       draw: (progress) =>
+  //         setPosition(oldPosition.current + (index * 90 - oldPosition.current) * progress)
+  //     });
+  //   } else {
+  //     setPosition(index * 90);
+  //   }
+  // }, [index]);
 
   return (
     <g
       style={{
-        transform: `translateY(${position}px)`,
-        transformStyle: "preserve-3d",
+        transform: `translateY(${index * 90}px)`,
         backfaceVisibility: "hidden",
-        display: "inline-block"
+        transition: "all 0.2s linear"
       }}>
       {/* <defs>
           <ImagePattern

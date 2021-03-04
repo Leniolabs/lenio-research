@@ -68,7 +68,7 @@ export const Index = () => {
           </Link>
         </RowContainer>
       </header>
-      <VaccinationMainSnippet seeMore={false} />
+      <VaccinationMainSnippet seeMore={false} animated />
       <Footer>
         <a href="https://leniolabs.com" target="_blank" rel="noreferrer">
         <FooterLogo>

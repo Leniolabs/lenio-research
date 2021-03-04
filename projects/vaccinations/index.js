@@ -75,7 +75,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
     if (dataIndex !== DATA_MAPPER[dataName].length - 1 && isPlaying) {
       setTimeout(() => {
         setDataIndex(dataIndex + 1);
-      }, 100);
+      }, 200);
     } else {
       setIsPlaying(false);
     }
@@ -216,12 +216,12 @@ export const Index = ({ seeMore = false, animated = false }) => {
           <text transform={`translate(1020 ${calculatedHeight + 50})`} fill="#5a60ab">
             100%
           </text>
-          {parsedData.map((row, idx) => {
+          {parsedData.map((row) => {
             return (
               <Syringe
                 key={`syringe${row.countryCode}`}
-                animated={countryList.length > 10 ? false : animated}
-                index={idx}
+                animated={animated}
+                index={row.position}
                 color={row.color}
                 country={row.country}
                 percentage={row.value}
