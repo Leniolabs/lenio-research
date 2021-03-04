@@ -41,10 +41,10 @@ const Control = ({ children, ...props }) => {
 };
 
 export const customThemeColors = {
-  primary: "#b0a3e5",
-  primary25: "#b0a3e5",
-  primary50: "#b0a3e5",
-  primary75: "#b0a3e5"
+  primary: "#5198cc",
+  primary25: "rgba(171, 186, 224, .4)",
+  primary50: "rgba(171, 186, 224, .6)",
+  primary75: "rgba(171, 186, 224, .2)"
 };
 
 export const customStyles = {

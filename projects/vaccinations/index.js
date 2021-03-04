@@ -46,7 +46,8 @@ const PlayText = styled.button`
 `;
 
 const StickyContainer = styled.div`
-  background: rgba(255, 251, 243, 8.5);
+  background: rgba(255, 251, 243, .9);
+  padding-top: 1rem;
   position: sticky;
   top: 0;
   left: 0;
