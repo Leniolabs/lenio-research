@@ -14,7 +14,7 @@ const LabelPositioner = styled.div`
 const Label = styled.div`
   font-size: 0.9rem;
   text-align: left;
-  width: 40%;
+  width: 70%;
   padding-left: 14px;
 `;
 
@@ -41,13 +41,13 @@ const Control = ({ children, ...props }) => {
 };
 
 const colourStyles = {
-  container: (provided) => ({
+  container: (provided, state) => ({
     ...provided,
     float: "left",
     marginRight: "1rem",
     marginBottom: "1rem",
     width: "100%",
-    maxWidth: 300
+    maxWidth: state.selectProps.width
   }),
   control: (provided, state) => ({
     ...provided,
@@ -71,7 +71,7 @@ const colourStyles = {
   })
 };
 
-export const CustomSelect = ({ options, width = 280, label, selectedOption, ...restProps }) => {
+export const CustomSelect = ({ options, width = 270, label, selectedOption, ...restProps }) => {
   return (
     <Select
       {...restProps}

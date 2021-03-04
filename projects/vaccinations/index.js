@@ -5,7 +5,8 @@ import PropTypes from "prop-types";
 import { CustomSelect } from "@components/select";
 import { Syringe } from "./components/syringe";
 import { Legend } from "./components/legend";
-import data from "./data.json";
+import vaccinations_per_hundred from "./vaccinations_per_hundred.json";
+import fully_vaccinations_per_hundred from "./data.json";
 import { generateOptions, getParsedData } from "./utils";
 import { SVGText } from "./components/styled";
 import { COLOR_MAPPERS, COLOR_MAPS } from "../colorMappers";
@@ -21,23 +22,32 @@ const PlayText = styled(SVGText)`
   font-weight: bolder;
 `;
 
-const options = generateOptions(data);
+const options = generateOptions(fully_vaccinations_per_hundred);
 const colorMapperOptions = [
   { value: "continent", label: "By Continent" },
   { value: "gdp", label: "By GDP per capita" },
   { value: "hdi", label: "By Human Development Index" }
 ];
 
-export const Index = ({ countryList, seeMore = false }) => {
+const DATA_MAPPER = {
+  fully: fully_vaccinations_per_hundred,
+  "not-fully": vaccinations_per_hundred
+};
+
+const dataOptions = [
+  { value: "fully", label: "Yes" },
+  { value: "not-fully", label: "No" }
+];
+
+export const Index = ({ countryList, seeMore = false, animated = false }) => {
   const [dataIndex, setDataIndex] = React.useState(0);
   const [colorMapper, setColorMapper] = React.useState("continent");
-  const [parsedData, setParsedData] = React.useState(
-    getParsedData(data[dataIndex].data, COLOR_MAPPERS[colorMapper], countryList)
-  );
-  const [isPlaying, setIsPlaying] = React.useState(true);
+  const [dataName, setDataName] = React.useState("fully");
+  const [parsedData, setParsedData] = React.useState([]);
+  const [isPlaying, setIsPlaying] = React.useState(false);
 
   React.useEffect(() => {
-    if (dataIndex !== data.length - 1 && isPlaying) {
+    if (dataIndex !== DATA_MAPPER[dataName].length - 1 && isPlaying) {
       setTimeout(() => {
         setDataIndex(dataIndex + 1);
       }, 100);
@@ -47,8 +57,14 @@ export const Index = ({ countryList, seeMore = false }) => {
   }, [dataIndex, isPlaying]);
 
   React.useEffect(() => {
-    setParsedData(getParsedData(data[dataIndex].data, COLOR_MAPPERS[colorMapper], countryList));
-  }, [dataIndex, colorMapper]);
+    setTimeout(() => setIsPlaying(true), 1000);
+  }, []);
+
+  React.useEffect(() => {
+    setParsedData(
+      getParsedData(DATA_MAPPER[dataName][dataIndex].data, COLOR_MAPPERS[colorMapper], countryList)
+    );
+  }, [dataName, dataIndex, colorMapper]);
 
   const onPlay = React.useCallback(() => {
     setIsPlaying(!isPlaying);
@@ -60,6 +76,10 @@ export const Index = ({ countryList, seeMore = false }) => {
 
   const onColorMapperChange = React.useCallback((option) => {
     setColorMapper(option.value);
+  });
+
+  const onDataChange = React.useCallback((option) => {
+    setDataName(option.value);
   });
 
   const svgHeight = 90;
@@ -82,6 +102,11 @@ export const Index = ({ countryList, seeMore = false }) => {
           selectedOption={colorMapperOptions.find((option) => option.value === colorMapper)}
           label="Color"
           onChange={onColorMapperChange}></CustomSelect>
+        <CustomSelect
+          options={dataOptions}
+          selectedOption={dataOptions.find((option) => option.value === dataName)}
+          label="Fully Vaccinated"
+          onChange={onDataChange}></CustomSelect>
         <svg
           className="main-chart"
           overflow="visible"
@@ -134,8 +159,8 @@ export const Index = ({ countryList, seeMore = false }) => {
           {parsedData.map((row, idx) => {
             return (
               <Syringe
-                svgHeight={svgHeight}
                 key={`syringe${row.countryCode}`}
+                animated={animated}
                 index={idx}
                 color={row.color}
                 country={row.country}
@@ -165,7 +190,8 @@ export const Index = ({ countryList, seeMore = false }) => {
 
 Index.propTypes = {
   countryList: PropTypes.array,
-  seeMore: PropTypes.bool
+  seeMore: PropTypes.bool,
+  animated: PropTypes.bool
 };
 
 export default Index;
