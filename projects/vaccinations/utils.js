@@ -33,6 +33,20 @@ export const countryOptions = country_data.map((country) => ({
   label: country.name
 }));
 
+export const groupedOptions = [
+  {
+    label: "Utils",
+    options: [
+      { value: "Select All", label: "Select All" },
+      { value: "Unselect All", label: "Unselect All" }
+    ]
+  },
+  {
+    label: "Countries",
+    options: countryOptions
+  }
+];
+
 export const ALL_COUNTRIES = country_data.map((country) => country.name);
 export const INTERESTING_COUNTRIES = [
   "Israel",
@@ -44,8 +58,12 @@ export const INTERESTING_COUNTRIES = [
   "European Union"
 ];
 export const MORE_COUNTRIES = [
-  "Serbia",
+  "Chile",
   "United States",
+  "Turkey",
+  "Brazil",
+  "European Union",
+  "Serbia",
   "Guernsey",
   "Isle of Man",
   "Bermuda",
