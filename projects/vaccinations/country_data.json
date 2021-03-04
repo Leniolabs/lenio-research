@@ -139,7 +139,7 @@
     "name": "European Union",
     "population": 444919060,
     "continent": "Europe",
-    "countryCode": "EU",
+    "countryCode": "european_union",
     "humanDevelopmentIndex": null,
     "gdpPerCapita": null
   },

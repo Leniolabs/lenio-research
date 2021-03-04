@@ -14,8 +14,17 @@ export const Index = () => {
     <div>
       <Head>
         <title>Leniolabs_ Research</title>
-        <meta property="og:title" content="Leniolabs_ Research" key="title" />
         <meta name="description" content="Beautiful Visualizations of Current Data" />
+        <meta name="title" content="Leniolabs_ Research" key="title" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="https://research.leniolabs.com/" />
+        <meta name="twitter:creator" content="@Leniolabs_" />
+        <meta name="twitter:title" content="Leniolabs_ Research" />
+        <meta name="twitter:description" content="Beautiful Visualizations of Current Data" />
+        <meta
+          name="twitter:image"
+          content="https://research.leniolabs.com/vaccinations_twitter_cover.png"
+        />
       </Head>
       <header className="with-background">
         <RowContainer>
