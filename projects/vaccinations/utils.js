@@ -1,9 +1,12 @@
 import country_data from "./country_data.json";
 
-export const getParsedData = (data, colorMapper, countryList) => {
+export const getParsedData = (data, colorMapper, countryList, legendFilter) => {
   let countries = country_data;
   if (countryList) {
     countries = country_data.filter((r) => countryList.includes(r.countryCode));
+  }
+  if (legendFilter) {
+    countries = countries.filter(legendFilter);
   }
 
   return countries
@@ -22,3 +25,8 @@ export const getParsedData = (data, colorMapper, countryList) => {
 export const generateOptions = (dateArray) => {
   return dateArray.map((dayData, idx) => ({ value: idx, label: dayData.date }));
 };
+
+export const countryOptions = country_data.map((country) => ({
+  value: country.countryCode,
+  label: country.name
+}));
