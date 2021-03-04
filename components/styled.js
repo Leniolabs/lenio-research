@@ -23,7 +23,7 @@ export const SecondTitle = styled.h2`
 
 export const RowContainer = styled.div`
   margin: 0 auto;
-  max-width: 45em;
+  max-width: 65em;
   padding: 2rem;
 `;
 

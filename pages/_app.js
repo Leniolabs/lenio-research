@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     &:before, &:after { box-sizing: inherit; }
   }
+  p a { color: #3baacc; }
   header.with-background {
     background: url("/bg-research.png") no-repeat bottom left;
     background-size: cover;
@@ -29,8 +30,9 @@ const GlobalStyle = createGlobalStyle`
     padding: 2rem;
   }
   .intro {
-    margin: 8rem 0;
-    max-width: 50ch;
+    line-height: 1.5;
+    margin: 5rem 0;
+    max-width: 58ch;
     h1 { margin-top: 0; }
     .subhead { color: #549b81; margin-bottom: 0; }
   }

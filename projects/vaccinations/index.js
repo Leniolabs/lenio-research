@@ -26,9 +26,21 @@ const SectionTitle = styled.h2`
   text-align: center;
 `;
 
-const PlayText = styled(SVGText)`
-  font-size: 1.2rem;
+const PlayText = styled.button`
+  background-color: #3baacc;
+  border: 0 solid #5a60ab;
+  border-radius: 4px;
+  color: white;
+  cursor:pointer;
+  font-size: 1rem;
   font-weight: bolder;
+  margin-top: 2rem;
+  padding: .3rem 1rem;
+  transition .3s ease all;
+  &:hover {
+    background-color: #5a60ab;
+    color: white;
+  }
 `;
 
 const options = generateOptions(fully_vaccinations_per_hundred);
@@ -155,10 +167,13 @@ export const Index = ({ seeMore = false, animated = false }) => {
           onSeriesClick={onSeriesClick}
           legendFilter={legendFilter}
         />
-        <svg className="main-chart" overflow="visible" viewBox={`0 0 1235.7 ${calculatedHeight}`}>
           <PlayText x="50" onClick={onPlay}>
-            {isPlaying ? "Stop" : "Play"}
+            {isPlaying ? "⏹️ Stop" : "▶️ Play"}
           </PlayText>
+        <svg className="main-chart" overflow="visible" viewBox={`0 0 1235.7 ${calculatedHeight}`}>
+          {/* <PlayText x="50" onClick={onPlay}>
+            {isPlaying ? "Stop" : "Play"}
+          </PlayText> */}
           <line
             x1="40"
             y1="-20"

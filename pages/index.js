@@ -53,7 +53,8 @@ export const Index = () => {
               most of the corners of the world. Some countries, like Israel, made use of their
               extensive pharmaceutical contacts, and stepped in front of the line; other places,
               like Chile, have surprised even their neighbors with their fast paced immunization
-              plans. In this Leniolabs_ research page we attempt to graphically represent this
+              plans.</p> 
+              <p>In this Leniolabs_ research page we attempt to graphically represent this
               information, merging the wonders of SVG and frontend technologies.
             </p>
           </div>
