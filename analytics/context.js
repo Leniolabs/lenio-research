@@ -39,16 +39,10 @@ function TrackingProvider(props) {
   useEffect(() => {
     const { isInitialized } = analytics;
 
-    // How you detect which user is currently logged in
-    // depends on the way you've set up authentication within
-    // your app, the important thing is getting the userId
-
     // initialize GA with our tracking id
-    // uncomment the user tracking method that works for you
 
     if (!isInitialized) {
       ReactGA.initialize(TrackingID, {
-        debug: true,
         gaOptions: {}
       });
 
@@ -58,9 +52,6 @@ function TrackingProvider(props) {
         ...prev,
         isInitialized: true
       }));
-
-      // in case we dont have the user initially,
-      // we handle setting a user in our tracker
     }
 
     return () => {
