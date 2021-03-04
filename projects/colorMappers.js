@@ -59,3 +59,9 @@ export const COLOR_MAPPERS = {
   hdi: HDIColorMapper,
   gdp: GDPColorMapper
 };
+
+export const LEGEND_FILTERS = {
+  continent: (filter) => (row) => row.continent === filter,
+  hdi: (filter) => (row) => row.humanDevelopmentIndex === filter,
+  gdp: (filter) => (row) => row.gdpPerCapita === filter
+};

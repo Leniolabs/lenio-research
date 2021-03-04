@@ -40,7 +40,14 @@ const Control = ({ children, ...props }) => {
   );
 };
 
-const colourStyles = {
+export const customThemeColors = {
+  primary: "#b0a3e5",
+  primary25: "#b0a3e5",
+  primary50: "#b0a3e5",
+  primary75: "#b0a3e5"
+};
+
+export const customStyles = {
   container: (provided, state) => ({
     ...provided,
     float: "left",
@@ -71,17 +78,18 @@ const colourStyles = {
   })
 };
 
-export const CustomSelect = ({ options, width = 270, label, selectedOption, ...restProps }) => {
+export const CustomSelect = ({ options, width = 400, label, selectedOption, ...restProps }) => {
   return (
     <Select
       {...restProps}
       defaultValue={options[options.length - 1]}
       value={selectedOption}
       components={{ Control, IndicatorSeparator: () => null }}
+      theme={(theme) => ({ ...theme, colors: { ...theme.colors, ...customThemeColors } })}
       label={label}
       width={width}
       options={options}
-      styles={colourStyles}
+      styles={customStyles}
     />
   );
 };
