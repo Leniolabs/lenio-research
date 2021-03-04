@@ -9,9 +9,9 @@ const Element = styled.span`
   color: #5a60ab;
   display: inline-flex;
   font-size: 1rem;
-  margin: .5rem 1rem .5rem 0;
+  margin: 0.5rem 1rem 0.5rem 0;
   svg {
-    margin-right: .3rem;
+    margin-right: 0.3rem;
   }
   ${({ onSeriesClick }) =>
     onSeriesClick &&

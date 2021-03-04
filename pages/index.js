@@ -1,6 +1,5 @@
 import * as React from "react";
 import Head from "next/head";
-import Link from "next/link";
 import {
   LogoHeaderContainer,
   RowContainer,
@@ -11,7 +10,6 @@ import {
 import VaccinationMainSnippet from "@projects/vaccinations";
 
 export const Index = () => {
-  const INTERESTING_COUNTRIES = ["IL", "CL", "GB", "US", "TR", "BR", "EU"];
   return (
     <div>
       <Head>
@@ -53,33 +51,16 @@ export const Index = () => {
               most of the corners of the world. Some countries, like Israel, made use of their
               extensive pharmaceutical contacts, and stepped in front of the line; other places,
               like Chile, have surprised even their neighbors with their fast paced immunization
-              plans.</p> 
-              <p>In this Leniolabs_ research page we attempt to graphically represent this
-              information, merging the wonders of SVG and frontend technologies.
+              plans.
+            </p>
+            <p>
+              In this Leniolabs_ research page we attempt to graphically represent this information,
+              merging the wonders of SVG and frontend technologies.
             </p>
           </div>
         </RowContainer>
       </header>
-      {/* <section className="kpis-wrapper">
-        <div className="row-container">
-          <SecondTitle>Our World in Data</SecondTitle>
-          <div className="kpis">
-            <div className="kpi-box">
-              <span className="kpi-number">160</span>
-              <p>Countries in the process</p>
-            </div>
-            <div className="kpi-box">
-              <span className="kpi-number">1.290.290.000</span>
-              <p>Vaccinated people</p>
-            </div>
-            <div className="kpi-box">
-              <span className="kpi-number">35</span>
-              <p>Countries not started yet</p>
-            </div>
-          </div>
-        </div>
-      </section> */}
-      <VaccinationMainSnippet countryList={INTERESTING_COUNTRIES} seeMore animated />
+      <VaccinationMainSnippet seeMore animated />
       <Footer>
         <a href="https://leniolabs.com" target="_blank" rel="noreferrer">
           <FooterLogo>

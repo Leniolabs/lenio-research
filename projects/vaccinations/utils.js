@@ -3,7 +3,7 @@ import country_data from "./country_data.json";
 export const getParsedData = (data, colorMapper, countryList, legendFilter) => {
   let countries = country_data;
   if (countryList) {
-    countries = country_data.filter((r) => countryList.includes(r.countryCode));
+    countries = country_data.filter((r) => countryList.includes(r.name));
   }
   if (legendFilter) {
     countries = countries.filter(legendFilter);
@@ -29,9 +29,29 @@ export const generateOptions = (dateArray) => {
 };
 
 export const countryOptions = country_data.map((country) => ({
-  value: country.countryCode,
+  value: country.name,
   label: country.name
 }));
 
 export const ALL_COUNTRIES = country_data.map((country) => country.countryCode);
-export const INTERESTING_COUNTRIES = ["IL", "CL", "GB", "US", "TR", "BR", "EU"];
+export const INTERESTING_COUNTRIES = [
+  "Israel",
+  "Chile",
+  "United Kingdom",
+  "United States",
+  "Turkey",
+  "Brazil",
+  "European Union"
+];
+export const MORE_COUNTRIES = [
+  "Serbia",
+  "United States",
+  "Guernsey",
+  "Isle of Man",
+  "Bermuda",
+  "Cayman Islands",
+  "United Arab Emirates",
+  "Seychelles",
+  "Israel",
+  "Gibraltar"
+];
