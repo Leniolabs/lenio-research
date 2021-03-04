@@ -1,4 +1,5 @@
 import * as React from "react";
+import Head from "next/head";
 import styled from "styled-components";
 import VaccinationMainSnippet from "@projects/vaccinations";
 
@@ -27,6 +28,14 @@ const FooterLogo = styled.div`
 export const Index = () => {
   return (
     <div>
+      <Head>
+        <title>Leniolabs_ Research</title>
+        <meta property="og:title" content="Leniolabs_ Research: Vaccinations" key="title" />
+        <meta
+          name="description"
+          content="Beautiful Visualizations of the current state of vaccinations"
+        />
+      </Head>
       <header>
         <RowContainer>
           <div className="logo">

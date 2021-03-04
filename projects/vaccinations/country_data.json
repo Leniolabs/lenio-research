@@ -56,6 +56,14 @@
     "gdpPerCapita": 18563.307
   },
   {
+    "name": "Canada",
+    "population": 37742157,
+    "continent": "North America",
+    "countryCode": "CA",
+    "humanDevelopmentIndex": 0.929,
+    "gdpPerCapita": 44017.591
+  },
+  {
     "name": "Cayman Islands",
     "population": 65720,
     "continent": "North America",

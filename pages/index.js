@@ -1,4 +1,5 @@
 import * as React from "react";
+import Head from "next/head";
 import styled from "styled-components";
 import VaccinationMainSnippet from "@projects/vaccinations";
 
@@ -39,6 +40,11 @@ export const Index = () => {
   const INTERESTING_COUNTRIES = ["IL", "CL", "GB", "US", "TR", "BR", "EU"];
   return (
     <div>
+      <Head>
+        <title>Leniolabs_ Research</title>
+        <meta property="og:title" content="Leniolabs_ Research" key="title" />
+        <meta name="description" content="Beautiful Visualizations of Current Data" />
+      </Head>
       <header className="with-background">
         <RowContainer>
           <div className="logo">
@@ -96,7 +102,7 @@ export const Index = () => {
           </div>
         </div>
       </section>
-      <VaccinationMainSnippet countryList={INTERESTING_COUNTRIES} seeMore />
+      <VaccinationMainSnippet countryList={INTERESTING_COUNTRIES} seeMore animated />
       <Footer>
         <FooterLogo>
           <p>Created by</p>
