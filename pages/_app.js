@@ -85,6 +85,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     &:hover { background-color: #3baacc; color: white; }
   }
+  footer a { color: #fcfcf4; text-decoration: none; }
   .footer-logo {
     background-color: #354156;
     color: #fcfcf4;

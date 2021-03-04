@@ -80,8 +80,8 @@ export const Index = () => {
       </section> */}
       <VaccinationMainSnippet countryList={INTERESTING_COUNTRIES} seeMore animated />
       <Footer>
-        <Link href="https://leniolabs.com">
-          <FooterLogo link>
+        <a href="https://leniolabs.com" target="_blank" rel="noreferrer">
+          <FooterLogo>
             <p>Created by</p>
             <svg
               width="120"
@@ -100,7 +100,7 @@ export const Index = () => {
               <circle fill="#3aa9cc" cx="20.1" cy="20.1" r="6" />
             </svg>
           </FooterLogo>
-        </Link>
+        </a>
       </Footer>
     </div>
   );
