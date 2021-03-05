@@ -14,7 +14,7 @@
     "react-dom": "^16.8.0",
     "react-ga": "^3.3.0",
     "react-is": "^16.8.0",
-    "react-select": "^4.1.0",
+    "react-select": "4.1.0",
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
