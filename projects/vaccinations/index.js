@@ -46,7 +46,7 @@ const PlayText = styled.button`
 `;
 
 const StickyContainer = styled.div`
-  background: rgba(255, 251, 243, .9);
+  background: rgba(255, 251, 243, 0.9);
   margin: 0 -8%;
   padding: 1rem 8% 0;
   position: sticky;
@@ -114,7 +114,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
     logEvent({
       category: "Vaccinations",
       action: "Pressed Play",
-      label: isPlaying ? "play" : "stop"
+      label: isPlaying ? "stop" : "play"
     });
     if (dataIndex === DATA_MAPPER[dataName].length - 1) {
       setDataIndex(0);

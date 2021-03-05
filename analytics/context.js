@@ -19,16 +19,16 @@ function TrackingProvider(props) {
 
   const [analytics, setAnalytics] = useState({
     isInitialized: false,
-    hasUser: false,
-    trackers: ["myDefaultTracker"]
+    hasUser: false
+    // trackers: ["myDefaultTracker"]
   });
 
   // We create a function handle all route changes that occur
   // and track a users movements across pages in our app
 
   const handleRouteChange = (url) => {
-    ReactGA.set({ page: url }, analytics.trackers);
-    ReactGA.pageview(url, analytics.trackers);
+    ReactGA.set({ page: url });
+    ReactGA.pageview(url);
   };
 
   // We only want to initialize GA on the client side
@@ -43,6 +43,7 @@ function TrackingProvider(props) {
 
     if (!isInitialized) {
       ReactGA.initialize(TrackingID, {
+        // debug: true,
         gaOptions: {}
       });
 
@@ -62,14 +63,11 @@ function TrackingProvider(props) {
 
   const logEvent = ({ category = "", action = "", label = "" }) => {
     if (analytics.isInitialized) {
-      ReactGA.event(
-        {
-          category,
-          action,
-          label
-        },
-        analytics.trackers
-      );
+      ReactGA.event({
+        category,
+        action,
+        label
+      });
     }
   };
 

@@ -48,7 +48,6 @@ const Control = ({ children, ...props }) => {
 const Placeholder = ({ ...props }) => {
   // eslint-disable-next-line react/prop-types
   const { value, options } = props.selectProps;
-  console.log(options);
   // eslint-disable-next-line react/prop-types
   if (value.length === options[1].options.length) {
     return <CustomPlaceholder>All Selected</CustomPlaceholder>;
