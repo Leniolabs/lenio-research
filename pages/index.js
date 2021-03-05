@@ -25,6 +25,18 @@ export const Index = () => {
           name="twitter:image"
           content="https://research.leniolabs.com/vaccinations_twitter_cover.png"
         />
+        <meta property="og:url" content="https://research.leniolabs.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Leniolabs_ Research" />
+        <meta
+          property="og:image"
+          content="https://research.leniolabs.com/vaccinations_twitter_cover.png"
+        />
+        <meta property="og:image:alt" content="Visualization of vaccination progress by country" />
+        <meta property="og:description" content="Beautiful Visualizations of Current Data" />
+        <meta property="og:site_name" content="Leniolabs_ Research" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="article:author" content="Leniolabs_ Research" />
       </Head>
       <header className="with-background">
         <RowContainer>
