@@ -79,7 +79,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
   const [dataIndex, setDataIndex] = React.useState(0);
   // eslint-disable-next-line no-unused-vars
   const [colorMapper, setColorMapper] = React.useState("continent");
-  const [dataName, setDataName] = React.useState("fully");
+  const [dataName, setDataName] = React.useState("not-fully");
   const [parsedData, setParsedData] = React.useState([]);
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [legendFilter, setLegendFilter] = React.useState(null);

@@ -1,7 +1,7 @@
 [
   {
     "name": "Albania",
-    "population": 2877800,
+    "population": 2877800.0,
     "continent": "Europe",
     "countryCode": "AL",
     "humanDevelopmentIndex": 0.795,
@@ -9,7 +9,7 @@
   },
   {
     "name": "Argentina",
-    "population": 45195777,
+    "population": 45195777.0,
     "continent": "South America",
     "countryCode": "AR",
     "humanDevelopmentIndex": 0.845,
@@ -17,7 +17,7 @@
   },
   {
     "name": "Austria",
-    "population": 9006400,
+    "population": 9006400.0,
     "continent": "Europe",
     "countryCode": "AT",
     "humanDevelopmentIndex": 0.922,
@@ -25,7 +25,7 @@
   },
   {
     "name": "Belgium",
-    "population": 11589616,
+    "population": 11589616.0,
     "continent": "Europe",
     "countryCode": "BE",
     "humanDevelopmentIndex": 0.931,
@@ -33,15 +33,23 @@
   },
   {
     "name": "Bermuda",
-    "population": 62273,
+    "population": 62273.0,
     "continent": "North America",
     "countryCode": "BM",
     "humanDevelopmentIndex": null,
     "gdpPerCapita": 50669.315
   },
   {
+    "name": "Bolivia",
+    "population": 11673029.0,
+    "continent": "South America",
+    "countryCode": "BO",
+    "humanDevelopmentIndex": 0.718,
+    "gdpPerCapita": 6885.829
+  },
+  {
     "name": "Brazil",
-    "population": 212559409,
+    "population": 212559409.0,
     "continent": "South America",
     "countryCode": "BR",
     "humanDevelopmentIndex": 0.765,
@@ -49,7 +57,7 @@
   },
   {
     "name": "Bulgaria",
-    "population": 6948445,
+    "population": 6948445.0,
     "continent": "Europe",
     "countryCode": "BG",
     "humanDevelopmentIndex": 0.816,
@@ -57,7 +65,7 @@
   },
   {
     "name": "Canada",
-    "population": 37742157,
+    "population": 37742157.0,
     "continent": "North America",
     "countryCode": "CA",
     "humanDevelopmentIndex": 0.929,
@@ -65,7 +73,7 @@
   },
   {
     "name": "Cayman Islands",
-    "population": 65720,
+    "population": 65720.0,
     "continent": "North America",
     "countryCode": "KY",
     "humanDevelopmentIndex": null,
@@ -73,7 +81,7 @@
   },
   {
     "name": "Chile",
-    "population": 19116209,
+    "population": 19116209.0,
     "continent": "South America",
     "countryCode": "CL",
     "humanDevelopmentIndex": 0.851,
@@ -81,7 +89,7 @@
   },
   {
     "name": "Costa Rica",
-    "population": 5094114,
+    "population": 5094114.0,
     "continent": "North America",
     "countryCode": "CR",
     "humanDevelopmentIndex": 0.81,
@@ -89,7 +97,7 @@
   },
   {
     "name": "Croatia",
-    "population": 4105268,
+    "population": 4105268.0,
     "continent": "Europe",
     "countryCode": "HR",
     "humanDevelopmentIndex": 0.851,
@@ -97,7 +105,7 @@
   },
   {
     "name": "Cyprus",
-    "population": 875899,
+    "population": 875899.0,
     "continent": "Europe",
     "countryCode": "CY",
     "humanDevelopmentIndex": 0.887,
@@ -105,7 +113,7 @@
   },
   {
     "name": "Czechia",
-    "population": 10708982,
+    "population": 10708982.0,
     "continent": "Europe",
     "countryCode": "ASDASD",
     "humanDevelopmentIndex": 0.9,
@@ -113,7 +121,7 @@
   },
   {
     "name": "Denmark",
-    "population": 5792203,
+    "population": 5792203.0,
     "continent": "Europe",
     "countryCode": "DK",
     "humanDevelopmentIndex": 0.94,
@@ -121,7 +129,7 @@
   },
   {
     "name": "Ecuador",
-    "population": 17643060,
+    "population": 17643060.0,
     "continent": "South America",
     "countryCode": "EC",
     "humanDevelopmentIndex": 0.759,
@@ -129,7 +137,7 @@
   },
   {
     "name": "Estonia",
-    "population": 1326539,
+    "population": 1326539.0,
     "continent": "Europe",
     "countryCode": "EE",
     "humanDevelopmentIndex": 0.892,
@@ -137,15 +145,15 @@
   },
   {
     "name": "European Union",
-    "population": 444919060,
+    "population": 444919060.0,
     "continent": "Europe",
-    "countryCode": "european_union",
+    "countryCode": "EU",
     "humanDevelopmentIndex": null,
     "gdpPerCapita": null
   },
   {
     "name": "Faeroe Islands",
-    "population": 48865,
+    "population": 48865.0,
     "continent": "Europe",
     "countryCode": "FO",
     "humanDevelopmentIndex": null,
@@ -153,7 +161,7 @@
   },
   {
     "name": "Finland",
-    "population": 5540718,
+    "population": 5540718.0,
     "continent": "Europe",
     "countryCode": "FI",
     "humanDevelopmentIndex": 0.938,
@@ -161,7 +169,7 @@
   },
   {
     "name": "France",
-    "population": 65273512,
+    "population": 65273512.0,
     "continent": "Europe",
     "countryCode": "FR",
     "humanDevelopmentIndex": 0.901,
@@ -169,7 +177,7 @@
   },
   {
     "name": "Germany",
-    "population": 83783945,
+    "population": 83783945.0,
     "continent": "Europe",
     "countryCode": "DE",
     "humanDevelopmentIndex": 0.947,
@@ -177,7 +185,7 @@
   },
   {
     "name": "Gibraltar",
-    "population": 33691,
+    "population": 33691.0,
     "continent": "Europe",
     "countryCode": "GI",
     "humanDevelopmentIndex": null,
@@ -185,7 +193,7 @@
   },
   {
     "name": "Greece",
-    "population": 10423056,
+    "population": 10423056.0,
     "continent": "Europe",
     "countryCode": "GR",
     "humanDevelopmentIndex": 0.888,
@@ -193,7 +201,7 @@
   },
   {
     "name": "Guernsey",
-    "population": 67052,
+    "population": 67052.0,
     "continent": "Europe",
     "countryCode": "GG",
     "humanDevelopmentIndex": null,
@@ -201,7 +209,7 @@
   },
   {
     "name": "Hungary",
-    "population": 9660350,
+    "population": 9660350.0,
     "continent": "Europe",
     "countryCode": "HU",
     "humanDevelopmentIndex": 0.854,
@@ -209,7 +217,7 @@
   },
   {
     "name": "Iceland",
-    "population": 341250,
+    "population": 341250.0,
     "continent": "Europe",
     "countryCode": "IS",
     "humanDevelopmentIndex": 0.949,
@@ -217,7 +225,7 @@
   },
   {
     "name": "India",
-    "population": 1380004385,
+    "population": 1380004385.0,
     "continent": "Asia",
     "countryCode": "IN",
     "humanDevelopmentIndex": 0.645,
@@ -225,7 +233,7 @@
   },
   {
     "name": "Indonesia",
-    "population": 273523621,
+    "population": 273523621.0,
     "continent": "Asia",
     "countryCode": "ID",
     "humanDevelopmentIndex": 0.718,
@@ -233,7 +241,7 @@
   },
   {
     "name": "Ireland",
-    "population": 4937796,
+    "population": 4937796.0,
     "continent": "Europe",
     "countryCode": "IE",
     "humanDevelopmentIndex": 0.955,
@@ -241,7 +249,7 @@
   },
   {
     "name": "Isle of Man",
-    "population": 85032,
+    "population": 85032.0,
     "continent": "Europe",
     "countryCode": "IM",
     "humanDevelopmentIndex": null,
@@ -249,7 +257,7 @@
   },
   {
     "name": "Israel",
-    "population": 8655541,
+    "population": 8655541.0,
     "continent": "Asia",
     "countryCode": "IL",
     "humanDevelopmentIndex": 0.919,
@@ -257,7 +265,7 @@
   },
   {
     "name": "Italy",
-    "population": 60461828,
+    "population": 60461828.0,
     "continent": "Europe",
     "countryCode": "IT",
     "humanDevelopmentIndex": 0.892,
@@ -265,7 +273,7 @@
   },
   {
     "name": "Jersey",
-    "population": 101073,
+    "population": 101073.0,
     "continent": "Europe",
     "countryCode": "JE",
     "humanDevelopmentIndex": null,
@@ -273,7 +281,7 @@
   },
   {
     "name": "Jordan",
-    "population": 10203140,
+    "population": 10203140.0,
     "continent": "Asia",
     "countryCode": "JO",
     "humanDevelopmentIndex": 0.729,
@@ -281,7 +289,7 @@
   },
   {
     "name": "Kazakhstan",
-    "population": 18776707,
+    "population": 18776707.0,
     "continent": "Asia",
     "countryCode": "KZ",
     "humanDevelopmentIndex": 0.825,
@@ -289,7 +297,7 @@
   },
   {
     "name": "Kuwait",
-    "population": 4270563,
+    "population": 4270563.0,
     "continent": "Asia",
     "countryCode": "KW",
     "humanDevelopmentIndex": 0.806,
@@ -297,7 +305,7 @@
   },
   {
     "name": "Latvia",
-    "population": 1886202,
+    "population": 1886202.0,
     "continent": "Europe",
     "countryCode": "LV",
     "humanDevelopmentIndex": 0.866,
@@ -305,7 +313,7 @@
   },
   {
     "name": "Lithuania",
-    "population": 2722291,
+    "population": 2722291.0,
     "continent": "Europe",
     "countryCode": "LT",
     "humanDevelopmentIndex": 0.882,
@@ -313,7 +321,7 @@
   },
   {
     "name": "Luxembourg",
-    "population": 625976,
+    "population": 625976.0,
     "continent": "Europe",
     "countryCode": "LU",
     "humanDevelopmentIndex": 0.916,
@@ -321,7 +329,7 @@
   },
   {
     "name": "Malta",
-    "population": 441539,
+    "population": 441539.0,
     "continent": "Europe",
     "countryCode": "MT",
     "humanDevelopmentIndex": 0.895,
@@ -329,7 +337,7 @@
   },
   {
     "name": "Mexico",
-    "population": 128932753,
+    "population": 128932753.0,
     "continent": "North America",
     "countryCode": "MX",
     "humanDevelopmentIndex": 0.779,
@@ -337,15 +345,23 @@
   },
   {
     "name": "Morocco",
-    "population": 36910558,
+    "population": 36910558.0,
     "continent": "Africa",
     "countryCode": "MA",
     "humanDevelopmentIndex": 0.686,
     "gdpPerCapita": 7485.013
   },
   {
+    "name": "Netherlands",
+    "population": 17134873.0,
+    "continent": "Europe",
+    "countryCode": "NL",
+    "humanDevelopmentIndex": 0.944,
+    "gdpPerCapita": 48472.545
+  },
+  {
     "name": "Norway",
-    "population": 5421242,
+    "population": 5421242.0,
     "continent": "Europe",
     "countryCode": "NO",
     "humanDevelopmentIndex": 0.957,
@@ -353,15 +369,23 @@
   },
   {
     "name": "Oman",
-    "population": 5106622,
+    "population": 5106622.0,
     "continent": "Asia",
     "countryCode": "OM",
     "humanDevelopmentIndex": 0.813,
     "gdpPerCapita": 37960.709
   },
   {
+    "name": "Peru",
+    "population": 32971846.0,
+    "continent": "South America",
+    "countryCode": "PE",
+    "humanDevelopmentIndex": 0.777,
+    "gdpPerCapita": 12236.706
+  },
+  {
     "name": "Poland",
-    "population": 37846605,
+    "population": 37846605.0,
     "continent": "Europe",
     "countryCode": "PL",
     "humanDevelopmentIndex": 0.88,
@@ -369,7 +393,7 @@
   },
   {
     "name": "Portugal",
-    "population": 10196707,
+    "population": 10196707.0,
     "continent": "Europe",
     "countryCode": "PT",
     "humanDevelopmentIndex": 0.864,
@@ -377,7 +401,7 @@
   },
   {
     "name": "Romania",
-    "population": 19237682,
+    "population": 19237682.0,
     "continent": "Europe",
     "countryCode": "RO",
     "humanDevelopmentIndex": 0.828,
@@ -385,7 +409,7 @@
   },
   {
     "name": "Russia",
-    "population": 145934460,
+    "population": 145934460.0,
     "continent": "Europe",
     "countryCode": "RU",
     "humanDevelopmentIndex": 0.824,
@@ -393,7 +417,7 @@
   },
   {
     "name": "Serbia",
-    "population": 6804596,
+    "population": 6804596.0,
     "continent": "Europe",
     "countryCode": "RS",
     "humanDevelopmentIndex": 0.806,
@@ -401,7 +425,7 @@
   },
   {
     "name": "Seychelles",
-    "population": 98340,
+    "population": 98340.0,
     "continent": "Africa",
     "countryCode": "SC",
     "humanDevelopmentIndex": 0.796,
@@ -409,7 +433,7 @@
   },
   {
     "name": "Singapore",
-    "population": 5850343,
+    "population": 5850343.0,
     "continent": "Asia",
     "countryCode": "SG",
     "humanDevelopmentIndex": 0.938,
@@ -417,7 +441,7 @@
   },
   {
     "name": "Slovakia",
-    "population": 5459643,
+    "population": 5459643.0,
     "continent": "Europe",
     "countryCode": "SK",
     "humanDevelopmentIndex": 0.86,
@@ -425,7 +449,7 @@
   },
   {
     "name": "Slovenia",
-    "population": 2078932,
+    "population": 2078932.0,
     "continent": "Europe",
     "countryCode": "SI",
     "humanDevelopmentIndex": 0.917,
@@ -433,7 +457,7 @@
   },
   {
     "name": "South Africa",
-    "population": 59308690,
+    "population": 59308690.0,
     "continent": "Africa",
     "countryCode": "ZA",
     "humanDevelopmentIndex": 0.709,
@@ -441,7 +465,7 @@
   },
   {
     "name": "Spain",
-    "population": 46754783,
+    "population": 46754783.0,
     "continent": "Europe",
     "countryCode": "ES",
     "humanDevelopmentIndex": 0.904,
@@ -449,7 +473,7 @@
   },
   {
     "name": "Sweden",
-    "population": 10099270,
+    "population": 10099270.0,
     "continent": "Europe",
     "countryCode": "SE",
     "humanDevelopmentIndex": 0.945,
@@ -457,7 +481,7 @@
   },
   {
     "name": "Switzerland",
-    "population": 8654618,
+    "population": 8654618.0,
     "continent": "Europe",
     "countryCode": "CH",
     "humanDevelopmentIndex": 0.955,
@@ -465,7 +489,7 @@
   },
   {
     "name": "Turkey",
-    "population": 84339067,
+    "population": 84339067.0,
     "continent": "Asia",
     "countryCode": "TR",
     "humanDevelopmentIndex": 0.82,
@@ -473,7 +497,7 @@
   },
   {
     "name": "United Arab Emirates",
-    "population": 9890400,
+    "population": 9890400.0,
     "continent": "Asia",
     "countryCode": "AE",
     "humanDevelopmentIndex": 0.89,
@@ -481,7 +505,7 @@
   },
   {
     "name": "United Kingdom",
-    "population": 67886004,
+    "population": 67886004.0,
     "continent": "Europe",
     "countryCode": "GB",
     "humanDevelopmentIndex": 0.932,
@@ -489,7 +513,7 @@
   },
   {
     "name": "United States",
-    "population": 331002647,
+    "population": 331002647.0,
     "continent": "North America",
     "countryCode": "US",
     "humanDevelopmentIndex": 0.926,
@@ -497,7 +521,7 @@
   },
   {
     "name": "World",
-    "population": 7794798729,
+    "population": 7794798729.0,
     "continent": null,
     "countryCode": "ASDASDSADSD",
     "humanDevelopmentIndex": 0.737,
