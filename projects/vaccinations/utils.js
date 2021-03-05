@@ -57,19 +57,18 @@ export const INTERESTING_COUNTRIES = [
   "Brazil",
   "European Union"
 ];
+
 export const MORE_COUNTRIES = [
-  "Chile",
-  "United States",
+  "Denmark",
   "Turkey",
-  "Brazil",
-  "European Union",
+  "Hungary",
+  "Morocco",
   "Serbia",
-  "Guernsey",
-  "Isle of Man",
-  "Bermuda",
-  "Cayman Islands",
+  "United States",
+  "Chile",
+  "United Kingdom",
   "United Arab Emirates",
-  "Seychelles",
   "Israel",
-  "Gibraltar"
+  "Brazil",
+  "European Union"
 ];
