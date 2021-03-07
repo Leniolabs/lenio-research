@@ -21,15 +21,23 @@
     "continent": "Europe",
     "countryCode": "AT",
     "humanDevelopmentIndex": 0.922,
-    "gdpPerCapita": 45436.686
+    "gdpPerCapita": 45436.685999999994
+  },
+  {
+    "name": "Bahrain",
+    "population": 1701583.0,
+    "continent": "Asia",
+    "countryCode": "BH",
+    "humanDevelopmentIndex": 0.852,
+    "gdpPerCapita": 43290.705
   },
   {
     "name": "Belgium",
     "population": 11589616.0,
     "continent": "Europe",
     "countryCode": "BE",
-    "humanDevelopmentIndex": 0.931,
-    "gdpPerCapita": 42658.576
+    "humanDevelopmentIndex": 0.9309999999999999,
+    "gdpPerCapita": 42658.575999999994
   },
   {
     "name": "Bermuda",
@@ -45,7 +53,7 @@
     "continent": "South America",
     "countryCode": "BO",
     "humanDevelopmentIndex": 0.718,
-    "gdpPerCapita": 6885.829
+    "gdpPerCapita": 6885.829000000001
   },
   {
     "name": "Brazil",
@@ -69,7 +77,7 @@
     "continent": "North America",
     "countryCode": "CA",
     "humanDevelopmentIndex": 0.929,
-    "gdpPerCapita": 44017.591
+    "gdpPerCapita": 44017.59099999999
   },
   {
     "name": "Cayman Islands",
@@ -101,7 +109,7 @@
     "continent": "Europe",
     "countryCode": "HR",
     "humanDevelopmentIndex": 0.851,
-    "gdpPerCapita": 22669.797
+    "gdpPerCapita": 22669.797000000002
   },
   {
     "name": "Cyprus",
@@ -117,7 +125,7 @@
     "continent": "Europe",
     "countryCode": "ASDASD",
     "humanDevelopmentIndex": 0.9,
-    "gdpPerCapita": 32605.906
+    "gdpPerCapita": 32605.906000000003
   },
   {
     "name": "Denmark",
@@ -133,7 +141,7 @@
     "continent": "South America",
     "countryCode": "EC",
     "humanDevelopmentIndex": 0.759,
-    "gdpPerCapita": 10581.936
+    "gdpPerCapita": 10581.936000000002
   },
   {
     "name": "Estonia",
@@ -146,8 +154,8 @@
   {
     "name": "European Union",
     "population": 444919060.0,
-    "continent": "Europe",
-    "countryCode": "european_union",
+    "continent": null,
+    "countryCode": "EU",
     "humanDevelopmentIndex": null,
     "gdpPerCapita": null
   },
@@ -172,7 +180,7 @@
     "population": 65273512.0,
     "continent": "Europe",
     "countryCode": "FR",
-    "humanDevelopmentIndex": 0.901,
+    "humanDevelopmentIndex": 0.9009999999999999,
     "gdpPerCapita": 38605.671
   },
   {
@@ -180,7 +188,7 @@
     "population": 83783945.0,
     "continent": "Europe",
     "countryCode": "DE",
-    "humanDevelopmentIndex": 0.947,
+    "humanDevelopmentIndex": 0.9470000000000001,
     "gdpPerCapita": 45229.245
   },
   {
@@ -212,7 +220,7 @@
     "population": 9660350.0,
     "continent": "Europe",
     "countryCode": "HU",
-    "humanDevelopmentIndex": 0.854,
+    "humanDevelopmentIndex": 0.8540000000000001,
     "gdpPerCapita": 26777.561
   },
   {
@@ -220,7 +228,7 @@
     "population": 341250.0,
     "continent": "Europe",
     "countryCode": "IS",
-    "humanDevelopmentIndex": 0.949,
+    "humanDevelopmentIndex": 0.9490000000000001,
     "gdpPerCapita": 46482.958
   },
   {
@@ -237,7 +245,7 @@
     "continent": "Asia",
     "countryCode": "ID",
     "humanDevelopmentIndex": 0.718,
-    "gdpPerCapita": 11188.744
+    "gdpPerCapita": 11188.743999999999
   },
   {
     "name": "Ireland",
@@ -284,7 +292,7 @@
     "population": 10203140.0,
     "continent": "Asia",
     "countryCode": "JO",
-    "humanDevelopmentIndex": 0.729,
+    "humanDevelopmentIndex": 0.7290000000000001,
     "gdpPerCapita": 8337.49
   },
   {
@@ -300,8 +308,8 @@
     "population": 4270563.0,
     "continent": "Asia",
     "countryCode": "KW",
-    "humanDevelopmentIndex": 0.806,
-    "gdpPerCapita": 65530.537
+    "humanDevelopmentIndex": 0.8059999999999999,
+    "gdpPerCapita": 65530.537000000004
   },
   {
     "name": "Latvia",
@@ -324,7 +332,7 @@
     "population": 625976.0,
     "continent": "Europe",
     "countryCode": "LU",
-    "humanDevelopmentIndex": 0.916,
+    "humanDevelopmentIndex": 0.9159999999999999,
     "gdpPerCapita": 94277.965
   },
   {
@@ -341,22 +349,22 @@
     "continent": "North America",
     "countryCode": "MX",
     "humanDevelopmentIndex": 0.779,
-    "gdpPerCapita": 17336.469
+    "gdpPerCapita": 17336.468999999997
   },
   {
     "name": "Morocco",
     "population": 36910558.0,
     "continent": "Africa",
     "countryCode": "MA",
-    "humanDevelopmentIndex": 0.686,
-    "gdpPerCapita": 7485.013
+    "humanDevelopmentIndex": 0.6859999999999999,
+    "gdpPerCapita": 7485.013000000001
   },
   {
     "name": "Netherlands",
     "population": 17134873.0,
     "continent": "Europe",
     "countryCode": "NL",
-    "humanDevelopmentIndex": 0.944,
+    "humanDevelopmentIndex": 0.9440000000000001,
     "gdpPerCapita": 48472.545
   },
   {
@@ -364,7 +372,7 @@
     "population": 5421242.0,
     "continent": "Europe",
     "countryCode": "NO",
-    "humanDevelopmentIndex": 0.957,
+    "humanDevelopmentIndex": 0.9570000000000001,
     "gdpPerCapita": 64800.057
   },
   {
@@ -396,7 +404,7 @@
     "population": 10196707.0,
     "continent": "Europe",
     "countryCode": "PT",
-    "humanDevelopmentIndex": 0.864,
+    "humanDevelopmentIndex": 0.8640000000000001,
     "gdpPerCapita": 27936.896
   },
   {
@@ -412,23 +420,23 @@
     "population": 145934460.0,
     "continent": "Europe",
     "countryCode": "RU",
-    "humanDevelopmentIndex": 0.824,
-    "gdpPerCapita": 24765.954
+    "humanDevelopmentIndex": 0.8240000000000001,
+    "gdpPerCapita": 24765.953999999998
   },
   {
     "name": "Serbia",
     "population": 6804596.0,
     "continent": "Europe",
     "countryCode": "RS",
-    "humanDevelopmentIndex": 0.806,
-    "gdpPerCapita": 14048.881
+    "humanDevelopmentIndex": 0.8059999999999999,
+    "gdpPerCapita": 14048.881000000001
   },
   {
     "name": "Seychelles",
     "population": 98340.0,
     "continent": "Africa",
     "countryCode": "SC",
-    "humanDevelopmentIndex": 0.796,
+    "humanDevelopmentIndex": 0.7959999999999999,
     "gdpPerCapita": 26382.287
   },
   {
@@ -445,7 +453,7 @@
     "continent": "Europe",
     "countryCode": "SK",
     "humanDevelopmentIndex": 0.86,
-    "gdpPerCapita": 30155.152
+    "gdpPerCapita": 30155.152000000002
   },
   {
     "name": "Slovenia",
@@ -460,7 +468,7 @@
     "population": 59308690.0,
     "continent": "Africa",
     "countryCode": "ZA",
-    "humanDevelopmentIndex": 0.709,
+    "humanDevelopmentIndex": 0.7090000000000001,
     "gdpPerCapita": 12294.876
   },
   {
@@ -477,7 +485,7 @@
     "continent": "Europe",
     "countryCode": "SE",
     "humanDevelopmentIndex": 0.945,
-    "gdpPerCapita": 46949.283
+    "gdpPerCapita": 46949.282999999996
   },
   {
     "name": "Switzerland",
@@ -516,8 +524,8 @@
     "population": 331002647.0,
     "continent": "North America",
     "countryCode": "US",
-    "humanDevelopmentIndex": 0.926,
-    "gdpPerCapita": 54225.446
+    "humanDevelopmentIndex": 0.9259999999999999,
+    "gdpPerCapita": 54225.445999999996
   },
   {
     "name": "World",
