@@ -145,7 +145,7 @@ export const Index = ({ seeMore = false }) => {
         <SectionTitle>
           <span>12 April</span>International Day of Human Space Flight
         </SectionTitle>
-        <SectionSubTitle>The beginning of the space era for mankind</SectionSubTitle>
+        <SectionSubTitle>The beginning of the space era for humananity</SectionSubTitle>
         <p>
           12 April 1961 was the date of the first human space flight. This historic event opened the
           way for space exploration for the benefit of all humanity. The United Nations family
