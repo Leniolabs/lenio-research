@@ -113,7 +113,7 @@ export const Index = ({ seeMore = false }) => {
         <clipPath id="clip">
           <rect x="0" y="-300" width={clientSize[0] + 18} height={900} fill="#233042"></rect>
         </clipPath>
-        <rect x="0" y="-5" width={clientSize[0] + 18} height={610} fill="#233042"></rect>
+        <rect x="0" y="-20" width={clientSize[0] + 20} height={640} fill="#233042"></rect>
         <circle clipPath="url(#clip)" fill="#3A4859" cx="0" cy="300" r="500" opacity=".5" />
         <image href="./stars.svg" width="500" height="600" x="300" y="0" />
         <DistanceMarker
