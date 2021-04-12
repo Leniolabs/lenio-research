@@ -11,6 +11,7 @@ import { TextTooltip } from "./TextScroller";
 import { DistanceMarker } from "./DistanceMarker";
 import { ItemData } from "./data";
 import { Story } from "./story";
+import { Stars } from "./Stars";
 
 const SectionTitle = styled.h2`
   font-size: 2rem;
@@ -115,7 +116,7 @@ export const Index = ({ seeMore = false }) => {
         </clipPath>
         <rect x="0" y="-20" width={clientSize[0] + 20} height={640} fill="#233042"></rect>
         <circle clipPath="url(#clip)" fill="#3A4859" cx="0" cy="300" r="500" opacity=".5" />
-        <image href="./stars.svg" width="500" height="600" x="300" y="0" />
+        <Stars scale={scale} />
         <DistanceMarker
           scale={scale}
           earthPosition={earth.distance}
