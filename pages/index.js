@@ -59,7 +59,7 @@ export const Index = () => {
       </Head>
       <header>
         <RowContainer>
-          <Link href="/">
+          <Link href="https://leniolabs.com" passHref={true}>
             <LogoHeaderContainer link>
               <svg
                 className="lenio-iso"
