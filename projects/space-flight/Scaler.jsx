@@ -8,7 +8,7 @@ export const Scaler = ({ position, scale, diameter, children, y = 300, scaleRadi
   const oldRadius = React.useRef(scale(diameter));
   React.useEffect(() => {
     controls.start({
-      translateX: scale(position),
+      translateX: scale(position) > 0 ? scale(position) : -100,
       scale: scaleRadius ? scale(scale.domain()[0] + diameter) : 1,
       y,
       transition: { duration: 0.75 }
@@ -29,7 +29,7 @@ export const Scaler = ({ position, scale, diameter, children, y = 300, scaleRadi
       }}
       // stroke="#233042"
       // strokeWidth=".5"
-      >
+    >
       {children}
     </motion.g>
   );
