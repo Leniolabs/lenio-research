@@ -99,6 +99,13 @@ export const Index = ({ seeMore = false }) => {
         viewBox={`0 0 ${clientSize[0]} 600`}
         fill="#233042">
         <rect x="0" y="0" width={clientSize[0] + 18 } height={600} fill="#233042"></rect>
+        <image
+          href="./stars.svg"
+          width="500"
+          height="600"
+          x="300"
+          y="0"
+        />
         <circle fill="#FFCA30" cx="-50" cy="300" r="100"/>
         <DistanceMarker
           scale={scale}
@@ -118,7 +125,7 @@ export const Index = ({ seeMore = false }) => {
         <TextTooltip svg={svgRef} positionX={scale(focusedItem.distance)} positionY={40}>
           {focusedItem.tooltip ? <focusedItem.tooltip /> : "No Tooltip Data yet"}
         </TextTooltip>
-        <Controls x={clientSize[0] - 100} y={380} onBack={onBack} onForward={onForward}></Controls>
+        <Controls x={clientSize[0] - 100} y={580} onBack={onBack} onForward={onForward}></Controls>
       </svg>
       <div className="row-container">
         <SectionTitle><span>12 April</span>Space Flight Day</SectionTitle>

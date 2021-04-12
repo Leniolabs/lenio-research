@@ -65,7 +65,7 @@ DistanceText.propTypes = {
   distance: PropTypes.number
 };
 
-export const DistanceMarker = ({ scale, point1, point2, x = 20, y = 380 }) => {
+export const DistanceMarker = ({ scale, point1, point2, x = 20, y = 500 }) => {
   // use scale to put the vertical lines
   const [start, setStart] = React.useState(point1 < point2 ? point1 : point2);
   const [end, setEnd] = React.useState(point1 > point2 ? point1 : point2);

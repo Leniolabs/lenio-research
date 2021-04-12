@@ -95,6 +95,22 @@ const GlobalStyle = createGlobalStyle`
     padding: 2rem;
     text-align: right;
   }
+  .btn-prev, .btn-next {
+    cursor: pointer;
+    &:hover {
+      opacity: .7;
+      + text {
+        opacity: .7;
+      }
+    }
+    + text {
+      cursor: pointer;
+      pointer-events: none;
+      &:hover {
+        opacity: .7;
+      }
+    }
+  }
 `;
 
 const theme = {
