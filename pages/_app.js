@@ -114,6 +114,7 @@ const GlobalStyle = createGlobalStyle`
   .tooltip-space {
     background-color: #0c131d;
     color: white;
+    text-align: justify;
     a {
       color: #ffca31;
       display: inline-block;
@@ -121,7 +122,12 @@ const GlobalStyle = createGlobalStyle`
       &:hover { text-decoration: none; }
     }
   }
-  .tooltip-none { color: white; }
+  .tooltip-none {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .main-svg-space {
     background-color: #233042;
   }

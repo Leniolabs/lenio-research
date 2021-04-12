@@ -7,7 +7,7 @@ import { useWindowSize } from "utils/useWindowSize";
 import { Scaler } from "./Scaler";
 import { scaleLinear } from "d3-scale";
 import { Controls } from "./Controls";
-import { TextTooltip, TOOLTIP_WIDTH } from "./TextScroller";
+import { TextTooltip } from "./TextScroller";
 import { DistanceMarker } from "./DistanceMarker";
 import { ItemData } from "./data";
 import { Story } from "./story";
@@ -135,8 +135,8 @@ export const Index = ({ seeMore = false }) => {
             </Scaler>
           );
         })}
-        <TextTooltip svg={svgRef} positionX={clientSize[0] / 2 - TOOLTIP_WIDTH / 2} positionY={40}>
-          {storyStep.tooltip ? <storyStep.tooltip /> : "No Tooltip Data yet"}
+        <TextTooltip svg={svgRef} width={clientSize[0] - 60}>
+          {storyStep.tooltip ? storyStep.tooltip : "No Tooltip Data yet"}
         </TextTooltip>
         <Controls x={clientSize[0] - 100} y={580} onBack={onBack} onForward={onForward}></Controls>
       </svg>

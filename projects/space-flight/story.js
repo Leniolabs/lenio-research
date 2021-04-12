@@ -4,13 +4,13 @@ export const Story = [
     end: 2,
     focus: 11,
     domain: [149599000, 149600900],
-    tooltip: () => (
-      <div className="tooltip-space">
+    tooltip: (
+      <span className="tooltip-space">
         This is the tooltip for Yuri Gagarin info
         <a target="_blank" rel="noreferrer" href="https://en.wikipedia.org/wiki/Vostok_1">
           wikipedia
         </a>
-      </div>
+      </span>
     )
   },
   { start: 1, end: 2, focus: 2, domain: [149200000, 149700000] },
