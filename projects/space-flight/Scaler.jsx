@@ -2,7 +2,7 @@ import * as React from "react";
 import { motion, useAnimation } from "framer-motion";
 import PropTypes from "prop-types";
 
-export const Scaler = ({ position, scale, diameter, children, y = 200, scaleRadius = false }) => {
+export const Scaler = ({ position, scale, diameter, children, y = 300, scaleRadius = false }) => {
   const controls = useAnimation();
   const oldPosition = React.useRef(scale(position));
   const oldRadius = React.useRef(scale(diameter));
@@ -27,8 +27,9 @@ export const Scaler = ({ position, scale, diameter, children, y = 200, scaleRadi
         damping: 50,
         duration: 0.4
       }}
-      stroke="white"
-      strokeWidth="2">
+      // stroke="#233042"
+      // strokeWidth=".5"
+      >
       {children}
     </motion.g>
   );

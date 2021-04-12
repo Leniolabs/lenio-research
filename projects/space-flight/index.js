@@ -16,7 +16,16 @@ const SectionTitle = styled.h2`
   font-size: 2rem;
   color: ${({ theme }) => theme.colors.primary};
   text-align: center;
+  span {
+    font-size: 1.2rem;
+    display: block;
+    color: #ff7d31;
+    text-align: center;
+  }
 `;
+
+
+
 
 const getNewDomain = (story) => {
   const elemStart = ItemData.find((d) => d.story === story.start);
@@ -85,10 +94,12 @@ export const Index = ({ seeMore = false }) => {
       <svg
         ref={svgRef}
         overflow="visible"
-        height={400}
+        height={600}
         width={clientSize[0] - 18}
-        viewBox={`0 0 ${clientSize[0]} 400`}>
-        <rect x="0" y="0" width={clientSize[0]} height={400} fill="black"></rect>
+        viewBox={`0 0 ${clientSize[0]} 600`}
+        fill="#233042">
+        <rect x="0" y="0" width={clientSize[0] + 18 } height={600} fill="#233042"></rect>
+        <circle fill="#FFCA30" cx="-50" cy="300" r="100"/>
         <DistanceMarker
           scale={scale}
           point1={earth.distance}
@@ -110,8 +121,10 @@ export const Index = ({ seeMore = false }) => {
         <Controls x={clientSize[0] - 100} y={380} onBack={onBack} onForward={onForward}></Controls>
       </svg>
       <div className="row-container">
-        <SectionTitle>Space Flight Day</SectionTitle>
-        <p>Data obtained from NASA and others.</p>
+        <SectionTitle><span>12 April</span>Space Flight Day</SectionTitle>
+        <h3>The beginning of the space era for mankind</h3>
+        <p>12 April 1961 was the date of the first human space flight. This historic event opened the way for space exploration for the benefit of all humanity. The United Nations family strives continuously to utilize the unique benefits of outer space for the betterment of all humankind. The General Assembly has expressed its deep conviction of the common interest of mankind in promoting and expanding the exploration and use of outer space, as the province of all mankind, for peaceful purposes and to extend any benefits derived to all states.</p>
+        <p>Text from <a href="https://www.un.org/en/observances/human-spaceflight-day" target="_blank">United Nations</a></p>
 
         {!seeMore ? (
           <a href="/data.json">
