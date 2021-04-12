@@ -66,7 +66,8 @@ export const Story = [
     tooltip: (
       <span className="tooltip-space">
         USSR lost its early lead when the US achieved its own goal of a Moon landing in July 1969,
-        with the flight of Apollo 11, which sent and returned three men and landed two of them.&nbsp;
+        with the flight of Apollo 11, which sent and returned three men and landed two of
+        them.&nbsp;
         <a target="_blank" rel="noreferrer" href="https://en.wikipedia.org/wiki/Apollo_11">
           wikipedia/Apollo_11
         </a>
@@ -165,11 +166,11 @@ export const Story = [
     domain: [0, 3001000000],
     tooltip: (
       <span className="tooltip-space">
-        Voyager 2 is a space probe launched by NASA on Aug 20, 1977, to study the outer planets.
-        Was launched 16 days before its twin Voyager 1. The trajectory took longer to
-        reach Jupiter and Saturn but enabled further encounters with Uranus and Neptune. The closest
-        approach to Uranus occurred on Jan 24, 1986, when Voyager 2 came within 81,500
-        kms of the planet&#39;s cloud tops.&nbsp;
+        Voyager 2 is a space probe launched by NASA on Aug 20, 1977, to study the outer planets. Was
+        launched 16 days before its twin Voyager 1. The trajectory took longer to reach Jupiter and
+        Saturn but enabled further encounters with Uranus and Neptune. The closest approach to
+        Uranus occurred on Jan 24, 1986, when Voyager 2 came within 81,500 kms of the planet&#39;s
+        cloud tops.&nbsp;
         <a target="_blank" rel="noreferrer" href="https://en.wikipedia.org/wiki/Voyager_2">
           wikipedia/Voyager_2
         </a>
@@ -198,11 +199,11 @@ export const Story = [
     domain: [0, 7350000000],
     tooltip: (
       <span className="tooltip-space">
-        New Horizons is an interplanetary space probe launched as a part of NASA&#39;s New
-        Frontiers program in 2006. The primary mission was to perform a flyby study of the Pluto 
-        system in 2015, and a secondary mission to fly by and study one or more other Kuiper 
-        belt objects in the decade to follow. It is the 5th space probe to
-        achieve the escape velocity needed to leave the Solar System.&nbsp;
+        New Horizons is an interplanetary space probe launched as a part of NASA&#39;s New Frontiers
+        program in 2006. The primary mission was to perform a flyby study of the Pluto system in
+        2015, and a secondary mission to fly by and study one or more other Kuiper belt objects in
+        the decade to follow. It is the 5th space probe to achieve the escape velocity needed to
+        leave the Solar System.&nbsp;
         <a target="_blank" rel="noreferrer" href="https://en.wikipedia.org/wiki/New_Horizons">
           wikipedia/New_Horizons
         </a>
@@ -230,12 +231,11 @@ export const Story = [
     domain: [0, 25000000000],
     tooltip: (
       <span className="tooltip-space">
-        Voyager 1 is a space probe launched by NASA on Sep 5, 1977. Part of the
-        Voyager program to study the outer Solar System, Voyager 1 was launched 16 days after Voyager 2. 
-        Having operated for 43 years, 7 months and 7 days as of April 12, 2021,
-        it still communicates with the Deep Space Network to receive routine commands
-        and to transmit data to Earth. It is currently the most distant human-made object from
-        Earth.&nbsp;
+        Voyager 1 is a space probe launched by NASA on Sep 5, 1977. Part of the Voyager program to
+        study the outer Solar System, Voyager 1 was launched 16 days after Voyager 2. Having
+        operated for 43 years, 7 months and 7 days as of April 12, 2021, it still communicates with
+        the Deep Space Network to receive routine commands and to transmit data to Earth. It is
+        currently the most distant human-made object from Earth.&nbsp;
         <a target="_blank" rel="noreferrer" href="https://en.wikipedia.org/wiki/Voyager_1">
           wikipedia/Voyager_1
         </a>
