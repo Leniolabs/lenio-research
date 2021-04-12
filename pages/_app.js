@@ -121,6 +121,9 @@ const GlobalStyle = createGlobalStyle`
       &:hover { text-decoration: none; }
     }
   }
+  .main-svg-space {
+    background-color: #233042;
+  }
 `;
 
 const theme = {
