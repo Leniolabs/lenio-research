@@ -121,12 +121,18 @@ const GlobalStyle = createGlobalStyle`
       margin-left: .5rem;
       &:hover { text-decoration: none; }
     }
+    @media (max-width: 50em) {
+      font-size: 1rem;
+    }
   }
   .tooltip-none {
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    @media (max-width: 50em) {
+      font-size: 1rem;
+    }
   }
   .main-svg-space {
     background-color: #233042;
