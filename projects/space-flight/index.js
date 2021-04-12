@@ -113,7 +113,7 @@ export const Index = ({ seeMore = false }) => {
         viewBox={`0 0 ${clientSize[0]} 600`}
         fill="#233042">
         <clipPath id="clip">
-          <rect x="0" y="0" width={clientSize[0] + 18} height={600} fill="#233042"></rect>
+          <rect x="0" y="-300" width={clientSize[0] + 18} height={900} fill="#233042"></rect>
         </clipPath>
         <rect x="0" y="-5" width={clientSize[0] + 18} height={610} fill="#233042"></rect>
         <circle clipPath="url(#clip)" fill="#3A4859" cx="0" cy="300" r="500" opacity=".5" />
@@ -145,7 +145,7 @@ export const Index = ({ seeMore = false }) => {
       <TextDisclaimer>* object sizes are not to scale</TextDisclaimer>
       <div className="row-container">
         <SectionTitle>
-          <span>12 April</span>Space Flight Day
+          <span>12 April</span>International Day of Human Space Flight
         </SectionTitle>
         <SectionSubTitle>The beginning of the space era for mankind</SectionSubTitle>
         <p>

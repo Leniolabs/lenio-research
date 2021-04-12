@@ -7,9 +7,13 @@ import { LogoHeaderContainer } from "@components/styled";
 
 
 const RowContainer = styled.div`
-  margin: 0 auto;
-  max-width: 45em;
+  background: #243042;
+  color: #fffbf3;
+  margin: 0;
   padding: 2rem;
+  > div {
+    position: relative;
+  }
 `;
 
 const Footer = styled.footer`
@@ -35,16 +39,16 @@ export const Index = () => {
         <title>Leniolabs_ Research</title>
         <meta
           name="description"
-          content="Beautiful Visualizations of the current state of vaccinations"
+          content="Visualization of some milestones of humanity exploring space and the distance traveled from planet Earth"
         />
-        <meta name="title" content="Leniolabs_ Research: Vaccinations" key="title" />
+        <meta name="title" content="Leniolabs_ Research: International Day of Human Space Flight" key="title" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="https://research.leniolabs.com/" />
         <meta name="twitter:creator" content="@Leniolabs_" />
-        <meta name="twitter:title" content="Leniolabs_ Research: Vaccinations" />
+        <meta name="twitter:title" content="Leniolabs_ Research: International Day of Human Space Flight" />
         <meta
           name="twitter:description"
-          content="Beautiful Visualizations of the current state of vaccinations"
+          content="Visualization of some milestones of humanity exploring space and the distance traveled from planet Earth"
         />
         <meta
           name="twitter:image"
@@ -52,7 +56,7 @@ export const Index = () => {
         />
         <meta property="og:url" content="https://research.leniolabs.com/vaccinations.html" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Leniolabs_ Research: Vaccinations" />
+        <meta property="og:title" content="Leniolabs_ Research: International Day of Human Space Flight" />
         <meta
           property="og:image"
           content="https://research.leniolabs.com/vaccinations_twitter_cover.png"
@@ -60,7 +64,7 @@ export const Index = () => {
         <meta property="og:image:alt" content="Visualization of vaccination progress by country" />
         <meta
           property="og:description"
-          content="Beautiful Visualizations of the current state of vaccinations"
+          content="Visualization of some milestones of humanity exploring space and the distance traveled from planet Earth"
         />
         <meta property="og:site_name" content="Leniolabs_ Research" />
         <meta property="og:locale" content="en_US" />
