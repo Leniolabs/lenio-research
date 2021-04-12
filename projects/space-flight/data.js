@@ -10,6 +10,7 @@ import { Uranus } from "./icons/uranus";
 import { Neptune } from "./icons/neptune";
 import { Pluto } from "./icons/pluto";
 import { Votok1 } from "./icons/votok1";
+import { Sun } from "./icons/sun";
 
 export const ItemData = [
   {
@@ -91,6 +92,14 @@ export const ItemData = [
     component: Pluto,
     type: "planet",
     story: 10
+  },
+  {
+    distance: 0,
+    diameter: 1392700,
+    name: "Sun",
+    component: Sun,
+    type: "star",
+    story: 12
   },
   {
     distance: 149600000 - 327,

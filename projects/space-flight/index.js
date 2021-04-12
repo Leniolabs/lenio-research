@@ -96,14 +96,7 @@ export const Index = ({ seeMore = false }) => {
         viewBox={`0 0 ${clientSize[0]} 600`}
         fill="#233042">
         <rect x="0" y="0" width={clientSize[0] + 18} height={600} fill="#233042"></rect>
-        <circle fill="#FFCA30" cx="-50" cy="300" r="100" />
-        <image
-          href="./stars.svg"
-          width="500"
-          height="600"
-          x="300"
-          y="0"
-        />
+        <image href="./stars.svg" width="500" height="600" x="300" y="0" />
         <DistanceMarker
           scale={scale}
           earthPosition={earth.distance}
@@ -117,6 +110,7 @@ export const Index = ({ seeMore = false }) => {
               key={`icon-${item.name}`}
               scale={scale}
               position={item.distance}
+              scaleRadius={item.type === "star"}
               diameter={item.diameter}>
               <item.component />
             </Scaler>
