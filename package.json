@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "d3-scale": "^3.2.3",
+    "framer-motion": "^4.0.3",
     "next": "latest",
     "prop-types": "^15.7.2",
     "react": "^16.8.0",
