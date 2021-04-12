@@ -32,7 +32,7 @@ const SectionSubTitle = styled.h3`
 const TextDisclaimer = styled.p`
   font-size: 0.9rem;
   font-style: italic;
-  margin: 0 1rem;
+  margin: 1rem;
   text-align: right;
 `;
 
