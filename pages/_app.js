@@ -111,6 +111,16 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   }
+  .tooltip-space {
+    background-color: #0c131d;
+    color: white;
+    a {
+      color: #ffca31;
+      display: inline-block;
+      margin-left: .5rem;
+      &:hover { text-decoration: none; }
+    }
+  }
 `;
 
 const theme = {

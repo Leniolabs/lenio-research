@@ -100,8 +100,8 @@ export const ItemData = [
     type: "spaceship",
     story: 11,
     tooltip: () => (
-      <div>
-        This is the tooltip for Yuri Gagarin info
+      <div className="tooltip-space">
+        This is the tooltip for Yuri Gagarin info 
         <a target="_blank" rel="noreferrer" href="https://en.wikipedia.org/wiki/Vostok_1">
           wikipedia
         </a>
