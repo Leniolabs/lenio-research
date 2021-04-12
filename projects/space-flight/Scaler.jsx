@@ -7,9 +7,10 @@ export const Scaler = ({ position, scale, diameter, children, y = 300, scaleRadi
   const oldPosition = React.useRef(scale(position));
   const oldRadius = React.useRef(scale(diameter));
   React.useEffect(() => {
+    const shouldScaleRadius = scaleRadius & (scale.domain()[1] - scale.domain()[0] > diameter);
     controls.start({
-      translateX: scale(position) > 0 ? scale(position) : -100,
-      scale: scaleRadius ? scale(scale.domain()[0] + diameter) : 1,
+      translateX: scale(position) >= 0 ? scale(position) : -100,
+      scale: shouldScaleRadius ? scale(scale.domain()[0] + diameter) : 1,
       y,
       transition: { duration: 0.75 }
     });
