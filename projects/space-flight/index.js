@@ -1,5 +1,4 @@
 import * as React from "react";
-import Link from "next/link";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { useTracking } from "analytics/context";
@@ -46,7 +45,7 @@ const getNewDomain = (story) => {
   return [elemEnd, elemStart];
 };
 
-export const Index = ({ seeMore = false }) => {
+export const Index = () => {
   const { logEvent } = useTracking();
   const clientSize = useWindowSize();
   const [domain, setDomain] = React.useState([0, 1]);
@@ -167,7 +166,6 @@ export const Index = ({ seeMore = false }) => {
             United Nations
           </a>
         </p>
-
       </div>
     </section>
   );
