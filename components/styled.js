@@ -48,3 +48,11 @@ export const FooterLogo = styled.div`
       cursor: pointer;
     `}
 `;
+
+export const PostList = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 65em;
+`;
