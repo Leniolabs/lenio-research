@@ -16,7 +16,7 @@ export const TextTooltip = ({ children, width }) => {
   }, [el, mount]);
 
   return createPortal(
-    <div className="tooltip-none" style={{ position: "absolute", top: 180, left: 20, width }}>
+    <div className="tooltip-none" style={{ position: "absolute", top: 160, left: 20, width }}>
       {children}
     </div>,
     el

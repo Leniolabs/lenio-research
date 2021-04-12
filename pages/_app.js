@@ -112,13 +112,17 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   .tooltip-space {
-    background-color: #0c131d;
+    background-color: #192638;
+    border-radius: 2px;
     color: white;
+    letter-spacing: -0.02em;
+    line-height: 1.5;
+    max-width: 90ch;
+    padding: .4rem .8rem;
     text-align: justify;
     a {
       color: #ffca31;
       display: inline-block;
-      margin-left: .5rem;
       &:hover { text-decoration: none; }
     }
     @media (max-width: 50em) {
