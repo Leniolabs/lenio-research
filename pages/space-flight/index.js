@@ -52,14 +52,14 @@ export const Index = () => {
         />
         <meta
           name="twitter:image"
-          content="https://research.leniolabs.com/vaccinations_twitter_cover.png"
+          content="https://research.leniolabs.com/space-day.png"
         />
         <meta property="og:url" content="https://research.leniolabs.com/vaccinations.html" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Leniolabs_ Research: International Day of Human Space Flight" />
         <meta
           property="og:image"
-          content="https://research.leniolabs.com/vaccinations_twitter_cover.png"
+          content="https://research.leniolabs.com/space-day.png"
         />
         <meta property="og:image:alt" content="Visualization of vaccination progress by country" />
         <meta
