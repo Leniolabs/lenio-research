@@ -32,7 +32,7 @@ Tick.propTypes = {
   position: PropTypes.number
 };
 
-export const DistanceText = ({ position, distance }) => {
+export const DistanceText = ({ position, distance, width }) => {
   const controls = useAnimation();
   const oldPosition = React.useRef(position);
   React.useEffect(() => {
@@ -54,6 +54,7 @@ export const DistanceText = ({ position, distance }) => {
       stroke="white"
       textAnchor="middle"
       fill="white"
+      fontSize={width > 800 ? "1.2rem" : 14}
       dy={-5}>
       {distance}
     </motion.text>
@@ -62,10 +63,11 @@ export const DistanceText = ({ position, distance }) => {
 
 DistanceText.propTypes = {
   position: PropTypes.number,
-  distance: PropTypes.number
+  distance: PropTypes.number,
+  width: PropTypes.number
 };
 
-export const DistanceMarker = ({ scale, earthPosition, point2, x = 0, y = 500 }) => {
+export const DistanceMarker = ({ scale, earthPosition, point2, x = 0, y = 500, width }) => {
   // use scale to put the vertical lines
   const [start, setStart] = React.useState(earthPosition < point2 ? earthPosition : point2);
   const [end, setEnd] = React.useState(earthPosition > point2 ? earthPosition : point2);
@@ -102,6 +104,7 @@ export const DistanceMarker = ({ scale, earthPosition, point2, x = 0, y = 500 })
       <Tick position={scale(start) > 0 ? scale(start) + deltaStart : 0} />
       <Tick position={scale(end) > 0 ? scale(end) + deltaEnd : scale.domain()[1]} />
       <DistanceText
+        width={width}
         position={scale(start + (end - start) / 2)}
         distance={`${(end - start).toLocaleString()}km`}></DistanceText>
     </motion.g>
@@ -114,5 +117,6 @@ DistanceMarker.propTypes = {
   earthPosition: PropTypes.number,
   point2: PropTypes.number,
   x: PropTypes.number,
-  y: PropTypes.number
+  y: PropTypes.number,
+  width: PropTypes.number
 };

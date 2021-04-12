@@ -119,7 +119,9 @@ export const Index = ({ seeMore = false }) => {
         <DistanceMarker
           scale={scale}
           earthPosition={earth.distance}
-          point2={focusedItem.distance}></DistanceMarker>
+          point2={focusedItem.distance}
+          width={clientSize[0]}
+        />
         {ItemData.map((item) => {
           if (item.type === "spaceship" && item.story !== focusedItem.story) {
             return null;
@@ -130,6 +132,7 @@ export const Index = ({ seeMore = false }) => {
               scale={scale}
               position={item.distance}
               scaleRadius={item.type === "star"}
+              halfSize={storyIdx > 8}
               diameter={item.diameter}>
               <item.component />
             </Scaler>
