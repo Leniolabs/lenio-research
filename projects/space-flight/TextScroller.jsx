@@ -1,7 +1,7 @@
 import * as React from "react";
 import { createPortal } from "react-dom";
 
-const TOOLTIP_WIDTH = 200;
+export const TOOLTIP_WIDTH = 200;
 
 const SVGToScreen = (svg, svgX, svgY) => {
   let p = svg.createSVGPoint();

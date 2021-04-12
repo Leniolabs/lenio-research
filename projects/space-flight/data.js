@@ -102,28 +102,20 @@ export const ItemData = [
     type: "star",
     story: 12
   },
-  {
-    distance: 500,
-    diameter: 1392700,
-    name: "Star",
-    component: Star,
-    type: "star",
-    story: 13
-  },
+  // {
+  //   distance: 500,
+  //   diameter: 1392700,
+  //   name: "Star",
+  //   component: Star,
+  //   type: "star",
+  //   story: 13
+  // },
   {
     distance: 149600000 - 327,
     diameter: 2274,
     name: "Vostok 1",
     component: Votok1,
     type: "spaceship",
-    story: 11,
-    tooltip: () => (
-      <div className="tooltip-space">
-        This is the tooltip for Yuri Gagarin info 
-        <a target="_blank" rel="noreferrer" href="https://en.wikipedia.org/wiki/Vostok_1">
-          wikipedia
-        </a>
-      </div>
-    )
+    story: 11
   }
 ];
