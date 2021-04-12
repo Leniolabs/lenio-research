@@ -117,5 +117,37 @@ export const ItemData = [
     component: Votok1,
     type: "spaceship",
     story: 11
+  },
+  {
+    distance: 99600000,
+    diameter: 2274,
+    name: "Parker Solar Probe",
+    component: Votok1,
+    type: "spaceship",
+    story: 13
+  },
+  {
+    distance: 18967200000,
+    diameter: 2274,
+    name: "Voyager 2",
+    component: Votok1,
+    type: "planet",
+    story: 14
+  },
+  {
+    distance: 22772000000,
+    diameter: 2274,
+    name: "Voyager 1",
+    component: Votok1,
+    type: "planet",
+    story: 15
+  },
+  {
+    distance: 7149600000,
+    diameter: 2274,
+    name: "New Horizons",
+    component: Votok1,
+    type: "planet",
+    story: 16
   }
 ];
