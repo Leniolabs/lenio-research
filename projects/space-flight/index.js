@@ -168,17 +168,6 @@ export const Index = ({ seeMore = false }) => {
           </a>
         </p>
 
-        {!seeMore ? (
-          <a href="/data.json">
-            <button className="btn download-btn">Download Data</button>
-          </a>
-        ) : (
-          <Link href="/vaccinations">
-            <a>
-              <button className="btn download-btn">See more</button>
-            </a>
-          </Link>
-        )}
       </div>
     </section>
   );
