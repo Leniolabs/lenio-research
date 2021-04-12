@@ -98,14 +98,17 @@ export const Index = ({ seeMore = false }) => {
       <div id="portal-root"></div>
       <svg
         ref={svgRef}
-        overflow="hidden"
+        overflow="visible"
         className="main-svg-space"
         height={600}
         width={clientSize[0] - 18}
         viewBox={`0 0 ${clientSize[0]} 600`}
         fill="#233042">
-        <rect x="-10" y="0" width={clientSize[0] + 18} height={600} fill="#233042"></rect>
-        <circle fill="#3A4859" cx="0" cy="300" r="500" opacity=".5" />
+        <clipPath id="clip">
+          <rect x="0" y="0" width={clientSize[0] + 18} height={600} fill="#233042"></rect>
+        </clipPath>
+        <rect x="0" y="-5" width={clientSize[0] + 18} height={610} fill="#233042"></rect>
+        <circle clipPath="url(#clip)" fill="#3A4859" cx="0" cy="300" r="500" opacity=".5" />
         <image href="./stars.svg" width="500" height="600" x="300" y="0" />
         <DistanceMarker
           scale={scale}

@@ -121,6 +121,7 @@ const GlobalStyle = createGlobalStyle`
       &:hover { text-decoration: none; }
     }
   }
+  .tooltip-none { color: white; }
   .main-svg-space {
     background-color: #233042;
   }

@@ -10,7 +10,9 @@ const SVGToScreen = (svg, svgX, svgY) => {
   return p.matrixTransform(svg.getScreenCTM());
 };
 
+
 export const TextTooltip = ({ svg, children, positionX, positionY }) => {
+  
   const [position, setPosition] = React.useState([0, 0]);
   if (!process.browser) {
     return null;
@@ -28,7 +30,7 @@ export const TextTooltip = ({ svg, children, positionX, positionY }) => {
   }, [el, mount]);
 
   return createPortal(
-    <div style={{ position: "absolute", top: position[1], left: position[0] }}>{children}</div>,
+    <div className="tooltip-none" style={{ position: "absolute", top: position[1], left: position[0] }}>{children}</div>,
     el
   );
 };
