@@ -11,6 +11,7 @@ import { Neptune } from "./icons/neptune";
 import { Pluto } from "./icons/pluto";
 import { Votok1 } from "./icons/votok1";
 import { Sun } from "./icons/sun";
+import { Star } from "./icons/star";
 
 export const ItemData = [
   {
@@ -100,6 +101,14 @@ export const ItemData = [
     component: Sun,
     type: "star",
     story: 12
+  },
+  {
+    distance: 500,
+    diameter: 1392700,
+    name: "Star",
+    component: Star,
+    type: "star",
+    story: 13
   },
   {
     distance: 149600000 - 327,

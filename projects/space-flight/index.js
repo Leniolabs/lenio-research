@@ -21,8 +21,16 @@ const SectionTitle = styled.h2`
     display: block;
     color: #ff7d31;
     text-align: center;
+
   }
 `;
+
+const SectionSubTitle = styled.h3`
+  font-size: 1.4rem;
+  text-align: center;
+`;
+
+
 
 const getNewDomain = (story) => {
   const elemStart = ItemData.find((d) => d.story === story.start);
@@ -125,7 +133,7 @@ export const Index = ({ seeMore = false }) => {
         <SectionTitle>
           <span>12 April</span>Space Flight Day
         </SectionTitle>
-        <h3>The beginning of the space era for mankind</h3>
+        <SectionSubTitle>The beginning of the space era for mankind</SectionSubTitle>
         <p>
           12 April 1961 was the date of the first human space flight. This historic event opened the
           way for space exploration for the benefit of all humanity. The United Nations family
