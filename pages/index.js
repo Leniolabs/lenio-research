@@ -5,9 +5,11 @@ import {
   RowContainer,
   MainTitle,
   Footer,
-  FooterLogo
+  FooterLogo,
+  PostList
 } from "@components/styled";
 import VaccinationMainSnippet from "@projects/vaccinations";
+import { PostContainer } from "@components/PostContainer";
 
 export const Index = () => {
   return (
@@ -82,6 +84,11 @@ export const Index = () => {
         </RowContainer>
       </header>
       <VaccinationMainSnippet seeMore animated />
+      {/* <PostList>
+        <PostContainer></PostContainer>
+        <PostContainer></PostContainer>
+        <PostContainer></PostContainer>
+      </PostList> */}
       <Footer>
         <a href="https://leniolabs.com" target="_blank" rel="noreferrer">
           <FooterLogo>
