@@ -7,7 +7,7 @@ import { useWindowSize } from "utils/useWindowSize";
 import { Scaler } from "./Scaler";
 import { scaleLinear } from "d3-scale";
 import { Controls } from "./Controls";
-import { TextTooltip } from "./TextScroller";
+import { TextTooltip, TOOLTIP_WIDTH } from "./TextScroller";
 import { DistanceMarker } from "./DistanceMarker";
 import { ItemData } from "./data";
 import { Story } from "./story";
@@ -21,7 +21,6 @@ const SectionTitle = styled.h2`
     display: block;
     color: #ff7d31;
     text-align: center;
-
   }
 `;
 
@@ -31,14 +30,11 @@ const SectionSubTitle = styled.h3`
 `;
 
 const TextDisclaimer = styled.p`
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-style: italic;
   margin: 0 1rem;
   text-align: right;
 `;
-
-
-
 
 const getNewDomain = (story) => {
   const elemStart = ItemData.find((d) => d.story === story.start);
@@ -61,6 +57,7 @@ export const Index = ({ seeMore = false }) => {
   }, [domain, clientSize]);
 
   const [storyIdx, setStoryIdx] = React.useState(0);
+  const [storyStep, setStoryStep] = React.useState(Story[0]);
   const [focusedItem, setFocusedItem] = React.useState(ItemData.find((d) => d.story === 11));
   const [, setStartItem] = React.useState(ItemData.find((d) => d.story === 1));
   const [, setEndItem] = React.useState(ItemData.find((d) => d.story === 2));
@@ -90,6 +87,7 @@ export const Index = ({ seeMore = false }) => {
   }, [domain]);
 
   React.useEffect(() => {
+    setStoryStep(Story[storyIdx]);
     const [start, end] = getNewDomain(Story[storyIdx]);
     if (Story[storyIdx].domain) {
       setDomain(Story[storyIdx].domain);
@@ -137,8 +135,8 @@ export const Index = ({ seeMore = false }) => {
             </Scaler>
           );
         })}
-        <TextTooltip svg={svgRef} positionX={scale(focusedItem.distance)} positionY={40}>
-          {focusedItem.tooltip ? <focusedItem.tooltip /> : "No Tooltip Data yet"}
+        <TextTooltip svg={svgRef} positionX={clientSize[0] / 2 - TOOLTIP_WIDTH / 2} positionY={40}>
+          {storyStep.tooltip ? <storyStep.tooltip /> : "No Tooltip Data yet"}
         </TextTooltip>
         <Controls x={clientSize[0] - 100} y={580} onBack={onBack} onForward={onForward}></Controls>
       </svg>
