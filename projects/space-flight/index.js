@@ -30,6 +30,14 @@ const SectionSubTitle = styled.h3`
   text-align: center;
 `;
 
+const TextDisclaimer = styled.p`
+  font-size: .9rem;
+  font-style: italic;
+  margin: 0 1rem;
+  text-align: right;
+`;
+
+
 
 
 const getNewDomain = (story) => {
@@ -134,6 +142,7 @@ export const Index = ({ seeMore = false }) => {
         </TextTooltip>
         <Controls x={clientSize[0] - 100} y={580} onBack={onBack} onForward={onForward}></Controls>
       </svg>
+      <TextDisclaimer>* object sizes are not to scale</TextDisclaimer>
       <div className="row-container">
         <SectionTitle>
           <span>12 April</span>Space Flight Day
