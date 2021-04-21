@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "d3-scale": "^3.2.3",
+    "flubber": "^0.4.2",
     "framer-motion": "^4.0.3",
     "next": "latest",
     "prop-types": "^15.7.2",
