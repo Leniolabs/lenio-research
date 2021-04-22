@@ -43,11 +43,13 @@ export const State = ({
     setTextVariants({
       hex: {
         x: centroidHex[0],
-        y: centroidHex[1]
+        y: centroidHex[1],
+        opacity: 1
       },
       shape: {
         x: centroidShape[0],
-        y: centroidShape[1]
+        y: centroidShape[1],
+        opacity: 0
       }
     });
   }, [shape, hexPath, shapePath]);
