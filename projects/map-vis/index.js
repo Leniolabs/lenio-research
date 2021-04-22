@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as React from "react";
 import Link from "next/link";
 import styled from "styled-components";
@@ -27,16 +28,16 @@ const StickyContainer = styled.div`
 export const Index = ({ seeMore = false }) => {
   const { logEvent } = useTracking();
   const title = "Map Visualizations";
-  const [shape, cycleShape] = useCycle("hex", "map");
+  const [shape, cycleShape] = useCycle("hex", "shape");
 
   React.useEffect(() => {}, []);
 
-  // const onPlay = React.useCallback(() => {
-  //   logEvent({
-  //     category: "Vaccinations",
-  //     action: "Pressed Play"
-  //   });
-  // }, []);
+  const onPlay = React.useCallback(() => {
+    logEvent({
+      category: "Vaccinations",
+      action: "Pressed Play"
+    });
+  }, []);
 
   return (
     <section className="chart-wrapper">
@@ -64,8 +65,12 @@ export const Index = ({ seeMore = false }) => {
                 name={state}
                 shape={shape}
                 shapePath={data[state].shape}
-                hexPath={data[state].hex}
-              />
+                hexPath={data[state].hex}>
+                {/* Here to illustrate that we can render something in the center */}
+                {state === "alabama" && (
+                  <rect x={-5} y={-5} width={10} height={10} fill="red"></rect>
+                )}
+              </State>
             );
           })}
         </svg>
