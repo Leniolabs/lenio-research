@@ -10,7 +10,9 @@ export const useSVGMorph = (d, config) => {
 
     animate(0, 1, {
       ...config,
-      onUpdate: (progress) => value.set(interpolator(progress))
+      onUpdate: (progress) => {
+        value.set(interpolator(progress));
+      }
     });
   }, [config, d, value]);
 
