@@ -34,7 +34,7 @@ export const Index = ({ seeMore = false }) => {
   React.useEffect(() => {}, []);
 
   const colorScale = React.useMemo(() => {
-    return scaleQuantize().domain([-0.6, 0.6]).range(["#FF5B3A", "#FFBD23", "#35D0E5", "#3366FF"]);
+    return scaleQuantize().domain([-0.25, 0.25]).range(["#23A3C1", "#9cc9d9", "#ffaa92", "#FF5B3A"]);
   }, []);
 
   const onPlay = React.useCallback(() => {
@@ -59,7 +59,7 @@ export const Index = ({ seeMore = false }) => {
           <div>This is sticky</div>
           <button onClick={() => cycleShape()}>TOGGLE</button>
         </StickyContainer>
-        <svg className="main-chart" overflow="visible" viewBox={`0 0 600 400`}>
+        <svg className="main-chart-mapvis" overflow="visible" viewBox={`0 0 600 300`}>
           {Object.keys(data).map((state) => {
             if (!data[state].shape || !data[state].hex) {
               return null;
@@ -92,15 +92,22 @@ export const Index = ({ seeMore = false }) => {
                   shapePath={data[state].shape}
                   hexPath={data[state].hex}
                   multi={false}>
-                  {/* Here to illustrate that we can render something in the center */}
+                  {/* Here to illustrate that we can render something in the center
                   {state === "alabama" && (
                     <rect x={-5} y={-5} width={10} height={10} fill="red"></rect>
-                  )}
+                  )} */}
                 </State>
               </motion.g>
             );
           })}
         </svg>
+        <p>
+          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#23A3C1" /></svg> High Inbound<br/>
+          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#9cc9d9" /></svg> Medium Inbound<br/>
+          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#ffaa92" /></svg> Medium Outbound<br/>
+          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#FF5B3A" /></svg> High Outbound<br/>
+          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#F4E9F0" /></svg> No Data<br/>
+        </p>
 
         {!seeMore ? (
           <a href="/data.json">

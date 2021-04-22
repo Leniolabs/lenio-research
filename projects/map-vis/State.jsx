@@ -12,8 +12,8 @@ export const State = ({
   shape,
   hexPath,
   shapePath,
-  stroke = "#e91ecc",
-  fillColor = "#d8c2ff"
+  stroke = "#e8e6e6",
+  fillColor = "#f1f1f1"
 }) => {
   const d = useSVGMorph(shape === "hex" ? hexPath : shapePath, {
     duration: 0.5
