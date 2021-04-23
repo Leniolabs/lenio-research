@@ -137,5 +137,5 @@ State.propTypes = {
   fillColor: PropTypes.string,
   opacity: PropTypes.number,
   size: PropTypes.number,
-  hexCorner: [PropTypes.number, PropTypes.number]
+  hexCorner: PropTypes.arrayOf(PropTypes.number)
 };
