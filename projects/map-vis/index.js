@@ -6,9 +6,12 @@ import PropTypes from "prop-types";
 import { scaleQuantize } from "d3-scale";
 import { motion, useCycle } from "framer-motion";
 import { useTracking } from "analytics/context";
+import { generateBigHex } from "./Hexes/generateHexes";
+import { toPathString } from "flubber";
 
 import { State } from "./State";
 import { data } from "./data";
+const HEX_SIZE = 15;
 
 const SectionTitle = styled.h2`
   font-size: 2rem;
@@ -34,7 +37,9 @@ export const Index = ({ seeMore = false }) => {
   React.useEffect(() => {}, []);
 
   const colorScale = React.useMemo(() => {
-    return scaleQuantize().domain([-0.25, 0.25]).range(["#23A3C1", "#9cc9d9", "#ffaa92", "#FF5B3A"]);
+    return scaleQuantize()
+      .domain([-0.25, 0.25])
+      .range(["#23A3C1", "#9cc9d9", "#ffaa92", "#FF5B3A"]);
   }, []);
 
   const onPlay = React.useCallback(() => {
@@ -43,6 +48,8 @@ export const Index = ({ seeMore = false }) => {
       action: "Pressed Play"
     });
   }, []);
+
+  const customHex = generateBigHex({ size: 100, center: [250, 200] });
 
   return (
     <section className="chart-wrapper">
@@ -64,13 +71,19 @@ export const Index = ({ seeMore = false }) => {
             if (!data[state].shape || !data[state].hex) {
               return null;
             }
-            if (data[state].shape.toLowerCase().includes("c")) {
-              console.log(state);
-            }
             let stroke;
             if (data[state].migrationIn) {
               const diff = data[state].migrationOut - data[state].migrationIn;
               stroke = colorScale(diff);
+            }
+            let hexPath = data[state].hex;
+            let hexArray = [];
+            if (data[state].hexVertix) {
+              hexArray = generateBigHex({
+                size: HEX_SIZE,
+                center: data[state].hexVertix
+              });
+              hexPath = toPathString(hexArray);
             }
             return (
               <motion.g key={state}>
@@ -82,7 +95,7 @@ export const Index = ({ seeMore = false }) => {
                         shape={shape}
                         fillColor={stroke}
                         shapePath={extra}
-                        hexPath={data[state].hex}></State>
+                        hexPath={hexPath}></State>
                     );
                   })}
                 <State
@@ -90,23 +103,49 @@ export const Index = ({ seeMore = false }) => {
                   shape={shape}
                   fillColor={stroke}
                   shapePath={data[state].shape}
-                  hexPath={data[state].hex}
-                  multi={false}>
-                  {/* Here to illustrate that we can render something in the center
-                  {state === "alabama" && (
-                    <rect x={-5} y={-5} width={10} height={10} fill="red"></rect>
-                  )} */}
-                </State>
+                  hexPath={hexPath}
+                  hexCorner={hexArray[4]}
+                  size={HEX_SIZE}
+                  multi={false}></State>
               </motion.g>
             );
           })}
+          {/* <State
+            name={"arizona"}
+            shape={shape}
+            fillColor={"red"}
+            shapePath={data["arizona"].shape}
+            hexPath={toPathString(customHex)}
+            hexCorner={customHex[4]}
+            size={100}
+            multi={false}></State> */}
         </svg>
         <p>
-          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#23A3C1" /></svg> High Inbound<br/>
-          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#9cc9d9" /></svg> Medium Inbound<br/>
-          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#ffaa92" /></svg> Medium Outbound<br/>
-          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#FF5B3A" /></svg> High Outbound<br/>
-          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#F4E9F0" /></svg> No Data<br/>
+          <svg viewBox="0 0 20 20" width="15" height="15">
+            <circle cx="10" cy="10" r="8" fill="#23A3C1" />
+          </svg>{" "}
+          High Inbound
+          <br />
+          <svg viewBox="0 0 20 20" width="15" height="15">
+            <circle cx="10" cy="10" r="8" fill="#9cc9d9" />
+          </svg>{" "}
+          Medium Inbound
+          <br />
+          <svg viewBox="0 0 20 20" width="15" height="15">
+            <circle cx="10" cy="10" r="8" fill="#ffaa92" />
+          </svg>{" "}
+          Medium Outbound
+          <br />
+          <svg viewBox="0 0 20 20" width="15" height="15">
+            <circle cx="10" cy="10" r="8" fill="#FF5B3A" />
+          </svg>{" "}
+          High Outbound
+          <br />
+          <svg viewBox="0 0 20 20" width="15" height="15">
+            <circle cx="10" cy="10" r="8" fill="#F4E9F0" />
+          </svg>{" "}
+          No Data
+          <br />
         </p>
         <p>
           <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#23A3C1" /></svg> &lt; 18 to 34 y/o<br/>

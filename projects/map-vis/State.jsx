@@ -4,7 +4,15 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { polygonCentroid } from "d3-polygon";
 import { useSVGMorph } from "./useSVGMorph";
+import { toPathString } from "flubber";
 import { exactRing, parse } from "./svgUtils";
+
+import { generateBigHex, generateHexGrid } from "./Hexes/generateHexes";
+
+const gridVariants = {
+  hex: { opacity: 0.75 },
+  shape: { opacity: 0 }
+};
 
 export const State = ({
   children,
@@ -12,7 +20,10 @@ export const State = ({
   shape,
   hexPath,
   shapePath,
+  opacity = 1,
   stroke = "#e8e6e6",
+  hexCorner,
+  size,
   fillColor = "#f1f1f1"
 }) => {
   const d = useSVGMorph(shape === "hex" ? hexPath : shapePath, {
@@ -62,9 +73,46 @@ export const State = ({
     );
   };
 
+  const hexGrid = React.useMemo(() => {
+    if (hexCorner && size) {
+      const newGrid = generateHexGrid({
+        size: size,
+        topLeftCorner: hexCorner
+      });
+      return newGrid;
+    }
+    return [];
+  }, []);
+
+  const hexGridValues = React.useMemo(() => {
+    if (hexGrid) {
+      const limit = Math.random() * hexGrid.length;
+      return hexGrid.map((v, idx) => (idx < limit ? "#e3da80" : "#a8bc5b"));
+    }
+    return [];
+  }, []);
+
   return (
     <motion.g>
-      <motion.path d={d} fill={fillColor} stroke={stroke} strokeWidth="1" />
+      <motion.path d={d} fill={fillColor} opacity={opacity} stroke={stroke} strokeWidth="0.1px" />
+      <motion.g
+        initial={shape}
+        animate={shape}
+        transition={{ duration: 0.25, delay: shape === "hex" ? 0.5 : 0 }}
+        variants={gridVariants}>
+        {hexGrid.map((miniHex, idx) => {
+          return (
+            <motion.path
+              key={`minihex-${name}-${idx}`}
+              d={toPathString(miniHex)}
+              fill={hexGridValues[idx]}
+              opacity={opacity}
+              stroke={stroke}
+              strokeWidth="0.1px"
+            />
+          );
+        })}
+      </motion.g>
       <motion.g
         initial={shape}
         animate={shape}
@@ -86,5 +134,8 @@ State.propTypes = {
   hexPath: PropTypes.string,
   shapePath: PropTypes.string,
   stroke: PropTypes.string,
-  fillColor: PropTypes.string
+  fillColor: PropTypes.string,
+  opacity: PropTypes.number,
+  size: PropTypes.number,
+  hexCorner: [PropTypes.number, PropTypes.number]
 };

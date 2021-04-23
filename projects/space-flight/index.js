@@ -62,10 +62,6 @@ export const Index = () => {
   const [, setStartItem] = React.useState(ItemData.find((d) => d.story === 1));
   const [, setEndItem] = React.useState(ItemData.find((d) => d.story === 2));
 
-  React.useEffect(() => {
-    console.log("clientsize", clientSize);
-  }, [clientSize]);
-
   const onBack = React.useCallback(() => {
     logEvent({
       category: "SpaceFlight",

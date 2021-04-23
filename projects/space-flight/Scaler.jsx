@@ -24,7 +24,6 @@ export const Scaler = ({
     });
     oldPosition.current = scale(position);
     oldRadius.current = scale(diameter);
-    console.log(scale(position), scale(diameter), controls);
   }, [position, scale, diameter]);
 
   return (
