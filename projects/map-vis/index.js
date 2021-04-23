@@ -59,7 +59,7 @@ export const Index = ({ seeMore = false }) => {
           <div>This is sticky</div>
           <button onClick={() => cycleShape()}>TOGGLE</button>
         </StickyContainer>
-        <svg className="main-chart-mapvis" overflow="visible" viewBox={`0 0 600 300`}>
+        <svg className="main-chart-mapvis" overflow="visible" viewBox={`50 20 500 260`}>
           {Object.keys(data).map((state) => {
             if (!data[state].shape || !data[state].hex) {
               return null;
@@ -107,6 +107,13 @@ export const Index = ({ seeMore = false }) => {
           <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#ffaa92" /></svg> Medium Outbound<br/>
           <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#FF5B3A" /></svg> High Outbound<br/>
           <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#F4E9F0" /></svg> No Data<br/>
+        </p>
+        <p>
+          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#23A3C1" /></svg> &lt; 18 to 34 y/o<br/>
+          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#9cc9d9" /></svg> 35 to 44 y/o<br/>
+          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#ffaa92" /></svg> 45 to 54 y/o<br/>
+          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#FF5B3A" /></svg> 55 to 64 y/o<br/>
+          <svg viewBox="0 0 20 20" width="15" height="15"><circle cx="10" cy="10" r="8" fill="#F4E9F0" /></svg> 65 or older<br/>
         </p>
 
         {!seeMore ? (
