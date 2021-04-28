@@ -67,7 +67,7 @@ export const State = ({
 
   const Name = ({ name }) => {
     return (
-      <motion.text fontSize={4} dy={2} textAnchor="middle">
+      <motion.text fontSize={10} dy={3} textAnchor="middle">
         {name}
       </motion.text>
     );

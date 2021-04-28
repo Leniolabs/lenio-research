@@ -54,7 +54,7 @@ export const customStyles = {
     marginRight: "1rem",
     marginBottom: "1rem",
     width: "100%",
-    maxWidth: state.selectProps.width
+    maxWidth: state.selectProps.width + 'px'
   }),
   control: (provided, state) => ({
     ...provided,

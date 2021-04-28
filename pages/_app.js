@@ -69,13 +69,16 @@ const GlobalStyle = createGlobalStyle`
   }
   .chart-wrapper {
     background-color: #fffbf3;
-    background-color: #fff;
     .main-chart {
       margin: 2rem 0 3rem;
       width: 100%;
     }
   }
-  .main-chart-mapvis text { color: #45486d; }
+  .chart-wrapper.map-viz-wrapper {
+    background-color: #fff;
+  }
+  .main-chart-mapvis text { fill: #45486d; }
+  .main-chart-taxes text { fill: #45486d; }
   .btn {
     background-color: transparent;
     border: 2px solid #3baacc;
