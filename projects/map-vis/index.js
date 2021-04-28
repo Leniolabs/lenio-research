@@ -193,6 +193,27 @@ export const Index = ({ seeMore = false }) => {
 
       <div className="row-container">
         <h2>Moving variables and taxes</h2>
+        <CustomSelect
+            width="200"
+            options={dataOptions}
+            selectedOption={dataOptions}
+            label=""
+            onChange=""
+          />
+        <CustomSelect
+            width="200"
+            options={dataOptions}
+            selectedOption={dataOptions}
+            label=""
+            onChange=""
+          />
+        <CustomSelect
+            width="200"
+            options={dataOptions}
+            selectedOption={dataOptions}
+            label=""
+            onChange=""
+          />
         <svg class="main-chart-taxes" viewBox="0 -20 300 200">
           <polygon points="129.83 91.12 129.83 92.87 131.35 93.74 132.86 92.87 132.86 91.12 131.35 90.25 129.83 91.12" fill="#77229e"/>
           <polygon points="117.41 85.62 117.41 87.37 118.93 88.25 120.44 87.37 120.44 85.62 118.93 84.75 117.41 85.62" fill="#77229e"/>
