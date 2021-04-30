@@ -96,6 +96,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     &:hover { background-color: #3baacc; color: white; }
   }
+  .btn-map { float: left; margin: 0 2rem 0 0; }
   footer a { color: #fcfcf4; text-decoration: none; }
   .footer-logo {
     background-color: #354156;

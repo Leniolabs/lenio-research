@@ -31,6 +31,7 @@ const SectionTitle = styled.h1`
 
 const StickyContainer = styled.div`
   background: rgba(255, 251, 243, 0.9);
+  min-height: 60px;
   margin: 0 -8%;
   padding: 1rem 8% 0;
   position: sticky;
@@ -90,7 +91,7 @@ export const Index = ({ seeMore = false }) => {
         </p>
         <h2>Migration, reasons, and ages</h2>
         <StickyContainer>
-          <button onClick={() => cycleShape()} className="btn">
+        <button onClick={() => cycleShape()} className="btn btn-map">
             Toggle Mode
           </button>
           <CustomSelect
