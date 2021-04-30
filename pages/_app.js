@@ -77,6 +77,9 @@ const GlobalStyle = createGlobalStyle`
   .chart-wrapper.map-viz-wrapper {
     background-color: #fff;
   }
+  .main-chart-mapvis {
+    margin: 0 -10rem;
+  }
   .main-chart-mapvis text { fill: #45486d; }
   .main-chart-taxes text { fill: #45486d; }
   .btn {

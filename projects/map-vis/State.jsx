@@ -8,9 +8,11 @@ import { toPathString } from "flubber";
 import { exactRing, parse } from "./svgUtils";
 
 import { generateBigHex, generateHexGrid } from "./Hexes/generateHexes";
+import { howToPaintHexes } from "./Hexes/paintHexes";
+import { INNER_HEX_DEFAULT_COLOR } from "./constants";
 
 const gridVariants = {
-  hex: { opacity: 0.75 },
+  hex: { opacity: 1 },
   shape: { opacity: 0 }
 };
 
@@ -24,7 +26,8 @@ export const State = ({
   stroke = "#e8e6e6",
   hexCorner,
   size,
-  fillColor = "#f1f1f1"
+  fillColor = "#f1f1f1",
+  data = []
 }) => {
   const d = useSVGMorph(shape === "hex" ? hexPath : shapePath, {
     duration: 0.5
@@ -85,12 +88,11 @@ export const State = ({
   }, []);
 
   const hexGridValues = React.useMemo(() => {
-    if (hexGrid) {
-      const limit = Math.random() * hexGrid.length;
-      return hexGrid.map((v, idx) => (idx < limit ? "#e3da80" : "#a8bc5b"));
+    if (hexGrid && data) {
+      return howToPaintHexes(hexGrid, data);
     }
     return [];
-  }, []);
+  }, [hexGrid, data]);
 
   return (
     <motion.g>
@@ -105,10 +107,11 @@ export const State = ({
             <motion.path
               key={`minihex-${name}-${idx}`}
               d={toPathString(miniHex)}
-              fill={hexGridValues[idx]}
+              fill={hexGridValues[idx] || INNER_HEX_DEFAULT_COLOR}
               opacity={opacity}
-              stroke={stroke}
-              strokeWidth="0.1px"
+              stroke={hexGridValues[idx] || INNER_HEX_DEFAULT_COLOR}
+              // stroke={stroke}
+              strokeWidth="0.3px"
             />
           );
         })}
@@ -137,5 +140,6 @@ State.propTypes = {
   fillColor: PropTypes.string,
   opacity: PropTypes.number,
   size: PropTypes.number,
-  hexCorner: PropTypes.arrayOf(PropTypes.number)
+  hexCorner: PropTypes.arrayOf(PropTypes.number),
+  data: PropTypes.arrayOf(PropTypes.number)
 };
