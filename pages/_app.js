@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
   .row-container {
     margin: 0 auto;
     max-width: 45em;
-    padding: 2rem;
+    padding: 1rem;
   }
   .intro {
     line-height: 1.5;
@@ -78,7 +78,9 @@ const GlobalStyle = createGlobalStyle`
     background-color: #fff;
   }
   .main-chart-mapvis {
-    margin: 0 -10rem;
+    @media (min-width: 75em) {
+      margin: 0 -4rem;
+    }
   }
   .main-chart-mapvis text { fill: #45486d; }
   .main-chart-taxes text { fill: #45486d; }
@@ -96,7 +98,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     &:hover { background-color: #3baacc; color: white; }
   }
-  .btn-map { float: left; margin: 0 2rem 0 0; }
+  .btn-map { float: left; margin: 0 2rem 1rem 0; }
   footer a { color: #fcfcf4; text-decoration: none; }
   .footer-logo {
     background-color: #354156;

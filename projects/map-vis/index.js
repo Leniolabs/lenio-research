@@ -30,7 +30,7 @@ const SectionTitle = styled.h1`
 `;
 
 const StickyContainer = styled.div`
-  background: rgba(255, 251, 243, 0.9);
+  // background: rgba(255, 251, 243, 0.9);
   min-height: 60px;
   margin: 0 -8%;
   padding: 1rem 8% 0;
@@ -102,7 +102,7 @@ export const Index = ({ seeMore = false }) => {
             onChange={setDataKeys}
           />
         </StickyContainer>
-        <svg className="main-chart-mapvis" overflow="visible" viewBox={`50 20 500 260`}>
+        <svg className="main-chart-mapvis" overflow="visible" viewBox={`80 40 400 260`}>
           {data.map((state) => {
             if (!state.shape || !state.hex) {
               return null;
