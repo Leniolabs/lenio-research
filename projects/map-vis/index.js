@@ -171,7 +171,7 @@ export const Index = ({ seeMore = false }) => {
         )}
       </div>
 
-      <div className="row-container">
+      <div className="row-container hide">
         <h2>Moving variables and taxes</h2>
         <CustomSelect
           width="200"
