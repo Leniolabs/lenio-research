@@ -12,7 +12,7 @@ import { howToPaintHexes } from "./Hexes/paintHexes";
 import { INNER_HEX_DEFAULT_COLOR } from "./constants";
 
 const gridVariants = {
-  hex: { opacity: 1 },
+  hex: { opacity: .9 },
   shape: { opacity: 0 }
 };
 
@@ -23,7 +23,7 @@ export const State = ({
   hexPath,
   shapePath,
   opacity = 1,
-  stroke = "#e8e6e6",
+  stroke = "#FF5B3A",
   hexCorner,
   size,
   fillColor = "#f1f1f1",
@@ -96,7 +96,7 @@ export const State = ({
 
   return (
     <motion.g>
-      <motion.path d={d} fill={fillColor} opacity={opacity} stroke={stroke} strokeWidth="0.1px" />
+      <motion.path d={d} fill={fillColor} opacity={opacity} stroke={stroke} strokeWidth="2" />
       <motion.g
         initial={shape}
         animate={shape}

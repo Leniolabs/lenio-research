@@ -31,13 +31,15 @@ const SectionTitle = styled.h1`
 
 const StickyContainer = styled.div`
   // background: rgba(255, 251, 243, 0.9);
-  min-height: 60px;
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
   margin: 0 -8%;
   padding: 1rem 8% 0;
-  position: sticky;
-  top: 0;
-  left: 0;
   width: 100%;
+  .legends {
+    margin: 0 0 1rem auto;
+  }
 `;
 
 export const Index = ({ seeMore = false }) => {
@@ -101,8 +103,18 @@ export const Index = ({ seeMore = false }) => {
             label=""
             onChange={setDataKeys}
           />
+          {shape !== "hex" && <Legend data={MIGRATION_LEGEND_COLOR_MAPPING}></Legend>}
+          {dataKeys.label.includes("Reason") && shape === "hex" && (
+            <Legend data={REASON_LEGEND_COLOR_MAPPING}></Legend>
+          )}
+          {dataKeys.label.includes("Age") && shape === "hex" && (
+            <Legend data={AGE_LEGEND_COLOR_MAPPING}></Legend>
+          )}
+          {dataKeys.label.includes("Income") && shape === "hex" && (
+            <Legend data={INCOME_LEGEND_COLOR_MAPPING}></Legend>
+          )}
         </StickyContainer>
-        <svg className="main-chart-mapvis" overflow="visible" viewBox={`80 40 400 260`}>
+        <svg className="main-chart-mapvis" overflow="visible" viewBox={`80 70 400 240`}>
           {data.map((state) => {
             if (!state.shape || !state.hex) {
               return null;
@@ -148,16 +160,6 @@ export const Index = ({ seeMore = false }) => {
             );
           })}
         </svg>
-        {shape !== "hex" && <Legend data={MIGRATION_LEGEND_COLOR_MAPPING}></Legend>}
-        {dataKeys.label.includes("Reason") && shape === "hex" && (
-          <Legend data={REASON_LEGEND_COLOR_MAPPING}></Legend>
-        )}
-        {dataKeys.label.includes("Age") && shape === "hex" && (
-          <Legend data={AGE_LEGEND_COLOR_MAPPING}></Legend>
-        )}
-        {dataKeys.label.includes("Income") && shape === "hex" && (
-          <Legend data={INCOME_LEGEND_COLOR_MAPPING}></Legend>
-        )}
         {!seeMore ? (
           <a href="/data.json">
             <button className="btn download-btn">Download Data</button>
@@ -171,7 +173,7 @@ export const Index = ({ seeMore = false }) => {
         )}
       </div>
 
-      <div className="row-container hide">
+      <div className="row-container">
         <h2>Moving variables and taxes</h2>
         <CustomSelect
           width="200"
