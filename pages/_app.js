@@ -79,8 +79,8 @@ const GlobalStyle = createGlobalStyle`
   }
   .main-chart-mapvis {
     > g { cursor: pointer; }
-    @media (min-width: 75em) {
-      margin: 0 -4rem;
+    @media (max-width: 72em) {
+      width: 90%;
     }
   }
   .hex-legend { 
@@ -101,10 +101,12 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   .chart-grid {
-    display: grid;
-    grid-template-columns: 2.5fr 1fr;
-    margin-bottom: 3rem;
-    width: 100%;
+    @media (min-width: 48em) {
+      display: grid;
+      grid-template-columns: 2.5fr 1fr;
+      margin-bottom: 3rem;
+      width: 100%;
+    }
   }
   .btn {
     background-color: transparent;

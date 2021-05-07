@@ -32,12 +32,11 @@ const SectionTitle = styled.h1`
 `;
 
 const StickyContainer = styled.div`
-  // background: rgba(255, 251, 243, 0.9);
   align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -8%;
-  padding: 1rem 8% 0;
+  // margin: 0 -8%;
+  // padding: 1rem 8% 0;
   width: 100%;
   .legends {
     margin: 0 0 1rem auto;
