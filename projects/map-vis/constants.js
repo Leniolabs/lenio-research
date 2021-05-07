@@ -80,3 +80,15 @@ export const KEY_ARRAY_OPTIONS = [
     label: "Income Outbound"
   }
 ];
+
+const mapHelper = (s) => ({ value: s, label: s });
+
+export const SCATTERPLOT_OPTIONS = [
+  ...KEY_ARRAY_OPTIONS[0].value.map(mapHelper),
+  ...KEY_ARRAY_OPTIONS[1].value.map(mapHelper),
+  ...KEY_ARRAY_OPTIONS[2].value.map(mapHelper),
+  ...KEY_ARRAY_OPTIONS[3].value.map(mapHelper),
+  ...KEY_ARRAY_OPTIONS[4].value.map(mapHelper),
+  ...KEY_ARRAY_OPTIONS[5].value.map(mapHelper),
+  mapHelper("Combined Sales Tax Rate")
+];

@@ -12,13 +12,14 @@ import { CustomSelect } from "@components/select";
 
 import { State } from "./State";
 import { data } from "./data";
-import { generateLegendMapping } from "./utils";
+import { generateLegendMapping, generateScatterPlotData } from "./utils";
 import {
   KEY_ARRAY_OPTIONS,
   MIGRATION_LEGEND_LABELS,
   AGE_LEGEND_LABELS,
   REASON_LEGEND_LABELS,
-  INCOME_LEGEND_LABELS
+  INCOME_LEGEND_LABELS,
+  SCATTERPLOT_OPTIONS
 } from "./constants";
 import { Legend } from "./Legend";
 import { Scatterplot } from "./Scatterplot";
@@ -49,6 +50,9 @@ export const Index = ({ seeMore = false }) => {
   const [shape, cycleShape] = useCycle("hex", "shape");
   const [hoveredState, setHoveredState] = React.useState("");
   const [dataKeys, setDataKeys] = React.useState(KEY_ARRAY_OPTIONS[0]);
+  const [scatterPlotX, setScatterPlotX] = React.useState(SCATTERPLOT_OPTIONS[14]);
+  const [scatterPlotY, setScatterPlotY] = React.useState(SCATTERPLOT_OPTIONS[0]);
+  const [scatterPlotZ, setScatterPlotZ] = React.useState(SCATTERPLOT_OPTIONS[30]);
 
   React.useEffect(() => {}, []);
 
@@ -85,6 +89,16 @@ export const Index = ({ seeMore = false }) => {
   const [mapLegendData, setMapLegendData] = React.useState(
     generateLegendMapping(MIGRATION_LEGEND_LABELS)
   );
+
+  const [scatterPlotData, setScatterPlotData] = React.useState(
+    generateScatterPlotData(data, "Age_65_or_older_in", "Retirement_in", "Combined Sales Tax Rate")
+  );
+
+  React.useEffect(() => {
+    setScatterPlotData(
+      generateScatterPlotData(data, scatterPlotX.value, scatterPlotY.value, scatterPlotZ.value)
+    );
+  }, [scatterPlotX, scatterPlotY, scatterPlotZ]);
 
   React.useEffect(() => {
     let stateData;
@@ -207,26 +221,30 @@ export const Index = ({ seeMore = false }) => {
         <h2>Moving variables and taxes</h2>
         <CustomSelect
           width="200"
-          options={dataOptions}
-          selectedOption={dataOptions}
+          options={SCATTERPLOT_OPTIONS}
+          selectedOption={scatterPlotX}
           label=""
-          onChange=""
+          onChange={(o) => setScatterPlotX(o)}
         />
         <CustomSelect
           width="200"
-          options={dataOptions}
-          selectedOption={dataOptions}
+          options={SCATTERPLOT_OPTIONS}
+          selectedOption={scatterPlotY}
           label=""
-          onChange=""
+          onChange={(o) => setScatterPlotY(o)}
         />
         <CustomSelect
           width="200"
-          options={dataOptions}
-          selectedOption={dataOptions}
+          options={SCATTERPLOT_OPTIONS}
+          selectedOption={scatterPlotZ}
           label=""
-          onChange=""
+          onChange={(o) => setScatterPlotZ(o)}
         />
-        <Scatterplot></Scatterplot>
+        <Scatterplot
+          xTitle={scatterPlotX.value}
+          yTitle={scatterPlotY.value}
+          colorTitle={scatterPlotZ.value}
+          data={scatterPlotData}></Scatterplot>
         {/* <Legend data={REASON_LEGEND_COLOR_MAPPING}></Legend> */}
       </div>
     </section>
