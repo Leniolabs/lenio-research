@@ -4,40 +4,31 @@ export const INNER_HEX_COLORS = ["#ff9900", "#ffbd23", "#ffd892", "#ffe4b8", "#f
 // export const INNER_HEX_COLORS = ["#0D3EA0", "#3366FF", "#6690FF", "#BDD5FF", "#E3ECFF", "#E3ECFF"];
 export const LEGEND_COLORS = ["#23A3C1", "#9cc9d9", "#ffaa92", "#FF5B3A", "#F4E9F0"];
 
-export const generateLegendMapping = (names, colors = LEGEND_COLORS) => {
-  return names.map((name, idx) => {
-    return { name, color: colors[idx] };
-  });
-};
-
-export const MIGRATION_LEGEND_COLOR_MAPPING = generateLegendMapping([
+export const MIGRATION_LEGEND_LABELS = [
   "High Inbound",
   "Medium Inbound",
   "Medium Outbound",
   "High Outbound",
   "No Data"
-]);
+];
 
-export const INCOME_LEGEND_COLOR_MAPPING = generateLegendMapping(
-  [
-    "Income between 0K and 49K",
-    "Income between 50K and 74K",
-    "Income between 75K and 99K",
-    "Income between 100K and 149K",
-    "Income greater than 150K"
-  ],
-  INNER_HEX_COLORS
-);
+export const INCOME_LEGEND_LABELS = [
+  "Income between 0K and 49K",
+  "Income between 50K and 74K",
+  "Income between 75K and 99K",
+  "Income between 100K and 149K",
+  "Income greater than 150K"
+];
 
-export const AGE_LEGEND_COLOR_MAPPING = generateLegendMapping(
-  ["< 18 to 34 y/o", "35 to 44 y/o", "45 to 54 y/o", "55 to 64 y/o", "65 or older"],
-  INNER_HEX_COLORS
-);
+export const AGE_LEGEND_LABELS = [
+  "< 18 to 34 y/o",
+  "35 to 44 y/o",
+  "45 to 54 y/o",
+  "55 to 64 y/o",
+  "65 or older"
+];
 
-export const REASON_LEGEND_COLOR_MAPPING = generateLegendMapping(
-  ["Retirement", "Health", "Family", "Lifestyle", "Job"],
-  INNER_HEX_COLORS
-);
+export const REASON_LEGEND_LABELS = ["Retirement", "Health", "Family", "Lifestyle", "Job"];
 
 export const KEY_ARRAY_OPTIONS = [
   {

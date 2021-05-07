@@ -12,7 +12,7 @@ import { howToPaintHexes } from "./Hexes/paintHexes";
 import { INNER_HEX_DEFAULT_COLOR } from "./constants";
 
 const gridVariants = {
-  hex: { opacity: .9 },
+  hex: { opacity: 0.9 },
   shape: { opacity: 0 }
 };
 
@@ -27,7 +27,9 @@ export const State = ({
   hexCorner,
   size,
   fillColor = "#f1f1f1",
-  data = []
+  data = [],
+  onMouseEnter = () => null,
+  onMouseOut = () => null
 }) => {
   const d = useSVGMorph(shape === "hex" ? hexPath : shapePath, {
     duration: 0.5
@@ -37,6 +39,17 @@ export const State = ({
   const [shapeCentroid, setShapeCentroid] = React.useState(
     polygonCentroid(exactRing(parse(shapePath)))
   );
+
+  const shapeVariants = React.useMemo(() => {
+    return {
+      hex: {
+        stroke: fillColor
+      },
+      shape: {
+        stroke
+      }
+    };
+  }, [fillColor]);
 
   const [textVariants, setTextVariants] = React.useState({
     hex: {
@@ -96,7 +109,17 @@ export const State = ({
 
   return (
     <motion.g>
-      <motion.path d={d} fill={fillColor} opacity={opacity} stroke={stroke} strokeWidth="2" />
+      <motion.path
+        animate={shape}
+        variants={shapeVariants}
+        d={d}
+        fill={fillColor}
+        opacity={opacity}
+        stroke={stroke}
+        strokeWidth="2"
+        onMouseEnter={onMouseEnter}
+        onMouseOut={onMouseOut}
+      />
       <motion.g
         initial={shape}
         animate={shape}
@@ -141,5 +164,7 @@ State.propTypes = {
   opacity: PropTypes.number,
   size: PropTypes.number,
   hexCorner: PropTypes.arrayOf(PropTypes.number),
-  data: PropTypes.arrayOf(PropTypes.number)
+  data: PropTypes.arrayOf(PropTypes.number),
+  onMouseEnter: PropTypes.func,
+  onMouseOut: PropTypes.func
 };

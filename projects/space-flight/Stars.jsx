@@ -10,7 +10,7 @@ export const Stars = ({ scale }) => {
     const [width] = size;
 
     if (1207 * s < width) return width / 1207;
-    return s;ƒ
+    return s;
   }, [scale, size]);
 
   return (

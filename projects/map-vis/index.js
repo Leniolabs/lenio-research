@@ -12,12 +12,13 @@ import { CustomSelect } from "@components/select";
 
 import { State } from "./State";
 import { data } from "./data";
+import { generateLegendMapping } from "./utils";
 import {
   KEY_ARRAY_OPTIONS,
-  MIGRATION_LEGEND_COLOR_MAPPING,
-  AGE_LEGEND_COLOR_MAPPING,
-  REASON_LEGEND_COLOR_MAPPING,
-  INCOME_LEGEND_COLOR_MAPPING
+  MIGRATION_LEGEND_LABELS,
+  AGE_LEGEND_LABELS,
+  REASON_LEGEND_LABELS,
+  INCOME_LEGEND_LABELS
 } from "./constants";
 import { Legend } from "./Legend";
 import { Scatterplot } from "./Scatterplot";
@@ -46,6 +47,7 @@ export const Index = ({ seeMore = false }) => {
   const { logEvent } = useTracking();
   const title = "Opportunities in The US Housing Market";
   const [shape, cycleShape] = useCycle("hex", "shape");
+  const [hoveredState, setHoveredState] = React.useState("");
   const [dataKeys, setDataKeys] = React.useState(KEY_ARRAY_OPTIONS[0]);
 
   React.useEffect(() => {}, []);
@@ -80,6 +82,33 @@ export const Index = ({ seeMore = false }) => {
     [dataKeys]
   );
 
+  const [mapLegendData, setMapLegendData] = React.useState(
+    generateLegendMapping(MIGRATION_LEGEND_LABELS)
+  );
+
+  React.useEffect(() => {
+    let stateData;
+    if (hoveredState) {
+      const foundState = data.find((state) => hoveredState === state.State);
+      if (foundState) {
+        stateData = generateStateData(foundState);
+      }
+    }
+    if (shape === "hex") {
+      if (dataKeys.label.includes("Reason")) {
+        setMapLegendData(generateLegendMapping(REASON_LEGEND_LABELS, stateData));
+      }
+      if (dataKeys.label.includes("Age")) {
+        setMapLegendData(generateLegendMapping(AGE_LEGEND_LABELS, stateData));
+      }
+      if (dataKeys.label.includes("Income")) {
+        setMapLegendData(generateLegendMapping(INCOME_LEGEND_LABELS, stateData));
+      }
+    } else {
+      setMapLegendData(generateLegendMapping(MIGRATION_LEGEND_LABELS, stateData));
+    }
+  }, [dataKeys, shape, hoveredState]);
+
   return (
     <section className="chart-wrapper map-viz-wrapper">
       <div className="row-container">
@@ -93,7 +122,7 @@ export const Index = ({ seeMore = false }) => {
         </p>
         <h2>Migration, reasons, and ages</h2>
         <StickyContainer>
-        <button onClick={() => cycleShape()} className="btn btn-map">
+          <button onClick={() => cycleShape()} className="btn btn-map">
             Toggle Mode
           </button>
           <CustomSelect
@@ -103,8 +132,8 @@ export const Index = ({ seeMore = false }) => {
             label=""
             onChange={setDataKeys}
           />
-          {shape !== "hex" && <Legend data={MIGRATION_LEGEND_COLOR_MAPPING}></Legend>}
-          {dataKeys.label.includes("Reason") && shape === "hex" && (
+          <Legend title={hoveredState} data={mapLegendData}></Legend>
+          {/* {dataKeys.label.includes("Reason") && shape === "hex" && (
             <Legend data={REASON_LEGEND_COLOR_MAPPING}></Legend>
           )}
           {dataKeys.label.includes("Age") && shape === "hex" && (
@@ -112,7 +141,7 @@ export const Index = ({ seeMore = false }) => {
           )}
           {dataKeys.label.includes("Income") && shape === "hex" && (
             <Legend data={INCOME_LEGEND_COLOR_MAPPING}></Legend>
-          )}
+          )} */}
         </StickyContainer>
         <svg className="main-chart-mapvis" overflow="visible" viewBox={`80 70 400 240`}>
           {data.map((state) => {
@@ -155,7 +184,8 @@ export const Index = ({ seeMore = false }) => {
                   data={!state.skipData ? generateStateData(state) : null}
                   hexCorner={hexArray[4]}
                   size={HEX_SIZE}
-                  multi={false}></State>
+                  multi={false}
+                  onMouseEnter={() => setHoveredState(state.State)}></State>
               </motion.g>
             );
           })}
@@ -197,7 +227,7 @@ export const Index = ({ seeMore = false }) => {
           onChange=""
         />
         <Scatterplot></Scatterplot>
-        <Legend data={REASON_LEGEND_COLOR_MAPPING}></Legend>
+        {/* <Legend data={REASON_LEGEND_COLOR_MAPPING}></Legend> */}
       </div>
     </section>
   );
