@@ -78,17 +78,33 @@ const GlobalStyle = createGlobalStyle`
     background-color: #fff;
   }
   .main-chart-mapvis {
+    > g { cursor: pointer; }
     @media (min-width: 75em) {
       margin: 0 -4rem;
     }
+  }
+  .hex-legend { 
+    align-items: center;
+    display: flex;
+    margin: .5rem 0;
+    svg { margin-right: 5px;}
   }
   .main-chart-mapvis text { fill: 
     #364157; 
     font-weight: bold;
     text-shadow: -3px -2px white; 
   }
-  .main-chart-taxes text { 
-    fill: #45486d;
+  .main-chart-taxes {
+    width: 100%;
+    text { 
+      fill: #45486d;
+    }
+  }
+  .chart-grid {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    margin-bottom: 3rem;
+    width: 100%;
   }
   .btn {
     background-color: transparent;

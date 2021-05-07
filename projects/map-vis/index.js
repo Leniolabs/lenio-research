@@ -41,6 +41,17 @@ const StickyContainer = styled.div`
   width: 100%;
   .legends {
     margin: 0 0 1rem auto;
+    h3 { margin: 0 0 .5rem; }
+    .legend-row {
+      align-items: center;
+      svg { margin-right: 5px; }
+      .legend-data {
+        display: inline-flex; 
+        justify-content: space-between;
+        min-width: 200px;
+      }
+    }
+    .legend-number { font-weight: bold; margin-left: auto; }
   }
 `;
 
@@ -146,6 +157,12 @@ export const Index = ({ seeMore = false }) => {
             label=""
             onChange={setDataKeys}
           />
+          <div className="hex-legend">
+          <svg width="16" height="16" viewBox="0 0 90 100" overflow="visible">
+            <polygon points="90.5 75.6 90.5 25.6 45.5 .6 .5 25.6 .5 75.6 45.5 100.6" fill="#ff9900"/>
+          </svg>
+          = 4%
+          </div>
           <Legend title={hoveredState} data={mapLegendData}></Legend>
           {/* {dataKeys.label.includes("Reason") && shape === "hex" && (
             <Legend data={REASON_LEGEND_COLOR_MAPPING}></Legend>
@@ -204,7 +221,7 @@ export const Index = ({ seeMore = false }) => {
             );
           })}
         </svg>
-        {!seeMore ? (
+        {/* {!seeMore ? (
           <a href="/data.json">
             <button className="btn download-btn">Download Data</button>
           </a>
@@ -214,7 +231,7 @@ export const Index = ({ seeMore = false }) => {
               <button className="btn download-btn">See more</button>
             </a>
           </Link>
-        )}
+        )} */}
       </div>
 
       <div className="row-container">
@@ -233,13 +250,13 @@ export const Index = ({ seeMore = false }) => {
           label=""
           onChange={(o) => setScatterPlotY(o)}
         />
-        <CustomSelect
+        {/* <CustomSelect
           width="200"
           options={SCATTERPLOT_OPTIONS}
           selectedOption={scatterPlotZ}
           label=""
           onChange={(o) => setScatterPlotZ(o)}
-        />
+        /> */}
         <Scatterplot
           xTitle={scatterPlotX.value}
           yTitle={scatterPlotY.value}

@@ -6,7 +6,7 @@ import { generateBigHex } from "./Hexes/generateHexes";
 import { toPathString } from "flubber";
 import { generateLegendMapping } from "./utils";
 
-const LABELS = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+const LABELS = [0, 10, 20, 30, 40, 50, 60];
 
 const HEX_PATH_STRING = toPathString(generateBigHex({ size: 2, center: [0, 0] }));
 
@@ -44,20 +44,19 @@ ScatterHex.propTypes = {
 const ScatterLegend = ({ title, data }) => {
   return (
     <p className="legends">
-      <span>{title}</span>
-      <br />
+      <h3>{title}</h3>
       {data.map((row) => {
         return (
           <React.Fragment key={row.name}>
-            <span>
+            <div className="legend-row">
               <svg viewBox="0 0 20 20" width="15" height="15">
                 <circle cx="10" cy="10" r="8" fill={row.color} />
               </svg>{" "}
-              <span style={{ display: "flex", justifyContent: "space-between" }}>
-                <span>{row.name}</span>
-                {!!row.value && <span>{(row.value * 100).toFixed(2)} %</span>}
+              <span className="legend-data">
+                <span className="legend-name">{row.name}</span>
+                <span className="legend-number">{!!row.value && <span>{(row.value * 100).toFixed(2)} %</span>}</span>
               </span>
-            </span>
+            </div>
           </React.Fragment>
         );
       })}
@@ -92,8 +91,8 @@ export const Scatterplot = ({
   console.log(colorScale.values, colorScale.ticks());
 
   return (
-    <div>
-      <svg className="main-chart-taxes" viewBox="0 0 300 300">
+    <div className="chart-grid">
+      <svg className="main-chart-taxes" viewBox="0 100 250 200" overflow="visible">
         {data.map((state) => {
           return (
             <ScatterHex
@@ -103,10 +102,12 @@ export const Scatterplot = ({
               color={colorScale(state.z)}></ScatterHex>
           );
         })}
+        <line x1="14" y1="286" x2="210" y2="286" fill="none" stroke="#e1e1e1" strokeWidth=".3"></line>
+        <line x1="18" y1="100" x2="18" y2="290" fill="none" stroke="#e1e1e1" stroke-width=".3"></line>
         <text
-          transform="translate(0 0)"
+          transform="translate(-10 0)"
           fontSize="4"
-          fontFamily="SourceSansPro-Regular, Source Sans Pro">
+          fontFamily="'Source Sans Pro',sans-serif">
           {LABELS.map((label) => {
             return (
               <React.Fragment key={label}>
@@ -118,9 +119,9 @@ export const Scatterplot = ({
           })}
         </text>
         <text
-          transform="translate(0 280)"
+          transform="translate(0 290)"
           fontSize="4"
-          fontFamily="SourceSansPro-Regular, Source Sans Pro">
+          fontFamily="'Source Sans Pro',sans-serif">
           {LABELS.map((label) => {
             return (
               <React.Fragment key={label}>
@@ -141,16 +142,16 @@ export const Scatterplot = ({
           strokeMiterlimit="10"
         />
         <text
-          transform="translate(108.9 300)"
+          transform="translate(90 300)"
           fontSize="6"
-          fontFamily="SourceSansPro-SemiBold, Source Sans Pro"
+          fontFamily="'Source Sans Pro',sans-serif"
           fontWeight="600">
           {xTitle}
         </text>
         <text
-          transform="rotate(-90 42.01 35.37)"
+          transform="rotate(-90 110 110)"
           fontSize="6"
-          fontFamily="SourceSansPro-SemiBold, Source Sans Pro"
+          fontFamily="'Source Sans Pro',sans-serif"
           fontWeight="600">
           {yTitle}
         </text>

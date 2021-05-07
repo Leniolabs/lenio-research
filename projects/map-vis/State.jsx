@@ -23,7 +23,7 @@ export const State = ({
   hexPath,
   shapePath,
   opacity = 1,
-  stroke = "#FF5B3A",
+  stroke = "",
   hexCorner,
   size,
   fillColor = "#f1f1f1",
