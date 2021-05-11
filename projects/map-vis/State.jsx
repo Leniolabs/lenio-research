@@ -28,8 +28,7 @@ export const State = ({
   size,
   fillColor = "#f1f1f1",
   data = [],
-  onMouseEnter = () => null,
-  onMouseOut = () => null
+  onClick = () => null
 }) => {
   const d = useSVGMorph(shape === "hex" ? hexPath : shapePath, {
     duration: 0.5
@@ -108,7 +107,7 @@ export const State = ({
   }, [hexGrid, data]);
 
   return (
-    <motion.g>
+    <motion.g onClick={onClick}>
       <motion.path
         animate={shape}
         variants={shapeVariants}
@@ -117,8 +116,6 @@ export const State = ({
         opacity={opacity}
         stroke={stroke}
         strokeWidth="2"
-        onMouseEnter={onMouseEnter}
-        onMouseOut={onMouseOut}
       />
       <motion.g
         initial={shape}
@@ -165,6 +162,6 @@ State.propTypes = {
   size: PropTypes.number,
   hexCorner: PropTypes.arrayOf(PropTypes.number),
   data: PropTypes.arrayOf(PropTypes.number),
-  onMouseEnter: PropTypes.func,
+  onClick: PropTypes.func,
   onMouseOut: PropTypes.func
 };

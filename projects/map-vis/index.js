@@ -40,17 +40,24 @@ const StickyContainer = styled.div`
   width: 100%;
   .legends {
     margin: 0 0 1rem auto;
-    h3 { margin: 0 0 .5rem; }
+    h3 {
+      margin: 0 0 0.5rem;
+    }
     .legend-row {
       align-items: center;
-      svg { margin-right: 5px; }
+      svg {
+        margin-right: 5px;
+      }
       .legend-data {
-        display: inline-flex; 
+        display: inline-flex;
         justify-content: space-between;
         min-width: 200px;
       }
     }
-    .legend-number { font-weight: bold; margin-left: auto; }
+    .legend-number {
+      font-weight: bold;
+      margin-left: auto;
+    }
   }
 `;
 
@@ -149,18 +156,23 @@ export const Index = ({ seeMore = false }) => {
           <button onClick={() => cycleShape()} className="btn btn-map">
             Toggle Mode
           </button>
-          <CustomSelect
-            width="200"
-            options={KEY_ARRAY_OPTIONS}
-            selectedOption={dataKeys}
-            label=""
-            onChange={setDataKeys}
-          />
+          {shape === "shape" && (
+            <CustomSelect
+              width="200"
+              options={KEY_ARRAY_OPTIONS}
+              selectedOption={dataKeys}
+              label=""
+              onChange={setDataKeys}
+            />
+          )}
           <div className="hex-legend">
-          <svg width="16" height="16" viewBox="0 0 90 100" overflow="visible">
-            <polygon points="90.5 75.6 90.5 25.6 45.5 .6 .5 25.6 .5 75.6 45.5 100.6" fill="#ff9900"/>
-          </svg>
-          = 4%
+            <svg width="16" height="16" viewBox="0 0 90 100" overflow="visible">
+              <polygon
+                points="90.5 75.6 90.5 25.6 45.5 .6 .5 25.6 .5 75.6 45.5 100.6"
+                fill="#ff9900"
+              />
+            </svg>
+            = 4%
           </div>
           <Legend title={hoveredState} data={mapLegendData}></Legend>
           {/* {dataKeys.label.includes("Reason") && shape === "hex" && (
@@ -215,7 +227,7 @@ export const Index = ({ seeMore = false }) => {
                   hexCorner={hexArray[4]}
                   size={HEX_SIZE}
                   multi={false}
-                  onMouseEnter={() => setHoveredState(state.State)}></State>
+                  onClick={() => setHoveredState(state.State)}></State>
               </motion.g>
             );
           })}
@@ -244,7 +256,7 @@ export const Index = ({ seeMore = false }) => {
         />
         <CustomSelect
           width="200"
-          options={SCATTERPLOT_OPTIONS}
+          options={SCATTERPLOT_OPTIONS.filter((o) => o.label !== scatterPlotX.label)}
           selectedOption={scatterPlotY}
           label=""
           onChange={(o) => setScatterPlotY(o)}

@@ -88,8 +88,6 @@ export const Scatterplot = ({
     return scaleLinear().domain([mmin, mmax]).range(["#F2F858", "#9a3391", "#081281"]);
   }, [data]);
 
-  console.log(colorScale.values, colorScale.ticks());
-
   return (
     <div className="chart-grid">
       <svg className="main-chart-taxes" viewBox="0 100 250 200" overflow="visible">
