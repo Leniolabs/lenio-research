@@ -104,9 +104,9 @@ export const Scatterplot = ({
         })}
         <line
           x1="14"
-          y1="286"
+          y1="293"
           x2="210"
-          y2="286"
+          y2="293"
           fill="none"
           stroke="#e1e1e1"
           strokeWidth=".3"></line>
@@ -114,11 +114,11 @@ export const Scatterplot = ({
           x1="18"
           y1="100"
           x2="18"
-          y2="290"
+          y2="297"
           fill="none"
           stroke="#e1e1e1"
           strokeWidth=".3"></line>
-        <text transform="translate(-10 0)" fontSize="4" fontFamily="'Source Sans Pro',sans-serif">
+        <text transform="translate(-8 0)" fontSize="4" fontFamily="'Source Sans Pro',sans-serif">
           {LABELS.map((label) => {
             return (
               <React.Fragment key={label}>
@@ -129,7 +129,7 @@ export const Scatterplot = ({
             );
           })}
         </text>
-        <text transform="translate(0 290)" fontSize="4" fontFamily="'Source Sans Pro',sans-serif">
+        <text transform="translate(0 298)" fontSize="4" fontFamily="'Source Sans Pro',sans-serif">
           {LABELS.map((label) => {
             return (
               <React.Fragment key={label}>
@@ -155,14 +155,14 @@ export const Scatterplot = ({
           strokeMiterlimit="10"
         />
         <text
-          transform="translate(90 300)"
+          transform="translate(90 308)"
           fontSize="6"
           fontFamily="'Source Sans Pro',sans-serif"
           fontWeight="600">
           {xTitle}
         </text>
         <text
-          transform="rotate(-90 110 110)"
+          transform="rotate(-90 116 112)"
           fontSize="6"
           fontFamily="'Source Sans Pro',sans-serif"
           fontWeight="600">
