@@ -54,7 +54,9 @@ const ScatterLegend = ({ title, data }) => {
               </svg>{" "}
               <span className="legend-data">
                 <span className="legend-name">{row.name}</span>
-                <span className="legend-number">{!!row.value && <span>{(row.value * 100).toFixed(2)} %</span>}</span>
+                <span className="legend-number">
+                  {!!row.value && <span>{(row.value * 100).toFixed(2)} %</span>}
+                </span>
               </span>
             </div>
           </React.Fragment>
@@ -100,12 +102,23 @@ export const Scatterplot = ({
               color={colorScale(state.z)}></ScatterHex>
           );
         })}
-        <line x1="14" y1="286" x2="210" y2="286" fill="none" stroke="#e1e1e1" strokeWidth=".3"></line>
-        <line x1="18" y1="100" x2="18" y2="290" fill="none" stroke="#e1e1e1" stroke-width=".3"></line>
-        <text
-          transform="translate(-10 0)"
-          fontSize="4"
-          fontFamily="'Source Sans Pro',sans-serif">
+        <line
+          x1="14"
+          y1="286"
+          x2="210"
+          y2="286"
+          fill="none"
+          stroke="#e1e1e1"
+          strokeWidth=".3"></line>
+        <line
+          x1="18"
+          y1="100"
+          x2="18"
+          y2="290"
+          fill="none"
+          stroke="#e1e1e1"
+          strokeWidth=".3"></line>
+        <text transform="translate(-10 0)" fontSize="4" fontFamily="'Source Sans Pro',sans-serif">
           {LABELS.map((label) => {
             return (
               <React.Fragment key={label}>
@@ -116,10 +129,7 @@ export const Scatterplot = ({
             );
           })}
         </text>
-        <text
-          transform="translate(0 290)"
-          fontSize="4"
-          fontFamily="'Source Sans Pro',sans-serif">
+        <text transform="translate(0 290)" fontSize="4" fontFamily="'Source Sans Pro',sans-serif">
           {LABELS.map((label) => {
             return (
               <React.Fragment key={label}>
@@ -130,11 +140,16 @@ export const Scatterplot = ({
             );
           })}
         </text>
-        <line
-          x1={xScale(linearRegression.x1)}
-          y1={300 - yScale(linearRegression.y1)}
-          x2={xScale(linearRegression.x2)}
-          y2={300 - yScale(linearRegression.y2)}
+        <motion.line
+          animate={{
+            x1: xScale(linearRegression.x1),
+            y1: 300 - yScale(linearRegression.y1),
+            x2: xScale(linearRegression.x2),
+            y2: 300 - yScale(linearRegression.y2)
+          }}
+          transition={{
+            duration: 0.75
+          }}
           fill="none"
           stroke="#ff5b3a"
           strokeMiterlimit="10"

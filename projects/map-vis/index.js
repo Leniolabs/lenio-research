@@ -12,6 +12,7 @@ import { CustomSelect } from "@components/select";
 
 import { State } from "./State";
 import { data } from "./data";
+import { linearFit } from "./linearfits";
 import { generateLegendMapping, generateScatterPlotData } from "./utils";
 import {
   KEY_ARRAY_OPTIONS,
@@ -61,6 +62,12 @@ const StickyContainer = styled.div`
   }
 `;
 
+const getLinearFitForPair = (a, b, startX = 0, endX = 60) => {
+  const [slope, ord] = linearFit[`${a}, ${b}`];
+  const f = (x) => x * slope + ord;
+  return { x1: startX, y1: f(startX), x2: endX, y2: f(endX) };
+};
+
 export const Index = ({ seeMore = false }) => {
   const { logEvent } = useTracking();
   const title = "Opportunities in The US Housing Market";
@@ -70,6 +77,9 @@ export const Index = ({ seeMore = false }) => {
   const [scatterPlotX, setScatterPlotX] = React.useState(SCATTERPLOT_OPTIONS[14]);
   const [scatterPlotY, setScatterPlotY] = React.useState(SCATTERPLOT_OPTIONS[0]);
   const [scatterPlotZ, setScatterPlotZ] = React.useState(SCATTERPLOT_OPTIONS[30]);
+  const [scatterPlotLinearFit, setScatterPlotLinearFit] = React.useState(
+    getLinearFitForPair(SCATTERPLOT_OPTIONS[14].label, SCATTERPLOT_OPTIONS[0].label)
+  );
 
   React.useEffect(() => {}, []);
 
@@ -115,6 +125,7 @@ export const Index = ({ seeMore = false }) => {
     setScatterPlotData(
       generateScatterPlotData(data, scatterPlotX.value, scatterPlotY.value, scatterPlotZ.value)
     );
+    setScatterPlotLinearFit(getLinearFitForPair(scatterPlotX.label, scatterPlotY.label));
   }, [scatterPlotX, scatterPlotY, scatterPlotZ]);
 
   React.useEffect(() => {
@@ -272,6 +283,7 @@ export const Index = ({ seeMore = false }) => {
           xTitle={scatterPlotX.value}
           yTitle={scatterPlotY.value}
           colorTitle={scatterPlotZ.value}
+          linearRegression={scatterPlotLinearFit}
           data={scatterPlotData}></Scatterplot>
         {/* <Legend data={REASON_LEGEND_COLOR_MAPPING}></Legend> */}
       </div>

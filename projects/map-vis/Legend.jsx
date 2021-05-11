@@ -14,7 +14,9 @@ export const Legend = ({ title, data }) => {
               </svg>{" "}
               <span className="legend-data">
                 <span className="legend-name">{row.name}</span>
-                <span className="legend-number">{!!row.value && <span>{(row.value * 100).toFixed(2)} %</span>}</span>
+                <span className="legend-number">
+                  {!!row.value && <span>{(row.value * 100).toFixed(2)} %</span>}
+                </span>
               </span>
             </div>
           </React.Fragment>
