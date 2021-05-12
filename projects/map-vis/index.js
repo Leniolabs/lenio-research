@@ -20,7 +20,8 @@ import {
   AGE_LEGEND_LABELS,
   REASON_LEGEND_LABELS,
   INCOME_LEGEND_LABELS,
-  SCATTERPLOT_OPTIONS
+  SCATTERPLOT_OPTIONS,
+  INNER_HEX_COLORS
 } from "./constants";
 import { Legend } from "./Legend";
 import { Scatterplot } from "./Scatterplot";
@@ -138,13 +139,13 @@ export const Index = ({ seeMore = false }) => {
     }
     if (shape === "hex") {
       if (dataKeys.label.includes("Reason")) {
-        setMapLegendData(generateLegendMapping(REASON_LEGEND_LABELS, stateData));
+        setMapLegendData(generateLegendMapping(REASON_LEGEND_LABELS, stateData, INNER_HEX_COLORS));
       }
       if (dataKeys.label.includes("Age")) {
-        setMapLegendData(generateLegendMapping(AGE_LEGEND_LABELS, stateData));
+        setMapLegendData(generateLegendMapping(AGE_LEGEND_LABELS, stateData, INNER_HEX_COLORS));
       }
       if (dataKeys.label.includes("Income")) {
-        setMapLegendData(generateLegendMapping(INCOME_LEGEND_LABELS, stateData));
+        setMapLegendData(generateLegendMapping(INCOME_LEGEND_LABELS, stateData, INNER_HEX_COLORS));
       }
     } else {
       setMapLegendData(generateLegendMapping(MIGRATION_LEGEND_LABELS, stateData));
@@ -167,7 +168,7 @@ export const Index = ({ seeMore = false }) => {
           <button onClick={() => cycleShape()} className="btn btn-map">
             Toggle Mode
           </button>
-          {shape === "shape" && (
+          {shape === "hex" && (
             <CustomSelect
               width="200"
               options={KEY_ARRAY_OPTIONS}
@@ -176,15 +177,17 @@ export const Index = ({ seeMore = false }) => {
               onChange={setDataKeys}
             />
           )}
-          <div className="hex-legend">
-            <svg width="16" height="16" viewBox="0 0 90 100" overflow="visible">
-              <polygon
-                points="90.5 75.6 90.5 25.6 45.5 .6 .5 25.6 .5 75.6 45.5 100.6"
-                fill="#ff9900"
-              />
-            </svg>
-            = 4%
-          </div>
+          {shape === "hex" && (
+            <div className="hex-legend">
+              <svg width="16" height="16" viewBox="0 0 90 100" overflow="visible">
+                <polygon
+                  points="90.5 75.6 90.5 25.6 45.5 .6 .5 25.6 .5 75.6 45.5 100.6"
+                  fill="#ff9900"
+                />
+              </svg>
+              = 4%
+            </div>
+          )}
           <Legend title={hoveredState} data={mapLegendData}></Legend>
           {/* {dataKeys.label.includes("Reason") && shape === "hex" && (
             <Legend data={REASON_LEGEND_COLOR_MAPPING}></Legend>
