@@ -3,7 +3,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import Link from "next/link";
 import { LogoHeaderContainer, Footer, FooterLogo } from "@components/styled";
-import SpaceFlightMainSnippet from "@projects/space-flight";
+import Home from "@projects/home";
 
 const RowContainer = styled.div`
   background: #243042;
@@ -57,7 +57,7 @@ export const Index = () => {
         <meta property="og:locale" content="en_US" />
         <meta property="article:author" content="Leniolabs_ Research" />
       </Head>
-      <header>
+      {/* <header>
         <RowContainer>
           <Link href="https://leniolabs.com" passHref={true}>
             <LogoHeaderContainer link>
@@ -86,8 +86,8 @@ export const Index = () => {
             </LogoHeaderContainer>
           </Link>
         </RowContainer>
-      </header>
-      <SpaceFlightMainSnippet />
+      </header> */}
+      <Home></Home>
       <Footer>
         <a href="https://leniolabs.com" target="_blank" rel="noreferrer">
           <FooterLogo>
