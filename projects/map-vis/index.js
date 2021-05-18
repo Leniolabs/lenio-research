@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
 import * as React from "react";
 import Link from "next/link";
-import styled from "styled-components";
+import { SectionTitle, StickyContainer } from "./style";
 import PropTypes from "prop-types";
 import { scaleQuantize } from "d3-scale";
 import { motion, useCycle } from "framer-motion";
 import { useTracking } from "analytics/context";
 import { generateBigHex } from "./Hexes/generateHexes";
 import { toPathString } from "flubber";
-import { CustomSelect } from "@components/select";
+import { CustomSelect } from "@components/select/select";
 
 import { State } from "./State";
 import { data } from "./data";
@@ -26,42 +26,6 @@ import {
 import { Legend } from "./Legend";
 import { Scatterplot } from "./Scatterplot";
 const HEX_SIZE = 15;
-
-const SectionTitle = styled.h1`
-  font-size: 3rem;
-  color: ${({ theme }) => theme.colors.primary};
-  text-align: center;
-`;
-
-const StickyContainer = styled.div`
-  align-items: flex-start;
-  display: flex;
-  flex-wrap: wrap;
-  // margin: 0 -8%;
-  // padding: 1rem 8% 0;
-  width: 100%;
-  .legends {
-    margin: 0 0 1rem auto;
-    h3 {
-      margin: 0 0 0.5rem;
-    }
-    .legend-row {
-      align-items: center;
-      svg {
-        margin-right: 5px;
-      }
-      .legend-data {
-        display: inline-flex;
-        justify-content: space-between;
-        min-width: 200px;
-      }
-    }
-    .legend-number {
-      font-weight: bold;
-      margin-left: auto;
-    }
-  }
-`;
 
 const getLinearFitForPair = (a, b, startX = 0, endX = 60) => {
   const [slope, ord] = linearFit[`${a}, ${b}`];

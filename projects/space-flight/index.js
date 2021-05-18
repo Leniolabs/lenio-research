@@ -1,5 +1,5 @@
 import * as React from "react";
-import styled from "styled-components";
+import { SectionTitle, SectionSubTitle, TextDisclaimer } from "./style";
 import PropTypes from "prop-types";
 import { useTracking } from "analytics/context";
 import { useWindowSize } from "utils/useWindowSize";
@@ -11,30 +11,6 @@ import { DistanceMarker } from "./DistanceMarker";
 import { ItemData } from "./data";
 import { Story } from "./story";
 import { Stars } from "./Stars";
-
-const SectionTitle = styled.h2`
-  font-size: 2rem;
-  color: ${({ theme }) => theme.colors.primary};
-  text-align: center;
-  span {
-    font-size: 1.2rem;
-    display: block;
-    color: #ff7d31;
-    text-align: center;
-  }
-`;
-
-const SectionSubTitle = styled.h3`
-  font-size: 1.4rem;
-  text-align: center;
-`;
-
-const TextDisclaimer = styled.p`
-  font-size: 0.9rem;
-  font-style: italic;
-  margin: 1rem;
-  text-align: right;
-`;
 
 const getNewDomain = (story) => {
   const elemStart = ItemData.find((d) => d.story === story.start);

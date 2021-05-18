@@ -1,28 +1,7 @@
 import * as React from "react";
-import styled, { css } from "styled-components";
+import { LegendsContainer, Element, LegendCircle } from "./legend.style";
 import PropTypes from "prop-types";
 import { CONTINENT_COLOR_MAP } from "@projects/colorMappers";
-
-const LegendsContainer = styled.div``;
-const Element = styled.span`
-  align-items: center;
-  color: #5a60ab;
-  display: inline-flex;
-  font-size: 1rem;
-  margin: 0.5rem 1rem 0.5rem 0;
-  svg {
-    margin-right: 0.3rem;
-  }
-  ${({ onSeriesClick }) =>
-    onSeriesClick &&
-    css`
-      cursor: pointer;
-    `}
-`;
-const LegendCircle = styled.circle`
-  fill: ${(props) => props.fill};
-  stroke: #5a60ab;
-`;
 
 export const Legend = ({ series = CONTINENT_COLOR_MAP, onSeriesClick, legendFilter }) => {
   return (

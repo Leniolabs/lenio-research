@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const Card = styled.div`
   position: relative;
   min-height: 350px;
-  width: 45%;
+  width: 100%;
   background: #fff;
   padding: 16px 32px;
   box-sizing: border-box;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   img {
     width: 100%;
   }
@@ -18,15 +18,6 @@ export const Card = styled.div`
     font-size: 14px;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-  @media (max-width: 1200px) {
-    width: 55%;
-  }
-  @media (max-width: 960px) {
-    width: 65%;
-  }
-  @media (max-width: 768px) {
-    width: 75%;
   }
 `;
 export const CardTitle = styled.h6`

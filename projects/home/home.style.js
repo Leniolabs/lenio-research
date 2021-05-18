@@ -69,4 +69,7 @@ export const HeroImage = styled.div`
   height: 400px;
   background: black;
   width: 100%;
+  // @media (max-width: 728px) {
+  //   width: 25%;
+  // }
 `;

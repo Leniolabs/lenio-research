@@ -1,44 +1,15 @@
 import * as React from "react";
-import styled from "styled-components";
+import {
+  BorderPath,
+  SyringeColor,
+  SyringeTop,
+  BlueFillPath,
+  MovingPath,
+  TSpan,
+  FlagContainer
+} from "./syringe.style";
 import PropTypes from "prop-types";
-import { SVGText } from "./styled";
-
-const BorderPath = styled.path`
-  fill: #5a60ab;
-  stroke: #5a60ab;
-  stroke-width: 2;
-`;
-
-const SyringeColor = styled(BorderPath)`
-  fill: ${(props) => props.color};
-`;
-
-const SyringeTop = styled(BorderPath)`
-  fill: #fff;
-`;
-
-const BlueFillPath = styled.path`
-  fill: #5a60ab;
-`;
-
-const MovingPath = styled.path`
-  fill: #dce4fc;
-  stroke: #5a60ab;
-  stroke-width: 2;
-  transition: d 0.2s linear;
-`;
-
-const TSpan = styled.tspan`
-  fill: #5a60ab;
-  font-size: 1.5rem;
-  font-weight: bold;
-`;
-
-const FlagContainer = styled.circle`
-  stroke: #5a60ab;
-  stroke-width: 2;
-  fill: #5a60ab;
-`;
+import { SVGText } from "../styled";
 
 export const Syringe = ({
   percentage,
