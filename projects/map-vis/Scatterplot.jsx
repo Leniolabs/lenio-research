@@ -6,7 +6,7 @@ import { generateBigHex } from "./Hexes/generateHexes";
 import { toPathString } from "flubber";
 import { generateLegendMapping } from "./utils";
 
-const LABELS = [0, 10, 20, 30, 40, 50, 60];
+const LABELS = [0, 10, 20, 30, 40, 50, 60, 70, 80];
 
 const HEX_PATH_STRING = toPathString(generateBigHex({ size: 2, center: [0, 0] }));
 
@@ -79,10 +79,10 @@ export const Scatterplot = ({
   linearRegression = { x1: 0, y1: 0, x2: 50, y2: 50 }
 }) => {
   const xScale = React.useMemo(() => {
-    return scaleLinear().domain([0, 100]).range([20, 300]);
+    return scaleLinear().domain([0, 100]).range([20, 230]);
   });
   const yScale = React.useMemo(() => {
-    return scaleLinear().domain([0, 100]).range([20, 300]);
+    return scaleLinear().domain([0, 100]).range([20, 230]);
   });
   const colorScale = React.useMemo(() => {
     const mmin = Math.min(...data.map((d) => d.z));
