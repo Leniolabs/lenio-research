@@ -56,7 +56,7 @@ const ScatterLegend = ({ title, data }) => {
                 <span className="legend-name">{row.name}</span>
                 <span className="legend-number">
                   {!!row.value && <span>{(row.value * 100).toFixed(2)} %</span>}
-                </span>
+                </span>%
               </span>
             </div>
           </React.Fragment>
@@ -122,9 +122,9 @@ export const Scatterplot = ({
           {LABELS.map((label) => {
             return (
               <React.Fragment key={label}>
-                <tspan x="20" y={300 - yScale(label)}>
+                <tspan x="16" y={300 - yScale(label)}>
                   {label}
-                </tspan>{" "}
+                </tspan>{" "}%
               </React.Fragment>
             );
           })}
@@ -135,7 +135,7 @@ export const Scatterplot = ({
               <React.Fragment key={label}>
                 <tspan x={xScale(label)} y="0">
                   {label}
-                </tspan>{" "}
+                </tspan>{" "}%
               </React.Fragment>
             );
           })}
