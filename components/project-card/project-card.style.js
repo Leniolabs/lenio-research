@@ -1,11 +1,9 @@
-import React from "react";
-import Link from "next/link";
 import styled from "styled-components";
 
-const Card = styled.div`
+export const Card = styled.div`
   position: relative;
   min-height: 350px;
-  width: 100%;
+  width: 45%;
   background: #fff;
   padding: 16px 32px;
   box-sizing: border-box;
@@ -21,8 +19,17 @@ const Card = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  @media (max-width: 1200px) {
+    width: 55%;
+  }
+  @media (max-width: 960px) {
+    width: 65%;
+  }
+  @media (max-width: 768px) {
+    width: 75%;
+  }
 `;
-const CardTitle = styled.h6`
+export const CardTitle = styled.h6`
   text-transform: uppercase;
   margin: 0;
   font-size: 1.5rem;
@@ -30,7 +37,7 @@ const CardTitle = styled.h6`
   padding-bottom: 16px;
 `;
 
-const Button = styled.a`
+export const Button = styled.a`
   position: absolute;
   background: #00beff;
   padding: 16px;
@@ -48,17 +55,3 @@ const Button = styled.a`
     transition: all 0.8s;
   }
 `;
-const ProjectCard = ({ title, imgPreview, description, link }) => {
-  return (
-    <Card>
-      <CardTitle>{title}</CardTitle>
-      <img src={imgPreview}></img>
-      <p>{description}</p>
-      <Link href={link}>
-        <Button>Explore Data Visualization</Button>
-      </Link>
-    </Card>
-  );
-};
-
-export default ProjectCard;
