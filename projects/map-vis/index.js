@@ -9,11 +9,9 @@ import { useTracking } from "analytics/context";
 import { generateBigHex } from "./Hexes/generateHexes";
 import { toPathString } from "flubber";
 import { CustomSelect } from "@components/select";
-
 import { State } from "./State";
 import { data } from "./data";
-import { linearFit } from "./linearfits";
-import { generateLegendMapping, generateScatterPlotData } from "./utils";
+import { generateLegendMapping, generateScatterPlotData, getLinearFitForPair } from "./utils";
 import {
   KEY_ARRAY_OPTIONS,
   MIGRATION_LEGEND_LABELS,
@@ -62,12 +60,6 @@ const StickyContainer = styled.div`
     }
   }
 `;
-
-const getLinearFitForPair = (a, b, startX = 0, endX = 60) => {
-  const [slope, ord] = linearFit[`${a}, ${b}`];
-  const f = (x) => x * slope + ord;
-  return { x1: startX, y1: f(startX), x2: endX, y2: f(endX) };
-};
 
 export const Index = ({ seeMore = false }) => {
   const { logEvent } = useTracking();
