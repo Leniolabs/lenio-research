@@ -5,15 +5,13 @@ import PropTypes from "prop-types";
 import { CustomSelect } from "@components/select";
 import { Syringe } from "./components/syringe";
 import { Legend } from "./components/legend";
-import vaccinations_per_hundred from "./vaccinations_per_hundred.json";
-import fully_vaccinations_per_hundred from "./data.json";
 import {
-  generateOptions,
+  generateDateOptions,
   getParsedData,
-  countryOptions,
+  optionGenerator,
   INTERESTING_COUNTRIES,
   MORE_COUNTRIES,
-  groupedOptions
+  getGroupedOptions
 } from "./utils";
 import { COLOR_MAPPERS, COLOR_MAPS, LEGEND_FILTERS } from "../colorMappers";
 import { CountrySelect } from "./components/countrySelect";
@@ -55,24 +53,42 @@ const StickyContainer = styled.div`
   width: 100%;
 `;
 
-const options = generateOptions(fully_vaccinations_per_hundred);
 // const colorMapperOptions = [
 //   { value: "continent", label: "By Continent" },
 //   { value: "gdp", label: "By GDP per capita" },
 //   { value: "hdi", label: "By Human Development Index" }
 // ];
 
-const DATA_MAPPER = {
-  fully: fully_vaccinations_per_hundred,
-  "not-fully": vaccinations_per_hundred
-};
-
 const dataOptions = [
   { value: "fully", label: "Fully Vaccinated" },
   { value: "not-fully", label: "Only One Dose" }
 ];
 
-export const Index = ({ seeMore = false, animated = false }) => {
+export const Index = ({
+  seeMore = false,
+  animated = false,
+  countryData = [],
+  fullyVacPer100 = [],
+  vacPer100 = []
+}) => {
+  const options = React.useMemo(() => {
+    return generateDateOptions(fullyVacPer100);
+  }, [fullyVacPer100]);
+
+  const DATA_MAPPER = React.useMemo(() => {
+    return {
+      fully: fullyVacPer100,
+      "not-fully": vacPer100
+    };
+  }, [fullyVacPer100, vacPer100]);
+
+  const countryOptions = React.useMemo(() => {
+    return optionGenerator(countryData);
+  });
+  const groupedOptions = React.useMemo(() => {
+    return getGroupedOptions(countryData);
+  });
+
   const [countryList, setCountryList] = React.useState(
     seeMore ? INTERESTING_COUNTRIES : MORE_COUNTRIES
   );
@@ -105,7 +121,8 @@ export const Index = ({ seeMore = false, animated = false }) => {
         DATA_MAPPER[dataName][dataIndex].data,
         COLOR_MAPPERS[colorMapper],
         countryList,
-        legendFilter && LEGEND_FILTERS[colorMapper](legendFilter)
+        legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
+        countryData
       )
     );
   }, [dataName, dataIndex, colorMapper, legendFilter, countryList]);
@@ -321,7 +338,10 @@ export const Index = ({ seeMore = false, animated = false }) => {
 Index.propTypes = {
   countryList: PropTypes.array,
   seeMore: PropTypes.bool,
-  animated: PropTypes.bool
+  animated: PropTypes.bool,
+  countryData: PropTypes.array,
+  fullyVacPer100: PropTypes.array,
+  vacPer100: PropTypes.array
 };
 
 export default Index;
