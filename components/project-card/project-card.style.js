@@ -4,6 +4,7 @@ export const Card = styled.div`
   position: relative;
   min-height: 350px;
   width: 100%;
+  min-width: 335px;
   background: #fff;
   padding: 16px 32px;
   box-sizing: border-box;
@@ -24,7 +25,7 @@ export const CardTitle = styled.h6`
   text-transform: uppercase;
   margin: 0;
   font-size: 1.5rem;
-  color: #000;
+  color: #20212c;
   padding-bottom: 16px;
 `;
 
