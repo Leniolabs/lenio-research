@@ -204,7 +204,6 @@ export const Index = ({ seeMore = false }) => {
           )} */}
         </StickyContainer>
         <svg className="main-chart-mapvis" overflow="visible" viewBox={`80 70 400 240`}>
-          {/* <rect x="-200" y="60" width="100vw" height="100%" style={{fill: "transparent"}} onClick={() => setHoveredState("")} /> */}
           <Background onClick={() => setHoveredState("")} />
           {data.map((state) => {
             if (!state.shape || !state.hex) {
