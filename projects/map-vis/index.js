@@ -40,23 +40,35 @@ const StickyContainer = styled.div`
   width: 100%;
   .legends {
     margin: 0 0 1rem auto;
+    @media (max-width: 767px) {
+      margin: 0 auto 1rem auto;
+      font-size: 1rem;
+    }
     h3 {
       margin: 0 0 0.5rem;
     }
     .legend-row {
       align-items: center;
+      justify-content: space-between;
+      display: flex;
       svg {
         margin-right: 5px;
       }
       .legend-data {
         display: inline-flex;
         justify-content: space-between;
-        min-width: 200px;
+        min-width: 360px;
+        @media (max-width: 767px) {
+          min-width: 300px;
+        }
       }
     }
     .legend-number {
       font-weight: bold;
       margin-left: auto;
+      min-width: 60px;
+      display: flex;
+      justify-content: flex-end;
     }
   }
 `;
