@@ -61,6 +61,18 @@ const StickyContainer = styled.div`
   }
 `;
 
+const Background = styled.rect`
+  x: -200;
+  y: 60;
+  width: 100vw;
+  height: 100%;
+  fill: transparent;
+  @media (max-width: 767px) {
+    x: 50;
+    width: 135vw;
+  }
+`;
+
 export const Index = ({ seeMore = false }) => {
   const { logEvent } = useTracking();
   const title = "Opportunities in The US Housing Market";
@@ -192,6 +204,8 @@ export const Index = ({ seeMore = false }) => {
           )} */}
         </StickyContainer>
         <svg className="main-chart-mapvis" overflow="visible" viewBox={`80 70 400 240`}>
+          {/* <rect x="-200" y="60" width="100vw" height="100%" style={{fill: "transparent"}} onClick={() => setHoveredState("")} /> */}
+          <Background onClick={() => setHoveredState("")} />
           {data.map((state) => {
             if (!state.shape || !state.hex) {
               return null;
