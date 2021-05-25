@@ -1,5 +1,5 @@
 import React from "react";
-import { List } from "./project-card-list.style";
+// import { List } from "./project-card-list.style";
 import ProjectCard from "../project-card/ProjectCard";
 import { useWindowSize } from "utils/useWindowSize";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,41 +13,40 @@ SwiperCore.use([Navigation, Pagination, Scrollbar]);
 
 const ProjectCardList = ({ list }) => {
   const [width] = useWindowSize();
-  console.log(`width === >>> `, width);
   const slides = list.map((item) => {
     const { key, ...rest } = item;
     return (
       <SwiperSlide key={key}>
-        <List>
-          <ProjectCard key={key} {...rest} />
-        </List>
+        {/* <List> */}
+        <ProjectCard key={key} {...rest} />
+        {/* </List> */}
       </SwiperSlide>
     );
   });
   return (
     <React.Fragment>
-      {width > 728 && (
+      {/* {width > 728 && (
         <Swiper
           id="main"
           navigation
           scrollbar={{ draggable: true }}
           slidesPerView={3}
-          spaceBetween={30}
+          spaceBetween={10}
           freeMode>
           {slides}
         </Swiper>
-      )}
-      {width < 728 && (
-        <Swiper
-          id="main"
-          navigation
-          pagination={{ clickable: true }}
-          slidesPerView={1}
-          spaceBetween={30}
-          loop>
-          {slides}
-        </Swiper>
-      )}
+      )} */}
+      {/* {width > 728 && ( */}
+      <Swiper
+        id="main"
+        navigation
+        pagination={{ clickable: true }}
+        slidesPerView={1}
+        spaceBetween={30}
+        loop>
+        {slides}
+      </Swiper>
+      {/* )} */}
     </React.Fragment>
   );
 };
