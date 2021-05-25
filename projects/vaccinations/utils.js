@@ -1,9 +1,7 @@
-import country_data from "./country_data.json";
-
-export const getParsedData = (data, colorMapper, countryList, legendFilter) => {
-  let countries = country_data;
+export const getParsedData = (data, colorMapper, countryList, legendFilter, countryData) => {
+  let countries = countryData;
   if (countryList) {
-    countries = country_data.filter((r) => countryList.includes(r.name));
+    countries = countryData.filter((r) => countryList.includes(r.name));
   }
   if (legendFilter) {
     countries = countries.filter(legendFilter);
@@ -24,30 +22,37 @@ export const getParsedData = (data, colorMapper, countryList, legendFilter) => {
     .sort((a, b) => (a.countryCode > b.countryCode ? 1 : -1));
 };
 
-export const generateOptions = (dateArray) => {
+export const generateDateOptions = (dateArray) => {
   return dateArray.map((dayData, idx) => ({ value: idx, label: dayData.date }));
 };
 
-export const countryOptions = country_data.map((country) => ({
-  value: country.name,
-  label: country.name
-}));
+export const optionGenerator = (
+  arr,
+  labelAccessor = (d) => d.name,
+  valueAccessor = (d) => d.name
+) => {
+  return arr.map((d) => ({
+    label: labelAccessor(d),
+    value: valueAccessor(d)
+  }));
+};
 
-export const groupedOptions = [
-  {
-    label: "Utils",
-    options: [
-      { value: "Select All", label: "Select All" },
-      { value: "Unselect All", label: "Unselect All" }
-    ]
-  },
-  {
-    label: "Countries",
-    options: countryOptions
-  }
-];
+export const getGroupedOptions = (options) => {
+  return [
+    {
+      label: "Utils",
+      options: [
+        { value: "Select All", label: "Select All" },
+        { value: "Unselect All", label: "Unselect All" }
+      ]
+    },
+    {
+      label: "Countries",
+      options: options
+    }
+  ];
+};
 
-export const ALL_COUNTRIES = country_data.map((country) => country.name);
 export const INTERESTING_COUNTRIES = [
   "Israel",
   "Chile",

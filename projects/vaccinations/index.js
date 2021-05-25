@@ -2,18 +2,24 @@ import * as React from "react";
 import Link from "next/link";
 import { SectionTitle, PlayText, StickyContainer } from "./style";
 import PropTypes from "prop-types";
+<<<<<<< HEAD
 import { CustomSelect } from "@components/select/select";
 import { Syringe } from "./components/syringe/syringe";
 import { Legend } from "./components/legend/legend";
 import vaccinations_per_hundred from "./vaccinations_per_hundred.json";
 import fully_vaccinations_per_hundred from "./data.json";
+=======
+import { CustomSelect } from "@components/select";
+import { Syringe } from "./components/syringe";
+import { Legend } from "./components/legend";
+>>>>>>> 70ea97327009d86597e45752545d8672aadff3f3
 import {
-  generateOptions,
+  generateDateOptions,
   getParsedData,
-  countryOptions,
+  optionGenerator,
   INTERESTING_COUNTRIES,
   MORE_COUNTRIES,
-  groupedOptions
+  getGroupedOptions
 } from "./utils";
 import { COLOR_MAPPERS, COLOR_MAPS, LEGEND_FILTERS } from "../colorMappers";
 import { CountrySelect } from "./components/country-select/countrySelect";
@@ -22,24 +28,79 @@ import { useTracking } from "analytics/context";
 const SVG_HEIGHT = 90;
 const SELECT_WIDTH = 270;
 
+<<<<<<< HEAD
 const options = generateOptions(fully_vaccinations_per_hundred);
+=======
+const SectionTitle = styled.h2`
+  font-size: 2rem;
+  color: ${({ theme }) => theme.colors.primary};
+  text-align: center;
+`;
+
+const PlayText = styled.button`
+  background-color: #3baacc;
+  border: 0 solid #5a60ab;
+  border-radius: 4px;
+  color: white;
+  cursor:pointer;
+  font-size: 1rem;
+  font-weight: bolder;
+  margin-top: 2rem;
+  padding: .3rem 1rem;
+  transition .3s ease all;
+  &:hover {
+    background-color: #5a60ab;
+    color: white;
+  }
+`;
+
+const StickyContainer = styled.div`
+  background: rgba(255, 251, 243, 0.9);
+  margin: 0 -8%;
+  padding: 1rem 8% 0;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+`;
+
+>>>>>>> 70ea97327009d86597e45752545d8672aadff3f3
 // const colorMapperOptions = [
 //   { value: "continent", label: "By Continent" },
 //   { value: "gdp", label: "By GDP per capita" },
 //   { value: "hdi", label: "By Human Development Index" }
 // ];
 
-const DATA_MAPPER = {
-  fully: fully_vaccinations_per_hundred,
-  "not-fully": vaccinations_per_hundred
-};
-
 const dataOptions = [
   { value: "fully", label: "Fully Vaccinated" },
   { value: "not-fully", label: "Only One Dose" }
 ];
 
-export const Index = ({ seeMore = false, animated = false }) => {
+export const Index = ({
+  seeMore = false,
+  animated = false,
+  countryData = [],
+  fullyVacPer100 = [],
+  vacPer100 = []
+}) => {
+  const options = React.useMemo(() => {
+    return generateDateOptions(fullyVacPer100);
+  }, [fullyVacPer100]);
+
+  const DATA_MAPPER = React.useMemo(() => {
+    return {
+      fully: fullyVacPer100,
+      "not-fully": vacPer100
+    };
+  }, [fullyVacPer100, vacPer100]);
+
+  const countryOptions = React.useMemo(() => {
+    return optionGenerator(countryData);
+  });
+  const groupedOptions = React.useMemo(() => {
+    return getGroupedOptions(countryData);
+  });
+
   const [countryList, setCountryList] = React.useState(
     seeMore ? INTERESTING_COUNTRIES : MORE_COUNTRIES
   );
@@ -72,7 +133,8 @@ export const Index = ({ seeMore = false, animated = false }) => {
         DATA_MAPPER[dataName][dataIndex].data,
         COLOR_MAPPERS[colorMapper],
         countryList,
-        legendFilter && LEGEND_FILTERS[colorMapper](legendFilter)
+        legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
+        countryData
       )
     );
   }, [dataName, dataIndex, colorMapper, legendFilter, countryList]);
@@ -288,7 +350,10 @@ export const Index = ({ seeMore = false, animated = false }) => {
 Index.propTypes = {
   countryList: PropTypes.array,
   seeMore: PropTypes.bool,
-  animated: PropTypes.bool
+  animated: PropTypes.bool,
+  countryData: PropTypes.array,
+  fullyVacPer100: PropTypes.array,
+  vacPer100: PropTypes.array
 };
 
 export default Index;
