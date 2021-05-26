@@ -48,7 +48,6 @@ export const Index = () => {
             </Link>
           </section>
           <section>
-            <SectionTitle>Latest researches</SectionTitle>
             <ProjectCardList list={mockData}></ProjectCardList>
           </section>
         </Main>
