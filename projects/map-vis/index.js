@@ -9,11 +9,9 @@ import { useTracking } from "analytics/context";
 import { generateBigHex } from "./Hexes/generateHexes";
 import { toPathString } from "flubber";
 import { CustomSelect } from "@components/select";
-
 import { State } from "./State";
 import { data } from "./data";
-import { linearFit } from "./linearfits";
-import { generateLegendMapping, generateScatterPlotData } from "./utils";
+import { generateLegendMapping, generateScatterPlotData, getLinearFitForPair } from "./utils";
 import {
   KEY_ARRAY_OPTIONS,
   MIGRATION_LEGEND_LABELS,
@@ -42,32 +40,50 @@ const StickyContainer = styled.div`
   width: 100%;
   .legends {
     margin: 0 0 1rem auto;
+    @media (max-width: 767px) {
+      margin: 0 auto 1rem auto;
+      font-size: 1rem;
+    }
     h3 {
       margin: 0 0 0.5rem;
     }
     .legend-row {
       align-items: center;
+      justify-content: space-between;
+      display: flex;
       svg {
         margin-right: 5px;
       }
       .legend-data {
         display: inline-flex;
         justify-content: space-between;
-        min-width: 200px;
+        min-width: 360px;
+        @media (max-width: 767px) {
+          min-width: 300px;
+        }
       }
     }
     .legend-number {
       font-weight: bold;
       margin-left: auto;
+      min-width: 60px;
+      display: flex;
+      justify-content: flex-end;
     }
   }
 `;
 
-const getLinearFitForPair = (a, b, startX = 0, endX = 60) => {
-  const [slope, ord] = linearFit[`${a}, ${b}`];
-  const f = (x) => x * slope + ord;
-  return { x1: startX, y1: f(startX), x2: endX, y2: f(endX) };
-};
+const Background = styled.rect`
+  x: -200;
+  y: 60;
+  width: 100vw;
+  height: 100%;
+  fill: transparent;
+  @media (max-width: 767px) {
+    x: 50;
+    width: 135vw;
+  }
+`;
 
 export const Index = ({ seeMore = false }) => {
   const { logEvent } = useTracking();
@@ -200,6 +216,7 @@ export const Index = ({ seeMore = false }) => {
           )} */}
         </StickyContainer>
         <svg className="main-chart-mapvis" overflow="visible" viewBox={`80 70 400 240`}>
+          <Background onClick={() => setHoveredState("")} />
           {data.map((state) => {
             if (!state.shape || !state.hex) {
               return null;
