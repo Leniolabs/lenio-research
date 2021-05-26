@@ -64,21 +64,40 @@ const dataOptions = [
   { value: "not-fully", label: "Only One Dose" }
 ];
 
+async function getServerSideProps() {
+  // use context to get the url called
+  const BASE_URL = "https://research-vaccines-lambda.s3.amazonaws.com/data/";
+  const countryDataR = await fetch(`${BASE_URL}country_data.json`);
+  const fullyVacPer100R = await fetch(`${BASE_URL}fully_vac_per100.json`);
+  const vacPer100R = await fetch(`${BASE_URL}vac_per100.json`);
+  const countryData = await countryDataR.json();
+  const fullyVacPer100 = await fullyVacPer100R.json();
+  const vacPer100 = await vacPer100R.json();
+
+  return {
+    props: {
+      countryData,
+      fullyVacPer100,
+      vacPer100
+    }
+  };
+}
+
 export const Index = ({
   seeMore = false,
   animated = false,
-  countryData = [],
-  fullyVacPer100 = [],
-  vacPer100 = []
 }) => {
+  const [countryData, setCountryData] = React.useState([]);
+  const [fullyVacPer100, setFullyVacPer100] = React.useState([]);
+  const [vacPer100, setCacPer100] = React.useState([]);
   const options = React.useMemo(() => {
     return generateDateOptions(fullyVacPer100);
   }, [fullyVacPer100]);
 
   const DATA_MAPPER = React.useMemo(() => {
     return {
-      fully: fullyVacPer100,
-      "not-fully": vacPer100
+      fully: fullyVacPer100.length > 0 && fullyVacPer100,
+      "not-fully": vacPer100.length > 0 && vacPer100,
     };
   }, [fullyVacPer100, vacPer100]);
 
@@ -118,7 +137,7 @@ export const Index = ({
   React.useEffect(() => {
     setParsedData(
       getParsedData(
-        DATA_MAPPER[dataName][dataIndex].data,
+        DATA_MAPPER[dataName][dataIndex]?.data,
         COLOR_MAPPERS[colorMapper],
         countryList,
         legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
@@ -126,6 +145,16 @@ export const Index = ({
       )
     );
   }, [dataName, dataIndex, colorMapper, legendFilter, countryList]);
+
+  React.useEffect(() => {
+    getServerSideProps().then((resp) => {
+      setCountryData(resp.props.countryData);
+      setFullyVacPer100(resp.props.fullyVacPer100);
+      setCacPer100(resp.props.setCacPer100);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }, []);
 
   const onPlay = React.useCallback(() => {
     logEvent({
