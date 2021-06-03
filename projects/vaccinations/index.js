@@ -66,7 +66,7 @@ const dataOptions = [
 
 async function getServerSideProps() {
   // use context to get the url called
-  const BASE_URL = "/vaccinesAPI/";
+  const BASE_URL = "https://research-vaccines-lambda.s3.amazonaws.com/data/";
   const countryDataR = await fetch(`${BASE_URL}country_data.json`);
   const fullyVacPer100R = await fetch(`${BASE_URL}fully_vac_per100.json`);
   const vacPer100R = await fetch(`${BASE_URL}vac_per100.json`);
