@@ -76,6 +76,11 @@ const GlobalStyle = createGlobalStyle`
   }
   .chart-wrapper.map-viz-wrapper {
     background-color: #fff;
+    p a {
+      font-weight: bold;
+      margin-top: .5rem;
+      display: block;
+    }
   }
   .main-chart-mapvis {
     > g { cursor: pointer; }
