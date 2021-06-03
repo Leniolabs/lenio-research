@@ -66,7 +66,7 @@ const dataOptions = [
 
 async function getServerSideProps() {
   // use context to get the url called
-  const BASE_URL = "https://research-vaccines-lambda.s3.amazonaws.com/data/";
+  const BASE_URL = "/vaccinesAPI/";
   const countryDataR = await fetch(`${BASE_URL}country_data.json`);
   const fullyVacPer100R = await fetch(`${BASE_URL}fully_vac_per100.json`);
   const vacPer100R = await fetch(`${BASE_URL}vac_per100.json`);
@@ -86,16 +86,20 @@ async function getServerSideProps() {
 export const Index = ({ seeMore = false, animated = false }) => {
   const [countryData, setCountryData] = React.useState([]);
   const [fullyVacPer100, setFullyVacPer100] = React.useState([]);
-  const [vacPer100, setCacPer100] = React.useState([]);
+  const [vacPer100, setVacPer100] = React.useState([]);
   const options = React.useMemo(() => {
     return generateDateOptions(fullyVacPer100);
   }, [fullyVacPer100]);
 
   const DATA_MAPPER = React.useMemo(() => {
-    return {
-      fully: fullyVacPer100.length > 0 && fullyVacPer100,
-      "not-fully": vacPer100.length > 0 && vacPer100
-    };
+    if (vacPer100 && fullyVacPer100) {
+      console.log(vacPer100.length, fullyVacPer100.length);
+      return {
+        fully: fullyVacPer100.length > 0 && fullyVacPer100,
+        "not-fully": vacPer100.length > 0 && vacPer100
+      };
+    }
+    return {};
   }, [fullyVacPer100, vacPer100]);
 
   const countryOptions = React.useMemo(() => {
@@ -118,6 +122,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
   const { logEvent } = useTracking();
 
   React.useEffect(() => {
+    if (DATA_MAPPER === {}) return;
     if (dataIndex !== DATA_MAPPER[dataName].length - 1 && isPlaying) {
       setTimeout(() => {
         setDataIndex(dataIndex + 1);
@@ -125,7 +130,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
     } else {
       setIsPlaying(false);
     }
-  }, [dataIndex, isPlaying]);
+  }, [dataIndex, isPlaying, DATA_MAPPER]);
 
   React.useEffect(() => {
     setTimeout(() => setIsPlaying(true), 1000);
@@ -148,7 +153,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
       .then((resp) => {
         setCountryData(resp.props.countryData);
         setFullyVacPer100(resp.props.fullyVacPer100);
-        setCacPer100(resp.props.setCacPer100);
+        setVacPer100(resp.props.vacPer100);
       })
       .catch((err) => {
         console.log(err);
