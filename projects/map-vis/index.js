@@ -29,6 +29,17 @@ const SectionTitle = styled.h1`
   font-size: 3rem;
   color: ${({ theme }) => theme.colors.primary};
   text-align: center;
+  .intro-title {
+    color: #ff7d31;
+    display: block;
+    font-size: 1.2rem
+  }
+  .author {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: normal;
+    margin-top: .5rem;
+  }
 `;
 
 const StickyContainer = styled.div`
@@ -171,14 +182,18 @@ export const Index = ({ seeMore = false }) => {
   return (
     <section className="chart-wrapper map-viz-wrapper">
       <div className="row-container">
-        <SectionTitle>{title}</SectionTitle>
+        <SectionTitle>
+          <span class="intro-title">Data visualizations of</span>
+          {title}
+        <span className="author">by Manish Garg</span>
+        </SectionTitle>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et aliquam lectus. Donec vel
-          bibendum tortor. Etiam ullamcorper nulla vulputate volutpat elementum. &nbsp;
+        <q><i>Last year (2020) has been unprecedented and the housing market is witnessing an evolution with many housing trends accelerating by 5–10 years. States like Texas, Idaho, Florida, and Wyoming are witnessing unprecedented growth in the housing market as an increasing number of families move there.</i></q>
           <Link href="https://productcoalition.com/opportunities-in-the-us-housing-market-2add5bc1871c">
-            Article
+            Read the complete article.
           </Link>
         </p>
+        <br/>
         <h2>Migration, reasons, and ages</h2>
         <StickyContainer>
           <button onClick={() => cycleShape()} className="btn btn-map">
