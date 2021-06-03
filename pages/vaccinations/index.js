@@ -136,6 +136,4 @@ Index.propTypes = {
   vacPer100: PropTypes.array
 };
 
-
-
 export default Index;

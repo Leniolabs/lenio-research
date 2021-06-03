@@ -83,10 +83,7 @@ async function getServerSideProps() {
   };
 }
 
-export const Index = ({
-  seeMore = false,
-  animated = false,
-}) => {
+export const Index = ({ seeMore = false, animated = false }) => {
   const [countryData, setCountryData] = React.useState([]);
   const [fullyVacPer100, setFullyVacPer100] = React.useState([]);
   const [vacPer100, setCacPer100] = React.useState([]);
@@ -97,7 +94,7 @@ export const Index = ({
   const DATA_MAPPER = React.useMemo(() => {
     return {
       fully: fullyVacPer100.length > 0 && fullyVacPer100,
-      "not-fully": vacPer100.length > 0 && vacPer100,
+      "not-fully": vacPer100.length > 0 && vacPer100
     };
   }, [fullyVacPer100, vacPer100]);
 
@@ -147,13 +144,15 @@ export const Index = ({
   }, [dataName, dataIndex, colorMapper, legendFilter, countryList]);
 
   React.useEffect(() => {
-    getServerSideProps().then((resp) => {
-      setCountryData(resp.props.countryData);
-      setFullyVacPer100(resp.props.fullyVacPer100);
-      setCacPer100(resp.props.setCacPer100);
-    }).catch((err) => {
-      console.log(err);
-    });
+    getServerSideProps()
+      .then((resp) => {
+        setCountryData(resp.props.countryData);
+        setFullyVacPer100(resp.props.fullyVacPer100);
+        setCacPer100(resp.props.setCacPer100);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   const onPlay = React.useCallback(() => {
