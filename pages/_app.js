@@ -82,7 +82,7 @@ const GlobalStyle = createGlobalStyle`
     .head-main {
       background: #fff url("/housing-market.svg") repeat-x bottom left;
       background-size: 1200px;
-      padding: 2rem 0 8rem;
+      padding: 4rem 0 10rem;
     }
     h2 { 
       font-size: 2rem;
