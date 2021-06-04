@@ -6,8 +6,8 @@ import { LogoHeaderContainer } from "@components/styled";
 import MapVisMainSnippet from "@projects/map-vis";
 
 const RowContainer = styled.div`
-  background: #243042;
-  color: #fffbf3;
+  background: white;
+  color: #243042;
   margin: 0;
   padding: 2rem;
   > div {
@@ -16,8 +16,8 @@ const RowContainer = styled.div`
 `;
 
 const Footer = styled.footer`
-  background-color: #354156;
-  color: #fcfcf4;
+  background-color: #2a3f55;
+  color: #fff;
   padding: 2rem;
   text-align: right;
 `;
@@ -38,11 +38,11 @@ export const Index = () => {
         <title>Leniolabs_ Research</title>
         <meta
           name="description"
-          content="Visualization of some milestones of humanity exploring space and the distance traveled from planet Earth"
+          content="Data Visualization of Opportunities in The US Housing Market"
         />
         <meta
           name="title"
-          content="Leniolabs_ Research: International Day of Human Space Flight"
+          content="Leniolabs_ Research: Opportunities in The US Housing Market"
           key="title"
         />
         <meta name="twitter:card" content="summary_large_image" />
@@ -50,24 +50,24 @@ export const Index = () => {
         <meta name="twitter:creator" content="@Leniolabs_" />
         <meta
           name="twitter:title"
-          content="Leniolabs_ Research: International Day of Human Space Flight"
+          content="Leniolabs_ Research: Opportunities in The US Housing Market"
         />
         <meta
           name="twitter:description"
-          content="Visualization of some milestones of humanity exploring space and the distance traveled from planet Earth"
+          content="Data Visualization of Opportunities in The US Housing Market"
         />
         <meta name="twitter:image" content="https://research.leniolabs.com/space-day.png" />
         <meta property="og:url" content="https://research.leniolabs.com/vaccinations.html" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Leniolabs_ Research: International Day of Human Space Flight"
+          content="Leniolabs_ Research: Opportunities in The US Housing Market"
         />
         <meta property="og:image" content="https://research.leniolabs.com/space-day.png" />
-        <meta property="og:image:alt" content="Visualization of vaccination progress by country" />
+        <meta property="og:image:alt" content="Opportunities in The US Housing Market" />
         <meta
           property="og:description"
-          content="Visualization of some milestones of humanity exploring space and the distance traveled from planet Earth"
+          content="Data Visualization of Opportunities in The US Housing Market"
         />
         <meta property="og:site_name" content="Leniolabs_ Research" />
         <meta property="og:locale" content="en_US" />

@@ -30,6 +30,9 @@ const GlobalStyle = createGlobalStyle`
     max-width: 45em;
     padding: 1rem;
   }
+  .row-container.big-row {
+    max-width: 54em;
+  }
   .intro {
     line-height: 1.5;
     margin: 5rem 0;
@@ -76,11 +79,43 @@ const GlobalStyle = createGlobalStyle`
   }
   .chart-wrapper.map-viz-wrapper {
     background-color: #fff;
-    p a {
-      font-weight: bold;
-      margin-top: .5rem;
-      display: block;
+    .head-main {
+      background: #fff url("/housing-market.svg") repeat-x bottom left;
+      background-size: 1200px;
+      padding: 2rem 0 8rem;
     }
+    h2 { 
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .sub-p {
+      font-size: 1.2rem;
+      font-weight: normal;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+    .text-p {
+      font-size: 1.3rem;
+      margin: 3rem auto;
+      max-width: 64ch;
+      padding: 1.2rem 2.5rem;
+      position: relative;
+      .comilla {
+        font-size: 5rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      a {
+        font-weight: bold;
+        margin: .5rem;
+        display: block;
+        text-align: right;
+      }
+    }
+
   }
   .main-chart-mapvis {
     > g { cursor: pointer; }

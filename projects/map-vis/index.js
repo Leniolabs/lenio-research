@@ -27,18 +27,20 @@ const HEX_SIZE = 15;
 
 const SectionTitle = styled.h1`
   font-size: 3rem;
-  color: ${({ theme }) => theme.colors.primary};
+  color: #2a3f55;
+  margin: 0 auto 5rem;
   text-align: center;
   .intro-title {
-    color: #ff7d31;
+    color: #ff3f55;
     display: block;
-    font-size: 1.2rem
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
   }
   .author {
     display: block;
     font-size: 1.2rem;
     font-weight: normal;
-    margin-top: .5rem;
+    margin-top: 1rem;
   }
 `;
 
@@ -98,7 +100,6 @@ const Background = styled.rect`
 
 export const Index = ({ seeMore = false }) => {
   const { logEvent } = useTracking();
-  const title = "Opportunities in The US Housing Market";
   const [shape, cycleShape] = useCycle("hex", "shape");
   const [hoveredState, setHoveredState] = React.useState("");
   const [dataKeys, setDataKeys] = React.useState(KEY_ARRAY_OPTIONS[0]);
@@ -181,20 +182,23 @@ export const Index = ({ seeMore = false }) => {
 
   return (
     <section className="chart-wrapper map-viz-wrapper">
-      <div className="row-container">
+      <div className="head-main">
         <SectionTitle>
           <span class="intro-title">Data visualizations of</span>
-          {title}
-        <span className="author">by Manish Garg</span>
+          Opportunities in<br/> The US Housing Market
+        <span className="author">An article written by Manish Garg</span>
         </SectionTitle>
-        <p>
-        <q><i>Last year (2020) has been unprecedented and the housing market is witnessing an evolution with many housing trends accelerating by 5–10 years. States like Texas, Idaho, Florida, and Wyoming are witnessing unprecedented growth in the housing market as an increasing number of families move there.</i></q>
+      </div>
+      <div className="row-container">
+        <p className="text-p"><span className="comilla">“</span><i>Last year (2020) has been unprecedented and the housing market is witnessing an evolution with many housing trends accelerating by 5–10 years. States like Texas, Idaho, Florida, and Wyoming are witnessing unprecedented growth in the housing market as an increasing number of families move there.</i>
           <Link href="https://productcoalition.com/opportunities-in-the-us-housing-market-2add5bc1871c">
-            Read the complete article.
+          › Read the complete article
           </Link>
         </p>
-        <br/>
-        <h2>Migration, reasons, and ages</h2>
+        </div>
+        <div className="row-container big-row">
+        <h2>Why are people moving across the US</h2>
+        <p className="sub-p">Click on each state for more info.</p>
         <StickyContainer>
           <button onClick={() => cycleShape()} className="btn btn-map">
             Toggle Mode
@@ -292,7 +296,7 @@ export const Index = ({ seeMore = false }) => {
       </div>
 
       <div className="row-container">
-        <h2>Moving variables and taxes</h2>
+        <h2>Moving variables and age groups</h2>
         <CustomSelect
           width="200"
           options={SCATTERPLOT_OPTIONS}
