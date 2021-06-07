@@ -143,6 +143,7 @@ const GlobalStyle = createGlobalStyle`
   }
   .stack-bar {
     margin: 3rem auto 6rem;
+    .millennials { margin-bottom: 5rem;}
     .checkbox-group {
       margin: 1rem;
       text-align: center;
