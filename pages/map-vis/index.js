@@ -6,8 +6,8 @@ import { LogoHeaderContainer } from "@components/styled";
 import MapVisMainSnippet from "@projects/map-vis";
 
 const RowContainer = styled.div`
-  background: white;
-  color: #243042;
+  background: #fffbf0;
+  color: #2a3f55;
   margin: 0;
   padding: 2rem;
   > div {

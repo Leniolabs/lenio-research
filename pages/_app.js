@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     &:before, &:after { box-sizing: inherit; }
   }
-  p a { color: #3baacc; }
+  p a { color: #2a9faa; }
   header.with-background {
     background: url("/bg-research.png") no-repeat bottom left;
     background-size: cover;
@@ -80,9 +80,10 @@ const GlobalStyle = createGlobalStyle`
   .chart-wrapper.map-viz-wrapper {
     background-color: #fff;
     .head-main {
-      background: #fff url("/housing-market.svg") repeat-x bottom left;
-      background-size: 1200px;
+      background: #fffbf0 url("/housing-market.svg") repeat-x bottom left;
+      background-size: 1260px;
       padding: 4rem 0 10rem;
+      min-height: 35vh;
     }
     h2 { 
       font-size: 2rem;
@@ -97,16 +98,17 @@ const GlobalStyle = createGlobalStyle`
       text-align: center;
     }
     .text-p {
-      font-size: 1.3rem;
-      margin: 3rem auto;
-      max-width: 64ch;
+      font-size: 1.4rem;
+      line-height: 1.5;
+      margin: 4rem auto 3rem;
+      max-width: 650px;
       padding: 1.2rem 2.5rem;
       position: relative;
       .comilla {
-        font-size: 5rem;
+        font-size: 8rem;
         position: absolute;
-        left: 0;
-        top: 0;
+        left: -1.4rem;
+        top: -2.6rem;
       }
       a {
         font-weight: bold;
@@ -115,7 +117,6 @@ const GlobalStyle = createGlobalStyle`
         text-align: right;
       }
     }
-
   }
   .main-chart-mapvis {
     > g { cursor: pointer; }
@@ -138,6 +139,24 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     text { 
       fill: #45486d;
+    }
+  }
+  .stack-bar {
+    margin: 3rem auto 6rem;
+    .checkbox-group {
+      margin: 1rem;
+      text-align: center;
+      label {
+        display: inline-flex;
+        align-items: center;
+        font-size: 1rem;
+        margin: 1rem;
+        input[type="checkbox"] {
+          margin-right: .5rem;
+          width: 2rem;
+          height: 2rem;
+        }
+      }
     }
   }
   .chart-grid {

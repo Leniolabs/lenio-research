@@ -41,6 +41,7 @@ const SectionTitle = styled.h1`
     font-size: 1.2rem;
     font-weight: normal;
     margin-top: 1rem;
+    a { color: #2a9faa; }
   }
 `;
 
@@ -115,7 +116,7 @@ export const Index = ({ seeMore = false }) => {
   const colorScale = React.useMemo(() => {
     return scaleQuantize()
       .domain([-0.25, 0.25])
-      .range(["#23A3C1", "#9cc9d9", "#ffaa92", "#FF5B3A"]);
+      .range(["#2a9faa", "#9cd0d7", "#ffa0a8", "#ff3f55"]);
   }, []);
 
   const onPlay = React.useCallback(() => {
@@ -186,7 +187,7 @@ export const Index = ({ seeMore = false }) => {
         <SectionTitle>
           <span class="intro-title">Data visualizations of</span>
           Opportunities in<br/> The US Housing Market
-        <span className="author">An article written by Manish Garg</span>
+        <span className="author">An article written by <a href="linkedin.com/in/manishgarg" target="_blank">Manish Garg</a></span>
         </SectionTitle>
       </div>
       <div className="row-container">
@@ -217,7 +218,7 @@ export const Index = ({ seeMore = false }) => {
               <svg width="16" height="16" viewBox="0 0 90 100" overflow="visible">
                 <polygon
                   points="90.5 75.6 90.5 25.6 45.5 .6 .5 25.6 .5 75.6 45.5 100.6"
-                  fill="#ff9900"
+                  fill="#ffbf55"
                 />
               </svg>
               = 4%
@@ -294,8 +295,43 @@ export const Index = ({ seeMore = false }) => {
           </Link>
         )} */}
       </div>
-
+      <p className="text-p"><span className="comilla">“</span><i>Families looking to relocate see an opportunity with the low rates, ability to migrate from high tax states and avail remote work opportunities. Investors follow these trends and will fuel this growth. The housing and the rental market will continue to evolve and bring new opportunities along the way.</i></p>
       <div className="row-container">
+        <h2>Age groups and reasons to migrate</h2>
+        <p className="sub-p">% of top 10 states</p>
+        <div className="stack-bar">
+          <div className="checkbox-group">
+            <label for="ageout"> <input type="checkbox" id="ageout" name="ageout" value="Age Out"/>Order by Age out</label>
+            <label for="jobout"> <input type="checkbox" id="jobout" name="jobout" value="Job Out"/>Order by Job out</label>
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 585.8 354.9">
+            <path fill="#fffbf0" d="M144.1 0h441.7v295H144.1z"/>
+            <text fill="#2a3f55" fontFamily="SourceSansPro-Regular, Source Sans Pro" fontSize="13" transform="translate(93.8 17)">
+              Florida<tspan x="-12.6" y="30">Delaware</tspan><tspan x="-69" y="60">District of Columbia</tspan><tspan x="-27.7" y="90">Connecticut</tspan><tspan x="-11.6" y="120">Colorado</tspan><tspan x="-14.3" y="150">California</tspan><tspan x="-10.7" y="180">Arkansas</tspan><tspan x="-2.6" y="210">Arizona</tspan><tspan x="3" y="240">Alaska</tspan><tspan x="-9.6" y="270">Alabama</tspan>
+            </text>
+            <path fill="#ffdfaa" d="M143.8 60h2v12h-2zM143.8 30h105v12h-105zM143.8 0h220v12h-220zM143.8 90h185v12h-185zM143.8 120h205v12h-205zM143.8 150h190v12h-190zM143.8 180h410v12h-410zM143.8 210h180v12h-180zM143.8 240h2v12h-2zM143.8 270h410v12h-410z"/>
+            <path fill="#ff3f55" d="M143.8 73h2v12h-2zM143.8 43h20v12h-20zM143.8 13h60v12h-60zM143.8 103h55v12h-55zM143.8 133h90v12h-90zM143.8 163h80v12h-80zM143.8 193h185v12h-185zM143.8 223h50v12h-50zM143.8 253h2v12h-2zM143.8 283h80v12h-80z"/>
+            <text fill="#2a3f55" fontFamily="SourceSansPro-SemiBold, Source Sans Pro" fontSize="15" fontWeight="600" letter-spacing="0em" transform="rotate(-90 92.3 79.8)"> STATE </text>
+            <text fill="#2a3f55" fontFamily="SourceSansPro-SemiBold, Source Sans Pro" fontSize="15" fontWeight="600" transform="translate(218.2 350.4)"> % of Age 18 to 34 </text>
+            <text fill="#2a3f55" fontFamily="SourceSansPro-SemiBold, Source Sans Pro" fontSize="15" fontWeight="600" transform="translate(416.2 350.4)"> % of Job Out </text>
+            <path fill="#ffbf55" d="M198.9 337.9H213V352h-14.1z"/>
+            <path fill="#ff3f55" d="M396.9 337.9H411V352h-14.1z"/>
+            <text fill="#2a3f55" fontFamily="SourceSansPro-Regular, Source Sans Pro" fontSize="13" transform="translate(141.6 312.8)">
+              0
+            </text>
+            <text fill="#2a3f55" fontFamily="SourceSansPro-Regular, Source Sans Pro" fontSize="13" transform="translate(258.3 312.8)">
+              20
+            </text>
+            <text fill="#2a3f55" fontFamily="SourceSansPro-Regular, Source Sans Pro" fontSize="13" transform="translate(380.3 312.8)">
+              40
+            </text>
+            <text fill="#2a3f55" fontFamily="SourceSansPro-Regular, Source Sans Pro" fontSize="13" transform="translate(502.3 312.8)">
+              60
+            </text>
+            <path fill="none" stroke="#2a3f55" strokeMiterlimit="10" strokeWidth=".3" d="M265.8 0v298.4M387.3 0v298.4M508.8 0v298.4"/>
+          </svg>
+        </div>
+
         <h2>Moving variables and age groups</h2>
         <CustomSelect
           width="200"
