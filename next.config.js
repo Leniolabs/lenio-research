@@ -1,4 +1,12 @@
 module.exports = {
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: "/api/:path*",
+  //       destination: "https://research-vaccines-lambda.s3.amazonaws.com/data/:path*" // Proxy to Backend
+  //     }
+  //   ];
+  // },
   exportPathMap: async function (defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
     return {
       "/": { page: "/" },

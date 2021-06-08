@@ -5,15 +5,14 @@ import PropTypes from "prop-types";
 import { CustomSelect } from "@components/select/select";
 import { Syringe } from "./components/syringe/syringe";
 import { Legend } from "./components/legend/legend";
-import vaccinations_per_hundred from "./vaccinations_per_hundred.json";
 import fully_vaccinations_per_hundred from "./data.json";
 import {
-  generateOptions,
+  generateDateOptions,
   getParsedData,
-  countryOptions,
+  optionGenerator,
   INTERESTING_COUNTRIES,
   MORE_COUNTRIES,
-  groupedOptions
+  getGroupedOptions
 } from "./utils";
 import { COLOR_MAPPERS, COLOR_MAPS, LEGEND_FILTERS } from "../colorMappers";
 import { CountrySelect } from "./components/country-select/countrySelect";
@@ -23,23 +22,63 @@ const SVG_HEIGHT = 90;
 const SELECT_WIDTH = 270;
 
 const options = generateOptions(fully_vaccinations_per_hundred);
+
 // const colorMapperOptions = [
 //   { value: "continent", label: "By Continent" },
 //   { value: "gdp", label: "By GDP per capita" },
 //   { value: "hdi", label: "By Human Development Index" }
 // ];
 
-const DATA_MAPPER = {
-  fully: fully_vaccinations_per_hundred,
-  "not-fully": vaccinations_per_hundred
-};
-
 const dataOptions = [
   { value: "fully", label: "Fully Vaccinated" },
   { value: "not-fully", label: "Only One Dose" }
 ];
 
+async function getServerSideProps() {
+  // use context to get the url called
+  const BASE_URL = "https://research-vaccines-lambda.s3.amazonaws.com/data/";
+  const countryDataR = await fetch(`${BASE_URL}country_data.json`);
+  const fullyVacPer100R = await fetch(`${BASE_URL}fully_vac_per100.json`);
+  const vacPer100R = await fetch(`${BASE_URL}vac_per100.json`);
+  const countryData = await countryDataR.json();
+  const fullyVacPer100 = await fullyVacPer100R.json();
+  const vacPer100 = await vacPer100R.json();
+
+  return {
+    props: {
+      countryData,
+      fullyVacPer100,
+      vacPer100
+    }
+  };
+}
+
 export const Index = ({ seeMore = false, animated = false }) => {
+  const [countryData, setCountryData] = React.useState([]);
+  const [fullyVacPer100, setFullyVacPer100] = React.useState([]);
+  const [vacPer100, setVacPer100] = React.useState([]);
+  const options = React.useMemo(() => {
+    return generateDateOptions(fullyVacPer100);
+  }, [fullyVacPer100]);
+
+  const DATA_MAPPER = React.useMemo(() => {
+    if (vacPer100 && fullyVacPer100) {
+      console.log(vacPer100.length, fullyVacPer100.length);
+      return {
+        fully: fullyVacPer100.length > 0 && fullyVacPer100,
+        "not-fully": vacPer100.length > 0 && vacPer100
+      };
+    }
+    return {};
+  }, [fullyVacPer100, vacPer100]);
+
+  const countryOptions = React.useMemo(() => {
+    return optionGenerator(countryData);
+  });
+  const groupedOptions = React.useMemo(() => {
+    return getGroupedOptions(countryData);
+  });
+
   const [countryList, setCountryList] = React.useState(
     seeMore ? INTERESTING_COUNTRIES : MORE_COUNTRIES
   );
@@ -53,6 +92,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
   const { logEvent } = useTracking();
 
   React.useEffect(() => {
+    if (DATA_MAPPER === {}) return;
     if (dataIndex !== DATA_MAPPER[dataName].length - 1 && isPlaying) {
       setTimeout(() => {
         setDataIndex(dataIndex + 1);
@@ -60,7 +100,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
     } else {
       setIsPlaying(false);
     }
-  }, [dataIndex, isPlaying]);
+  }, [dataIndex, isPlaying, DATA_MAPPER]);
 
   React.useEffect(() => {
     setTimeout(() => setIsPlaying(true), 1000);
@@ -69,13 +109,26 @@ export const Index = ({ seeMore = false, animated = false }) => {
   React.useEffect(() => {
     setParsedData(
       getParsedData(
-        DATA_MAPPER[dataName][dataIndex].data,
+        DATA_MAPPER[dataName][dataIndex]?.data,
         COLOR_MAPPERS[colorMapper],
         countryList,
-        legendFilter && LEGEND_FILTERS[colorMapper](legendFilter)
+        legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
+        countryData
       )
     );
   }, [dataName, dataIndex, colorMapper, legendFilter, countryList]);
+
+  React.useEffect(() => {
+    getServerSideProps()
+      .then((resp) => {
+        setCountryData(resp.props.countryData);
+        setFullyVacPer100(resp.props.fullyVacPer100);
+        setVacPer100(resp.props.vacPer100);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const onPlay = React.useCallback(() => {
     logEvent({
@@ -288,7 +341,10 @@ export const Index = ({ seeMore = false, animated = false }) => {
 Index.propTypes = {
   countryList: PropTypes.array,
   seeMore: PropTypes.bool,
-  animated: PropTypes.bool
+  animated: PropTypes.bool,
+  countryData: PropTypes.array,
+  fullyVacPer100: PropTypes.array,
+  vacPer100: PropTypes.array
 };
 
 export default Index;

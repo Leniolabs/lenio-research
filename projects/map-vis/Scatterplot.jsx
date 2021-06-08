@@ -6,9 +6,12 @@ import { generateBigHex } from "./Hexes/generateHexes";
 import { toPathString } from "flubber";
 import { generateLegendMapping } from "./utils";
 
-const LABELS = [0, 10, 20, 30, 40, 50, 60];
+const LABELS = [0, 10, 20, 30, 40, 50, 60, 70, 80];
 
 const HEX_PATH_STRING = toPathString(generateBigHex({ size: 2, center: [0, 0] }));
+
+const MARGIN = { BOTTOM: 0, LEFT: 20 };
+const HEIGHT = 290;
 
 export const ScatterHex = ({ x, y, color }) => {
   const controls = useAnimation();
@@ -57,6 +60,7 @@ const ScatterLegend = ({ title, data }) => {
                 <span className="legend-number">
                   {!!row.value && <span>{(row.value * 100).toFixed(2)} %</span>}
                 </span>
+                %
               </span>
             </div>
           </React.Fragment>
@@ -79,10 +83,10 @@ export const Scatterplot = ({
   linearRegression = { x1: 0, y1: 0, x2: 50, y2: 50 }
 }) => {
   const xScale = React.useMemo(() => {
-    return scaleLinear().domain([0, 100]).range([20, 300]);
+    return scaleLinear().domain([0, 100]).range([MARGIN.LEFT, 230]);
   });
   const yScale = React.useMemo(() => {
-    return scaleLinear().domain([0, 100]).range([20, 300]);
+    return scaleLinear().domain([0, 100]).range([MARGIN.BOTTOM, 230]);
   });
   const colorScale = React.useMemo(() => {
     const mmin = Math.min(...data.map((d) => d.z));
@@ -98,7 +102,7 @@ export const Scatterplot = ({
             <ScatterHex
               key={`scatter-hex-${state.code}`}
               x={xScale(state.x)}
-              y={300 - yScale(state.y)}
+              y={HEIGHT - yScale(state.y)}
               color={colorScale(state.z)}></ScatterHex>
           );
         })}
@@ -122,9 +126,10 @@ export const Scatterplot = ({
           {LABELS.map((label) => {
             return (
               <React.Fragment key={label}>
-                <tspan x="20" y={300 - yScale(label)}>
+                <tspan x="16" y={HEIGHT - yScale(label)}>
                   {label}
                 </tspan>{" "}
+                %
               </React.Fragment>
             );
           })}
@@ -136,6 +141,7 @@ export const Scatterplot = ({
                 <tspan x={xScale(label)} y="0">
                   {label}
                 </tspan>{" "}
+                %
               </React.Fragment>
             );
           })}
@@ -143,9 +149,9 @@ export const Scatterplot = ({
         <motion.line
           animate={{
             x1: xScale(linearRegression.x1),
-            y1: 300 - yScale(linearRegression.y1),
+            y1: HEIGHT - yScale(linearRegression.y1),
             x2: xScale(linearRegression.x2),
-            y2: 300 - yScale(linearRegression.y2)
+            y2: HEIGHT - yScale(linearRegression.y2)
           }}
           transition={{
             duration: 0.75

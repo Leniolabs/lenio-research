@@ -1,4 +1,5 @@
 import * as React from "react";
+import PropTypes from "prop-types";
 import Head from "next/head";
 import Link from "next/link";
 import styled from "styled-components";
@@ -27,7 +28,7 @@ const FooterLogo = styled.div`
   }
 `;
 
-export const Index = () => {
+export const Index = (props) => {
   return (
     <div>
       <Head>
@@ -95,7 +96,13 @@ export const Index = () => {
           </Link>
         </RowContainer>
       </header>
-      <VaccinationMainSnippet seeMore={false} animated />
+      <VaccinationMainSnippet
+        seeMore={false}
+        animated
+        countryData={props.countryData}
+        fullyVacPer100={props.fullyVacPer100}
+        vacPer100={props.vacPer100}
+      />
       <Footer>
         <a href="https://leniolabs.com" target="_blank" rel="noreferrer">
           <FooterLogo>
@@ -121,6 +128,12 @@ export const Index = () => {
       </Footer>
     </div>
   );
+};
+
+Index.propTypes = {
+  countryData: PropTypes.array,
+  fullyVacPer100: PropTypes.array,
+  vacPer100: PropTypes.array
 };
 
 export default Index;
