@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { ListContainer } from "./project-card-list.style";
+import { CardsContainer, ListContainer } from "./project-card-list.style";
 import ProjectCard from "../project-card/ProjectCard";
-// import { useWindowSize } from "utils/useWindowSize";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Scrollbar, Controller } from "swiper";
 import PropTypes from "prop-types";
@@ -40,57 +39,62 @@ const ButtonSlide = styled.button`
   padding: 4;
 `;
 const ProjectCardList = ({ list }) => {
-  // const [width] = useWindowSize();
   const [swiper, setSwiper] = useState(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
   return (
-    <>
-      <Container>
-        <SectionTitle>Latest researches</SectionTitle>
-        <ControlContainer>
-          <ButtonSlide
-            onClick={() => {
-              swiper.slidePrev();
-              setIsBeginning(swiper.isBeginning);
-              setIsEnd(swiper.isEnd);
-            }}
-            style={{ cursor: `${isBeginning ? `not-allowed` : `pointer`}` }}>
-            <PrevIcon disabled={isBeginning} />
-          </ButtonSlide>
-          <ButtonSlide
-            onClick={() => {
-              swiper.slideNext();
-              setIsBeginning(swiper.isBeginning);
-              setIsEnd(swiper.isEnd);
-            }}
-            style={{ cursor: `${isEnd ? `not-allowed` : `pointer`}` }}>
-            <NextIcon disabled={isEnd} />
-          </ButtonSlide>
-        </ControlContainer>
-      </Container>
-      <ListContainer>
-        <Swiper
-          id="main"
-          scrollbar={{ draggable: true }}
-          // pagination={{ clickable: true }}
-          slidesPerView={3}
-          spaceBetween={50}
-          contoller={{ control: swiper }}
-          onSwiper={setSwiper}
-          breakpoints={breakpoints}>
-          {list.map((item) => {
-            const { key, ...rest } = item;
-            return (
-              <SwiperSlide key={key}>
-                <ProjectCard key={key} {...rest} />
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
-      </ListContainer>
-    </>
+    // <>
+    //   <Container>
+    //     <SectionTitle>Latest researches</SectionTitle>
+    //     <ControlContainer>
+    //       <ButtonSlide
+    //         onClick={() => {
+    //           swiper.slidePrev();
+    //           setIsBeginning(swiper.isBeginning);
+    //           setIsEnd(swiper.isEnd);
+    //         }}
+    //         style={{ cursor: `${isBeginning ? `not-allowed` : `pointer`}` }}>
+    //         <PrevIcon disabled={isBeginning} />
+    //       </ButtonSlide>
+    //       <ButtonSlide
+    //         onClick={() => {
+    //           swiper.slideNext();
+    //           setIsBeginning(swiper.isBeginning);
+    //           setIsEnd(swiper.isEnd);
+    //         }}
+    //         style={{ cursor: `${isEnd ? `not-allowed` : `pointer`}` }}>
+    //         <NextIcon disabled={isEnd} />
+    //       </ButtonSlide>
+    //     </ControlContainer>
+    //   </Container>
+    //   <ListContainer>
+    //     <Swiper
+    //       id="main"
+    //       scrollbar={{ draggable: true }}
+    //       // pagination={{ clickable: true }}
+    //       slidesPerView={3}
+    //       spaceBetween={50}
+    //       contoller={{ control: swiper }}
+    //       onSwiper={setSwiper}
+    //       breakpoints={breakpoints}>
+    //       {list.map((item) => {
+    //         const { key, ...rest } = item;
+    //         return (
+    //           <SwiperSlide key={key}>
+    //             <ProjectCard key={key} {...rest} />
+    //           </SwiperSlide>
+    //         );
+    //       })}
+    //     </Swiper>
+    //   </ListContainer>
+    // </>
+    <CardsContainer>
+      {list.map((item) => {
+        const { key, ...rest } = item;
+        return <ProjectCard key={key} {...rest} />;
+      })}
+    </CardsContainer>
   );
 };
 

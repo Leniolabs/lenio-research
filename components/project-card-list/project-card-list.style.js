@@ -21,3 +21,10 @@ export const ListContainer = styled.div`
     }
   }
 `;
+
+export const CardsContainer = styled.ul`
+  display: grid;
+  gap: 64px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  padding: 0;
+`;

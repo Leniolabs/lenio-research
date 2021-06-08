@@ -18,7 +18,7 @@ export const Layout = styled.div`
     "sidebar footer footer";
   min-height: 100vh;
   @media (max-width: 1023px) {
-    grid-template-rows: 200px 1fr 1fr;
+    grid-template-rows: 200px 1fr 115px;
     transition: all 0.8s;
   }
   @media (max-width: 728px) {
