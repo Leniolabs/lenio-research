@@ -11,8 +11,10 @@ export const TextTooltip = ({ children, width }) => {
   const el = document.createElement("div");
 
   React.useEffect(() => {
-    mount.current.appendChild(el);
-    return () => mount.current.removeChild(el);
+    if (mount.current) {
+      mount.current.appendChild(el);
+      return () => mount.current.removeChild(el);
+    }
   }, [el, mount]);
 
   return createPortal(

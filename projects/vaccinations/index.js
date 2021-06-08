@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import { CustomSelect } from "@components/select/select";
 import { Syringe } from "./components/syringe/syringe";
 import { Legend } from "./components/legend/legend";
-import fully_vaccinations_per_hundred from "./data.json";
 import {
   generateDateOptions,
   getParsedData,
@@ -20,8 +19,6 @@ import { useTracking } from "analytics/context";
 
 const SVG_HEIGHT = 90;
 const SELECT_WIDTH = 270;
-
-const options = generateOptions(fully_vaccinations_per_hundred);
 
 // const colorMapperOptions = [
 //   { value: "continent", label: "By Continent" },
@@ -74,10 +71,14 @@ export const Index = ({ seeMore = false, animated = false }) => {
 
   const countryOptions = React.useMemo(() => {
     return optionGenerator(countryData);
-  });
+  }, [countryData]);
   const groupedOptions = React.useMemo(() => {
-    return getGroupedOptions(countryData);
-  });
+    return getGroupedOptions(countryOptions);
+  }, [countryOptions]);
+
+  React.useEffect(() => {
+    console.log(countryData, countryOptions);
+  }, [countryData, countryOptions]);
 
   const [countryList, setCountryList] = React.useState(
     seeMore ? INTERESTING_COUNTRIES : MORE_COUNTRIES
@@ -178,31 +179,34 @@ export const Index = ({ seeMore = false, animated = false }) => {
     setLegendFilter(value);
   }, []);
 
-  const onCountriesChange = React.useCallback((options, action) => {
-    const newList = options.map((o) => o.value);
-    if (action.option.value === "Select All") {
-      logEvent({
-        category: "Vaccinations",
-        action: "Changed Countries",
-        label: "Select All"
-      });
-      setCountryList(countryOptions.map((option) => option.value));
-    } else if (action.option.value === "Unselect All") {
-      logEvent({
-        category: "Vaccinations",
-        action: "Changed Countries",
-        label: "Unselect All"
-      });
-      setCountryList([]);
-    } else {
-      logEvent({
-        category: "Vaccinations",
-        action: "Changed Date",
-        label: newList.join(",")
-      });
-      setCountryList(newList);
-    }
-  }, []);
+  const onCountriesChange = React.useCallback(
+    (options, action) => {
+      const newList = options.map((o) => o.value);
+      if (action.option.value === "Select All") {
+        logEvent({
+          category: "Vaccinations",
+          action: "Changed Countries",
+          label: "Select All"
+        });
+        setCountryList(countryOptions.map((option) => option.value));
+      } else if (action.option.value === "Unselect All") {
+        logEvent({
+          category: "Vaccinations",
+          action: "Changed Countries",
+          label: "Unselect All"
+        });
+        setCountryList([]);
+      } else {
+        logEvent({
+          category: "Vaccinations",
+          action: "Changed Date",
+          label: newList.join(",")
+        });
+        setCountryList(newList);
+      }
+    },
+    [countryOptions]
+  );
 
   const calculatedHeight = React.useMemo(() => {
     let s = SVG_HEIGHT * countryList.length;
