@@ -1,21 +1,6 @@
 import * as React from "react";
-import styled from "styled-components";
+import { Container, ImageContainer, Image, Title } from "./post-container.style";
 import PropTypes from "prop-types";
-
-const Container = styled.div`
-  width: 200px;
-  height: 120px;
-  border: 1px solid white;
-`;
-const ImageContainer = styled.div`
-  width: 200px;
-  height: 100px;
-`;
-const Image = styled.img`
-  width: 200px;
-  height: 100px;
-`;
-const Title = styled.div``;
 
 export const PostContainer = () => {
   return (

@@ -1,29 +1,7 @@
 import React from "react";
 import Select, { components } from "react-select";
-import styled from "styled-components";
+import { LabelPositioner, Label, ControlContainer } from "./select.style";
 import PropTypes from "prop-types";
-
-const LabelPositioner = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Label = styled.div`
-  font-size: 0.9rem;
-  text-align: left;
-  width: 70%;
-  padding-left: 14px;
-`;
-
-const ControlContainer = styled.div`
-  display: flex;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 1.1rem;
-  width: 100%;
-`;
 
 // eslint-disable-next-line react/prop-types
 const Control = ({ children, ...props }) => {
@@ -54,7 +32,7 @@ export const customStyles = {
     marginRight: "1rem",
     marginBottom: "1rem",
     width: "100%",
-    maxWidth: state.selectProps.width + 'px'
+    maxWidth: state.selectProps.width + "px"
   }),
   control: (provided, state) => ({
     ...provided,

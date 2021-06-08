@@ -1,34 +1,13 @@
 import React from "react";
 import Select, { components } from "react-select";
-import styled from "styled-components";
-import { customThemeColors, customStyles } from "@components/select";
+import {
+  LabelPositioner,
+  Label,
+  ControlContainer,
+  CustomPlaceholder
+} from "./country-select.style";
+import { customThemeColors, customStyles } from "@components/select/select";
 import PropTypes from "prop-types";
-
-const LabelPositioner = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-`;
-
-const Label = styled.div`
-  font-size: 0.9rem;
-  text-align: left;
-  width: 70%;
-  padding-left: 14px;
-`;
-
-const ControlContainer = styled.div`
-  display: flex;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 1.1rem;
-  width: 100%;
-`;
-
-const CustomPlaceholder = styled.span`
-  white-space: nowrap;
-`;
 
 // eslint-disable-next-line react/prop-types
 const Control = ({ children, ...props }) => {

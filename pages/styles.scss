@@ -1,31 +1,37 @@
 :root {
-    --bg: #fcfcf4;
-    --bgbody: #233042;
-    --blue: #354156;
-    --lightblue: #30aab3;
-    --yellow: #ffca30;
-    --red: #fa3757;
-    --darkGreen: #4d967b;
-    
-    --green: #69b29a;
-    --greendark: #549b81;
-    --reddark: #e02045;
-    --blue: #3baacd;
-  
+  --bg: #fcfcf4;
+  --bgbody: #233042;
+  --blue: #354156;
+  --lightblue: #30aab3;
+  --yellow: #ffca30;
+  --red: #fa3757;
+  --darkGreen: #4d967b;
+
+  --green: #69b29a;
+  --greendark: #549b81;
+  --reddark: #e02045;
+  --blue: #3baacd;
 }
 
-.light-bg { background-color: $bg; }
+.light-bg {
+  background-color: $bg;
+}
 
 * {
   box-sizing: border-box;
-  &:before, &:after { box-sizing: inherit; }
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
 }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 body {
-    background-color: $creamlight;
-    color: $purpledark;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 1.2rem;
-    margin: 0 auto;
-    overflow-x: hidden; 
+  background-color: $creamlight;
+  color: $purpledark;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  overflow-x: hidden;
 }
