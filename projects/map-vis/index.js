@@ -44,12 +44,12 @@ const initialBarChartData2 = data
   .map((a) => ({
     Age_65_or_older_out: a.Age_65_or_older_out,
     name: a.State,
-    Job_out: a.Job_out
+    State_Individual_Income_Tax_Rates: a.State_Individual_Income_Tax_Rates
   }))
   .slice(0, 10);
 
 const barChartValues2 = [
-  [{ property: "Job_out", color: "#ffdfaa", label: "Taxes" }],
+  [{ property: "State_Individual_Income_Tax_Rates", color: "#ffdfaa", label: "Taxes" }],
   [{ property: "Age_65_or_older_out", color: "#ff3f55", label: "% of Age 65 and older" }]
 ];
 
@@ -324,10 +324,14 @@ export const Index = ({ seeMore = false }) => {
           data={scatterPlotData}></Scatterplot>
         {/* <Legend data={REASON_LEGEND_COLOR_MAPPING}></Legend> */}
 
-        <p className="sources-text">Sources: <a href="https://taxfoundation.org/state-individual-income-tax-rates-and-brackets-for-2020/">Tax Foundation</a>, <a href="https://www.unitedvanlines.com/">United Van Lines</a> </p>
-
+        <p className="sources-text">
+          Sources:{" "}
+          <a href="https://taxfoundation.org/state-individual-income-tax-rates-and-brackets-for-2020/">
+            Tax Foundation
+          </a>
+          , <a href="https://www.unitedvanlines.com/">United Van Lines</a>{" "}
+        </p>
       </div>
-
     </section>
   );
 };
