@@ -9,6 +9,7 @@ import { generateLegendMapping } from "./utils";
 const LABELS = [0, 10, 20, 30, 40, 50, 60, 70, 80];
 
 const HEX_PATH_STRING = toPathString(generateBigHex({ size: 2, center: [0, 0] }));
+const HEX_LEGEND_PATH_STRING = toPathString(generateBigHex({ size: 10, center: [0, 0] }));
 
 const MARGIN = { BOTTOM: 0, LEFT: 20 };
 const HEIGHT = 290;
@@ -53,7 +54,10 @@ const ScatterLegend = ({ title, data }) => {
           <React.Fragment key={row.name}>
             <div className="legend-row">
               <svg viewBox="0 0 20 20" width="15" height="15">
-                <circle cx="10" cy="10" r="8" fill={row.color} />
+                <path
+                  transform="translate(10, 10)"
+                  d={HEX_LEGEND_PATH_STRING}
+                  fill={row.color}></path>
               </svg>{" "}
               <span className="legend-data">
                 <span className="legend-name">{row.name}</span>
@@ -91,7 +95,9 @@ export const Scatterplot = ({
   const colorScale = React.useMemo(() => {
     const mmin = Math.min(...data.map((d) => d.z));
     const mmax = Math.max(...data.map((d) => d.z));
-    return scaleLinear().domain([mmin, mmax]).range(["#F2F858", "#9a3391", "#081281"]);
+    return scaleLinear()
+      .domain([mmin, mmin + mmax / 2, mmax])
+      .range(["#FF7B06", "#FFF4E0", "#077984"]);
   }, [data]);
 
   return (
