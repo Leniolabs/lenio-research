@@ -2,19 +2,21 @@
 import * as React from "react";
 import Head from "next/head";
 import HorizontalTimeline from "react-horizontal-timeline";
-import { Center } from "./timeline.style";
+import { Center, LabelCompanies } from "./timeline.style";
 import data from "./timeline.data";
+import { dateDefaults, publicationDefault } from "./initial.data";
 
 export const Index = () => {
-  const [test, setTest] = React.useState({
+  const [timelineData, setTimelineData] = React.useState({
     value: 0,
     previous: 0
   });
-  const [values, setValues] = React.useState(["2011/12/04", "2020/06/03"]);
+  const [values, setValues] = React.useState(dateDefaults);
+  const [contentDetail, setContentDetail] = React.useState("");
+  const [linkDetail, setLinkDetail] = React.useState("");
   const [selectedCompany, setSelectedCompany] = React.useState("");
-  const [companyPublications, setCompanyPublications] = React.useState([]);
-
-  console.log("%c data === >>>", "background: cyan; color: black;", data);
+  const [companyPublications, setCompanyPublications] = React.useState(publicationDefault);
+  const [idDateOnTimeline, setIdDateOnTimeline] = React.useState("1");
 
   const companyNames = data.map((item) => {
     const { company, key } = item;
@@ -24,39 +26,50 @@ export const Index = () => {
   const getPublications = () => {
     data.map((item) => {
       const { company, publications } = item;
-      console.log(`company, selectedCompany`, `${company} - ${selectedCompany}`);
       if (selectedCompany === company) {
         setCompanyPublications(publications);
       }
     });
   };
 
-  // const getPublicationsDetails = () => {
-  //   companyPublications.map((item) => {
-  //     const { content, dateAt, link } = item;
-  //     console.log("%c dateAt === >>>", "background: red; color: white;", dateAt);
-  //     setValues([...dateAt]);
-  //   });
-  // };
+  const getPublicationDates = () => {
+    setValues(
+      companyPublications.map((item) => {
+        return item.dateAt;
+      })
+    );
+  };
+
+  const getPublicationContentAndLink = () => {
+    companyPublications.map((pub) => {
+      const { link, content, id } = pub;
+
+      if (id === idDateOnTimeline) {
+        setContentDetail(content);
+        setLinkDetail(link);
+      }
+    });
+  };
+
+  React.useEffect(() => {
+    getPublicationDates();
+    setTimelineData({ value: 0, previous: 0 });
+  }, [companyPublications]);
 
   React.useEffect(() => {
     getPublications();
   }, [companyPublications, selectedCompany]);
 
-  // React.useEffect(() => {
-  //   getPublicationsDetails();
-  // }, [values, selectedCompany]);
-
-  // console.log(
-  //   "%c companyPublications === >>>",
-  //   "background: yellow; color: black;",
-  //   companyPublications
-  // );
+  React.useEffect(() => {
+    getPublicationContentAndLink();
+  }, [companyPublications, idDateOnTimeline]);
 
   return (
     <>
       <Head></Head>
       <div>
+        <LabelCompanies>Companies</LabelCompanies>
+        <br />
         <select
           value={companyNames.company}
           onChange={(e) => {
@@ -70,18 +83,30 @@ export const Index = () => {
             ))}
         </select>
         {/* Bounding box for the Timeline */}
-        <div style={{ width: "80%", height: "350px", margin: "0 auto" }}>
+        <div style={{ width: "80%", height: "530px", margin: "0 auto" }}>
           <HorizontalTimeline
-            index={test.value}
+            index={timelineData.value}
             indexClick={(index) => {
-              setTest({ value: index, previous: test.value });
+              setTimelineData({ value: index, previous: timelineData.value });
+              setIdDateOnTimeline(JSON.stringify(index + 1));
             }}
             values={values}
+            style={{ marginTop: "90px", background: "#f8f8f8" }}
+            minEventPadding={150}
           />
+          <Center>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <h2>{selectedCompany}</h2>
+            </div>
+            <br />
+            <p>{contentDetail && contentDetail}</p>
+            {linkDetail && (
+              <a style={{ zIndex: "1000" }} href={linkDetail && linkDetail}>
+                More info
+              </a>
+            )}
+          </Center>
         </div>
-        <Center>
-          <h2>{selectedCompany}</h2>
-        </Center>
       </div>
     </>
   );
