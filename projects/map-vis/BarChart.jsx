@@ -91,7 +91,7 @@ export const BarChart = ({
 
   return (
     <svg className="millennials" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 585.8 354.9">
-      <rect width="430" height="295" x="144.1" fill="#fffbf0" />
+      <rect width="430" height="295" x="144.1" fill="#fffefa" />
       <text
         fill="#2a3f55"
         fontFamily="SourceSansPro-Regular, Source Sans Pro"
@@ -158,8 +158,8 @@ export const BarChart = ({
                 y2="298.4"
                 fill="none"
                 stroke="#2a3f55"
-                strokeMiterlimit="10"
                 strokeWidth=".3"
+                strokeDasharray="2 2"
               />
             )}
           </g>

@@ -49,7 +49,7 @@ const initialBarChartData2 = data
   .slice(0, 10);
 
 const barChartValues2 = [
-  [{ property: "Job_out", color: "#ffdfaa", label: "% of Job Out" }],
+  [{ property: "Job_out", color: "#ffdfaa", label: "Taxes" }],
   [{ property: "Age_65_or_older_out", color: "#ff3f55", label: "% of Age 65 and older" }]
 ];
 
@@ -323,7 +323,11 @@ export const Index = ({ seeMore = false }) => {
           linearRegression={scatterPlotLinearFit}
           data={scatterPlotData}></Scatterplot>
         {/* <Legend data={REASON_LEGEND_COLOR_MAPPING}></Legend> */}
+
+        <p className="sources-text">Sources: <a href="https://taxfoundation.org/state-individual-income-tax-rates-and-brackets-for-2020/">Tax Foundation</a>, <a href="https://www.unitedvanlines.com/">United Van Lines</a> </p>
+
       </div>
+
     </section>
   );
 };

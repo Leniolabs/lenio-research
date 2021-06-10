@@ -141,6 +141,12 @@ const GlobalStyle = createGlobalStyle`
       fill: #45486d;
     }
   }
+  .sources-text {
+    font-size: 1rem;
+    font-style: italic;
+    margin: 5rem auto;
+    text-align: center;
+  }
   .stack-bar {
     margin: 3rem auto 6rem;
     .millennials { margin-bottom: 5rem;}
