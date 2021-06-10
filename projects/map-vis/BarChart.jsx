@@ -49,13 +49,13 @@ const BarLegend = ({ data }) => {
       {data.map((d, idx) => {
         return (
           <g key={`label-${data.name}-${idx}`}>
-            <rect width="14.1" height="14.1" x={138 + idx * 150} y="338" fill={d.color} />
+            <rect width="14" height="14" x={140 + idx * 150} y="338" fill={d.color} />
             <text
               fill="#2a3f55"
-              fontFamily="SourceSansPro-SemiBold, Source Sans Pro"
-              fontSize="15"
+              fontFamily="'Source Sans Pro'"
+              fontSize="13"
               fontWeight="600"
-              transform={`translate(${12 + (idx + 1) * 150} 350)`}>
+              transform={`translate(${6 + (idx + 1) * 152} 350)`}>
               {d.label}
             </text>
           </g>
@@ -94,7 +94,7 @@ export const BarChart = ({
       <rect width="430" height="295" x="144.1" fill="#fffefa" />
       <text
         fill="#2a3f55"
-        fontFamily="SourceSansPro-Regular, Source Sans Pro"
+        fontFamily="'Source Sans Pro'"
         fontSize="13"
         textAnchor="end"
         transform="translate(0 17)">
@@ -133,7 +133,7 @@ export const BarChart = ({
       <BarLegend data={legendData} />
       <text
         fill="#2a3f55"
-        fontFamily="SourceSansPro-SemiBold, Source Sans Pro"
+        fontFamily="'Source Sans Pro'"
         fontSize="15"
         fontWeight="600"
         letterSpacing="0em"
@@ -145,7 +145,7 @@ export const BarChart = ({
           <g key={`line-${v}`}>
             <text
               fill="#2a3f55"
-              fontFamily="SourceSansPro-Regular, Source Sans Pro"
+              fontFamily="'Source Sans Pro'"
               fontSize="13"
               transform={`translate(${MARGIN.LEFT + xScale(v)} 312.8)`}
               textAnchor="middle">
