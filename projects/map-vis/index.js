@@ -49,7 +49,7 @@ const initialBarChartData2 = data
   .slice(0, 10);
 
 const barChartValues2 = [
-  [{ property: "State_Individual_Income_Tax_Rates", color: "#ffdfaa", label: "Taxes" }],
+  [{ property: "State_Individual_Income_Tax_Rates", color: "#ffdfaa", label: "Individual Income Tax" }],
   [{ property: "Age_65_or_older_out", color: "#ff3f55", label: "% of Age 65 and older" }]
 ];
 
@@ -283,14 +283,14 @@ export const Index = ({ seeMore = false }) => {
       </p>
       <div className="row-container">
         <h2>Age groups and reasons to migrate</h2>
-        <p className="sub-p">Top 10 states with age between 18 and 44 moving Out</p>
+        <p className="sub-p">Top 10 states with age between 18 and 44 moving out for job opportunities</p>
         <div className="stack-bar">
           {/* <div className="checkbox-group">
             <label for="ageout"> <input type="checkbox" id="ageout" name="ageout" value="Age Out"/>Order by Age out</label>
             <label for="jobout"> <input type="checkbox" id="jobout" name="jobout" value="Job Out"/>Order by Job out</label>
           </div> */}
           <BarChart data={barChartData}></BarChart>
-          <p className="sub-p">Top 10 states with age 65 and older moving Out</p>
+          <p className="sub-p">Top 10 states with age 65 and older moving out for taxes</p>
           <BarChart data={barChartData2} values={barChartValues2} />
         </div>
 
