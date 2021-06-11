@@ -120,6 +120,7 @@ export const FooterContainer = styled(Footer)`
 `;
 export const HeroImage = styled.img`
   background: black;
+  border: 2px solid #151d29;
   width: 100%;
   cursor: pointer;
   max-width: 1200px;
