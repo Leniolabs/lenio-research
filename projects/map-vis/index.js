@@ -49,8 +49,13 @@ const initialBarChartData2 = data
   .slice(0, 10);
 
 const barChartValues2 = [
+<<<<<<< HEAD
   [{ property: "State_Individual_Income_Tax_Rates", color: "#ffdfaa", label: "Individual Income Taxes" }],
   [{ property: "Age_65_or_older_in", color: "#ff3f55", label: "% of Age 65 and older in" }]
+=======
+  [{ property: "State_Individual_Income_Tax_Rates", color: "#ffdfaa", label: "Individual Income Tax" }],
+  [{ property: "Age_65_or_older_out", color: "#ff3f55", label: "% of Age 65 and older" }]
+>>>>>>> b95362b1f973ed6155459ab8afcc4026b7f1b4be
 ];
 
 const barChartValues = [

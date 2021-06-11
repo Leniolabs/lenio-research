@@ -55,7 +55,7 @@ const BarLegend = ({ data }) => {
               fontFamily="'Source Sans Pro'"
               fontSize="12"
               fontWeight="600"
-              transform={`translate(${12 + (idx + 1) * 150} 350)`}>
+              transform={`translate(${6 + (idx + 1) * 152} 350)`}>
               {d.label}
             </text>
           </g>
