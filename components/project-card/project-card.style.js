@@ -6,17 +6,17 @@ export const Card = styled.div`
   width: 100%;
   min-width: 335px;
   background: #fff;
-  padding: 16px 32px;
+  padding: 1rem 2rem;
   box-sizing: border-box;
   margin-bottom: 40px;
   img {
     width: 100%;
   }
   display: grid;
-  grid-template-rows: 45px 1fr 120px;
+  grid-template-rows: 45px 1fr 180px;
   p {
-    color: #000;
-    font-size: 14px;
+    color: #2a3f55;
+    font-size: 1rem;
     overflow: hidden;
     text-overflow: ellipsis;
   }
@@ -31,9 +31,9 @@ export const CardTitle = styled.h6`
 
 export const Button = styled.a`
   position: absolute;
-  background: #00beff;
-  padding: 16px;
-  font-size: 14px;
+  background: #0d7a9e;
+  padding: 1rem;
+  font-size: 1.2rem;
   bottom: -20px;
   left: 0;
   right: 0;
@@ -43,7 +43,7 @@ export const Button = styled.a`
   margin: auto;
   cursor: pointer;
   &:hover {
-    background: #00beffee;
+    background: #48d58c;
     transition: all 0.8s;
   }
 `;

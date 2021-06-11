@@ -4,6 +4,7 @@ import { LogoHeaderContainer } from "@components/styled";
 const Logo = ({ withText, circleColor = "#30aab3", color = "currentColor", ...rest }) => {
   return (
     <LogoHeaderContainer link>
+      <a href="https://www.leniolabs.com">
       <svg
         className="lenio-iso"
         width="75"
@@ -28,6 +29,7 @@ const Logo = ({ withText, circleColor = "#30aab3", color = "currentColor", ...re
           <span>by Leniolabs_</span>
         </p>
       )}
+      </a>
     </LogoHeaderContainer>
   );
 };
