@@ -9,11 +9,12 @@ import { generateLegendMapping } from "./utils";
 const LABELS = [0, 10, 20, 30, 40, 50, 60, 70, 80];
 
 const HEX_PATH_STRING = toPathString(generateBigHex({ size: 2, center: [0, 0] }));
+const HEX_LEGEND_PATH_STRING = toPathString(generateBigHex({ size: 10, center: [0, 0] }));
 
 const MARGIN = { BOTTOM: 0, LEFT: 20 };
 const HEIGHT = 290;
 
-export const ScatterHex = ({ x, y, color }) => {
+export const ScatterHex = ({ x, y, color, onMouseEnter, onMouseOut }) => {
   const controls = useAnimation();
   const oldX = React.useRef(x);
   const oldY = React.useRef(y);
@@ -32,6 +33,8 @@ export const ScatterHex = ({ x, y, color }) => {
     <motion.path
       initial={{ x, y }}
       animate={controls}
+      onMouseEnter={onMouseEnter}
+      onMouseOut={onMouseOut}
       style={{ transition: "all ease-in" }}
       d={HEX_PATH_STRING}
       fill={color}></motion.path>
@@ -53,7 +56,10 @@ const ScatterLegend = ({ title, data }) => {
           <React.Fragment key={row.name}>
             <div className="legend-row">
               <svg viewBox="0 0 20 20" width="15" height="15">
-                <circle cx="10" cy="10" r="8" fill={row.color} />
+                <path
+                  transform="translate(10, 10)"
+                  d={HEX_LEGEND_PATH_STRING}
+                  fill={row.color}></path>
               </svg>{" "}
               <span className="legend-data">
                 <span className="legend-name">{row.name}</span>
@@ -75,6 +81,31 @@ ScatterLegend.propTypes = {
   data: PropTypes.any
 };
 
+const Tooltip = ({ tooltip }) => {
+  const { x, y, value, xTitle, yTitle } = tooltip;
+  return (
+    <g transform={`translate(${x}, ${y})`} key={`scatter-hex-${value.code}`} className="tooltip">
+      <rect transform={`translate(${0}, ${0})`} fill="#FFFBF0" width="100" height="33" rx="1" />
+      <text fill="#45486D" transform={`translate(${5}, ${8})`} font-size="7">
+        {value.state}
+      </text>
+      <text fill="#45486D" transform={`translate(${5}, ${15})`} font-size="5">
+        {`${xTitle}: ${value.x} %`}
+      </text>
+      <text fill="#45486D" transform={`translate(${5}, ${21})`} font-size="5">
+      {`${yTitle}: ${value.y} %`}
+      </text>
+      <text fill="#45486D" transform={`translate(${5}, ${27})`} font-size="5">
+      {`Combined Sales Tax Rate: ${value.z} %`}
+      </text>
+    </g>
+  );
+};
+
+Tooltip.propTypes = {
+  tooltip: PropTypes.object
+};
+
 export const Scatterplot = ({
   xTitle,
   yTitle,
@@ -91,19 +122,26 @@ export const Scatterplot = ({
   const colorScale = React.useMemo(() => {
     const mmin = Math.min(...data.map((d) => d.z));
     const mmax = Math.max(...data.map((d) => d.z));
-    return scaleLinear().domain([mmin, mmax]).range(["#F2F858", "#9a3391", "#081281"]);
+    return scaleLinear()
+      .domain([mmin, mmin + mmax / 2, mmax])
+      .range(["#FF7B06", "#FFF4E0", "#077984"]);
   }, [data]);
+  const [tooltip, setTooltip] = React.useState(false);
 
   return (
     <div className="chart-grid">
       <svg className="main-chart-taxes" viewBox="0 100 250 200" overflow="visible">
         {data.map((state) => {
           return (
-            <ScatterHex
-              key={`scatter-hex-${state.code}`}
-              x={xScale(state.x)}
-              y={HEIGHT - yScale(state.y)}
-              color={colorScale(state.z)}></ScatterHex>
+            <>
+              <ScatterHex
+                key={`scatter-hex-${state.code}`}
+                x={xScale(state.x)}
+                y={HEIGHT - yScale(state.y)}
+                onMouseEnter={() => setTooltip({x: xScale(state.x), y: HEIGHT - yScale(state.y), value: state})}
+                onMouseOut={() => setTooltip(false)}
+                color={colorScale(state.z)}></ScatterHex>
+            </>
           );
         })}
         <line
@@ -160,6 +198,7 @@ export const Scatterplot = ({
           stroke="#ff5b3a"
           strokeMiterlimit="10"
         />
+        {tooltip && <Tooltip tooltip={{ ...tooltip, xTitle: xTitle, yTitle: yTitle}} />}
         <text
           transform="translate(90 308)"
           fontSize="6"

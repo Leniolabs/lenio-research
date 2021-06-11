@@ -20,7 +20,8 @@
     "react-is": "^16.8.0",
     "react-select": "4.1.0",
     "styled-components": "^5.0.0",
-    "svgpath": "^2.3.1"
+    "svgpath": "^2.3.1",
+    "swiper": "^6.6.1"
   },
   "devDependencies": {
     "babel-plugin-styled-components": "^1.8.0",
