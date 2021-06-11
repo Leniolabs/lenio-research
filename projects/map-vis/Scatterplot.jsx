@@ -131,6 +131,21 @@ export const Scatterplot = ({
   return (
     <div className="chart-grid">
       <svg className="main-chart-taxes" viewBox="0 100 250 200" overflow="visible">
+        <motion.line
+          animate={{
+            x1: xScale(linearRegression.x1),
+            y1: HEIGHT - yScale(linearRegression.y1),
+            x2: xScale(linearRegression.x2),
+            y2: HEIGHT - yScale(linearRegression.y2)
+          }}
+          transition={{
+            duration: 0.75
+          }}
+          fill="none"
+          stroke="#ff5b3a"
+          strokeMiterlimit="10"
+          strokeWidth=".5"
+        />
         {data.map((state) => {
           return (
             <>
@@ -184,20 +199,6 @@ export const Scatterplot = ({
             );
           })}
         </text>
-        <motion.line
-          animate={{
-            x1: xScale(linearRegression.x1),
-            y1: HEIGHT - yScale(linearRegression.y1),
-            x2: xScale(linearRegression.x2),
-            y2: HEIGHT - yScale(linearRegression.y2)
-          }}
-          transition={{
-            duration: 0.75
-          }}
-          fill="none"
-          stroke="#ff5b3a"
-          strokeMiterlimit="10"
-        />
         {tooltip && <Tooltip tooltip={{ ...tooltip, xTitle: xTitle, yTitle: yTitle}} />}
         <text
           transform="translate(90 308)"
