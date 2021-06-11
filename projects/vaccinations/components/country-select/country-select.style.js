@@ -12,7 +12,7 @@ export const Label = styled.div`
   font-size: 0.9rem;
   text-align: left;
   width: 70%;
-  padding-left: 14px;
+  padding-left: .8rem;
 `;
 
 export const ControlContainer = styled.div`

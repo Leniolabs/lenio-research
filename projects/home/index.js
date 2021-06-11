@@ -28,13 +28,24 @@ export const Index = () => {
         <Header>
           <Title>
             Data <span>research</span>
+            <Small>
+            By <span><a href="https://www.leniolabs.com/">Leniolabs_</a></span>
+            </Small>
           </Title>
-          <Small>
-            By <span> Leniolabs_</span>
-          </Small>
+          <svg className="svg-home" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1541 823">
+            <g fill="none" fillRule="evenodd" stroke="#FFF" opacity=".1">
+              <path stroke-width="3.4" d="M1168 411a38 38 0 10-76 0 38 38 0 0076 0z"/>
+              <path stroke-width="3.4" d="M1191 411a61 61 0 10-122 0 61 61 0 00122 0z"/>
+              <path stroke-width=".8" d="M1228 411a98 98 0 10-196 0 98 98 0 00196 0z"/>
+              <path stroke-width=".8" d="M1288 411a158 158 0 10-316 0 158 158 0 00316 0z"/>
+              <path stroke-width=".8" d="M1540 410.5a410.5 410.5 0 10-821 0 410.5 410.5 0 00821 0z"/>
+              <path stroke-width="6.8" d="M1147 411a17 17 0 10-34 0 17 17 0 0034 0z"/>
+              <line x2="971.5" y1="410.2" y2="410.2" strokeWidth="2"/>
+            </g>
+          </svg>
         </Header>
         <Sidebar>
-          <Logo color="#102632" circleColor="#ffffff"></Logo>
+          <Logo color="#102632" circleColor="#fff"></Logo>
           <p>copyright {year}</p>
         </Sidebar>
         <Main>
