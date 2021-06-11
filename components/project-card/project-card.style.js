@@ -6,7 +6,7 @@ export const Card = styled.div`
   width: 100%;
   min-width: 335px;
   background: #fff;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 2.2rem;
   box-sizing: border-box;
   margin-bottom: 40px;
   img {
@@ -17,7 +17,7 @@ export const Card = styled.div`
   p {
     color: #2a3f55;
     font-size: 1rem;
-    overflow: hidden;
+    letter-spacing: -0.01px;
     text-overflow: ellipsis;
   }
 `;
