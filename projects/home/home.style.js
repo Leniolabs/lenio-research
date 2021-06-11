@@ -122,4 +122,5 @@ export const HeroImage = styled.img`
   background: black;
   width: 100%;
   cursor: pointer;
+  max-width: 1200px;
 `;
