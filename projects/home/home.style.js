@@ -7,11 +7,8 @@ export const Layout = styled.div`
   display: grid;
   color: #fff;
   background: #2d2f48;
-  background-image: url("/background-home.svg");
-  background-repeat: no-repeat;
-  background-position: 0 -220px;
   grid-template-columns: 160px 1fr 1fr;
-  grid-template-rows: 160px 1fr 115px;
+  grid-template-rows: 190px 1fr 115px;
   grid-template-areas:
     "sidebar header header"
     "sidebar main main"
@@ -37,7 +34,7 @@ export const Sidebar = styled.aside`
   grid-area: sidebar;
   p {
     line-height: 18px;
-    font-size: 14px;
+    font-size: 1rem;
     color: #fff;
     text-transform: uppercase;
   }
@@ -47,10 +44,20 @@ export const Sidebar = styled.aside`
 `;
 export const Header = styled.header`
   grid-area: header;
-  padding: 64px 80px 20px;
-`;
+  overflow: visible;
+  padding: 64px 20px 20px 80px;
+  position: relative;
+  .svg-home {
+    position: absolute;
+    top: -126px;
+    width: 1000px;
+  }
+  @media (max-width: 600px) {
+    padding: 15px 20px 20px;
+  }
+  `;
 export const Main = styled.main`
-  padding: 32px 80px 0;
+  padding: 0 80px;
   display: flex;
   flex-direction: column;
   grid-area: main;
@@ -60,27 +67,34 @@ export const Main = styled.main`
   section:last-child {
     padding-bottom: 60px;
   }
+  @media (max-width: 600px) {
+    padding: 20px;
+  }
 `;
 export const Title = styled.h1`
   text-transform: uppercase;
+  line-height: 1;
   font-size: 4rem;
-  color: #ffffff;
-  margin: 0px;
+  color: #fff;
+  margin: 0 0 0 -4px;
   flex-direction: column;
   letter-spacing: 0;
   span {
     color: #da63dd;
   }
-  small {
-  }
 `;
 
 export const Small = styled.small`
-  color: #ffffff;
+  color: #fff;
   text-transform: uppercase;
   font-size: 1rem;
-  span {
+  display: block;
+  margin-top: 30px;
+  padding-left: 4px;
+  span a {
     color: #48d58c;
+    text-decoration: none;
+    &:hover { color: white;}
   }
 `;
 
@@ -106,6 +120,8 @@ export const FooterContainer = styled(Footer)`
 `;
 export const HeroImage = styled.img`
   background: black;
+  border: 2px solid #151d29;
   width: 100%;
   cursor: pointer;
+  max-width: 1200px;
 `;

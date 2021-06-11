@@ -3,6 +3,7 @@ import Head from "next/head";
 import { TrackingProvider } from "analytics/context";
 
 const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
   body {
     background-color: #f3f1e5;
     box-sizing: border-box;
@@ -140,6 +141,12 @@ const GlobalStyle = createGlobalStyle`
     text { 
       fill: #45486d;
     }
+  }
+  .sources-text {
+    font-size: 1rem;
+    font-style: italic;
+    margin: 5rem auto;
+    text-align: center;
   }
   .stack-bar {
     margin: 3rem auto 6rem;

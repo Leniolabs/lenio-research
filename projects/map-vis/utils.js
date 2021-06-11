@@ -10,6 +10,7 @@ export const generateLegendMapping = (names, values, colors = LEGEND_COLORS) => 
 export const generateScatterPlotData = (data, x, y, z) => {
   return data.map((row) => {
     return {
+      state: row.State,
       code: row.code,
       x: row[x],
       y: row[y],
