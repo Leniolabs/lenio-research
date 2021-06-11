@@ -1,5 +1,5 @@
 export const INNER_HEX_DEFAULT_COLOR = "#F4E9F0";
-export const INNER_HEX_COLORS = ["#ff7b06", "#ffa00f", "#ffbf55", "#ffe3b0", "#ffdfaa", "#fff0db"];
+export const INNER_HEX_COLORS = ["#ff7b06", "#ffa00f", "#ffbf55", "#ffe3b0", "#f9efdd", "#fff0db"];
 
 // export const INNER_HEX_COLORS = ["#0D3EA0", "#3366FF", "#6690FF", "#BDD5FF", "#E3ECFF", "#E3ECFF"];
 export const LEGEND_COLORS = ["#2a9faa", "#9cd0d7", "#ffa0a8", "#ff3f55", "#F4E9F0"];

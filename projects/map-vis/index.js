@@ -40,17 +40,17 @@ const initialBarChartData = data
   .slice(0, 10);
 
 const initialBarChartData2 = data
-  .sort((a, b) => b.Age_65_or_older_out - a.Age_65_or_older_out)
+  .sort((a, b) => b.Age_65_or_older_in - a.Age_65_or_older_in)
   .map((a) => ({
-    Age_65_or_older_out: a.Age_65_or_older_out,
+    Age_65_or_older_in: a.Age_65_or_older_in,
     name: a.State,
     State_Individual_Income_Tax_Rates: a.State_Individual_Income_Tax_Rates
   }))
   .slice(0, 10);
 
 const barChartValues2 = [
-  [{ property: "State_Individual_Income_Tax_Rates", color: "#ffdfaa", label: "Taxes" }],
-  [{ property: "Age_65_or_older_out", color: "#ff3f55", label: "% of Age 65 and older" }]
+  [{ property: "State_Individual_Income_Tax_Rates", color: "#ffdfaa", label: "Individual Income Taxes" }],
+  [{ property: "Age_65_or_older_in", color: "#ff3f55", label: "% of Age 65 and older in" }]
 ];
 
 const barChartValues = [
@@ -63,7 +63,7 @@ const barChartValues = [
 
 export const Index = ({ seeMore = false }) => {
   const { logEvent } = useTracking();
-  const [shape, cycleShape] = useCycle("hex", "shape");
+  const [shape, cycleShape] = useCycle("shape", "hex");
   const [hoveredState, setHoveredState] = React.useState("");
   const [dataKeys, setDataKeys] = React.useState(KEY_ARRAY_OPTIONS[0]);
   const [scatterPlotX, setScatterPlotX] = React.useState(SCATTERPLOT_OPTIONS[14]);
@@ -283,18 +283,19 @@ export const Index = ({ seeMore = false }) => {
       </p>
       <div className="row-container">
         <h2>Age groups and reasons to migrate</h2>
-        <p className="sub-p">Top 10 states with age between 18 and 44 moving Out</p>
+        <p className="sub-p">Top 10 states with age between 18 and 44 and job reasons moving out.</p>
         <div className="stack-bar">
           {/* <div className="checkbox-group">
             <label for="ageout"> <input type="checkbox" id="ageout" name="ageout" value="Age Out"/>Order by Age out</label>
             <label for="jobout"> <input type="checkbox" id="jobout" name="jobout" value="Job Out"/>Order by Job out</label>
           </div> */}
           <BarChart data={barChartData}></BarChart>
-          <p className="sub-p">Top 10 states with age 65 and older moving Out</p>
+          <p className="sub-p">Top 10 states with age 65 and older moving in and lower taxes states.</p>
           <BarChart data={barChartData2} values={barChartValues2} />
         </div>
 
-        <h2>Moving variables and age groups</h2>
+        <h2>Explore the data</h2>
+        <p className="sub-p">Here you can play with the different variables represented on the hexagon map. You can plot for example the linear relationship between the % of people with ages from 18 to 34 that moved out of the state vs the migration out of the state because of work. The color scale represent the Combined Sales Tax Rate per state.</p>
         <CustomSelect
           width="200"
           options={SCATTERPLOT_OPTIONS}
