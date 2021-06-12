@@ -57,7 +57,7 @@ export const PostList = styled.div`
   max-width: 65em;
 `;
 
-export const SectionTitle = styled.h3`
+export const SectionTitle = styled.h2`
   color: #ffba58;
   text-transform: uppercase;
   font-size: 1.5rem;
