@@ -13,7 +13,7 @@ export const Card = styled.div`
     width: 100%;
   }
   display: grid;
-  grid-template-rows: 45px 1fr 180px;
+  grid-template-rows: 35px 35px 1fr 150px;
   p {
     color: #2a3f55;
     font-size: 1rem;
@@ -21,12 +21,18 @@ export const Card = styled.div`
     text-overflow: ellipsis;
   }
 `;
-export const CardTitle = styled.h6`
+export const CardTitle = styled.h3`
   text-transform: uppercase;
   margin: 0;
   font-size: 1.5rem;
-  color: #20212c;
-  padding-bottom: 16px;
+  color: #2e2f49;
+`;
+
+export const CardSubtitle = styled.span`
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffba58;
 `;
 
 export const Button = styled.a`

@@ -44,15 +44,19 @@ export const Sidebar = styled.aside`
 `;
 export const Header = styled.header`
   grid-area: header;
-  overflow: visible;
   padding: 64px 20px 20px 80px;
   position: relative;
   .svg-home {
+    height: 534px;
+    max-width: calc(100% - 80px);
     position: absolute;
     top: -126px;
     width: 1000px;
   }
   @media (max-width: 600px) {
+    .svg-home {
+      max-width: calc(100% - 40px);
+    }
     padding: 15px 20px 20px;
   }
   `;
@@ -63,6 +67,7 @@ export const Main = styled.main`
   grid-area: main;
   section {
     padding-top: 32px;
+    z-index: 1;
   }
   section:last-child {
     padding-bottom: 60px;
