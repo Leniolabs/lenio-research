@@ -32,7 +32,7 @@ export const Index = () => {
             By <span><a href="https://www.leniolabs.com/">Leniolabs_</a></span>
             </Small>
           </Title>
-          <svg className="svg-home" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1541 823">
+          <svg className="svg-home" preserveAspectRatio="xMinYMid slice" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1541 823">
             <g fill="none" fillRule="evenodd" stroke="#FFF" opacity=".1">
               <path stroke-width="3.4" d="M1168 411a38 38 0 10-76 0 38 38 0 0076 0z"/>
               <path stroke-width="3.4" d="M1191 411a61 61 0 10-122 0 61 61 0 00122 0z"/>
