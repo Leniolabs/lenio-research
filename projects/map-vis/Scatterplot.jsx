@@ -205,14 +205,14 @@ export const Scatterplot = ({
           fontSize="6"
           fontFamily="'Source Sans Pro',sans-serif"
           fontWeight="600">
-          {xTitle}
+          {`% of ${xTitle}`}
         </text>
         <text
           transform="rotate(-90 116 112)"
           fontSize="6"
           fontFamily="'Source Sans Pro',sans-serif"
           fontWeight="600">
-          {yTitle}
+          {`% of ${yTitle}`}
         </text>
       </svg>
       <ScatterLegend
