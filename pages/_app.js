@@ -5,7 +5,7 @@ import { TrackingProvider } from "analytics/context";
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
   body {
-    background-color: #f3f1e5;
+    background-color: #fffbf0;
     box-sizing: border-box;
     color: #45486d;
     font-family: 'Source Sans Pro', sans-serif;

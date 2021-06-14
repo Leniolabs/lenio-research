@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const TimelineContainer = styled.div`
   padding: 2rem;
-  background-color: #f7f7f7;
+  background-color: #f9f3e4;
   min-height: 500px;
   /* display: flex;
   flex-direction: column; */
@@ -11,11 +11,12 @@ export const TimelineContainer = styled.div`
 export const SelectorContainer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const Center = styled.div`
   h2 {
-    color: #383838;
+    color: #2b3f55;
     font-size: 3rem;
     margin: 0;
   }
@@ -25,7 +26,7 @@ export const Center = styled.div`
     font-style: italic;
   }
   p {
-    color: #7a797e;
+    color: #2b3f55;
   }
 `;
 
@@ -58,31 +59,46 @@ export const Footer = styled.footer`
 `;
 
 export const FirstSection = styled.section`
+  background: #fffbf0 url("/timeline-buildings.svg") repeat-x bottom left;
+  background-size: 250px;
+  padding: 2rem 0 10rem;
+  min-height: 35vh;
   text-align: center;
   * {
     margin: 0;
   }
   h1 {
-    font-size: 72px;
+    font-size: 3.2rem;
+    line-height: 1;
   }
   p {
-    font-size: 36;
-    padding-bottom: 2rem;
+    font-size: 1.4rem;
+    margin-top: 1rem;
   }
 `;
 
 export const GraphicSection = styled.section`
-  padding-right: 16px;
-  h3 {
+  margin: 0 auto 4rem;
+  max-width: 70em;
+  h2 {
+    font-size: 2.2rem;
+    font-weight: normal;
     text-align: center;
+  }
+  svg {
+    margin-right: 2rem;
   }
 `;
 
 export const TimelineSection = styled.section`
-  padding: 1rem 3rem;
+  margin: 2rem auto 4rem;
+  max-width: 70em;
 `;
 
 export const LineContainer = styled.div`
   width: 100%;
   height: 120px;
+  li {
+    background-image: none!important;
+  }
 `;
