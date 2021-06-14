@@ -1,65 +1,105 @@
-/* eslint-disable jsx-a11y/no-onchange */
-import * as React from "react";
+import { useState, useEffect } from "react";
 import HorizontalTimeline from "react-horizontal-timeline";
-import { Center } from "../timeline.style";
+import {
+  Center,
+  LabelCompanies,
+  TimelineContainer,
+  SelectorContainer,
+  LineContainer
+} from "../timeline.style";
 import data from "../timeline.data";
+import { dateDefaults, publicationDefault } from "../initial.data";
+import { CustomSelect } from "@components/select/select";
+import { getCompaniesOptions } from "./utils";
+import dayjs from "dayjs";
 
-export const HTimeLine = () => {
-  const [test, setTest] = React.useState({
+const SELECT_WIDTH = 270;
+
+export const Timeline = () => {
+  const companiesOptions = getCompaniesOptions(data);
+  const [timelineData, setTimelineData] = useState({
     value: 0,
     previous: 0
   });
-  const [values, setValues] = React.useState(["2011/12/04", "2020/06/03"]);
-  const [selectedCompany, setSelectedCompany] = React.useState("");
-  const [companyPublications, setCompanyPublications] = React.useState([]);
+  const [values, setValues] = useState(dateDefaults);
+  const [publication, setPublication] = useState({});
+  const [companyPublications, setCompanyPublications] = useState(publicationDefault);
+  const [idDateOnTimeline, setIdDateOnTimeline] = useState("1");
+  const [selectedOption, setSelectedOption] = useState(companiesOptions[0]);
+  const [selectedCompany, setSelectedCompany] = useState(companiesOptions[0].label);
 
-  const companyNames = data.map((item) => {
-    const { company, key } = item;
-    return { company, key };
-  });
-
+  const formatedDated = publication?.dateAt && dayjs(publication.dateAt).format("-MMM D, YYYY");
   const getPublications = () => {
     data.map((item) => {
       const { company, publications } = item;
-      console.log(`company, selectedCompany`, `${company} - ${selectedCompany}`);
       if (selectedCompany === company) {
         setCompanyPublications(publications);
       }
     });
   };
 
-  React.useEffect(() => {
+  const getPublicationDates = () => {
+    setValues(
+      companyPublications.map((item) => {
+        return item.dateAt;
+      })
+    );
+  };
+
+  const getPublicationContentAndLink = () => {
+    companyPublications.map((pub) => {
+      if (pub.id === idDateOnTimeline) {
+        setPublication(pub);
+      }
+    });
+  };
+
+  useEffect(() => {
+    getPublicationDates();
+    setTimelineData({ value: 0, previous: 0 });
+  }, [companyPublications]);
+
+  useEffect(() => {
     getPublications();
   }, [companyPublications, selectedCompany]);
 
+  useEffect(() => {
+    getPublicationContentAndLink();
+  }, [companyPublications, idDateOnTimeline]);
+
+  const onChangeCallback = React.useCallback((option) => {
+    setSelectedCompany(option.label);
+    setSelectedOption(option);
+  }, []);
   return (
-    <>
-      <div style={{ height: "400px", background: "#AfAfAF" }}>
-        <select
-          value={companyNames.company}
-          onChange={(e) => {
-            setSelectedCompany(e.target.value);
-          }}>
-          {companyNames &&
-            companyNames.map(({ company, key }) => (
-              <option value={company} key={key}>
-                {company}
-              </option>
-            ))}
-        </select>
-        <div style={{ width: "80%", height: "350px", margin: "0 auto" }}>
+    <div>
+      <SelectorContainer>
+        <LabelCompanies>Companies</LabelCompanies>
+        <CustomSelect
+          width={SELECT_WIDTH}
+          options={companiesOptions}
+          selectedOption={selectedOption}
+          onChange={onChangeCallback}></CustomSelect>
+      </SelectorContainer>
+      <TimelineContainer>
+        <LineContainer>
           <HorizontalTimeline
-            index={test.value}
+            labelWidth={120}
+            index={timelineData.value}
             indexClick={(index) => {
-              setTest({ value: index, previous: test.value });
+              setTimelineData({ value: index, previous: timelineData.value });
+              setIdDateOnTimeline(JSON.stringify(index + 1));
             }}
+            isTouchEnabled
             values={values}
           />
-        </div>
+        </LineContainer>
         <Center>
           <h2>{selectedCompany}</h2>
+          <time>{formatedDated}</time>
+          <p>{publication?.content}</p>
         </Center>
-      </div>
-    </>
+      </TimelineContainer>
+    </div>
   );
 };
