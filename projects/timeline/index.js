@@ -8,7 +8,7 @@ import {
   TimelineSection
 } from "./timeline.style";
 import { Houses } from "./svg-components/Houses";
-import { HTimeLine as HorizontalTimeline } from "./components/HorizontalTimeline";
+import { Timeline } from "./components/HorizontalTimeline";
 import LogoWithName from "@components/LogoWithName";
 import { Graphic } from "./svg-components/Graphic";
 import { Buildings } from "./svg-components/Buildings";
@@ -29,17 +29,15 @@ export const Index = () => {
           <Buildings></Buildings>
         </FirstSection>
         <TimelineSection>
-          <HorizontalTimeline />
+          <Timeline />
         </TimelineSection>
         <GraphicSection>
           <h3>Return to the office by Company</h3>
           <Graphic></Graphic>
         </GraphicSection>
-      </main>
-      <div>
         <Houses></Houses>
-        <Footer></Footer>
-      </div>
+      </main>
+      <Footer></Footer>
     </Layout>
   );
 };

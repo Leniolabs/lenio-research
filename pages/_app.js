@@ -243,6 +243,7 @@ const GlobalStyle = createGlobalStyle`
   .main-svg-space {
     background-color: #233042;
   }
+
 `;
 
 const theme = {
