@@ -44,7 +44,9 @@ export const ScatterHex = ({ x, y, color, onMouseEnter, onMouseOut }) => {
 ScatterHex.propTypes = {
   x: PropTypes.number,
   y: PropTypes.number,
-  color: PropTypes.string
+  color: PropTypes.string,
+  onMouseEnter: PropTypes.func,
+  onMouseOut: PropTypes.func
 };
 
 const ScatterLegend = ({ title, data }) => {
@@ -93,10 +95,10 @@ const Tooltip = ({ tooltip }) => {
         {`${xTitle}: ${value.x} %`}
       </text>
       <text fill="#45486D" transform={`translate(${5}, ${21})`} font-size="5">
-      {`${yTitle}: ${value.y} %`}
+        {`${yTitle}: ${value.y} %`}
       </text>
       <text fill="#45486D" transform={`translate(${5}, ${27})`} font-size="5">
-      {`Combined Sales Tax Rate: ${value.z} %`}
+        {`Combined Sales Tax Rate: ${value.z} %`}
       </text>
     </g>
   );
@@ -153,7 +155,7 @@ export const Scatterplot = ({
                 key={`scatter-hex-${state.code}`}
                 x={xScale(state.x)}
                 y={HEIGHT - yScale(state.y)}
-                onMouseEnter={() => setTooltip({x: xScale(state.x), y: HEIGHT - yScale(state.y), value: state})}
+                onMouseEnter={() => setTooltip({ x: xScale(state.x), y: HEIGHT - yScale(state.y), value: state })}
                 onMouseOut={() => setTooltip(false)}
                 color={colorScale(state.z)}></ScatterHex>
             </>
@@ -199,7 +201,7 @@ export const Scatterplot = ({
             );
           })}
         </text>
-        {tooltip && <Tooltip tooltip={{ ...tooltip, xTitle: xTitle, yTitle: yTitle}} />}
+        {tooltip && <Tooltip tooltip={{ ...tooltip, xTitle: xTitle, yTitle: yTitle }} />}
         <text
           transform="translate(90 308)"
           fontSize="6"
