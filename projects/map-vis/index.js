@@ -78,19 +78,20 @@ export const Index = ({ seeMore = false }) => {
   const [scatterPlotYOptions, setScatterPlotYOptions] = React.useState([]);
   const [optionType, setOptionType] = React.useState({ label: "In", value: "IN" });
 
+  const oldXValueSelected = React.useRef(SCATTERPLOT_OPTIONS[14]);
+  const oldYValueSelected = React.useRef(SCATTERPLOT_OPTIONS[14]);
+
   React.useEffect(() => {
-    const inOptions = SCATTERPLOT_OPTIONS.filter((o) => o.value.includes("_in"));
-    const outOptions = SCATTERPLOT_OPTIONS.filter((o) => o.value.includes("_out"));
     if (optionType.value.includes("IN")) {
-      setScatterPlotXOptions(inOptions);
-      setScatterPlotX(inOptions[0]);
-      setScatterPlotY(inOptions[0]);
+      setScatterPlotXOptions(SCATTERPLOT_OPTIONS.filter((o) => o.value.includes("_in")));
     }
     if (optionType.value.includes("OUT")) {
-      setScatterPlotXOptions(outOptions);
-      setScatterPlotX(outOptions[0]);
-      setScatterPlotY(outOptions[0]);
+      setScatterPlotXOptions(SCATTERPLOT_OPTIONS.filter((o) => o.value.includes("_out")));
     }
+    setScatterPlotX(oldXValueSelected.current);
+    oldXValueSelected.current = scatterPlotX;
+    setScatterPlotY(oldYValueSelected.current);
+    oldYValueSelected.current = scatterPlotY;
   }, [optionType]);
 
   React.useEffect(() => {
