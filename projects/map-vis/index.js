@@ -72,7 +72,7 @@ export const Index = ({ seeMore = false }) => {
   const [barChartData, setBarChartData] = React.useState(initialBarChartData);
   const [barChartData2, setBarChartData2] = React.useState(initialBarChartData2);
   const [scatterPlotLinearFit, setScatterPlotLinearFit] = React.useState(
-    getLinearFitForPair(SCATTERPLOT_OPTIONS[14].label, SCATTERPLOT_OPTIONS[0].label)
+    getLinearFitForPair(SCATTERPLOT_OPTIONS[14].value, SCATTERPLOT_OPTIONS[0].value)
   );
   const [scatterPlotXOptions, setScatterPlotXOptions] = React.useState([]);
   const [scatterPlotYOptions, setScatterPlotYOptions] = React.useState([]);
@@ -153,7 +153,7 @@ export const Index = ({ seeMore = false }) => {
     setScatterPlotData(
       generateScatterPlotData(data, scatterPlotX.value, scatterPlotY.value, scatterPlotZ.value)
     );
-    setScatterPlotLinearFit(getLinearFitForPair(scatterPlotX.label, scatterPlotY.label));
+    setScatterPlotLinearFit(getLinearFitForPair(scatterPlotX.value, scatterPlotY.value));
   }, [scatterPlotX, scatterPlotY, scatterPlotZ]);
 
   React.useEffect(() => {
@@ -362,8 +362,8 @@ export const Index = ({ seeMore = false }) => {
           onChange={(o) => setScatterPlotZ(o)}
         /> */}
         <Scatterplot
-          xTitle={scatterPlotX.value}
-          yTitle={scatterPlotY.value}
+          xTitle={scatterPlotX.label}
+          yTitle={scatterPlotY.label}
           colorTitle={scatterPlotZ.value}
           linearRegression={scatterPlotLinearFit}
           data={scatterPlotData}></Scatterplot>

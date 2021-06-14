@@ -81,7 +81,23 @@ export const KEY_ARRAY_OPTIONS = [
   }
 ];
 
-const mapHelper = (s) => ({ value: s, label: s });
+const mapHelper = (s) => {
+  if (s.includes("Income")) {
+    const arr = s.split("_");
+    arr.splice(1, 0, "between");
+    arr[2] = arr[2] + "K";
+    if (arr[3] === "more") {
+      arr[3] = "or more";
+    } else {
+      arr.splice(3, 0, "and");
+      arr[4] = arr[4] + "K";
+    }
+
+    return { value: s, label: arr.join(" ") };
+  } else {
+    return { value: s, label: s.replace(/_/g, " ") };
+  }
+};
 
 export const SCATTERPLOT_OPTIONS = [
   ...KEY_ARRAY_OPTIONS[0].value.map(mapHelper),
