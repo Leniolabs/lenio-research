@@ -74,8 +74,28 @@ export const Index = ({ seeMore = false }) => {
   const [scatterPlotLinearFit, setScatterPlotLinearFit] = React.useState(
     getLinearFitForPair(SCATTERPLOT_OPTIONS[14].label, SCATTERPLOT_OPTIONS[0].label)
   );
+  const [scatterPlotXOptions, setScatterPlotXOptions] = React.useState([]);
+  const [scatterPlotYOptions, setScatterPlotYOptions] = React.useState([]);
+  const [optionType, setOptionType] = React.useState({ label: "In", value: "IN" });
 
-  React.useEffect(() => {}, []);
+  React.useEffect(() => {
+    const inOptions = SCATTERPLOT_OPTIONS.filter((o) => o.value.includes("_in"));
+    const outOptions = SCATTERPLOT_OPTIONS.filter((o) => o.value.includes("_out"));
+    if (optionType.value.includes("IN")) {
+      setScatterPlotXOptions(inOptions);
+      setScatterPlotX(inOptions[0]);
+      setScatterPlotY(inOptions[0]);
+    }
+    if (optionType.value.includes("OUT")) {
+      setScatterPlotXOptions(outOptions);
+      setScatterPlotX(outOptions[0]);
+      setScatterPlotY(outOptions[0]);
+    }
+  }, [optionType]);
+
+  React.useEffect(() => {
+    setScatterPlotYOptions(scatterPlotXOptions.filter((o) => o.value !== scatterPlotX.value));
+  }, [scatterPlotX]);
 
   const colorScale = React.useMemo(() => {
     return scaleQuantize()
@@ -297,21 +317,31 @@ export const Index = ({ seeMore = false }) => {
         <h2>Explore the data</h2>
         <p className="sub-p">Here you can play with the different variables represented on the hexagon map. You can plot for example the linear relationship between the % of people with ages from 18 to 34 that moved out of the state vs the migration out of the state because of work. The color scale represent the Combined Sales Tax Rate per state.</p>
         <CustomSelect
-          width="200"
-          options={SCATTERPLOT_OPTIONS}
+          width={100}
+          options={[
+            { label: "In", value: "IN" },
+            { label: "Out", value: "OUT" }
+          ]}
+          selectedOption={optionType}
+          label=""
+          onChange={(o) => setOptionType(o)}
+        />
+        <CustomSelect
+          width={200}
+          options={scatterPlotXOptions}
           selectedOption={scatterPlotX}
           label=""
           onChange={(o) => setScatterPlotX(o)}
         />
         <CustomSelect
-          width="200"
-          options={SCATTERPLOT_OPTIONS.filter((o) => o.label !== scatterPlotX.label)}
+          width={200}
+          options={scatterPlotYOptions}
           selectedOption={scatterPlotY}
           label=""
           onChange={(o) => setScatterPlotY(o)}
         />
         {/* <CustomSelect
-          width="200"
+          width={200}
           options={SCATTERPLOT_OPTIONS}
           selectedOption={scatterPlotZ}
           label=""
