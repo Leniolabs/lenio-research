@@ -74,8 +74,42 @@ export const Index = ({ seeMore = false }) => {
   const [scatterPlotLinearFit, setScatterPlotLinearFit] = React.useState(
     getLinearFitForPair(SCATTERPLOT_OPTIONS[14].value, SCATTERPLOT_OPTIONS[0].value)
   );
+  const [scatterPlotXOptions, setScatterPlotXOptions] = React.useState([]);
+  const [scatterPlotYOptions, setScatterPlotYOptions] = React.useState([]);
+  const [optionType, setOptionType] = React.useState({ label: "In", value: "IN" });
 
-  React.useEffect(() => {}, []);
+  const oldXInValue = React.useRef(SCATTERPLOT_OPTIONS[14]);
+  const oldYInValue = React.useRef(SCATTERPLOT_OPTIONS[0]);
+  const oldXOutValue = React.useRef(SCATTERPLOT_OPTIONS[8]);
+  const oldYOutValue = React.useRef(SCATTERPLOT_OPTIONS[9]);
+  const firstTimeRef = React.useRef(true);
+
+  React.useEffect(() => {
+    const prevInX = scatterPlotX;
+    const prevInY = scatterPlotY;
+    if (optionType.value.includes("IN")) {
+      setScatterPlotXOptions(SCATTERPLOT_OPTIONS.filter((o) => o.value.includes("_in")));
+      setScatterPlotX(oldXInValue.current);
+      setScatterPlotY(oldYInValue.current);
+      if (!firstTimeRef.current) {
+        oldXOutValue.current = prevInX;
+        oldYOutValue.current = prevInY;
+      }
+    }
+    if (optionType.value.includes("OUT")) {
+      setScatterPlotXOptions(SCATTERPLOT_OPTIONS.filter((o) => o.value.includes("_out")));
+      console.log({ x: oldXOutValue.current, y: oldXOutValue.current });
+      setScatterPlotX(oldXOutValue.current);
+      setScatterPlotY(oldYOutValue.current);
+      oldXInValue.current = prevInX;
+      oldYInValue.current = prevInY;
+    }
+    firstTimeRef.current = false;
+  }, [optionType]);
+
+  React.useEffect(() => {
+    setScatterPlotYOptions(scatterPlotXOptions.filter((o) => o.value !== scatterPlotX.value));
+  }, [scatterPlotX]);
 
   const colorScale = React.useMemo(() => {
     return scaleQuantize()
@@ -297,21 +331,31 @@ export const Index = ({ seeMore = false }) => {
         <h2>Explore the data</h2>
         <p className="sub-p">Here you can play with the different variables represented on the hexagon map. You can plot for example the linear relationship between the % of people with ages from 18 to 34 that moved out of the state vs the migration out of the state because of work. The color scale represent the Combined Sales Tax Rate per state.</p>
         <CustomSelect
-          width="200"
-          options={SCATTERPLOT_OPTIONS}
+          width={100}
+          options={[
+            { label: "In", value: "IN" },
+            { label: "Out", value: "OUT" }
+          ]}
+          selectedOption={optionType}
+          label=""
+          onChange={(o) => setOptionType(o)}
+        />
+        <CustomSelect
+          width={200}
+          options={scatterPlotXOptions}
           selectedOption={scatterPlotX}
           label=""
           onChange={(o) => setScatterPlotX(o)}
         />
         <CustomSelect
-          width="200"
-          options={SCATTERPLOT_OPTIONS.filter((o) => o.label !== scatterPlotX.label)}
+          width={200}
+          options={scatterPlotYOptions}
           selectedOption={scatterPlotY}
           label=""
           onChange={(o) => setScatterPlotY(o)}
         />
         {/* <CustomSelect
-          width="200"
+          width={200}
           options={SCATTERPLOT_OPTIONS}
           selectedOption={scatterPlotZ}
           label=""

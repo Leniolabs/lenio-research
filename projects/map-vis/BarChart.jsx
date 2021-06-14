@@ -174,6 +174,14 @@ BarChart.propTypes = {
   yTitle: PropTypes.string,
   colorTitle: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.any),
-  values: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+  values: PropTypes.arrayOf(
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        color: PropTypes.string,
+        label: PropTypes.string,
+        property: PropTypes.string
+      })
+    )
+  ),
   colors: PropTypes.object
 };
