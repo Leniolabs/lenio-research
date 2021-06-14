@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import HorizontalTimeline from "react-horizontal-timeline";
 import {
   Center,
@@ -8,66 +8,60 @@ import {
   LineContainer
 } from "../timeline.style";
 import data from "../timeline.data";
-import { dateDefaults, publicationDefault } from "../initial.data";
 import { CustomSelect } from "@components/select/select";
-import { getCompaniesOptions } from "./utils";
+import { getCompaniesOptions, getAllPublications, getPublicationDates } from "./utils";
 import dayjs from "dayjs";
 
 const SELECT_WIDTH = 270;
 
+const initialPublications = getAllPublications(data);
+const initialDates = getPublicationDates(initialPublications);
+console.log(`initialPublications`, initialPublications);
+
 export const Timeline = () => {
   const companiesOptions = getCompaniesOptions(data);
+
   const [timelineData, setTimelineData] = useState({
     value: 0,
     previous: 0
   });
-  const [values, setValues] = useState(dateDefaults);
+  const [values, setValues] = useState(initialDates);
+  const [companyPublications, setCompanyPublications] = useState(initialPublications);
   const [publication, setPublication] = useState({});
-  const [companyPublications, setCompanyPublications] = useState(publicationDefault);
-  const [idDateOnTimeline, setIdDateOnTimeline] = useState("1");
   const [selectedOption, setSelectedOption] = useState(companiesOptions[0]);
-  const [selectedCompany, setSelectedCompany] = useState(companiesOptions[0].label);
+  const [selectedCompany, setSelectedCompany] = useState("");
 
-  const formatedDated = publication?.dateAt && dayjs(publication.dateAt).format("-MMM D, YYYY");
-  const getPublications = () => {
+  let formatedDated = publication?.dateAt && dayjs(publication.dateAt).format("-MMM D, YYYY");
+
+  const newPublications = () => {
     data.map((item) => {
       const { company, publications } = item;
       if (selectedCompany === company) {
         setCompanyPublications(publications);
-      }
-    });
-  };
-
-  const getPublicationDates = () => {
-    setValues(
-      companyPublications.map((item) => {
-        return item.dateAt;
-      })
-    );
-  };
-
-  const getPublicationContentAndLink = () => {
-    companyPublications.map((pub) => {
-      if (pub.id === idDateOnTimeline) {
-        setPublication(pub);
+      } else if (selectedCompany === "All") {
+        setCompanyPublications(initialPublications);
       }
     });
   };
 
   useEffect(() => {
-    getPublicationDates();
+    const newDates = getPublicationDates(companyPublications);
+    setValues(newDates);
     setTimelineData({ value: 0, previous: 0 });
   }, [companyPublications]);
 
   useEffect(() => {
-    getPublications();
+    newPublications();
   }, [companyPublications, selectedCompany]);
 
   useEffect(() => {
-    getPublicationContentAndLink();
-  }, [companyPublications, idDateOnTimeline]);
+    const newPublication = companyPublications.find(
+      (company) => company.id == timelineData.value + 1
+    );
+    setPublication(newPublication);
+  }, [companyPublications, timelineData.value]);
 
-  const onChangeCallback = React.useCallback((option) => {
+  const onChangeCallback = useCallback((option) => {
     setSelectedCompany(option.label);
     setSelectedOption(option);
   }, []);
@@ -88,7 +82,6 @@ export const Timeline = () => {
             index={timelineData.value}
             indexClick={(index) => {
               setTimelineData({ value: index, previous: timelineData.value });
-              setIdDateOnTimeline(JSON.stringify(index + 1));
             }}
             isTouchEnabled
             values={values}
@@ -96,6 +89,7 @@ export const Timeline = () => {
         </LineContainer>
         <Center>
           <h2>{selectedCompany}</h2>
+          {publication?.company && <h4>{publication?.company}</h4>}
           <time>{formatedDated}</time>
           <p>{publication?.content}</p>
         </Center>
