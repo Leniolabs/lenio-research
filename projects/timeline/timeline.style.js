@@ -78,7 +78,7 @@ export const FirstSection = styled.section`
 `;
 
 export const GraphicSection = styled.section`
-  margin: 0 auto 4rem;
+  margin: 0 auto 6rem;
   max-width: 70em;
   h2 {
     font-size: 2.2rem;

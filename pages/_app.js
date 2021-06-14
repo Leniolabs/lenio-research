@@ -175,6 +175,12 @@ const GlobalStyle = createGlobalStyle`
       width: 100%;
     }
   }
+  .main-timeline {
+    background: #fffbf0 url("/timeline-houses.svg") repeat-x bottom left;
+    background-position: center 100.08%;
+    background-size: 1350px;
+    padding: 0 0 10rem;
+  }
   .btn {
     background-color: transparent;
     border: 2px solid #3baacc;

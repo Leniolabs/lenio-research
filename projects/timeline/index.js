@@ -7,9 +7,7 @@ import {
   GraphicSection,
   TimelineSection
 } from "./timeline.style";
-import { Houses } from "./svg-components/Houses";
 import { Timeline } from "./components/HorizontalTimeline";
-import LogoWithName from "@components/LogoWithName";
 import { Graphic } from "./svg-components/Graphic";
 import Link from "next/link";
 import { LogoHeaderContainer } from "@components/styled";
@@ -48,7 +46,7 @@ export const Index = () => {
           </Link>
         </HeadLogoContainer>
       </header>
-      <main>
+      <main className="main-timeline">
         <FirstSection>
           <h1>Return to office <br/>or remote culture</h1>
           <p>Top companies and that changed their plans during pandemic.</p>
@@ -60,7 +58,6 @@ export const Index = () => {
           <h2>Return to the office by Company</h2>
           <Graphic></Graphic>
         </GraphicSection>
-        <Houses></Houses>
       </main>
       <Footer></Footer>
     </Layout>
