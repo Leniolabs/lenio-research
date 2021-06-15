@@ -7,14 +7,42 @@ export default [
       {
         id: "1",
         dateAt: "2020/07/27",
+        title: "Hybrid model until June 30, 2021",
         link:
           "https://www.wsj.com/articles/google-to-keep-employees-home-until-summer-2021-amid-coronavirus-pandemic-11595854201",
         content:
-          "Will keep its employees home until June 30, 2021, for roles that don't need to be in the office"
+          "Will keep its employees home until June 30, 2021, for roles that don't need to be in the office",
+        calendar: {
+          Sep2019: "office",
+          Nov2019: "office",
+          Dec2019: "office",
+          Jan2020: "office",
+          Feb2020: "office",
+          Mar2020: "office",
+          Apr2020: "home",
+          May2020: "home",
+          Jun2020: "home",
+          Jul2020: "home",
+          Aug2020: "home",
+          Oct2019: "home",
+          Sep2020: "home",
+          Nov2020: "home",
+          Dec2020: "home",
+          Jan2021: "home",
+          Feb2021: "home",
+          Mar2021: "home",
+          Apr2021: "home",
+          May2021: "home",
+          Jun2021: "home",
+          Jul2021: "home",
+          Aug2021: "home",
+          Sep2021: "home",
+        },
       },
       {
         id: "2",
         dateAt: "2020/09/23",
+        title: "Figuring out more long-term remote work options",
         link:
           "https://www.cnbc.com/2020/09/23/google-ceo-sundar-pichai-considering-hybrid-work-from-home-models.html",
         content:
@@ -23,6 +51,7 @@ export default [
       {
         id: "3",
         dateAt: "2020/12/14",
+        title: "Return to offices to September 1",
         link:
           "https://www.cnbc.com/2020/12/14/google-ceo-email-delays-return-to-sept-2021-no-permanent-remote-work.html",
         content:
@@ -31,6 +60,7 @@ export default [
       {
         id: "4",
         dateAt: "2021/03/31",
+        title: "Returning to offices in a “limited” capacity in April",
         link:
           "https://www.cnbc.com/2021/03/31/google-speeds-partial-office-reopening-and-puts-limits-on-remote-work.html",
         content:
@@ -39,6 +69,7 @@ export default [
       {
         id: "5",
         dateAt: "2021/05/06",
+        title: "“We’ll move to a hybrid workweek”",
         link:
           "https://www.forbes.com/sites/jackkelly/2021/05/06/google-announces-a-hybrid----return-to-work-plan-including-both-remote-and-in-office-options/?sh=32a96fba3831",
         content:
@@ -61,6 +92,7 @@ export default [
       {
         id: "1",
         dateAt: "2020/05/01",
+        title: "Hybrid model until October 2",
         link:
           "https://www.cnbc.com/2020/05/01/amazon-extends-work-from-home-order-until-october-2.html",
         content:
@@ -69,6 +101,7 @@ export default [
       {
         id: "2",
         dateAt: "2020/07/15",
+        title: "Hybrid model until January 8",
         link:
           "https://www.cnbc.com/2020/07/15/amazon-coronavirus-work-from-home-policy-extended-until-january-8.html",
         content: "Staff who can work from home to do so until January 8."
@@ -76,6 +109,7 @@ export default [
       {
         id: "3",
         dateAt: "2020/10/21",
+        title: "Hybrid model until June 30",
         link:
           "https://www.cnbc.com/2020/10/21/amazon-coronavirus-work-from-home-policy-extended-through-june-2021.html",
         content: "Staff who can work from home to do so through June 30, 2021."
@@ -83,6 +117,7 @@ export default [
       {
         id: "4",
         dateAt: "2020/12/01",
+        title: "Hybrid model indefinitely",
         link:
           "https://www.cnbc.com/2020/12/01/aws-ceo-jassy-people-wont-be-in-offices-100percent-of-the-time-after-covid.html",
         content:
@@ -91,6 +126,7 @@ export default [
       {
         id: "5",
         dateAt: "2021/03/31",
+        title: "Most back in the office by early fall",
         link:
           "https://www.cnbc.com/2021/03/31/amazon-expects-some-employees-to-return-to-the-office-this-summer.html#:~:text=Amazon%20has%20issued%20new%20guidance,ditch%20its%20offices%20anytime%20soon.&text=%22Our%20plan%20is%20to%20return,and%20learn%20together%20most%20effectively.%22",
         content:
@@ -99,6 +135,7 @@ export default [
       {
         id: "6",
         dateAt: "2021/06/10",
+        title: "From office oriented to hybrid model",
         link:
           "https://www.geekwire.com/2021/amazon-adjusts-return-office-guidance-says-employees-can-work-two-days-week-remotely/",
         content:
@@ -106,11 +143,11 @@ export default [
       }
     ],
     conclusion: {
-      Outcome: "Office oriented",
+      Outcome: "Hybrid model",
       content:
-        "Our plan is to return to an office-centric culture as our baseline” -Amazon memo, March 30 2021",
+        "“We’ve been thinking about how to balance our desire to provide flexibility to work from home with our belief that we invent best for customers when we are together in the office,” -Amazon memo, June 10 2021",
       link:
-        "https://www.aboutamazon.com/news/company-news/amazons-covid-19-blog-updates-on-how-were-responding-to-the-crisis#covid-latest"
+        "https://www.geekwire.com/2021/amazon-adjusts-return-office-guidance-says-employees-can-work-two-days-week-remotely/"
     }
   },
   {
@@ -121,6 +158,7 @@ export default [
       {
         id: "1",
         dateAt: "2020/05/07",
+        title: "Will open most of its offices on July 6",
         link:
           "https://www.cnbc.com/2020/05/07/facebook-to-allow-most-employees-to-work-from-home-through-end-of-2020.html",
         content: "The company will begin to open most of its offices on July 6."
@@ -128,6 +166,7 @@ export default [
       {
         id: "2",
         dateAt: "2020/05/21",
+        title: "Remote work until January 1",
         link:
           "https://www.vox.com/recode/2020/5/21/21266570/facebook-remote-work-from-home-mark-zuckerberg-twitter-covid-19-coronavirus",
         content:
@@ -136,6 +175,7 @@ export default [
       {
         id: "3",
         dateAt: "2020/05/22",
+        title: "Salary adjusted based on new locations",
         link:
           "https://www.forbes.com/sites/jackkelly/2020/05/22/facebook-ceo-mark-zuckerbergs-power-move-may-be-the-biggest-game-changer-for-the-job-market/?sh=1dbe686b2643",
         content:
@@ -144,6 +184,7 @@ export default [
       {
         id: "4",
         dateAt: "2020/07/30",
+        title: "No specific date for returning to offices",
         link:
           "https://www.cnbc.com/2020/07/30/facebook-ceo-zuckerberg-no-end-in-sight-for-work-from-home.html",
         content:
@@ -152,6 +193,7 @@ export default [
       {
         id: "5",
         dateAt: "2020/08/06",
+        title: "Hybrid model until July 2021",
         link:
           "https://www.cnbc.com/2020/08/06/facebook-will-allow-employees-to-work-remotely-until-july-2021.html",
         content:
@@ -160,6 +202,7 @@ export default [
       {
         id: "6",
         dateAt: "2021/03/26",
+        title: "Hybrid model until September",
         link:
           "https://www.cnbc.com/2021/03/26/facebook-to-reopen-its-bay-area-offices-for-some-employees-in-may.html",
         content:
@@ -168,6 +211,7 @@ export default [
       {
         id: "7",
         dateAt: "2021/06/09",
+        title: "Hybrid model at request",
         link:
           "https://www.cnbc.com/2021/06/09/facebook-says-all-employees-can-request-permanent-remote-work.html",
         content:
@@ -190,6 +234,7 @@ export default [
       {
         id: "1",
         dateAt: "2020/08/21",
+        title: "Remote work until July 31",
         link:
           "https://www.forbes.com/sites/jackkelly/2020/08/21/salesforce-joins-google-and-facebook-in-extending-work-from-home-to-next-summer/?sh=7f5bb0f1377d",
         content: "Employees may work-from-home until at least July 31, 2021"
@@ -197,6 +242,7 @@ export default [
       {
         id: "2",
         dateAt: "2021/02/10",
+        title: "Remotely part or full time after the pandemic",
         link:
           "https://www.forbes.com/sites/jackkelly/2021/02/10/salesforce-says-9-to-5-workday-is-dead-and-employees-will-only-come-into-the-office-one-to-three-days-a-week/?sh=1caa37c55d16",
         content:
@@ -205,6 +251,7 @@ export default [
       {
         id: "3",
         dateAt: "2021/04/12",
+        title: "Vaccinated employees can return to offices",
         link:
           "https://www.reuters.com/world/us/salesforce-welcome-vaccinated-employees-back-office-2021-04-12/",
         content:
@@ -227,6 +274,7 @@ export default [
       {
         id: "1",
         dateAt: "2020/08/04",
+        title: "Remote work until June 2021",
         link:
           "https://www.cnbc.com/2020/08/04/uber-employees-can-work-remotely-through-june-2021.html",
         content: "Extending its work-from-home order through June 2021"
@@ -234,6 +282,7 @@ export default [
       {
         id: "2",
         dateAt: "2021/04/14",
+        title: "Hybrid model by September 13",
         link:
           "https://www.reuters.com/technology/uber-expects-employees-return-office-by-sept-13-2021-04-14/",
         content:
@@ -255,6 +304,7 @@ export default [
       {
         id: "1",
         dateAt: "2020/05/12",
+        title: "Allow employees to choose",
         link:
           "https://www.cnbc.com/2020/05/12/twitter-tells-employees-they-can-work-from-home-forever.html",
         content: "Employees can continue working from home “forever” if they wish"
@@ -275,6 +325,7 @@ export default [
       {
         id: "1",
         dateAt: "2021/02/12",
+        title: "Allow employees to choose",
         link:
           "https://www.cnbc.com/2021/02/12/spotify-will-let-employees-work-from-anywhere-after-the-pandemic.html",
         content:
@@ -284,7 +335,7 @@ export default [
     conclusion: {
       Outcome: "Hybrid model but remote-work supporter",
       content:
-        "“ The exact mix of home and office work mode is a decision each employee and their manager make together.” -Spotify memo, February 12 2021",
+        "“The exact mix of home and office work mode is a decision each employee and their manager make together.” -Spotify memo, February 12 2021",
       link: "https://hrblog.spotify.com/2021/02/12/introducing-working-from-anywhere/"
     }
   },
@@ -296,6 +347,7 @@ export default [
       {
         id: "1",
         dateAt: "2021/10/09",
+        title: "Hybrid model with adjusted salaries",
         link:
           "https://www.cnbc.com/2020/10/09/microsoft-implements-new-hybrid-remote-work-policy.html",
         content:
@@ -304,6 +356,7 @@ export default [
       {
         id: "2",
         dateAt: "2021/03/22",
+        title: "Allow employees to choose",
         link:
           "https://www.cnbc.com/2021/03/22/microsoft-to-reopen-its-headquarters-to-more-employees-on-march-29.html",
         content:
@@ -326,6 +379,7 @@ export default [
       {
         id: "1",
         dateAt: "2020/09/08",
+        title: "No return to office until majority are vaccinated",
         link:
           "https://www.theverge.com/2020/9/8/21426956/netflix-ceo-reed-hastings-return-to-office-vaccine-working-from-home-negative",
         content:
@@ -334,6 +388,7 @@ export default [
       {
         id: "2",
         dateAt: "2021/04/09",
+        title: "Return to office by September 6",
         link: "https://finance.yahoo.com/news/netflix-sets-post-labor-day-201514441.html",
         content:
           "Employees should plan to return to working from an office after Labor Day, Sept. 6"

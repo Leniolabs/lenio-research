@@ -49,7 +49,7 @@ export const Index = () => {
       <main className="main-timeline">
         <FirstSection>
           <h1>Return to office <br/>or remote culture</h1>
-          <p>Top companies and that changed their plans during pandemic.</p>
+          <p>Top companies that changed their plans during pandemic.</p>
         </FirstSection>
         <TimelineSection>
           <Timeline />
