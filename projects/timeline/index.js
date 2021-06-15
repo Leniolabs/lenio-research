@@ -9,7 +9,8 @@ import {
   LineGraphicContainer,
   ConclusionContainer,
   Conclusion,
-  TimelineSubtitle
+  TimelineSubtitle,
+  PlayBtn
 } from "./timeline.style";
 import { Timeline } from "./components/HorizontalTimeline";
 import { Graphic } from "./svg-components/Graphic";
@@ -18,7 +19,6 @@ import { LineGraphicText } from "./svg-components/LineGraphicText";
 import Link from "next/link";
 import { LogoHeaderContainer } from "@components/styled";
 import { HeadLogoContainer } from "@components/styled";
-
 
 export const Index = () => {
   return (
@@ -58,6 +58,7 @@ export const Index = () => {
           <h1>Return to office <br/>or remote culture</h1>
           <p>Top companies that changed their plans during pandemic.</p>
         </FirstSection>
+        <TimelineSubtitle>Timeline from May 2020 to present</TimelineSubtitle>
         <TimelineSection>
           <Timeline />
           <LineGraphicContainer>

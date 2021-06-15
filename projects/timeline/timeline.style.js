@@ -9,8 +9,9 @@ export const TimelineContainer = styled.div`
 
 export const SelectorContainer = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  margin: 2rem;
+  div { margin: 0;}
 `;
 
 export const Center = styled.div`
@@ -38,7 +39,7 @@ export const Center = styled.div`
 export const LabelCompanies = styled.h3`
   font-size: 1em;
   font-weight: bold;
-  margin: 10px 5px;
+  margin: 10px 5px 10px auto;
 `;
 
 export const Layout = styled.div`
@@ -154,5 +155,21 @@ export const Conclusion = styled.div`
     font-size: 1rem;
     font-weight: 600;
     text-align: right;
+  }
+`;
+
+export const PlayBtn = styled.button`
+  background-color: #2c9faa;
+  border: 0;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: .4rem 1.2rem;
+  transition .3s ease all;
+  &:hover {
+    background-color: #2ba881;
+    color: white;
   }
 `;

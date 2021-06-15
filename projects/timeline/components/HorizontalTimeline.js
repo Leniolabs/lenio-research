@@ -6,6 +6,7 @@ import {
   TimelineContainer,
   SelectorContainer,
   LineContainer,
+  PlayBtn
 } from "../timeline.style";
 import data from "../timeline.data";
 import { CustomSelect } from "@components/select/select";
@@ -68,6 +69,7 @@ export const Timeline = () => {
   return (
     <div>
       <SelectorContainer>
+        <PlayBtn> ▶️ Play </PlayBtn>
         <LabelCompanies>Companies</LabelCompanies>
         <CustomSelect
           width={SELECT_WIDTH}
@@ -75,6 +77,7 @@ export const Timeline = () => {
           selectedOption={selectedOption}
           onChange={onChangeCallback}></CustomSelect>
       </SelectorContainer>
+      
       <TimelineContainer>
         <LineContainer>
           <HorizontalTimeline
