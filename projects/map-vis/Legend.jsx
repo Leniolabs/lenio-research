@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export const Legend = ({ title, data }) => {
   return (
-    <p className="legends">
+    <div className="legends">
       <h3>{title}</h3>
       {data.map((row) => {
         return (
@@ -22,7 +22,7 @@ export const Legend = ({ title, data }) => {
           </React.Fragment>
         );
       })}
-    </p>
+    </div>
   );
 };
 
