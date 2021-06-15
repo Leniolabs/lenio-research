@@ -51,7 +51,7 @@ ScatterHex.propTypes = {
 
 const ScatterLegend = ({ title, data }) => {
   return (
-    <p className="legends">
+    <div className="legends">
       <h3>{title}</h3>
       {data.map((row) => {
         return (
@@ -74,7 +74,7 @@ const ScatterLegend = ({ title, data }) => {
           </React.Fragment>
         );
       })}
-    </p>
+    </div>
   );
 };
 
@@ -88,16 +88,16 @@ const Tooltip = ({ tooltip }) => {
   return (
     <g transform={`translate(${x}, ${y})`} key={`scatter-hex-${value.code}`} className="tooltip">
       <rect transform={`translate(${0}, ${0})`} fill="#FFFBF0" width="100" height="33" rx="1" />
-      <text fill="#45486D" transform={`translate(${5}, ${8})`} font-size="7">
+      <text fill="#45486D" transform={`translate(${5}, ${8})`} fontSize="7">
         {value.state}
       </text>
-      <text fill="#45486D" transform={`translate(${5}, ${15})`} font-size="5">
+      <text fill="#45486D" transform={`translate(${5}, ${15})`} fontSize="5">
         {`${xTitle}: ${value.x} %`}
       </text>
-      <text fill="#45486D" transform={`translate(${5}, ${21})`} font-size="5">
+      <text fill="#45486D" transform={`translate(${5}, ${21})`} fontSize="5">
         {`${yTitle}: ${value.y} %`}
       </text>
-      <text fill="#45486D" transform={`translate(${5}, ${27})`} font-size="5">
+      <text fill="#45486D" transform={`translate(${5}, ${27})`} fontSize="5">
         {`Combined Sales Tax Rate: ${value.z} %`}
       </text>
     </g>
@@ -150,15 +150,19 @@ export const Scatterplot = ({
         />
         {data.map((state) => {
           return (
-            <>
-              <ScatterHex
-                key={`scatter-hex-${state.code}`}
-                x={xScale(state.x)}
-                y={HEIGHT - yScale(state.y)}
-                onMouseEnter={() => setTooltip({ x: xScale(state.x), y: HEIGHT - yScale(state.y), value: state })}
-                onMouseOut={() => setTooltip(false)}
-                color={colorScale(state.z)}></ScatterHex>
-            </>
+            <ScatterHex
+              key={`scatter-hex-${state.code}`}
+              x={xScale(state.x)}
+              y={HEIGHT - yScale(state.y)}
+              onMouseEnter={() =>
+                setTooltip({
+                  x: xScale(state.x) + 2,
+                  y: HEIGHT - yScale(state.y) + 2,
+                  value: state
+                })
+              }
+              onMouseOut={() => setTooltip(false)}
+              color={colorScale(state.z)}></ScatterHex>
           );
         })}
         <line
