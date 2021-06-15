@@ -183,6 +183,7 @@ export const Scatterplot = ({
           strokeWidth=".3"></line>
         <text transform="translate(-8 0)" fontSize="4" fontFamily="'Source Sans Pro',sans-serif">
           {LABELS.map((label) => {
+            console.log({ label });
             return (
               <React.Fragment key={label}>
                 <tspan x="16" y={HEIGHT - yScale(label)}>
