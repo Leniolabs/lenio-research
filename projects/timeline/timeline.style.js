@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const TimelineContainer = styled.div`
-  padding: 2rem;
   background-color: #f9f3e4;
+  padding: 2rem 2rem 1rem;
   /* display: flex;
   flex-direction: column; */
 `;
@@ -14,10 +14,15 @@ export const SelectorContainer = styled.div`
 `;
 
 export const Center = styled.div`
-  h2 {
-    color: #2b3f55;
-    font-size: 3rem;
+  h3 {
+    color: #45486d;
+    font-size: 2rem;
     margin: 0;
+  }
+  h4 {
+    color: #2c9faa;
+    font-size: 1.5rem;
+    margin: .5rem 0 0;
   }
   date {
     color: #6b6b6b;
@@ -26,6 +31,7 @@ export const Center = styled.div`
   }
   p {
     color: #2b3f55;
+    line-height: 1.4;
   }
 `;
 
@@ -96,8 +102,13 @@ export const TimelineSection = styled.section`
 
 export const LineContainer = styled.div`
   width: 100%;
-  height: 120px;
+  height: 90px;
   li {
     background-image: none!important;
   }
+`;
+
+export const LineGraphicContainer = styled.div`
+  background-color: #f9f3e4;
+  padding: 0 2rem;
 `;

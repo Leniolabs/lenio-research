@@ -5,10 +5,13 @@ import {
   Footer,
   FirstSection,
   GraphicSection,
-  TimelineSection
+  TimelineSection,
+  LineGraphicContainer
 } from "./timeline.style";
 import { Timeline } from "./components/HorizontalTimeline";
 import { Graphic } from "./svg-components/Graphic";
+import { LineGraphic } from "./svg-components/LineGraphic";
+import { LineGraphicText } from "./svg-components/LineGraphicText";
 import Link from "next/link";
 import { LogoHeaderContainer } from "@components/styled";
 import { HeadLogoContainer } from "@components/styled";
@@ -53,11 +56,23 @@ export const Index = () => {
         </FirstSection>
         <TimelineSection>
           <Timeline />
+          <LineGraphicContainer>
+            <LineGraphic></LineGraphic>
+            <LineGraphicText></LineGraphicText>
+          </LineGraphicContainer>
         </TimelineSection>
         <GraphicSection>
           <h2>Return to the office by Company</h2>
           <Graphic></Graphic>
         </GraphicSection>
+        <div className="conclusion-wrapper">
+          <div className="conclusion office">
+            <p>“Second, we believe that in-office collaboration will be just as important to Google’s future as it’s been to our past.” -Google CEO Sundar Pichai</p>
+          </div>
+          <div className="conclusion office">
+            <p>“Second, we believe that in-office collaboration will be just as important to Google’s future as it’s been to our past.” -Google CEO Sundar Pichai</p>
+          </div>
+        </div>
       </main>
       <Footer></Footer>
     </Layout>

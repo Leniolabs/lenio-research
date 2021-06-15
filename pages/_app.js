@@ -180,6 +180,9 @@ const GlobalStyle = createGlobalStyle`
     background-position: center 100.08%;
     background-size: 1350px;
     padding: 0 0 10rem;
+    .conclusion-wrapper {
+      display: grid;
+    }
   }
   .btn {
     background-color: transparent;

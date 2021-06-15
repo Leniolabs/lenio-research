@@ -5,7 +5,7 @@ import {
   LabelCompanies,
   TimelineContainer,
   SelectorContainer,
-  LineContainer
+  LineContainer,
 } from "../timeline.style";
 import data from "../timeline.data";
 import { CustomSelect } from "@components/select/select";
@@ -88,9 +88,9 @@ export const Timeline = () => {
           />
         </LineContainer>
         <Center>
-          <h2>{selectedCompany}</h2>
-          {publication?.company && <h4>{publication?.company}</h4>}
-          <time>{formatedDated}</time>
+          {publication?.company && <h3>{publication?.company}</h3>}
+          {/* <time>{formatedDated}</time> */}
+          <h4>{publication?.title}</h4>
           <p>{publication?.content}</p>
         </Center>
       </TimelineContainer>
