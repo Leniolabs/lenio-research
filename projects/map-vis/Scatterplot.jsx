@@ -88,7 +88,7 @@ const Tooltip = ({ tooltip }) => {
   return (
     <g transform={`translate(${x}, ${y})`} key={`scatter-hex-${value.code}`} className="tooltip">
       <rect transform={`translate(${0}, ${0})`} fill="#FFFBF0" width="100" height="33" rx="1" />
-      <text fill="#45486D" transform={`translate(${5}, ${8})`} fontSize="70">
+      <text fill="#45486D" transform={`translate(${5}, ${8})`} fontSize="7">
         {value.state}
       </text>
       <text fill="#45486D" transform={`translate(${5}, ${15})`} fontSize="5">
@@ -150,21 +150,19 @@ export const Scatterplot = ({
         />
         {data.map((state) => {
           return (
-            <>
-              <ScatterHex
-                key={`scatter-hex-${state.code}`}
-                x={xScale(state.x)}
-                y={HEIGHT - yScale(state.y)}
-                onMouseEnter={() =>
-                  setTooltip({
-                    x: xScale(state.x) + 2,
-                    y: HEIGHT - yScale(state.y) + 2,
-                    value: state
-                  })
-                }
-                onMouseOut={() => setTooltip(false)}
-                color={colorScale(state.z)}></ScatterHex>
-            </>
+            <ScatterHex
+              key={`scatter-hex-${state.code}`}
+              x={xScale(state.x)}
+              y={HEIGHT - yScale(state.y)}
+              onMouseEnter={() =>
+                setTooltip({
+                  x: xScale(state.x) + 2,
+                  y: HEIGHT - yScale(state.y) + 2,
+                  value: state
+                })
+              }
+              onMouseOut={() => setTooltip(false)}
+              color={colorScale(state.z)}></ScatterHex>
           );
         })}
         <line
@@ -185,7 +183,6 @@ export const Scatterplot = ({
           strokeWidth=".3"></line>
         <text transform="translate(-8 0)" fontSize="4" fontFamily="'Source Sans Pro',sans-serif">
           {LABELS.map((label) => {
-            console.log({ label });
             return (
               <React.Fragment key={label}>
                 <tspan x="16" y={HEIGHT - yScale(label)}>
