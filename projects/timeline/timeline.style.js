@@ -10,7 +10,7 @@ export const TimelineContainer = styled.div`
 export const SelectorContainer = styled.div`
   display: flex;
   align-items: center;
-  margin: 2rem;
+  margin: -.5rem 2rem .5em;
   div { margin: 0;}
 `;
 
@@ -66,8 +66,9 @@ export const Footer = styled.footer`
 
 export const FirstSection = styled.section`
   background: #fffbf0 url("/timeline-buildings.svg") repeat-x bottom left;
-  background-size: 250px;
-  padding: 2rem 0 10rem;
+  background-size: 220px;
+  padding: 4rem 0 12rem;
+  margin-bottom: 5rem;
   min-height: 35vh;
   text-align: center;
   * {
