@@ -6,7 +6,10 @@ import {
   FirstSection,
   GraphicSection,
   TimelineSection,
-  LineGraphicContainer
+  LineGraphicContainer,
+  ConclusionContainer,
+  Conclusion,
+  TimelineSubtitle
 } from "./timeline.style";
 import { Timeline } from "./components/HorizontalTimeline";
 import { Graphic } from "./svg-components/Graphic";
@@ -15,6 +18,7 @@ import { LineGraphicText } from "./svg-components/LineGraphicText";
 import Link from "next/link";
 import { LogoHeaderContainer } from "@components/styled";
 import { HeadLogoContainer } from "@components/styled";
+
 
 export const Index = () => {
   return (
@@ -65,14 +69,14 @@ export const Index = () => {
           <h2>Return to the office by Company</h2>
           <Graphic></Graphic>
         </GraphicSection>
-        <div className="conclusion-wrapper">
-          <div className="conclusion office">
-            <p>“Second, we believe that in-office collaboration will be just as important to Google’s future as it’s been to our past.” -Google CEO Sundar Pichai</p>
-          </div>
-          <div className="conclusion office">
-            <p>“Second, we believe that in-office collaboration will be just as important to Google’s future as it’s been to our past.” -Google CEO Sundar Pichai</p>
-          </div>
-        </div>
+        <TimelineSubtitle>Conclusions July 2020</TimelineSubtitle>
+        <ConclusionContainer>
+          <Conclusion>
+            <p><svg width="15" height="15"><rect width="15" height="15" fill="#2ba881"/></svg>office oriented</p>
+            <blockquote>“Second, we believe that in-office collaboration will be just as important to Google’s future as it’s been to our past.” <span>-Google CEO Sundar Pichai</span></blockquote>
+            <a href="https://www.cnbc.com/2020/12/14/google-ceo-email-delays-return-to-sept-2021-no-permanent-remote-work.html">Source</a>
+          </Conclusion>
+        </ConclusionContainer>
       </main>
       <Footer></Footer>
     </Layout>

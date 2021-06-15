@@ -112,3 +112,47 @@ export const LineGraphicContainer = styled.div`
   background-color: #f9f3e4;
   padding: 0 2rem;
 `;
+
+export const TimelineSubtitle = styled.h2`
+    font-size: 2.2rem;
+    font-weight: normal;
+    text-align: center;
+    width: 100%;
+`;
+export const ConclusionContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 60em;
+`;
+
+export const Conclusion = styled.div`
+  background-color: #f9f3e4;
+  padding: 2rem;
+  width: 300px;
+  p { 
+    font-size: 1rem;
+    margin-top: 0;
+    svg { margin-right: 5px; }
+  }
+  blockquote {
+    font-size: 1.2rem;
+    margin: 0;
+    span { 
+      display: block; 
+      font-size: 1rem;
+      font-style: italic;
+      font-weight: 600; 
+      margin-top: 1rem;
+      text-align: right;
+    }
+  }
+  a {
+    color: #2c9faa;
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: right;
+  }
+`;

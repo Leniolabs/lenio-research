@@ -209,6 +209,7 @@ export default [
     ],
     conclusion: {
       Outcome: "Office oriented",
+      color: "#2ba881",
       content:
         "“Second, we believe that in-office collaboration will be just as important to Google’s future as it’s been to our past.” -Google CEO Sundar Pichai",
       link:
@@ -275,6 +276,7 @@ export default [
     ],
     conclusion: {
       Outcome: "Hybrid model",
+      color: "#ffbf55",
       content:
         "“We’ve been thinking about how to balance our desire to provide flexibility to work from home with our belief that we invent best for customers when we are together in the office,” -Amazon memo, June 10 2021",
       link:
@@ -351,6 +353,7 @@ export default [
     ],
     conclusion: {
       Outcome: "Hybrid model",
+      color: "#ffbf55",
       content:
         "“We’re going to be the most forward-leaning company on remote work at our scale,” (projecting that 50% of the company’s employees could be working remotely within the next five to 10 years) -Facebook CEO Mark Zuckerberg",
       link:
@@ -391,6 +394,7 @@ export default [
     ],
     conclusion: {
       Outcome: "Hybrid model",
+      color: "#ffbf55",
       content:
         "“While our offices will remain an important part of our strategy as we reopen, the office is no longer at the center of our work day.” -Salesforce memo, April 12 2021",
       link:
@@ -422,6 +426,7 @@ export default [
     ],
     conclusion: {
       Outcome: "Hybrid model but strongly office oriented",
+      color: "#2ba881",
       content:
         "“[...] employees can work from home up to 2 days a week, but with a clear expectation that they also come into the office 3 days a week.” -Uber CPO Nikki Krishnamurthy",
       link: "https://www.uber.com/en-TT/blog/our-return-to-the-office"
@@ -443,6 +448,7 @@ export default [
     ],
     conclusion: {
       Outcome: "Remote-work supporter",
+      color: "#ff3f55",
       content:
         "“If you’re in a role and situation that enables you to work from home and you want to continue, do so…forever if you want!.”  -Twitter CEO Jack Dorsey",
       link: "https://www.washingtonpost.com/technology/2020/10/01/twitter-work-from-home/"
@@ -465,6 +471,7 @@ export default [
     ],
     conclusion: {
       Outcome: "Hybrid model but remote-work supporter",
+      color: "#ff3f55",
       content:
         "“The exact mix of home and office work mode is a decision each employee and their manager make together.” -Spotify memo, February 12 2021",
       link: "https://hrblog.spotify.com/2021/02/12/introducing-working-from-anywhere/"
@@ -496,6 +503,7 @@ export default [
     ],
     conclusion: {
       result: "Hybrid model",
+      color: "#ffbf55",
       content:
         "“We support employee needs and offer flexibility to work remotely and at the Microsoft workplace, as conditions allow.” -Microsoft memo, March 22 2021",
       link:
@@ -527,6 +535,7 @@ export default [
     ],
     conclusion: {
       Outcome: "Office oriented",
+      color: "#2ba881",
       content:
         "“Not being able to get together in person, particularly internationally, is a pure negative” -Netflix co-CEO Reed Hastings",
       link:
