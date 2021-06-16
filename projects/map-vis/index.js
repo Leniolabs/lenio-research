@@ -254,6 +254,7 @@ export const Index = ({ seeMore = false }) => {
             title={hoveredState}
             data={mapLegendData}
             shape={shape}
+            selectedIndex={selectedLabelIdx}
             onSetIndex={setSelectedLabelIdx}></Legend>
           {/* {dataKeys.label.includes("Reason") && shape === "hex" && (
             <Legend data={REASON_LEGEND_COLOR_MAPPING}></Legend>

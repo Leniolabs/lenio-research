@@ -49,6 +49,7 @@ export const StickyContainer = styled.div`
         display: inline-flex;
         justify-content: space-between;
         min-width: 360px;
+        padding: 0 2px;
         @media (max-width: 767px) {
           min-width: 300px;
         }
@@ -56,7 +57,11 @@ export const StickyContainer = styled.div`
       .clickable-legend {
         &:hover {
           cursor: pointer;
+          background-color: rgb(59, 170, 204, 0.2);
         }
+      }
+      .selected-label {
+        background-color: rgb(59, 170, 204, 0.1);
       }
     }
     .legend-number {
