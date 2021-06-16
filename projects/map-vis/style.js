@@ -53,6 +53,11 @@ export const StickyContainer = styled.div`
           min-width: 300px;
         }
       }
+      .clickable-legend {
+        &:hover {
+          cursor: pointer;
+        }
+      }
     }
     .legend-number {
       font-weight: bold;

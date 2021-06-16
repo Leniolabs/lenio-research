@@ -1,6 +1,6 @@
 import { INNER_HEX_COLORS } from "../constants";
 
-export const howToPaintHexes = (hexes, data) => {
+export const howToPaintHexes = (hexes, data, labelIdx) => {
   // data should be numbers that sum 1
   let accumulated = 0;
   let currentDivision = 0;
@@ -16,6 +16,13 @@ export const howToPaintHexes = (hexes, data) => {
     if (accumulated > divisions[currentDivision]) {
       currentDivision += 1;
     }
-    return INNER_HEX_COLORS[currentDivision];
+
+    if (labelIdx !== undefined) {
+      const BACKGROUND_COLORS = [...INNER_HEX_COLORS].fill("#FFFFFF", 0, 5);
+      BACKGROUND_COLORS[labelIdx] = INNER_HEX_COLORS[labelIdx];
+      return BACKGROUND_COLORS[currentDivision];
+    } else {
+      return INNER_HEX_COLORS[currentDivision];
+    }
   });
 };
