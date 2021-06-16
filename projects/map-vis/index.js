@@ -65,6 +65,7 @@ export const Index = ({ seeMore = false }) => {
   const { logEvent } = useTracking();
   const [shape, cycleShape] = useCycle("shape", "hex");
   const [hoveredState, setHoveredState] = React.useState("");
+  const [selectedLabelIdx, setSelectedLabelIdx] = React.useState(undefined);
   const [dataKeys, setDataKeys] = React.useState(KEY_ARRAY_OPTIONS[0]);
   const [scatterPlotX, setScatterPlotX] = React.useState(SCATTERPLOT_OPTIONS[14]);
   const [scatterPlotY, setScatterPlotY] = React.useState(SCATTERPLOT_OPTIONS[0]);
@@ -178,6 +179,20 @@ export const Index = ({ seeMore = false }) => {
     }
   }, [dataKeys, shape, hoveredState]);
 
+  React.useEffect(() => {
+    if (selectedLabelIdx !== undefined) {
+      setSelectedLabelIdx(undefined);
+    }
+  }, [shape, dataKeys]);
+
+  const handleBackgroundClick = () => {
+    if (selectedLabelIdx !== undefined) {
+      setSelectedLabelIdx(undefined);
+      return;
+    }
+    setHoveredState("");
+  };
+
   return (
     <section className="chart-wrapper map-viz-wrapper">
       <div className="head-main">
@@ -234,7 +249,12 @@ export const Index = ({ seeMore = false }) => {
               = 4%
             </div>
           )}
-          <Legend title={hoveredState} data={mapLegendData}></Legend>
+          <Legend
+            title={hoveredState}
+            data={mapLegendData}
+            shape={shape}
+            selectedIndex={selectedLabelIdx}
+            onSetIndex={setSelectedLabelIdx}></Legend>
           {/* {dataKeys.label.includes("Reason") && shape === "hex" && (
             <Legend data={REASON_LEGEND_COLOR_MAPPING}></Legend>
           )}
@@ -246,7 +266,7 @@ export const Index = ({ seeMore = false }) => {
           )} */}
         </StickyContainer>
         <svg className="main-chart-mapvis" overflow="visible" viewBox={`80 70 430 220`}>
-          <Background onClick={() => setHoveredState("")} />
+          <Background onClick={handleBackgroundClick} />
           {data.map((state) => {
             if (!state.shape || !state.hex) {
               return null;
@@ -288,6 +308,7 @@ export const Index = ({ seeMore = false }) => {
                   hexCorner={hexArray[4]}
                   size={HEX_SIZE}
                   multi={false}
+                  labelIdx={selectedLabelIdx}
                   onClick={() => setHoveredState(state.State)}></State>
               </motion.g>
             );
