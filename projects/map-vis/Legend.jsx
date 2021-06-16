@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export const Legend = ({ title, data, shape, selectedIndex, onSetIndex }) => {
   return (
-    <p className="legends">
+    <div className="legends">
       <h3>{title}</h3>
       {data.map((row, index) => {
         return (
@@ -33,7 +33,7 @@ export const Legend = ({ title, data, shape, selectedIndex, onSetIndex }) => {
           </React.Fragment>
         );
       })}
-    </p>
+    </div>
   );
 };
 

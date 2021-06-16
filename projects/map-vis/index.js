@@ -99,7 +99,6 @@ export const Index = ({ seeMore = false }) => {
     }
     if (optionType.value.includes("OUT")) {
       setScatterPlotXOptions(SCATTERPLOT_OPTIONS.filter((o) => o.value.includes("_out")));
-      console.log({ x: oldXOutValue.current, y: oldXOutValue.current });
       setScatterPlotX(oldXOutValue.current);
       setScatterPlotY(oldYOutValue.current);
       oldXInValue.current = prevInX;
