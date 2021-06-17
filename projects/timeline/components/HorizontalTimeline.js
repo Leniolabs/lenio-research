@@ -17,11 +17,10 @@ const SELECT_WIDTH = 270;
 
 const initialPublications = getAllPublications(data);
 const initialDates = getPublicationDates(initialPublications);
-console.log(`initialPublications`, initialPublications);
 
 export const Timeline = () => {
   const companiesOptions = getCompaniesOptions(data);
-
+  let timelineInterval = null;
   const [timelineData, setTimelineData] = useState({
     value: 0,
     previous: 0
@@ -31,8 +30,9 @@ export const Timeline = () => {
   const [publication, setPublication] = useState({});
   const [selectedOption, setSelectedOption] = useState(companiesOptions[0]);
   const [selectedCompany, setSelectedCompany] = useState("");
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  let formatedDated = publication?.dateAt && dayjs(publication.dateAt).format("-MMM D, YYYY");
+  console.log(`companyPublications`, companyPublications);
 
   const newPublications = () => {
     data.map((item) => {
@@ -44,17 +44,30 @@ export const Timeline = () => {
       }
     });
   };
+  useEffect(() => {
+    return () => {
+      if (timelineInterval) {
+        clearInterval(timelineInterval);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const newDates = getPublicationDates(companyPublications);
     setValues(newDates);
     setTimelineData({ value: 0, previous: 0 });
+    if (timelineInterval) {
+      clearInterval(timelineInterval);
+      startTimeline();
+    }
   }, [companyPublications]);
 
+  // multiple
   useEffect(() => {
     newPublications();
-  }, [companyPublications, selectedCompany]);
+  }, [selectedCompany]);
 
+  // individual
   useEffect(() => {
     const newPublication = companyPublications.find(
       (company) => company.id == timelineData.value + 1
@@ -66,10 +79,25 @@ export const Timeline = () => {
     setSelectedCompany(option.label);
     setSelectedOption(option);
   }, []);
+
+  const startTimeline = () => {
+    timelineInterval = setInterval(() => {
+      setIsPlaying((prevV) => !prevV);
+      setTimelineData((currentSate) => {
+        console.log(`companyPublications.length`, companyPublications.length);
+        const nextValue = currentSate.value + 1;
+        const nextState = {
+          value: nextValue > companyPublications.length ? 0 : nextValue,
+          previous: nextValue > companyPublications.length ? 0 : currentSate.value
+        };
+        return { ...nextState };
+      });
+    }, 3000);
+  };
   return (
     <div>
       <SelectorContainer>
-        <PlayBtn> ▶️ Play </PlayBtn>
+        <PlayBtn onClick={startTimeline}> {isPlaying ? "⏹️ Stop" : "▶️ Play"}</PlayBtn>
         <LabelCompanies>Companies</LabelCompanies>
         <CustomSelect
           width={SELECT_WIDTH}
@@ -77,7 +105,7 @@ export const Timeline = () => {
           selectedOption={selectedOption}
           onChange={onChangeCallback}></CustomSelect>
       </SelectorContainer>
-      
+
       <TimelineContainer>
         <LineContainer>
           <HorizontalTimeline
@@ -88,11 +116,11 @@ export const Timeline = () => {
             }}
             isTouchEnabled
             values={values}
+            styles={{ background: "#f8f8f8", foreground: "#2c9faa", outline: "#dfdfdf" }}
           />
         </LineContainer>
         <Center>
           {publication?.company && <h3>{publication?.company}</h3>}
-          {/* <time>{formatedDated}</time> */}
           <h4>{publication?.title}</h4>
           <p>{publication?.content}</p>
         </Center>

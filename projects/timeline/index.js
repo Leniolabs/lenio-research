@@ -8,7 +8,6 @@ import {
   TimelineSection,
   LineGraphicContainer,
   ConclusionContainer,
-  Conclusion,
   TimelineSubtitle,
   PlayBtn
 } from "./timeline.style";
@@ -19,8 +18,11 @@ import { LineGraphicText } from "./svg-components/LineGraphicText";
 import Link from "next/link";
 import { LogoHeaderContainer } from "@components/styled";
 import { HeadLogoContainer } from "@components/styled";
+import ConclusionCard from "./components/ConclusionCard";
+import data from "./timeline.data";
 
-export const Index = () => {
+export const Index = (props) => {
+  const conclusionList = data.map(({ conclusion }) => conclusion);
   return (
     <Layout>
       <header>
@@ -55,7 +57,10 @@ export const Index = () => {
       </header>
       <main className="main-timeline">
         <FirstSection>
-          <h1>Return to office <br/>or remote culture</h1>
+          <h1>
+            Return to office <br />
+            or remote culture
+          </h1>
           <p>Top companies that changed their plans during pandemic.</p>
         </FirstSection>
         <TimelineSubtitle>Timeline from May 2020 to present</TimelineSubtitle>
@@ -72,16 +77,13 @@ export const Index = () => {
         </GraphicSection>
         <TimelineSubtitle>Conclusions July 2020</TimelineSubtitle>
         <ConclusionContainer>
-          <Conclusion>
-            <p><svg width="15" height="15"><rect width="15" height="15" fill="#2ba881"/></svg>office oriented</p>
-            <blockquote>“Second, we believe that in-office collaboration will be just as important to Google’s future as it’s been to our past.” <span>-Google CEO Sundar Pichai</span></blockquote>
-            <a href="https://www.cnbc.com/2020/12/14/google-ceo-email-delays-return-to-sept-2021-no-permanent-remote-work.html">Source</a>
-          </Conclusion>
+          {conclusionList?.map((props, key) => (
+            <ConclusionCard key={key} {...props} />
+          ))}
         </ConclusionContainer>
       </main>
       <Footer></Footer>
     </Layout>
   );
 };
-
 export default Index;
