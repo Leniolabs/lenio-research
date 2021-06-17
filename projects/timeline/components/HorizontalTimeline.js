@@ -81,23 +81,33 @@ export const Timeline = () => {
   }, []);
 
   const startTimeline = () => {
+    setIsPlaying(!isPlaying);
     timelineInterval = setInterval(() => {
-      setIsPlaying((prevV) => !prevV);
       setTimelineData((currentSate) => {
         console.log(`companyPublications.length`, companyPublications.length);
         const nextValue = currentSate.value + 1;
         const nextState = {
-          value: nextValue > companyPublications.length ? 0 : nextValue,
-          previous: nextValue > companyPublications.length ? 0 : currentSate.value
+          value: nextValue > companyPublications.length - 1 ? 0 : nextValue,
+          previous: nextValue > companyPublications.length - 1 ? 0 : currentSate.value
         };
         return { ...nextState };
       });
-    }, 3000);
+    }, 6000);
   };
+
+  const onPlayOrStop = () => {
+    if (isPlaying) {
+      clearInterval(timelineInterval);
+      setIsPlaying(!isPlaying);
+    } else {
+      startTimeline();
+    }
+  };
+
   return (
     <div>
       <SelectorContainer>
-        <PlayBtn onClick={startTimeline}> {isPlaying ? "⏹️ Stop" : "▶️ Play"}</PlayBtn>
+        <PlayBtn onClick={onPlayOrStop}> {isPlaying ? "⏹️ Stop" : "▶️ Play"}</PlayBtn>
         <LabelCompanies>Companies</LabelCompanies>
         <CustomSelect
           width={SELECT_WIDTH}
