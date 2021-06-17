@@ -1,79 +1,103 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import HorizontalTimeline from "react-horizontal-timeline";
 import {
   Center,
   LabelCompanies,
   TimelineContainer,
   SelectorContainer,
-  LineContainer
+  LineContainer,
+  PlayBtn
 } from "../timeline.style";
 import data from "../timeline.data";
-import { dateDefaults, publicationDefault } from "../initial.data";
 import { CustomSelect } from "@components/select/select";
-import { getCompaniesOptions } from "./utils";
+import { getCompaniesOptions, getAllPublications, getPublicationDates } from "./utils";
 import dayjs from "dayjs";
 
 const SELECT_WIDTH = 270;
 
+const initialPublications = getAllPublications(data);
+const initialDates = getPublicationDates(initialPublications);
+
 export const Timeline = () => {
   const companiesOptions = getCompaniesOptions(data);
+  let timelineInterval = null;
   const [timelineData, setTimelineData] = useState({
     value: 0,
     previous: 0
   });
-  const [values, setValues] = useState(dateDefaults);
+  const [values, setValues] = useState(initialDates);
+  const [companyPublications, setCompanyPublications] = useState(initialPublications);
   const [publication, setPublication] = useState({});
-  const [companyPublications, setCompanyPublications] = useState(publicationDefault);
-  const [idDateOnTimeline, setIdDateOnTimeline] = useState("1");
   const [selectedOption, setSelectedOption] = useState(companiesOptions[0]);
-  const [selectedCompany, setSelectedCompany] = useState(companiesOptions[0].label);
+  const [selectedCompany, setSelectedCompany] = useState("");
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  const formatedDated = publication?.dateAt && dayjs(publication.dateAt).format("-MMM D, YYYY");
-  const getPublications = () => {
+  console.log(`companyPublications`, companyPublications);
+
+  const newPublications = () => {
     data.map((item) => {
       const { company, publications } = item;
       if (selectedCompany === company) {
         setCompanyPublications(publications);
+      } else if (selectedCompany === "All") {
+        setCompanyPublications(initialPublications);
       }
     });
   };
-
-  const getPublicationDates = () => {
-    setValues(
-      companyPublications.map((item) => {
-        return item.dateAt;
-      })
-    );
-  };
-
-  const getPublicationContentAndLink = () => {
-    companyPublications.map((pub) => {
-      if (pub.id === idDateOnTimeline) {
-        setPublication(pub);
+  useEffect(() => {
+    return () => {
+      if (timelineInterval) {
+        clearInterval(timelineInterval);
       }
-    });
-  };
+    };
+  }, []);
 
   useEffect(() => {
-    getPublicationDates();
+    const newDates = getPublicationDates(companyPublications);
+    setValues(newDates);
     setTimelineData({ value: 0, previous: 0 });
+    if (timelineInterval) {
+      clearInterval(timelineInterval);
+      startTimeline();
+    }
   }, [companyPublications]);
 
+  // multiple
   useEffect(() => {
-    getPublications();
-  }, [companyPublications, selectedCompany]);
+    newPublications();
+  }, [selectedCompany]);
 
+  // individual
   useEffect(() => {
-    getPublicationContentAndLink();
-  }, [companyPublications, idDateOnTimeline]);
+    const newPublication = companyPublications.find(
+      (company) => company.id == timelineData.value + 1
+    );
+    setPublication(newPublication);
+  }, [companyPublications, timelineData.value]);
 
-  const onChangeCallback = React.useCallback((option) => {
+  const onChangeCallback = useCallback((option) => {
     setSelectedCompany(option.label);
     setSelectedOption(option);
   }, []);
+
+  const startTimeline = () => {
+    timelineInterval = setInterval(() => {
+      setIsPlaying((prevV) => !prevV);
+      setTimelineData((currentSate) => {
+        console.log(`companyPublications.length`, companyPublications.length);
+        const nextValue = currentSate.value + 1;
+        const nextState = {
+          value: nextValue > companyPublications.length ? 0 : nextValue,
+          previous: nextValue > companyPublications.length ? 0 : currentSate.value
+        };
+        return { ...nextState };
+      });
+    }, 3000);
+  };
   return (
     <div>
       <SelectorContainer>
+        <PlayBtn onClick={startTimeline}> {isPlaying ? "⏹️ Stop" : "▶️ Play"}</PlayBtn>
         <LabelCompanies>Companies</LabelCompanies>
         <CustomSelect
           width={SELECT_WIDTH}
@@ -81,6 +105,7 @@ export const Timeline = () => {
           selectedOption={selectedOption}
           onChange={onChangeCallback}></CustomSelect>
       </SelectorContainer>
+
       <TimelineContainer>
         <LineContainer>
           <HorizontalTimeline
@@ -88,15 +113,15 @@ export const Timeline = () => {
             index={timelineData.value}
             indexClick={(index) => {
               setTimelineData({ value: index, previous: timelineData.value });
-              setIdDateOnTimeline(JSON.stringify(index + 1));
             }}
             isTouchEnabled
             values={values}
+            styles={{ background: "#f8f8f8", foreground: "#2c9faa", outline: "#dfdfdf" }}
           />
         </LineContainer>
         <Center>
-          <h2>{selectedCompany}</h2>
-          <time>{formatedDated}</time>
+          {publication?.company && <h3>{publication?.company}</h3>}
+          <h4>{publication?.title}</h4>
           <p>{publication?.content}</p>
         </Center>
       </TimelineContainer>

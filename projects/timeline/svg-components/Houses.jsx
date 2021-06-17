@@ -1,9 +1,9 @@
 export const Houses = (props) => {
   return (
     <svg
-      data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1088.69 78.89"
+      viewBox="0 -5 1088.69 78.89"
+      overflow="visible"
       {...props}>
       <path
         fill="#fffbf0"
