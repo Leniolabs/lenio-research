@@ -10,13 +10,25 @@ import {
 } from "../timeline.style";
 import data from "../timeline.data";
 import { CustomSelect } from "@components/select/select";
-import { getCompaniesOptions, getAllPublications, getPublicationDates } from "./utils";
+import {
+  getCompaniesOptions,
+  getAllPublications,
+  getPublicationDates,
+  getLineGraphicDates
+} from "./utils";
 import dayjs from "dayjs";
 
 const SELECT_WIDTH = 270;
 
 const initialPublications = getAllPublications(data);
 const initialDates = getPublicationDates(initialPublications);
+const initialLineGraphicDates = getLineGraphicDates(data);
+
+console.log(
+  `%c initialLineGraphicDates === >>>`,
+  `background: cyan; color: black`,
+  initialLineGraphicDates
+);
 
 export const Timeline = () => {
   const companiesOptions = getCompaniesOptions(data);
@@ -31,8 +43,6 @@ export const Timeline = () => {
   const [selectedOption, setSelectedOption] = useState(companiesOptions[0]);
   const [selectedCompany, setSelectedCompany] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
-
-  console.log(`companyPublications`, companyPublications);
 
   const newPublications = () => {
     data.map((item) => {

@@ -21,3 +21,16 @@ export const getAllPublications = (data = []) => {
     .sort((a, b) => new Date(a.dateAt) - new Date(b.dateAt))
     .map((pub, index) => ({ ...pub, id: index + 1 }));
 };
+
+export const getLineGraphicDates = (data = []) => {
+  let lineGraphicDates = [];
+  data.forEach(({ publications }) => {
+    lineGraphicDates.push(
+      ...publications.map((pub) => {
+        const { calendar2 } = pub;
+        return calendar2;
+      })
+    );
+  });
+  return lineGraphicDates;
+};
