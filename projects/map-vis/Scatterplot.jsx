@@ -97,7 +97,7 @@ const Tooltip = ({ tooltip }) => {
         height="33"
         rx="1"
         stroke="#8d8d8d"
-        strokeWidth="1"
+        strokeWidth=".5"
       />
       <text fill="#45486D" transform={`translate(${5}, ${8})`} fontSize="7">
         {value.state}
@@ -116,7 +116,7 @@ const Tooltip = ({ tooltip }) => {
         fill="#fffbf0"
         stroke="#8d8d8d"
         points="2 2 -3 7 2 12"
-        strokeWidth="1"
+        strokeWidth=".5"
       />
     </g>
   );
