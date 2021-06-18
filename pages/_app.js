@@ -30,6 +30,20 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     max-width: 45em;
     padding: 1rem;
+    .switch-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      .switch-label {
+        font-size: 1rem;
+        width: 9rem;
+      }
+      .switch-label-2 {
+        font-size: 1rem;
+        width: 17rem;
+      }
+    }
   }
   .row-container.big-row {
     max-width: 54em;

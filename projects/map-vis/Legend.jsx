@@ -9,7 +9,6 @@ export const Legend = ({ title, data, shape, selectedIndex, onSetIndex }) => {
         return (
           <React.Fragment key={row.name}>
             <div 
-              // className={index === selectedIndex ? "legend-row selected-row" : "legend-row"} 
               className="legend-row" 
               onClick={shape === "hex" ? () => onSetIndex(index) : () => {}}
             >
