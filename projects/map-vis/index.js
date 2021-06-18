@@ -9,6 +9,7 @@ import { useTracking } from "analytics/context";
 import { generateBigHex } from "./Hexes/generateHexes";
 import { toPathString } from "flubber";
 import { CustomSelect } from "@components/select/select";
+import { Switch } from "@components/switch/Switch";
 
 import { State } from "./State";
 import { data } from "./data";
@@ -27,7 +28,7 @@ import { Scatterplot } from "./Scatterplot";
 import { BarChart } from "./BarChart";
 const HEX_SIZE = 15;
 
-const initialBarChartData = data
+const initialBarChartDataOut = data
   .sort(
     (a, b) => b.Age_18_to_34_out + b.Age_35_to_44_out - (a.Age_18_to_34_out + a.Age_35_to_44_out)
   )
@@ -39,8 +40,27 @@ const initialBarChartData = data
   }))
   .slice(0, 10);
 
-const initialBarChartData2 = data
+const initialBarChartDataIn = data
+  .sort((a, b) => b.Age_18_to_34_in + b.Age_35_to_44_in - (a.Age_18_to_34_in + a.Age_35_to_44_in))
+  .map((a) => ({
+    Age_18_to_34_in: a.Age_18_to_34_in,
+    Age_35_to_44_in: a.Age_35_to_44_in,
+    name: a.State,
+    Job_in: a.Job_in
+  }))
+  .slice(0, 10);
+
+const initialBarChartData2OrderedByAge = data
   .sort((a, b) => b.Age_65_or_older_in - a.Age_65_or_older_in)
+  .map((a) => ({
+    Age_65_or_older_in: a.Age_65_or_older_in,
+    name: a.State,
+    State_Individual_Income_Tax_Rates: a.State_Individual_Income_Tax_Rates
+  }))
+  .slice(0, 10);
+
+const initialBarChartData2OrderedByTax = data
+  .sort((a, b) => b.State_Individual_Income_Tax_Rates - a.State_Individual_Income_Tax_Rates)
   .map((a) => ({
     Age_65_or_older_in: a.Age_65_or_older_in,
     name: a.State,
@@ -53,11 +73,19 @@ const barChartValues2 = [
   [{ property: "Age_65_or_older_in", color: "#ff3f55", label: "% of Age 65 and older in" }]
 ];
 
-const barChartValues = [
+const barChartValuesOut = [
   [{ property: "Job_out", color: "#ffdfaa", label: "% of Job Out" }],
   [
     { property: "Age_18_to_34_out", color: "#55bfaa", label: "% of Age 18 to 34" },
     { property: "Age_35_to_44_out", color: "#ff3f55", label: "% of Age 35 to 44" }
+  ]
+];
+
+const barChartValuesIn = [
+  [{ property: "Job_in", color: "#ffdfaa", label: "% of Job In" }],
+  [
+    { property: "Age_18_to_34_in", color: "#55bfaa", label: "% of Age 18 to 34" },
+    { property: "Age_35_to_44_in", color: "#ff3f55", label: "% of Age 35 to 44" }
   ]
 ];
 
@@ -70,8 +98,10 @@ export const Index = ({ seeMore = false }) => {
   const [scatterPlotX, setScatterPlotX] = React.useState(SCATTERPLOT_OPTIONS[14]);
   const [scatterPlotY, setScatterPlotY] = React.useState(SCATTERPLOT_OPTIONS[0]);
   const [scatterPlotZ, setScatterPlotZ] = React.useState(SCATTERPLOT_OPTIONS[30]);
-  const [barChartData, setBarChartData] = React.useState(initialBarChartData);
-  const [barChartData2, setBarChartData2] = React.useState(initialBarChartData2);
+  const [barChartData, setBarChartData] = React.useState(initialBarChartDataOut);
+  const [barChartData2, setBarChartData2] = React.useState(initialBarChartData2OrderedByAge);
+  const [barChartDataOrderBy, setBarChartDataOrderBy] = React.useState("out");
+  const [barChartData2OrderBy, setBarChartData2OrderBy] = React.useState("age");
   const [scatterPlotLinearFit, setScatterPlotLinearFit] = React.useState(
     getLinearFitForPair(SCATTERPLOT_OPTIONS[14].value, SCATTERPLOT_OPTIONS[0].value)
   );
@@ -178,6 +208,26 @@ export const Index = ({ seeMore = false }) => {
       setMapLegendData(generateLegendMapping(MIGRATION_LEGEND_LABELS, stateData));
     }
   }, [dataKeys, shape, hoveredState]);
+
+  const handleSwitchOrder = () => {
+    if (barChartDataOrderBy === "out") {
+      setBarChartDataOrderBy("in");
+      setBarChartData(initialBarChartDataIn);
+    } else {
+      setBarChartDataOrderBy("out");
+      setBarChartData(initialBarChartDataOut);
+    }
+  };
+
+  const handleSwitchOrder2 = () => {
+    if (barChartData2OrderBy === "age") {
+      setBarChartData2OrderBy("tax");
+      setBarChartData2(initialBarChartData2OrderedByTax);
+    } else {
+      setBarChartData2OrderBy("age");
+      setBarChartData2(initialBarChartData2OrderedByAge);
+    }
+  };
 
   React.useEffect(() => {
     if (selectedLabelIdx !== undefined) {
@@ -337,14 +387,36 @@ export const Index = ({ seeMore = false }) => {
       </p>
       <div className="row-container">
         <h2>Age groups and reasons to migrate</h2>
-        <p className="sub-p">Top 10 states with age between 18 and 44 and job reasons moving out.</p>
+        <p className="sub-p">Top 10 states with age between 18 and 44 and job reasons moving out or in.</p>
         <div className="stack-bar">
           {/* <div className="checkbox-group">
             <label for="ageout"> <input type="checkbox" id="ageout" name="ageout" value="Age Out"/>Order by Age out</label>
             <label for="jobout"> <input type="checkbox" id="jobout" name="jobout" value="Job Out"/>Order by Job out</label>
           </div> */}
-          <BarChart data={barChartData}></BarChart>
+          <div className="switch-container">
+            <Switch
+              id="barchart1-switch"
+              color1="42, 159, 170"
+              color2="255, 63, 85"
+              checked={barChartDataOrderBy === "out"}
+              onChange={handleSwitchOrder}
+            />
+            &nbsp;
+            <span className="switch-label">{`${barChartDataOrderBy === "out" ? "Age out and Job out" : "Age in and Job in"}`}</span>
+          </div>
+          <BarChart data={barChartData} values={barChartDataOrderBy === "out" ? barChartValuesOut : barChartValuesIn}></BarChart>
           <p className="sub-p">Top 10 states with age 65 and older moving in and lower taxes states.</p>
+          <div className="switch-container">
+            <Switch
+              id="barchart2-switch"
+              color1="255, 223, 170"
+              color2="255, 63, 85"
+              checked={barChartData2OrderBy === "age"}
+              onChange={handleSwitchOrder2}
+            />
+            &nbsp;
+            <span className="switch-label-2">{`Ordered by ${barChartData2OrderBy === "age" ? "% of Age 65 and older in" : "Individual Income Taxes"}`}</span>
+          </div>
           <BarChart data={barChartData2} values={barChartValues2} />
         </div>
 
