@@ -86,8 +86,19 @@ ScatterLegend.propTypes = {
 const Tooltip = ({ tooltip }) => {
   const { x, y, value, xTitle, yTitle } = tooltip;
   return (
-    <g transform={`translate(${x}, ${y})`} key={`scatter-hex-${value.code}`} className="tooltip">
-      <rect transform={`translate(${0}, ${0})`} fill="#FFFBF0" width="100" height="33" rx="1" />
+    <g
+      transform={`translate(${x + 7}, ${y - 20})`}
+      key={`scatter-hex-${value.code}`}
+      className="tooltip">
+      <rect
+        transform={`translate(${0}, ${0})`}
+        fill="#fffbf0"
+        width="100"
+        height="33"
+        rx="1"
+        stroke="#8d8d8d"
+        strokeWidth=".5"
+      />
       <text fill="#45486D" transform={`translate(${5}, ${8})`} fontSize="7">
         {value.state}
       </text>
@@ -100,6 +111,13 @@ const Tooltip = ({ tooltip }) => {
       <text fill="#45486D" transform={`translate(${5}, ${27})`} fontSize="5">
         {`Combined Sales Tax Rate: ${value.z} %`}
       </text>
+      <polyline
+        transform={`translate(${0}, ${10})`}
+        fill="#fffbf0"
+        stroke="#8d8d8d"
+        points="2 2 -3 7 2 12"
+        strokeWidth=".5"
+      />
     </g>
   );
 };
