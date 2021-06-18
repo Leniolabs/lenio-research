@@ -4,15 +4,14 @@ export const FooterContainer = styled.footer`
   background-color: #354156;
   color: #fcfcf4;
   padding: 2rem;
-  text-align: right;
   grid-area: footer;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 `;
 
 export const GithubContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   div,
   a {
@@ -24,7 +23,7 @@ export const GithubContainer = styled.div`
   svg {
     font-size: 0.7rem;
     margin: 0 1rem 0 0;
-    fill: #fcfcf4;
+    fill: currentColor;
   }
 `;
 
