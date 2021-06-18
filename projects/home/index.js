@@ -1,6 +1,16 @@
 import * as React from "react";
 import Logo from "@components/Logo";
-import { Layout, Sidebar, Header, Main, Title, Small, HeroImage, SectionTitle } from "./home.style";
+import {
+  Layout,
+  Sidebar,
+  Header,
+  Main,
+  Title,
+  Small,
+  HeroImage,
+  SectionTitle,
+  FooterLogoContainer
+} from "./home.style";
 import ProjectCardList from "@components/project-card-list/ProjectCardList";
 import { mockData } from "./home.data";
 import Link from "next/link";
@@ -56,6 +66,9 @@ export const Index = () => {
           </section>
         </Main>
         <Footer />
+        <FooterLogoContainer>
+          <img src="/footer-logo.svg" alt="two icons"></img>
+        </FooterLogoContainer>
       </Layout>
     </>
   );

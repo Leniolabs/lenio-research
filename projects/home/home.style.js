@@ -105,6 +105,12 @@ export const Small = styled.small`
   }
 `;
 
+export const FooterLogoContainer = styled.div`
+  position: absolute;
+  bottom: 125px;
+  right: 20px;
+`;
+
 export const BackgroundImage = styled.div`
   position: absolute;
   z-index: 0;

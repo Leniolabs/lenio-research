@@ -1,5 +1,6 @@
 import React from "react";
-import { FooterContainer, FooterLogo, FooterLogoContainer } from "./footer.style";
+
+import { FooterContainer, FooterLogo } from "./footer.style";
 
 const Footer = () => {
   return (
@@ -25,9 +26,6 @@ const Footer = () => {
           </svg>
         </FooterLogo>
       </a>
-      <FooterLogoContainer>
-        <img src="/footer-logo.svg" alt="two icons"></img>
-      </FooterLogoContainer>
     </FooterContainer>
   );
 };

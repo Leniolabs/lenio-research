@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
   background-color: #354156;
@@ -16,11 +16,6 @@ export const FooterLogo = styled.div`
     font-size: 1rem;
     margin: 0 1rem 0 0;
   }
-  ${({ link }) =>
-    link &&
-    css`
-      cursor: pointer;
-    `}
 `;
 
 export const FooterLogoContainer = styled.div`
