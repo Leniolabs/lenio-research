@@ -63,7 +63,7 @@ export const DistanceText = ({ position, distance, width }) => {
 
 DistanceText.propTypes = {
   position: PropTypes.number,
-  distance: PropTypes.number,
+  distance: PropTypes.string,
   width: PropTypes.number
 };
 
