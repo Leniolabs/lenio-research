@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { SectionTitle, Footer, FooterLogo } from "@components/styled";
-export { SectionTitle, FooterLogo };
+import { SectionTitle } from "@components/styled";
+export { SectionTitle };
 
 export const Layout = styled.div`
   position: relative;
@@ -59,7 +59,7 @@ export const Header = styled.header`
     }
     padding: 15px 20px 20px;
   }
-  `;
+`;
 export const Main = styled.main`
   padding: 0 80px;
   display: flex;
@@ -99,14 +99,10 @@ export const Small = styled.small`
   span a {
     color: #48d58c;
     text-decoration: none;
-    &:hover { color: white;}
+    &:hover {
+      color: white;
+    }
   }
-`;
-
-export const FooterLogoContainer = styled.div`
-  position: absolute;
-  bottom: 125px;
-  right: 20px;
 `;
 
 export const BackgroundImage = styled.div`
@@ -120,9 +116,6 @@ export const BackgroundImage = styled.div`
   }
 `;
 
-export const FooterContainer = styled(Footer)`
-  grid-area: footer;
-`;
 export const HeroImage = styled.img`
   background: black;
   border: 2px solid #151d29;
