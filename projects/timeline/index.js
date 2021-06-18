@@ -6,20 +6,20 @@ import {
   FirstSection,
   GraphicSection,
   TimelineSection,
-  LineGraphicContainer,
   ConclusionContainer,
   TimelineSubtitle,
   PlayBtn
 } from "./timeline.style";
 import { Timeline } from "./components/HorizontalTimeline";
 import { Graphic } from "./svg-components/Graphic";
-import { LineGraphic } from "./svg-components/LineGraphic";
-import { LineGraphicText } from "./svg-components/LineGraphicText";
 import Link from "next/link";
 import { LogoHeaderContainer } from "@components/styled";
 import { HeadLogoContainer } from "@components/styled";
 import ConclusionCard from "./components/ConclusionCard";
 import data from "./timeline.data";
+import { getAllPublications } from "./components/utils";
+
+const initialPublications = getAllPublications(data);
 
 export const Index = (props) => {
   const conclusionList = data.map(({ conclusion }) => conclusion);
@@ -66,10 +66,6 @@ export const Index = (props) => {
         <TimelineSubtitle>Timeline from May 2020 to present</TimelineSubtitle>
         <TimelineSection>
           <Timeline />
-          <LineGraphicContainer>
-            <LineGraphic></LineGraphic>
-            <LineGraphicText></LineGraphicText>
-          </LineGraphicContainer>
         </TimelineSection>
         <GraphicSection>
           <h2>Return to the office by Company</h2>

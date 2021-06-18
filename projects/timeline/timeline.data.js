@@ -268,7 +268,7 @@ export default [
           Sep2021: "office"
         },
         calendar2: {
-          office: ["S1ep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+          office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
           hybrid: [
             "Apr2020",
             "May2020",

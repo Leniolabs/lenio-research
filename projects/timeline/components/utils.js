@@ -22,15 +22,12 @@ export const getAllPublications = (data = []) => {
     .map((pub, index) => ({ ...pub, id: index + 1 }));
 };
 
-export const getLineGraphicDates = (data = []) => {
-  let lineGraphicDates = [];
-  data.forEach(({ publications }) => {
-    lineGraphicDates.push(
-      ...publications.map((pub) => {
-        const { calendar2 } = pub;
-        return calendar2;
-      })
-    );
+export const mapDatesToGraphic = (dates) => {
+  const dateKeys = Object.keys(dates);
+  let newArray = [];
+  dateKeys.forEach((item) => {
+    const newList = dates[item].map((date) => ({ date, status: item }));
+    newArray = [...newArray, ...newList];
   });
-  return lineGraphicDates;
+  return newArray;
 };

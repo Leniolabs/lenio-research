@@ -1,233 +1,62 @@
-export const LineGraphic = (props) => {
-  const green = "#2aa881";
-  const yellow = "#ffbf55";
-  const red = "#ff3f55";
-  const black = "#2a3f55";
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { mapDatesToGraphic } from "../components/utils";
+import { green, red, yellow, black } from "./line-graphic-colors";
+
+export const LineGraphic = ({ details }) => {
+  const [arrayDates, setArrayDates] = useState([]);
+  const [xValue, setXvalue] = useState(1);
+
+  useEffect(() => {
+    if (details) {
+      setArrayDates(mapDatesToGraphic(details));
+    }
+  }, [details]);
+
+  // useEffect(() => {
+  //   setValue();
+  // }, []);
+
+  // const setValue = () => {
+  //   if (arrayDates.length < 25) {
+  //     setXvalue((prev) => prev + 37.2);
+  //   }
+  // };
+
+  console.log(`xValue`, xValue);
 
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 928.3 29.8">
-      <rect
-        id="Mar2020"
-        width="37.2"
-        height="18.6"
-        x="222.3"
-        y="5.6"
-        fill={green}
-        // fill={id === "Mar2020" ? green : red}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="185.1"
-        y="5.6"
-        fill={green}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="147.9"
-        y="5.6"
-        fill={green}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="111.8"
-        y="5.6"
-        fill={green}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="74.7"
-        y="5.6"
-        fill={green}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="37.5"
-        y="5.6"
-        fill={green}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x=".1"
-        y="5.6"
-        fill={green}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="259.5"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="296.7"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="333.9"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="371.1"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="408.2"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="445.4"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="482.6"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="519.8"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="556.7"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="593.8"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="630.8"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="668.1"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="705.3"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="742.4"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="779.5"
-        y="5.6"
-        fill={yellow}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="816.7"
-        y="5.6"
-        fill={red}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect
-        width="37.2"
-        height="18.6"
-        x="853.8"
-        y="5.6"
-        fill={red}
-        stroke={black}
-        strokeWidth=".3"
-      />
-      <rect width="37.2" height="18.6" x="891" y="5.6" fill={red} stroke={black} strokeWidth=".3" />
+      {arrayDates &&
+        arrayDates.map((item) => {
+          const { status, date } = item;
+          return (
+            // eslint-disable-next-line react/jsx-key
+            <rect
+              id={date}
+              width="37.2"
+              height="18.6"
+              x={xValue}
+              y="5.6"
+              fill={
+                (status === "home" && green) ||
+                (status === "hybrid" && yellow) ||
+                (status === "office" && red)
+              }
+              stroke={black}
+              strokeWidth=".3"
+            />
+          );
+        })}
       <line x1="149.2" x2="149.2" y2="29.8" fill="none" stroke={black} strokeWidth=".3" />
       <line x1="593.8" x2="593.8" y2="29.8" fill="none" stroke={black} strokeWidth=".3" />
       <line x1="389.2" x2="389.2" y2="29.8" fill="none" stroke={black} strokeWidth="2" />
     </svg>
   );
+};
+
+LineGraphic.prototype = {
+  home: PropTypes.array,
+  office: PropTypes.array,
+  hybrid: PropTypes.array
 };

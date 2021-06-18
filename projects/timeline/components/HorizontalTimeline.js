@@ -6,29 +6,20 @@ import {
   TimelineContainer,
   SelectorContainer,
   LineContainer,
-  PlayBtn
+  PlayBtn,
+  LineGraphicContainer
 } from "../timeline.style";
 import data from "../timeline.data";
 import { CustomSelect } from "@components/select/select";
-import {
-  getCompaniesOptions,
-  getAllPublications,
-  getPublicationDates,
-  getLineGraphicDates
-} from "./utils";
+import { getCompaniesOptions, getAllPublications, getPublicationDates } from "./utils";
 import dayjs from "dayjs";
+import { LineGraphic } from "../svg-components/LineGraphic";
+import { LineGraphicText } from "../svg-components/LineGraphicText";
 
 const SELECT_WIDTH = 270;
 
 const initialPublications = getAllPublications(data);
 const initialDates = getPublicationDates(initialPublications);
-const initialLineGraphicDates = getLineGraphicDates(data);
-
-console.log(
-  `%c initialLineGraphicDates === >>>`,
-  `background: cyan; color: black`,
-  initialLineGraphicDates
-);
 
 export const Timeline = () => {
   const companiesOptions = getCompaniesOptions(data);
@@ -43,6 +34,7 @@ export const Timeline = () => {
   const [selectedOption, setSelectedOption] = useState(companiesOptions[0]);
   const [selectedCompany, setSelectedCompany] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
+  const [infoObj, setInfoObj] = useState({});
 
   const newPublications = () => {
     data.map((item) => {
@@ -83,6 +75,7 @@ export const Timeline = () => {
       (company) => company.id == timelineData.value + 1
     );
     setPublication(newPublication);
+    lineGraphicInfo();
   }, [companyPublications, timelineData.value]);
 
   const onChangeCallback = useCallback((option) => {
@@ -94,7 +87,6 @@ export const Timeline = () => {
     setIsPlaying(!isPlaying);
     timelineInterval = setInterval(() => {
       setTimelineData((currentSate) => {
-        console.log(`companyPublications.length`, companyPublications.length);
         const nextValue = currentSate.value + 1;
         const nextState = {
           value: nextValue > companyPublications.length - 1 ? 0 : nextValue,
@@ -113,6 +105,27 @@ export const Timeline = () => {
       startTimeline();
     }
   };
+
+  const lineGraphicInfo = () => {
+    initialPublications &&
+      initialPublications.map((info) => {
+        const { id, company, calendar2 } = info;
+        if (selectedCompany === company) {
+          setInfoObj({
+            id,
+            company,
+            calendar: calendar2
+          });
+        }
+      });
+  };
+
+  // console.log(
+  //   `%c initialLineGraphicDates === >>>`,
+  //   `background: cyan; color: black`,
+  //   typeof infoObj,
+  //   infoObj
+  // );
 
   return (
     <div>
@@ -143,6 +156,10 @@ export const Timeline = () => {
           {publication?.company && <h3>{publication?.company}</h3>}
           <h4>{publication?.title}</h4>
           <p>{publication?.content}</p>
+          <LineGraphicContainer>
+            <LineGraphic details={infoObj.calendar} />
+            <LineGraphicText />
+          </LineGraphicContainer>
         </Center>
       </TimelineContainer>
     </div>
