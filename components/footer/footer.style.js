@@ -12,7 +12,8 @@ export const FooterLogo = styled.div`
   align-items: center;
   display: flex;
   justify-content: flex-end;
-  div {
+  div,
+  a {
     font-size: 1rem;
     margin: 0 1rem 0 0;
   }
