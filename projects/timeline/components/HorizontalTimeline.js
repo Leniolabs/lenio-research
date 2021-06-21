@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import HorizontalTimeline from "react-horizontal-timeline";
 import {
   Center,
@@ -10,29 +10,23 @@ import {
 } from "../timeline.style";
 import data from "../timeline.data";
 import { CustomSelect } from "@components/select/select";
+import { LineGraphic } from "../svg-components/LineGraphic";
+import { LineGraphicText } from "../svg-components/LineGraphicText";
 import {
   getCompaniesOptions,
   getAllPublications,
   getPublicationDates,
-  getLineGraphicDates
+  mapDatesToGraphic
 } from "./utils";
-import dayjs from "dayjs";
 
 const SELECT_WIDTH = 270;
 
 const initialPublications = getAllPublications(data);
 const initialDates = getPublicationDates(initialPublications);
-const initialLineGraphicDates = getLineGraphicDates(data);
-
-console.log(
-  `%c initialLineGraphicDates === >>>`,
-  `background: cyan; color: black`,
-  initialLineGraphicDates
-);
 
 export const Timeline = () => {
   const companiesOptions = getCompaniesOptions(data);
-  let timelineInterval = null;
+  const intervalRef = useRef();
   const [timelineData, setTimelineData] = useState({
     value: 0,
     previous: 0
@@ -43,6 +37,21 @@ export const Timeline = () => {
   const [selectedOption, setSelectedOption] = useState(companiesOptions[0]);
   const [selectedCompany, setSelectedCompany] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
+  const [graphicData, setGraphicData] = useState([]);
+
+  const startTimeline = () => {
+    setIsPlaying(true);
+    nextDate();
+    const timelineInterval = setInterval(() => {
+      nextDate();
+    }, 4000);
+    intervalRef.current = timelineInterval;
+  };
+
+  const stopTimeLine = () => {
+    clearInterval(intervalRef.current);
+    setIsPlaying(false);
+  };
 
   const newPublications = () => {
     data.map((item) => {
@@ -54,21 +63,13 @@ export const Timeline = () => {
       }
     });
   };
-  useEffect(() => {
-    return () => {
-      if (timelineInterval) {
-        clearInterval(timelineInterval);
-      }
-    };
-  }, []);
 
   useEffect(() => {
     const newDates = getPublicationDates(companyPublications);
     setValues(newDates);
     setTimelineData({ value: 0, previous: 0 });
-    if (timelineInterval) {
-      clearInterval(timelineInterval);
-      startTimeline();
+    if (intervalRef.current) {
+      stopTimeLine();
     }
   }, [companyPublications]);
 
@@ -83,6 +84,11 @@ export const Timeline = () => {
       (company) => company.id == timelineData.value + 1
     );
     setPublication(newPublication);
+    const { calendar2 } = newPublication;
+    if (calendar2) {
+      const graphicData = mapDatesToGraphic(calendar2);
+      setGraphicData(graphicData);
+    }
   }, [companyPublications, timelineData.value]);
 
   const onChangeCallback = useCallback((option) => {
@@ -90,25 +96,20 @@ export const Timeline = () => {
     setSelectedOption(option);
   }, []);
 
-  const startTimeline = () => {
-    setIsPlaying(!isPlaying);
-    timelineInterval = setInterval(() => {
-      setTimelineData((currentSate) => {
-        console.log(`companyPublications.length`, companyPublications.length);
-        const nextValue = currentSate.value + 1;
-        const nextState = {
-          value: nextValue > companyPublications.length - 1 ? 0 : nextValue,
-          previous: nextValue > companyPublications.length - 1 ? 0 : currentSate.value
-        };
-        return { ...nextState };
-      });
-    }, 6000);
+  const nextDate = () => {
+    setTimelineData((currentSate) => {
+      const nextValue = currentSate.value + 1;
+      const nextState = {
+        value: nextValue > companyPublications.length - 1 ? 0 : nextValue,
+        previous: nextValue > companyPublications.length - 1 ? 0 : currentSate.value
+      };
+      return { ...nextState };
+    });
   };
 
   const onPlayOrStop = () => {
     if (isPlaying) {
-      clearInterval(timelineInterval);
-      setIsPlaying(!isPlaying);
+      stopTimeLine();
     } else {
       startTimeline();
     }
@@ -144,6 +145,12 @@ export const Timeline = () => {
           <h4>{publication?.title}</h4>
           <p>{publication?.content}</p>
         </Center>
+        {graphicData.length > 1 && (
+          <>
+            <LineGraphic data={graphicData} selectedDate={values[timelineData.value]}></LineGraphic>
+            <LineGraphicText></LineGraphicText>
+          </>
+        )}
       </TimelineContainer>
     </div>
   );

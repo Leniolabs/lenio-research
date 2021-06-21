@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 export const getCompaniesOptions = (companies) => [
   { label: "All", key: "all" },
   ...companies.map(({ company }, index) => ({ label: company, value: index }))
@@ -33,4 +35,14 @@ export const getLineGraphicDates = (data = []) => {
     );
   });
   return lineGraphicDates;
+};
+
+export const mapDatesToGraphic = (dates = {}) => {
+  const dateKeys = Object.keys(dates);
+  let newArray = [];
+  dateKeys.forEach((item) => {
+    const newList = dates[item].map((date) => ({ date: dayjs(date).format(), status: item }));
+    newArray = [...newArray, ...newList];
+  });
+  return newArray.sort((a, b) => new Date(a.date) - new Date(b.date));
 };
