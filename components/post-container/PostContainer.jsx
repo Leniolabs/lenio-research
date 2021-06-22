@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Container, ImageContainer, Image, Title } from "./post-container.style";
-import PropTypes from "prop-types";
 
 export const PostContainer = () => {
   return (
