@@ -1,24 +1,13 @@
 import * as React from "react";
 import Head from "next/head";
-import styled from "styled-components";
 import Home from "@projects/home";
-
-const RowContainer = styled.div`
-  background: #243042;
-  color: #fffbf3;
-  margin: 0;
-  padding: 2rem;
-  > div {
-    position: relative;
-  }
-`;
 
 export const Index = () => {
   return (
     <div>
       <Head>
         <title>Leniolabs_ Research</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
           content="Visualization of some milestones of humanity exploring space and the distance traveled from planet Earth"

@@ -27,28 +27,6 @@ export const RowContainer = styled.div`
   padding: 2rem;
 `;
 
-export const Footer = styled.footer`
-  background-color: #354156;
-  color: #fcfcf4;
-  padding: 2rem;
-  text-align: right;
-`;
-
-export const FooterLogo = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: flex-end;
-  p {
-    font-size: 1rem;
-    margin: 0 1rem 0 0;
-  }
-  ${({ link }) =>
-    link &&
-    css`
-      cursor: pointer;
-    `}
-`;
-
 export const PostList = styled.div`
   display: flex;
   flex-direction: row;
