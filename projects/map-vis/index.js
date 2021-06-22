@@ -387,7 +387,7 @@ export const Index = ({ seeMore = false }) => {
       </p>
       <div className="row-container">
         <h2>Age groups and reasons to migrate</h2>
-        <p className="sub-p">Top 10 states with age between 18 and 44 and job reasons moving out or in.</p>
+        <p className="sub-p">Top 10 states with age between 18 and 44 and job reasons moving in or out.</p>
         <div className="stack-bar">
           {/* <div className="checkbox-group">
             <label for="ageout"> <input type="checkbox" id="ageout" name="ageout" value="Age Out"/>Order by Age out</label>
@@ -421,7 +421,7 @@ export const Index = ({ seeMore = false }) => {
         </div>
 
         <h2>Explore the data</h2>
-        <p className="sub-p">Here you can play with the different variables represented on the hexagon map. You can plot for example the linear relationship between the % of people with ages from 18 to 34 that moved out of the state vs the migration out of the state because of work. The color scale represent the Combined Sales Tax Rate per state.</p>
+        <p className="sub-p">Here you can play with the different variables represented on the map above. For example, you can plot the linear relationship between % of people with ages from 18 to 34 that moved out of the state vs the migration out of the state because of work. The color scale represent the Combined Sales Tax Rate per state.</p>
         <CustomSelect
           width={100}
           options={[
