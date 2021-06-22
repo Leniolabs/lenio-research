@@ -1,7 +1,8 @@
 import React from "react";
 import { LogoHeaderContainer } from "@components/styled";
+import PropTypes from "prop-types";
 
-const Logo = ({ withText, circleColor = "#30aab3", color = "currentColor", ...rest }) => {
+const Logo = ({ withText, circleColor = "#30aab3", color = "currentColor" }) => {
   return (
     <LogoHeaderContainer link>
       <a href="https://www.leniolabs.com">
@@ -32,6 +33,12 @@ const Logo = ({ withText, circleColor = "#30aab3", color = "currentColor", ...re
       </a>
     </LogoHeaderContainer>
   );
+};
+
+Logo.propTypes = {
+  withText: PropTypes.bool,
+  circleColor: PropTypes.string,
+  color: PropTypes.string
 };
 
 export default Logo;
