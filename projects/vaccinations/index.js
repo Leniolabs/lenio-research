@@ -31,7 +31,7 @@ const dataOptions = [
   { value: "not-fully", label: "Only One Dose" }
 ];
 
-async function getServerSideProps() {
+async function getVaccineData() {
   // use context to get the url called
   const BASE_URL = "https://research-vaccines-lambda.s3.amazonaws.com/data/";
   const countryDataR = await fetch(`${BASE_URL}country_data.json`);
@@ -42,11 +42,9 @@ async function getServerSideProps() {
   const vacPer100 = await vacPer100R.json();
 
   return {
-    props: {
-      countryData,
-      fullyVacPer100,
-      vacPer100
-    }
+    countryData,
+    fullyVacPer100,
+    vacPer100
   };
 }
 
@@ -116,11 +114,11 @@ export const Index = ({ seeMore = false, animated = false }) => {
   }, [dataName, dataIndex, colorMapper, legendFilter, countryList]);
 
   React.useEffect(() => {
-    getServerSideProps()
+    getVaccineData()
       .then((resp) => {
-        setCountryData(resp.props.countryData);
-        setFullyVacPer100(resp.props.fullyVacPer100);
-        setVacPer100(resp.props.vacPer100);
+        setCountryData(resp.countryData);
+        setFullyVacPer100(resp.fullyVacPer100);
+        setVacPer100(resp.vacPer100);
       })
       .catch((err) => {
         console.log(err);
