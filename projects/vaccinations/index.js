@@ -104,10 +104,6 @@ export const Index = ({ seeMore = false, animated = false }) => {
   }, [dataIndex, isPlaying, DATA_MAPPER]);
 
   React.useEffect(() => {
-    setTimeout(() => setIsPlaying(true), 1000);
-  }, []);
-
-  React.useEffect(() => {
     setParsedData(
       getParsedData(
         DATA_MAPPER[dataName][dataIndex]?.data,
