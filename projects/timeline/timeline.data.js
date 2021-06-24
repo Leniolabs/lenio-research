@@ -901,71 +901,53 @@ export default [
 ];
 
 
+
 // data = [
-//   { 
-//     date: "Sep2019",
-//     office: ["google", "amazon", "facebook", "salesforce", "uber", "twitter", "spotify", "microsoft", "netflix" ],
-//     hybrid: [],
-//     home: [],
-//   },
-//   { 
-//     date: "Oct2019",
-//     office: ["google", "amazon", "facebook", "salesforce", "uber", "twitter", "spotify", "microsoft", "netflix" ],
-//     hybrid: [],
-//     home: [],
-//   },
-//   { 
-//     date: "Nov2019",
-//     office: ["google", "amazon", "facebook", "salesforce", "uber", "twitter", "spotify", "microsoft", "netflix" ],
-//     hybrid: [],
-//     home: [],
-//   },
-//   { 
-//     date: "Dec2019",
-//     office: ["google", "amazon", "facebook", "salesforce", "uber", "twitter", "spotify", "microsoft", "netflix" ],
-//     hybrid: [],
-//     home: [],
-//   },
-//   { 
-//     date: "Jan2020",
-//     office: ["google", "amazon", "facebook", "salesforce", "uber", "twitter", "spotify", "microsoft", "netflix" ],
-//     hybrid: [],
-//     home: [],
-//   },
-//   { 
-//     date: "Feb2020",
-//     office: ["google", "amazon", "facebook", "salesforce", "uber", "twitter", "spotify", "microsoft", "netflix" ],
-//     hybrid: [],
-//     home: [],
-//   },
-//   { 
-//     date: "Mar2020",
-//     office: ["google", "amazon", "facebook", "salesforce", "uber", "twitter", "spotify", "microsoft", "netflix" ],
-//     hybrid: [],
-//     home: [],
-//   },
-//   { 
-//     date: "Apr2020",
-//     office: [],
-//     hybrid: ["google", "amazon"],
-//     home: ["facebook", "salesforce", "uber", "twitter", "spotify", "microsoft", "netflix" ],
-//   },
-//   { 
-//     date: "May2020",
-//     office: [],
-//     hybrid: ["google", "amazon"],
-//     home: ["facebook", "salesforce", "uber", "twitter", "spotify", "microsoft", "netflix" ],
-//   },
-//   { 
-//     date: "Jun2020",
-//     office: [],
-//     hybrid: ["google", "amazon"],
-//     home: ["facebook", "salesforce", "uber", "twitter", "spotify", "microsoft", "netflix" ],
-//   },
-//   { 
-//     date: "Jul2020",
-//     office: [],
-//     hybrid: ["google", "amazon"],
-//     home: ["facebook", "salesforce", "uber", "twitter", "spotify", "microsoft", "netflix" ],
-//   },
+//   { date: "May2020",
+//     google: {
+//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+//       home: []
+//     },
+//     amazon: {
+//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+//       home: []
+//     },
+//     facebook: {
+//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+//       home: []
+//     },
+//     salesforce: {
+//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+//       home: []
+//     },
+//     uber: {
+//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+//       home: []
+//     },
+//     twitter: {
+//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+//       home: []
+//     },
+//     spotify: {
+//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+//       home: []
+//     },
+//     microsoft: {
+//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+//       home: []
+//     },
+//     netflix: {
+//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+//       home: []
+//     },
+//   }
 // ];
