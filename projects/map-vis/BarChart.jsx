@@ -90,7 +90,10 @@ export const BarChart = ({
   }, [values]);
 
   return (
-    <svg className="millennials" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 585.8 354.9">
+    <motion.svg
+      className="millennials"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 585.8 354.9">
       <rect width="430" height="295" x="144.1" fill="#fffefa" />
       <text
         fill="#2a3f55"
@@ -116,13 +119,18 @@ export const BarChart = ({
                   .map((prevs) => row[prevs.property])
                   .reduce((a, b) => a + b, 0);
                 return (
-                  <rect
-                    key={`bar-group-${row.name}-${barIdx}-${val.property}`}
+                  <motion.rect
+                    key={`bar-group-${row.name}-${idx}-${barIdx}-${val.property}`}
                     width={xScale(row[val.property])}
                     height={BAR_HEIGHT}
                     x={MARGIN.LEFT + xScale(previousPercentage)}
                     y={LABELS[idx] * 3 + barIdx * BAR_HEIGHT} // it is actually the width but horizontal...
                     fill={val.color}
+                    animate={{
+                      x: previousPercentage > 0 ? [-xScale(previousPercentage), 0] : 0,
+                      width: [0, xScale(row[val.property])]
+                    }}
+                    transition={{ duration: 0.5 }}
                   />
                 );
               });
@@ -165,7 +173,7 @@ export const BarChart = ({
           </g>
         );
       })}
-    </svg>
+    </motion.svg>
   );
 };
 
