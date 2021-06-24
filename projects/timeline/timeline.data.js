@@ -902,52 +902,773 @@ export default [
 
 
 
-// data = [
-//   { date: "May2020",
-//     google: {
-//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
-//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
-//       home: []
-//     },
-//     amazon: {
-//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
-//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
-//       home: []
-//     },
-//     facebook: {
-//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
-//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
-//       home: []
-//     },
-//     salesforce: {
-//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
-//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
-//       home: []
-//     },
-//     uber: {
-//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
-//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
-//       home: []
-//     },
-//     twitter: {
-//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
-//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
-//       home: []
-//     },
-//     spotify: {
-//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
-//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
-//       home: []
-//     },
-//     microsoft: {
-//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
-//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
-//       home: []
-//     },
-//     netflix: {
-//       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
-//       hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
-//       home: []
-//     },
-//   }
-// ];
+data = [
+  { 
+    date: "Mar2020",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: [],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: [],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: [],
+      home: []
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: [],
+      home: []
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: [],
+      home: []
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: [],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: [],
+      home: []
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: [],
+      home: []
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: [],
+      home: []
+    },
+  },
+  { 
+    date: "Apr2020",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"]
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"]
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"]
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"]
+    },
+  },
+  { 
+    date: "May2020",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020"]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+  },
+  { 
+    date: "Jun2020",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+  },
+  { 
+    date: "Jul2020",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021"],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021" ],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+  },
+  { 
+    date: "Aug2020",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021"],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021" ],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
+      hybrid: [ "Jun2021", "Jul2021","Aug2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021"]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+  },
+  { 
+    date: "Sep2020",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021"],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021" ],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
+      hybrid: [ "Jun2021", "Jul2021","Aug2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021"]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"]
+    },
+  },
+  { 
+    date: "Oct2020",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021"],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021" ],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
+      hybrid: [ "Jun2021", "Jul2021","Aug2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021"]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020"]
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"]
+    },
+  },
+  { 
+    date: "Nov2020",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021"],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Jul2021", "Aug2021","Sep2021" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021" ],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
+      hybrid: [ "Jun2021", "Jul2021","Aug2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021"]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020"]
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"]
+    },
+  },
+  { 
+    date: "Dec2020",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
+      hybrid: [ "Jun2021", "Jul2021","Aug2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021"]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020"]
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"]
+    },
+  },
+  { 
+    date: "Jan2021",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
+      hybrid: [ "Jun2021", "Jul2021","Aug2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021"]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020"]
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"]
+    },
+  },
+  { 
+    date: "Feb2021",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: [ "Mar2021", "Apr2021", "May2021","Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020", "Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021"]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021"]
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020"]
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"]
+    },
+  },
+  { 
+    date: "Mar2021",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021" ],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021"]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: [ "Mar2021", "Apr2021", "May2021","Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020", "Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021"]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021"]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021"]
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020"]
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"]
+    },
+  },
+  { 
+    date: "Apr2021",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021" ],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021" ],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021"]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: [ "Mar2021", "Apr2021", "May2021","Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020", "Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021"]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020","Sep2021" ],
+      hybrid: ["May2021", "Jun2021", "Jul2021", "Aug2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021"]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021"]
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020"]
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021",]
+    },
+  },
+  { 
+    date: "May2021",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021" ],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021" ],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021"]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: [ "Mar2021", "Apr2021", "May2021","Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020", "Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021"]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020","Sep2021" ],
+      hybrid: ["May2021", "Jun2021", "Jul2021", "Aug2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021"]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021"]
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020"]
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021",]
+    },
+  },
+  { 
+    date: "Jun2021",
+    google: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021" ],
+      home: []
+    },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021"]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: [ "Mar2021", "Apr2021", "May2021","Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020", "Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021"]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020","Sep2021" ],
+      hybrid: ["May2021", "Jun2021", "Jul2021", "Aug2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021"]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: []
+    },
+    spotify: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021"]
+    },
+    microsoft: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
+      hybrid: ["Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021","Sep2021"],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020"]
+    },
+    netflix: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021" ],
+      hybrid: [],
+      home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020","Sep2020", "Oct2020", "Nov2020", "Dec2020", "Jan2021", "Feb2021", "Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021",]
+    },
+  }
+];
