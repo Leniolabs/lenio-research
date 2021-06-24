@@ -84,9 +84,9 @@ export const Timeline = () => {
       (company) => company.id == timelineData.value + 1
     );
     setPublication(newPublication);
-    const { calendar2 } = newPublication;
-    if (calendar2) {
-      const graphicData = mapDatesToGraphic(calendar2);
+    const { calendar } = newPublication;
+    if (calendar) {
+      const graphicData = mapDatesToGraphic(calendar);
       setGraphicData(graphicData);
     }
   }, [companyPublications, timelineData.value]);
@@ -114,7 +114,7 @@ export const Timeline = () => {
       startTimeline();
     }
   };
-
+  console.log(`graphicData`, graphicData);
   return (
     <div>
       <SelectorContainer>

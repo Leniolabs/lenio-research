@@ -29,8 +29,8 @@ export const getLineGraphicDates = (data = []) => {
   data.forEach(({ publications }) => {
     lineGraphicDates.push(
       ...publications.map((pub) => {
-        const { calendar2 } = pub;
-        return calendar2;
+        const { calendar } = pub;
+        return calendar;
       })
     );
   });
