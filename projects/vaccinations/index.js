@@ -60,8 +60,8 @@ export const Index = ({ seeMore = false, animated = false }) => {
     if (vacPer100 && fullyVacPer100) {
       console.log(vacPer100.length, fullyVacPer100.length);
       return {
-        fully: fullyVacPer100.length > 0 && fullyVacPer100,
-        "not-fully": vacPer100.length > 0 && vacPer100
+        fully: fullyVacPer100.length > 0 ? fullyVacPer100 : [],
+        "not-fully": vacPer100.length > 0 ? vacPer100 : []
       };
     }
     return {};
@@ -92,9 +92,9 @@ export const Index = ({ seeMore = false, animated = false }) => {
 
   React.useEffect(() => {
     if (DATA_MAPPER === {}) return;
-    if (dataIndex !== DATA_MAPPER[dataName].length - 1 && isPlaying) {
+    if (dataIndex !== 0 && isPlaying) {
       setTimeout(() => {
-        setDataIndex(dataIndex + 1);
+        setDataIndex((prevDataIndex) => prevDataIndex - 1);
       }, 200);
     } else {
       setIsPlaying(false);
@@ -104,7 +104,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
   React.useEffect(() => {
     setParsedData(
       getParsedData(
-        DATA_MAPPER[dataName][dataIndex]?.data,
+        DATA_MAPPER[dataName][options[dataIndex]?.value]?.data,
         COLOR_MAPPERS[colorMapper],
         countryList,
         legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
@@ -112,6 +112,22 @@ export const Index = ({ seeMore = false, animated = false }) => {
       )
     );
   }, [dataName, dataIndex, colorMapper, legendFilter, countryList]);
+
+  React.useEffect(() => {
+    if (DATA_MAPPER === {}) return;
+
+    if (dataIndex === 0 && DATA_MAPPER[dataName].length > 0) {
+      setParsedData(
+        getParsedData(
+          DATA_MAPPER[dataName][options[0]?.value]?.data,
+          COLOR_MAPPERS[colorMapper],
+          countryList,
+          legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
+          countryData
+        )
+      );
+    }
+  }, [DATA_MAPPER]);
 
   React.useEffect(() => {
     getVaccineData()
@@ -131,8 +147,8 @@ export const Index = ({ seeMore = false, animated = false }) => {
       action: "Pressed Play",
       label: isPlaying ? "stop" : "play"
     });
-    if (dataIndex === DATA_MAPPER[dataName].length - 1) {
-      setDataIndex(0);
+    if (dataIndex === 0 && DATA_MAPPER) {
+      setDataIndex((prevDataIndex) => (prevDataIndex === 0 ? 0 : DATA_MAPPER[dataName].length - 1));
     }
     setIsPlaying(!isPlaying);
   }, [dataIndex, isPlaying, dataName]);
@@ -143,7 +159,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
       action: "Changed Date",
       label: option.value
     });
-    setDataIndex(option.value);
+    setDataIndex(option.index);
   }, []);
 
   // const onColorMapperChange = React.useCallback((option) => {
