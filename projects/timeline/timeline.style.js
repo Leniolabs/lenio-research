@@ -1,20 +1,26 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const TimelineContainer = styled.div`
   background-color: #f9f3e4;
   padding: 2rem 2rem 1rem;
-  /* display: flex;
-  flex-direction: column; */
+  min-height: 250px;
+  min-height: 390px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 `;
 
 export const SelectorContainer = styled.div`
   display: flex;
   align-items: center;
-  margin: -.5rem 2rem .5em;
-  div { margin: 0;}
+  margin: -0.5rem 2rem 0.5em;
+  div {
+    margin: 0;
+  }
 `;
 
-export const Center = styled.div`
+export const Center = styled(motion.div)`
   h3 {
     color: #45486d;
     font-size: 2rem;
@@ -23,7 +29,7 @@ export const Center = styled.div`
   h4 {
     color: #2c9faa;
     font-size: 1.5rem;
-    margin: .5rem 0 0;
+    margin: 0.5rem 0 0;
   }
   date {
     color: #6b6b6b;
@@ -106,7 +112,7 @@ export const LineContainer = styled.div`
   width: 100%;
   height: 90px;
   li {
-    background-image: none!important;
+    background-image: none !important;
   }
 `;
 
@@ -116,36 +122,45 @@ export const LineGraphicContainer = styled.div`
 `;
 
 export const TimelineSubtitle = styled.h2`
-    font-size: 2.2rem;
-    font-weight: normal;
-    text-align: center;
-    width: 100%;
+  font-size: 2.2rem;
+  font-weight: normal;
+  text-align: center;
+  width: 100%;
 `;
-export const ConclusionContainer = styled.div`
+export const ConclusionContainer = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 16px;
   margin: 2rem auto;
   max-width: 60em;
+  @media (min-width: 728px) {
+    grid-template-columns: repeat(2, minmax(350px, 1fr));
+  }
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
 `;
 
-export const Conclusion = styled.div`
+export const Conclusion = styled(motion.div)`
   background-color: #f9f3e4;
   padding: 2rem;
   width: 300px;
-  p { 
+  p {
     font-size: 1rem;
     margin-top: 0;
-    svg { margin-right: 5px; }
+    svg {
+      margin-right: 5px;
+    }
   }
   blockquote {
     font-size: 1.2rem;
     margin: 0;
-    span { 
-      display: block; 
+    span {
+      display: block;
       font-size: 1rem;
       font-style: italic;
-      font-weight: 600; 
+      font-weight: 600;
       margin-top: 1rem;
       text-align: right;
     }
@@ -158,7 +173,9 @@ export const Conclusion = styled.div`
     text-align: right;
   }
 `;
-
+export const AnimationContainer = styled.div`
+  min-height: 160px;
+`;
 export const PlayBtn = styled.button`
   background-color: #2c9faa;
   border: 0;

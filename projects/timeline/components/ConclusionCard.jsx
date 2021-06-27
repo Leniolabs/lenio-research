@@ -2,10 +2,10 @@ import React from "react";
 import { Conclusion } from "../timeline.style";
 import PropTypes from "prop-types";
 
-const ConclusionCard = ({ outcome, color, content, link }) => {
+const ConclusionCard = ({ outcome, color, content, link, variants }) => {
   const [_, mainContent, author] = content.match(/(.*)-(.*)/);
   return (
-    <Conclusion>
+    <Conclusion variants={variants}>
       <p>
         <svg width="15" height="15">
           <rect width="15" height="15" fill={color} />

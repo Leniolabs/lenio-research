@@ -6,7 +6,8 @@ import {
   TimelineContainer,
   SelectorContainer,
   LineContainer,
-  PlayBtn
+  PlayBtn,
+  AnimationContainer
 } from "../timeline.style";
 import data from "../timeline.data";
 import { CustomSelect } from "@components/select/select";
@@ -18,9 +19,26 @@ import {
   getPublicationDates,
   mapDatesToGraphic
 } from "./utils";
+import { AnimatePresence } from "framer-motion";
+
+const variants = {
+  initial: {
+    x: -50,
+    opacity: 0
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.5 }
+  },
+  exit: {
+    x: 100,
+    opacity: 0,
+    transition: { duration: 0.5 }
+  }
+};
 
 const SELECT_WIDTH = 270;
-
 const initialPublications = getAllPublications(data);
 const initialDates = getPublicationDates(initialPublications);
 
@@ -38,6 +56,7 @@ export const Timeline = () => {
   const [selectedCompany, setSelectedCompany] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
   const [graphicData, setGraphicData] = useState([]);
+  const [updatedAnimation, setUpdatedAnimation] = useState(true);
 
   const startTimeline = () => {
     setIsPlaying(true);
@@ -80,10 +99,14 @@ export const Timeline = () => {
 
   // individual
   useEffect(() => {
+    setUpdatedAnimation(false);
     const newPublication = companyPublications.find(
       (company) => company.id == timelineData.value + 1
     );
     setPublication(newPublication);
+    setTimeout(() => {
+      setUpdatedAnimation(true);
+    }, 500);
     const { calendar } = newPublication;
     if (calendar) {
       const graphicData = mapDatesToGraphic(calendar);
@@ -114,7 +137,6 @@ export const Timeline = () => {
       startTimeline();
     }
   };
-  console.log(`graphicData`, graphicData);
   return (
     <div>
       <SelectorContainer>
@@ -140,16 +162,22 @@ export const Timeline = () => {
             styles={{ background: "#f8f8f8", foreground: "#2c9faa", outline: "#dfdfdf" }}
           />
         </LineContainer>
-        <Center>
-          {publication?.company && <h3>{publication?.company}</h3>}
-          <h4>{publication?.title}</h4>
-          <p>{publication?.content}</p>
-        </Center>
+        <AnimationContainer>
+          <AnimatePresence>
+            {updatedAnimation && (
+              <Center variants={variants} initial="initial" animate="visible" exit="exit">
+                {publication?.company && <h3>{publication?.company}</h3>}
+                <h4>{publication?.title}</h4>
+                <p>{publication?.content}</p>
+              </Center>
+            )}
+          </AnimatePresence>
+        </AnimationContainer>
         {graphicData.length > 1 && (
-          <>
+          <div>
             <LineGraphic data={graphicData} selectedDate={values[timelineData.value]}></LineGraphic>
             <LineGraphicText></LineGraphicText>
-          </>
+          </div>
         )}
       </TimelineContainer>
     </div>

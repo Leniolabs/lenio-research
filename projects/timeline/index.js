@@ -12,14 +12,39 @@ import {
 } from "./timeline.style";
 import { Timeline } from "./components/HorizontalTimeline";
 import { Graphic } from "./svg-components/Graphic";
-
 import Link from "next/link";
 import { LogoHeaderContainer } from "@components/styled";
 import { HeadLogoContainer } from "@components/styled";
 import ConclusionCard from "./components/ConclusionCard";
 import data from "./timeline.data";
+import { useInView } from "react-intersection-observer";
+import { useState, useEffect } from "react";
 
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.5,
+      delay: 0.5
+    }
+  }
+};
+const item = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
 export const Index = (props) => {
+  const { ref, inView, entry } = useInView({
+    threshold: 0
+  });
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    if (inView && !mounted) {
+      setMounted(true);
+    }
+  }, [inView]);
   const conclusionList = data.map(({ conclusion }) => conclusion);
   return (
     <Layout>
@@ -69,12 +94,14 @@ export const Index = (props) => {
           <h2>Return to the office by Company</h2>
           <Graphic></Graphic>
         </GraphicSection>
-        <TimelineSubtitle>Conclusions July 2020</TimelineSubtitle>
-        <ConclusionContainer>
-          {conclusionList?.map((props, key) => (
-            <ConclusionCard key={key} {...props} />
-          ))}
-        </ConclusionContainer>
+        <TimelineSubtitle ref={ref}>Conclusions July 2020</TimelineSubtitle>
+        {mounted && (
+          <ConclusionContainer variants={container} initial="hidden" animate="show">
+            {conclusionList?.map((props, key) => (
+              <ConclusionCard key={key} variants={item} {...props} />
+            ))}
+          </ConclusionContainer>
+        )}
       </main>
       <Footer></Footer>
     </Layout>
