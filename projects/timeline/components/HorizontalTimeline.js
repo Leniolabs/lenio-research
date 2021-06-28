@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import HorizontalTimeline from "react-horizontal-timeline";
+import { motion } from "framer-motion";
 import {
   Center,
   LabelCompanies,
@@ -114,7 +115,7 @@ export const Timeline = () => {
       startTimeline();
     }
   };
-  console.log(`graphicData`, graphicData);
+  // console.log(`graphicData`, graphicData);
   return (
     <div>
       <SelectorContainer>
@@ -141,9 +142,13 @@ export const Timeline = () => {
           />
         </LineContainer>
         <Center>
-          {publication?.company && <h3>{publication?.company}</h3>}
-          <h4>{publication?.title}</h4>
-          <p>{publication?.content}</p>
+          <motion.div
+            key={`${publication?.company}-${publication?.title}-${values[timelineData.value]}`}
+            animate={{ x: timelineData.value >= timelineData.previous ? [500, 0] : [-500, 0] }}>
+            {publication?.company && <h3>{publication?.company}</h3>}
+            <h4>{publication?.title}</h4>
+            <p>{publication?.content}</p>
+          </motion.div>
         </Center>
         {graphicData.length > 1 && (
           <>
