@@ -4,11 +4,9 @@ import styled from "styled-components";
 export const TimelineContainer = styled.div`
   background-color: #f9f3e4;
   padding: 2rem 2rem 1rem;
-  min-height: 250px;
-  min-height: 390px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  display: grid;
+  grid-template-rows: 1fr minmax(210px, max-content) 1fr;
 `;
 
 export const SelectorContainer = styled.div`
@@ -21,6 +19,7 @@ export const SelectorContainer = styled.div`
 `;
 
 export const Center = styled(motion.div)`
+  overflow: hidden;
   h3 {
     color: #45486d;
     font-size: 2rem;
@@ -174,7 +173,8 @@ export const Conclusion = styled(motion.div)`
   }
 `;
 export const AnimationContainer = styled.div`
-  min-height: 160px;
+  overflow: hidden;
+  min-height: 200px;
 `;
 export const PlayBtn = styled.button`
   background-color: #2c9faa;

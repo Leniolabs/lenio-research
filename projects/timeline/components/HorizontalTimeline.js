@@ -23,7 +23,7 @@ import { AnimatePresence } from "framer-motion";
 
 const variants = {
   initial: {
-    x: -50,
+    x: -150,
     opacity: 0
   },
   visible: {
@@ -32,7 +32,7 @@ const variants = {
     transition: { duration: 0.5 }
   },
   exit: {
-    x: 100,
+    x: 150,
     opacity: 0,
     transition: { duration: 0.5 }
   }
@@ -57,7 +57,6 @@ export const Timeline = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [graphicData, setGraphicData] = useState([]);
   const [updatedAnimation, setUpdatedAnimation] = useState(true);
-
   const startTimeline = () => {
     setIsPlaying(true);
     nextDate();
@@ -165,7 +164,12 @@ export const Timeline = () => {
         <AnimationContainer>
           <AnimatePresence>
             {updatedAnimation && (
-              <Center variants={variants} initial="initial" animate="visible" exit="exit">
+              <Center
+                key={`${publication?.company}-${publication?.title}-${values[timelineData.value]}`}
+                variants={variants}
+                initial={timelineData.value >= timelineData.previous ? "initial" : "exit"}
+                animate="visible"
+                exit={timelineData.value < timelineData.previous ? "initial" : "exit"}>
                 {publication?.company && <h3>{publication?.company}</h3>}
                 <h4>{publication?.title}</h4>
                 <p>{publication?.content}</p>
