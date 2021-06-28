@@ -15,6 +15,7 @@ export const SelectorContainer = styled.div`
 `;
 
 export const Center = styled.div`
+  overflow: hidden;
   h3 {
     color: #45486d;
     font-size: 2rem;
