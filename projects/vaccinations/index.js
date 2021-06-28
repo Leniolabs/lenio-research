@@ -52,6 +52,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
   const [countryData, setCountryData] = React.useState([]);
   const [fullyVacPer100, setFullyVacPer100] = React.useState([]);
   const [vacPer100, setVacPer100] = React.useState([]);
+  const firstTimePlay = React.useRef(true);
   const options = React.useMemo(() => {
     return generateDateOptions(fullyVacPer100);
   }, [fullyVacPer100]);
@@ -92,7 +93,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
 
   React.useEffect(() => {
     if (DATA_MAPPER === {}) return;
-    if (dataIndex !== 0 && isPlaying) {
+    if (dataIndex > 0 && isPlaying) {
       setTimeout(() => {
         setDataIndex((prevDataIndex) => prevDataIndex - 1);
       }, 200);
@@ -102,24 +103,10 @@ export const Index = ({ seeMore = false, animated = false }) => {
   }, [dataIndex, isPlaying, DATA_MAPPER]);
 
   React.useEffect(() => {
-    setParsedData(
-      getParsedData(
-        DATA_MAPPER[dataName][options[dataIndex]?.value]?.data,
-        COLOR_MAPPERS[colorMapper],
-        countryList,
-        legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
-        countryData
-      )
-    );
-  }, [dataName, dataIndex, colorMapper, legendFilter, countryList]);
-
-  React.useEffect(() => {
-    if (DATA_MAPPER === {}) return;
-
-    if (dataIndex === 0 && DATA_MAPPER[dataName].length > 0) {
+    if (DATA_MAPPER[dataName][options[dataIndex]?.value]?.data) {
       setParsedData(
         getParsedData(
-          DATA_MAPPER[dataName][options[0]?.value]?.data,
+          DATA_MAPPER[dataName][options[dataIndex]?.value]?.data,
           COLOR_MAPPERS[colorMapper],
           countryList,
           legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
@@ -127,7 +114,37 @@ export const Index = ({ seeMore = false, animated = false }) => {
         )
       );
     }
-  }, [DATA_MAPPER]);
+  }, [dataName, dataIndex, colorMapper, legendFilter, countryList]);
+
+  React.useEffect(() => {
+    if (DATA_MAPPER === {}) return;
+
+    if (dataIndex === 0 && DATA_MAPPER[dataName].length > 0) {
+      if (firstTimePlay.current) {
+        setParsedData(
+          getParsedData(
+            DATA_MAPPER[dataName][options[0]?.value]?.data,
+            COLOR_MAPPERS[colorMapper],
+            countryList,
+            legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
+            countryData
+          )
+        );
+      } else {
+        const lastIndex = DATA_MAPPER[dataName].length - 1;
+        setParsedData(
+          getParsedData(
+            DATA_MAPPER[dataName][options[lastIndex]?.value]?.data,
+            COLOR_MAPPERS[colorMapper],
+            countryList,
+            legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
+            countryData
+          )
+        );
+        setDataIndex(lastIndex);
+      }
+    }
+  }, [DATA_MAPPER, dataIndex]);
 
   React.useEffect(() => {
     getVaccineData()
@@ -148,9 +165,10 @@ export const Index = ({ seeMore = false, animated = false }) => {
       label: isPlaying ? "stop" : "play"
     });
     if (dataIndex === 0 && DATA_MAPPER) {
-      setDataIndex((prevDataIndex) => (prevDataIndex === 0 ? 0 : DATA_MAPPER[dataName].length - 1));
+      setDataIndex(DATA_MAPPER[dataName].length > 0 ? DATA_MAPPER[dataName].length - 1 : 0);
     }
     setIsPlaying(!isPlaying);
+    firstTimePlay.current = false;
   }, [dataIndex, isPlaying, dataName]);
 
   const onChangeCallback = React.useCallback((option) => {
