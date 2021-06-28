@@ -394,6 +394,7 @@ export const Index = ({ seeMore = false }) => {
             <label for="jobout"> <input type="checkbox" id="jobout" name="jobout" value="Job Out"/>Order by Job out</label>
           </div> */}
           <div className="switch-container">
+            <span className="switch-label">Show Moving In (by Age and Job)</span>
             <Switch
               id="barchart1-switch"
               color1="42, 159, 170"
@@ -401,12 +402,12 @@ export const Index = ({ seeMore = false }) => {
               checked={barChartDataOrderBy === "out"}
               onChange={handleSwitchOrder}
             />
-            &nbsp;
-            <span className="switch-label">{`${barChartDataOrderBy === "out" ? "Show Moving Out (by Age and Job)" : "Show Moving In (by Age and Job)"}`}</span>
+            <span className="switch-label">Show Moving Out (by Age and Job)</span>
           </div>
           <BarChart data={barChartData} values={barChartDataOrderBy === "out" ? barChartValuesOut : barChartValuesIn}></BarChart>
           <p className="sub-p">Top 10 states with age 65 and older moving in for retirement and lower taxes states.</p>
           <div className="switch-container">
+            <span className="switch-label">Individual Income Taxes</span>
             <Switch
               id="barchart2-switch"
               color1="255, 223, 170"
@@ -414,8 +415,7 @@ export const Index = ({ seeMore = false }) => {
               checked={barChartData2OrderBy === "age"}
               onChange={handleSwitchOrder2}
             />
-            &nbsp;
-            <span className="switch-label-2">{`Sort by ${barChartData2OrderBy === "age" ? "% of Age 65 and older moving in" : "Individual Income Taxes"}`}</span>
+            <span className="switch-label">% of Age 65 and older moving in</span>
           </div>
           <BarChart data={barChartData2} values={barChartValues2} />
         </div>
