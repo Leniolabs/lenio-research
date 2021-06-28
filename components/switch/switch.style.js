@@ -6,6 +6,7 @@ export const CheckboxWrapper = styled.span`
   display: inline-block;
   font-size: 16px;
   line-height: 1.5;
+  margin-right: 8px;
 `;
 
 export const CheckBoxLabel = styled.label`
