@@ -89,18 +89,24 @@ export const Index = ({ seeMore = false, animated = false }) => {
   const [parsedData, setParsedData] = React.useState([]);
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [legendFilter, setLegendFilter] = React.useState(null);
+  const [dateChange, setDateChange] = React.useState(null);
   const { logEvent } = useTracking();
 
   React.useEffect(() => {
     if (DATA_MAPPER === {}) return;
     if (dataIndex > 0 && isPlaying) {
       setTimeout(() => {
-        setDataIndex((prevDataIndex) => prevDataIndex - 1);
+        if (dateChange) {
+          setDataIndex(dateChange);
+          setDateChange(null);
+        } else {
+          setDataIndex((prevDataIndex) => prevDataIndex - 1);
+        }
       }, 200);
     } else {
       setIsPlaying(false);
     }
-  }, [dataIndex, isPlaying, DATA_MAPPER]);
+  }, [dataIndex, isPlaying, DATA_MAPPER, dateChange]);
 
   React.useEffect(() => {
     if (DATA_MAPPER[dataName][options[dataIndex]?.value]?.data) {
@@ -177,7 +183,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
       action: "Changed Date",
       label: option.value
     });
-    setDataIndex(option.index);
+    setDateChange(option.index);
   }, []);
 
   // const onColorMapperChange = React.useCallback((option) => {
