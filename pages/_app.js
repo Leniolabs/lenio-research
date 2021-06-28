@@ -36,11 +36,7 @@ const GlobalStyle = createGlobalStyle`
       margin-bottom: 1rem;
       .switch-label {
         font-size: 1rem;
-        width: 15rem;
-      }
-      .switch-label-2 {
-        font-size: 1rem;
-        width: 17rem;
+        text-align: center;
       }
     }
   }
