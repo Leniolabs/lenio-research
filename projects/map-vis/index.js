@@ -70,22 +70,22 @@ const initialBarChartData2OrderedByTax = data
 
 const barChartValues2 = [
   [{ property: "State_Individual_Income_Tax_Rates", color: "#ffdfaa", label: "Individual Income Taxes" }],
-  [{ property: "Age_65_or_older_in", color: "#ff3f55", label: "% of Age 65 and older in" }]
+  [{ property: "Age_65_or_older_in", color: "#ff3f55", label: "% of Age 65 and older moving in" }]
 ];
 
 const barChartValuesOut = [
-  [{ property: "Job_out", color: "#ffdfaa", label: "% of Job Out" }],
+  [{ property: "Job_out", color: "#ffdfaa", label: "% of  Moving Out for a Job" }],
   [
-    { property: "Age_18_to_34_out", color: "#55bfaa", label: "% of Age 18 to 34" },
-    { property: "Age_35_to_44_out", color: "#ff3f55", label: "% of Age 35 to 44" }
+    { property: "Age_18_to_34_out", color: "#55bfaa", label: "% of Age 18 to 34 Moving Out" },
+    { property: "Age_35_to_44_out", color: "#ff3f55", label: "% of Age 35 to 44 Moving Out" }
   ]
 ];
 
 const barChartValuesIn = [
-  [{ property: "Job_in", color: "#ffdfaa", label: "% of Job In" }],
+  [{ property: "Job_in", color: "#ffdfaa", label: "% of Moving In for a Job" }],
   [
-    { property: "Age_18_to_34_in", color: "#55bfaa", label: "% of Age 18 to 34" },
-    { property: "Age_35_to_44_in", color: "#ff3f55", label: "% of Age 35 to 44" }
+    { property: "Age_18_to_34_in", color: "#55bfaa", label: "% of Age 18 to 34 Moving In" },
+    { property: "Age_35_to_44_in", color: "#ff3f55", label: "% of Age 35 to 44 Moving In" }
   ]
 ];
 
@@ -107,7 +107,7 @@ export const Index = ({ seeMore = false }) => {
   );
   const [scatterPlotXOptions, setScatterPlotXOptions] = React.useState([]);
   const [scatterPlotYOptions, setScatterPlotYOptions] = React.useState([]);
-  const [optionType, setOptionType] = React.useState({ label: "In", value: "IN" });
+  const [optionType, setOptionType] = React.useState({ label: "Inbound", value: "IN" });
 
   const oldXInValue = React.useRef(SCATTERPLOT_OPTIONS[14]);
   const oldYInValue = React.useRef(SCATTERPLOT_OPTIONS[0]);
@@ -252,7 +252,7 @@ export const Index = ({ seeMore = false }) => {
           <br /> The US Housing Market
           <span className="author">
             An article written by{" "}
-            <a href="linkedin.com/in/manishgarg" target="_blank">
+            <a href="https://www.linkedin.com/in/manishgarg/" target="_blank">
               Manish Garg
             </a>
           </span>
@@ -387,7 +387,7 @@ export const Index = ({ seeMore = false }) => {
       </p>
       <div className="row-container">
         <h2>Age groups and reasons to migrate</h2>
-        <p className="sub-p">Top 10 states with age between 18 and 44 and job reasons moving in or out.</p>
+        <p className="sub-p">Top 10 states with age between 18 and 44 and job reasons for moving in or out.</p>
         <div className="stack-bar">
           {/* <div className="checkbox-group">
             <label for="ageout"> <input type="checkbox" id="ageout" name="ageout" value="Age Out"/>Order by Age out</label>
@@ -402,10 +402,10 @@ export const Index = ({ seeMore = false }) => {
               onChange={handleSwitchOrder}
             />
             &nbsp;
-            <span className="switch-label">{`${barChartDataOrderBy === "out" ? "Age out and Job out" : "Age in and Job in"}`}</span>
+            <span className="switch-label">{`${barChartDataOrderBy === "out" ? "Show Moving Out (by Age and Job)" : "Show Moving In (by Age and Job)"}`}</span>
           </div>
           <BarChart data={barChartData} values={barChartDataOrderBy === "out" ? barChartValuesOut : barChartValuesIn}></BarChart>
-          <p className="sub-p">Top 10 states with age 65 and older moving in and lower taxes states.</p>
+          <p className="sub-p">Top 10 states with age 65 and older moving in for retirement and lower taxes states.</p>
           <div className="switch-container">
             <Switch
               id="barchart2-switch"
@@ -415,7 +415,7 @@ export const Index = ({ seeMore = false }) => {
               onChange={handleSwitchOrder2}
             />
             &nbsp;
-            <span className="switch-label-2">{`Ordered by ${barChartData2OrderBy === "age" ? "% of Age 65 and older in" : "Individual Income Taxes"}`}</span>
+            <span className="switch-label-2">{`Sort by ${barChartData2OrderBy === "age" ? "% of Age 65 and older moving in" : "Individual Income Taxes"}`}</span>
           </div>
           <BarChart data={barChartData2} values={barChartValues2} />
         </div>
@@ -423,10 +423,10 @@ export const Index = ({ seeMore = false }) => {
         <h2>Explore the data</h2>
         <p className="sub-p">Here you can play with the different variables represented on the map above. For example, you can plot the linear relationship between % of people with ages from 18 to 34 that moved out of the state vs the migration out of the state because of work. The color scale represent the Combined Sales Tax Rate per state.</p>
         <CustomSelect
-          width={100}
+          width={120}
           options={[
-            { label: "In", value: "IN" },
-            { label: "Out", value: "OUT" }
+            { label: "Inbound", value: "IN" },
+            { label: "Outbound", value: "OUT" }
           ]}
           selectedOption={optionType}
           label=""
