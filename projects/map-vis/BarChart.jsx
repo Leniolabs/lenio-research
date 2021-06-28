@@ -49,13 +49,12 @@ const BarLegend = ({ data }) => {
       {data.map((d, idx) => {
         return (
           <g key={`label-${data.name}-${idx}`}>
-            <rect width="14" height="14" x={140 + idx * 150} y="338" fill={d.color} />
+            <rect width="12" height="12" x={130 + idx * 150} y="340" fill={d.color} />
             <text
               fill="#2a3f55"
-              fontFamily="'Source Sans Pro'"
-              fontSize="12"
+              fontSize="10"
               fontWeight="600"
-              transform={`translate(${8 + (idx + 1) * 150} 350)`}>
+              transform={`translate(${0 + (idx + 1) * 148} 350)`}>
               {d.label}
             </text>
           </g>
