@@ -70,7 +70,7 @@ const initialBarChartData2OrderedByTax = data
 
 const barChartValues2 = [
   [{ property: "State_Individual_Income_Tax_Rates", color: "#ffdfaa", label: "Individual Income Taxes" }],
-  [{ property: "Age_65_or_older_in", color: "#ff3f55", label: "% of Age 65 and older moving in" }]
+  [{ property: "Age_65_or_older_in", color: "#ff3f55", label: "% of Age 65 and older Moving In" }]
 ];
 
 const barChartValuesOut = [
@@ -407,7 +407,7 @@ export const Index = ({ seeMore = false }) => {
           <BarChart data={barChartData} values={barChartDataOrderBy === "out" ? barChartValuesOut : barChartValuesIn}></BarChart>
           <p className="sub-p">Top 10 states with age 65 and older moving in for retirement and lower taxes states.</p>
           <div className="switch-container">
-            <span className="switch-label">Individual Income Taxes</span>
+            <span className="switch-label">Sort by Individual Income Taxes</span>
             <Switch
               id="barchart2-switch"
               color1="255, 223, 170"
@@ -415,7 +415,7 @@ export const Index = ({ seeMore = false }) => {
               checked={barChartData2OrderBy === "age"}
               onChange={handleSwitchOrder2}
             />
-            <span className="switch-label">% of Age 65 and older moving in</span>
+            <span className="switch-label">Sort by  % of Age 65 and older Moving In</span>
           </div>
           <BarChart data={barChartData2} values={barChartValues2} />
         </div>
