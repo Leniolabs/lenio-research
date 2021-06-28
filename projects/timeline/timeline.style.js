@@ -11,8 +11,10 @@ export const TimelineContainer = styled.div`
 
 export const SelectorContainer = styled.div`
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-end;
   margin: -0.5rem 2rem 0.5em;
+  justify-content: space-between;
   div {
     margin: 0;
   }
@@ -155,6 +157,10 @@ export const Conclusion = styled(motion.div)`
   blockquote {
     font-size: 1.2rem;
     margin: 0;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     span {
       display: block;
       font-size: 1rem;

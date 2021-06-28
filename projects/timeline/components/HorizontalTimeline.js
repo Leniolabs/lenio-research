@@ -24,16 +24,19 @@ import { AnimatePresence } from "framer-motion";
 const variants = {
   initial: {
     x: -150,
-    opacity: 0
+    opacity: 0,
+    maxHeight: 0
   },
   visible: {
     x: 0,
     opacity: 1,
+    maxHeight: 1200,
     transition: { duration: 0.5 }
   },
   exit: {
     x: 150,
     opacity: 0,
+    maxHeight: 0,
     transition: { duration: 0.5 }
   }
 };
@@ -140,12 +143,13 @@ export const Timeline = () => {
     <div>
       <SelectorContainer>
         <PlayBtn onClick={onPlayOrStop}> {isPlaying ? "⏹️ Stop" : "▶️ Play"}</PlayBtn>
-        <LabelCompanies>Companies</LabelCompanies>
+        <div><LabelCompanies>Companies</LabelCompanies>
         <CustomSelect
           width={SELECT_WIDTH}
           options={companiesOptions}
           selectedOption={selectedOption}
           onChange={onChangeCallback}></CustomSelect>
+          </div>
       </SelectorContainer>
 
       <TimelineContainer>
