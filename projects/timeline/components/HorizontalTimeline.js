@@ -172,9 +172,9 @@ export const Timeline = () => {
               <Center
                 key={`${publication?.company}-${publication?.title}-${values[timelineData.value]}`}
                 variants={variants}
-                initial={timelineData.value >= timelineData.previous ? "initial" : "exit"}
+                initial={timelineData.value <= timelineData.previous ? "initial" : "exit"}
                 animate="visible"
-                exit={timelineData.value < timelineData.previous ? "initial" : "exit"}>
+                exit={timelineData.value > timelineData.previous ? "initial" : "exit"}>
                 {publication?.company && <h3>{publication?.logo}{publication?.company}</h3>}
                 <h4>{publication?.title}</h4>
                 <p>{publication?.content}</p>
