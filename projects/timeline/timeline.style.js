@@ -198,6 +198,9 @@ export const PlayBtn = styled.button`
   font-weight: 600;
   padding: .4rem 1.2rem;
   transition .3s ease all;
+  &.btn-graphic {
+    margin: 0 0 .5rem 6rem;
+  }
   &:hover {
     background-color: #2ba881;
     color: white;

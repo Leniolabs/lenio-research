@@ -40,9 +40,9 @@ const CompaniesGraphic = () => {
   };
   return (
     <div>
-      <PlayBtn onClick={onPlayOrStop}> {isPlaying ? "⏹️ Stop" : "▶️ Play"}</PlayBtn>
+      <PlayBtn className="btn-graphic" onClick={onPlayOrStop}> {isPlaying ? "⏹️ Stop" : "▶️ Play"}</PlayBtn>
       {data_graphic.length > 0 && getComapniesData(data_graphic[index])}
-      <LineGraphicText></LineGraphicText>
+      <svg viewBox="-36 0 997 33"><LineGraphicText></LineGraphicText></svg>
     </div>
   );
 };
