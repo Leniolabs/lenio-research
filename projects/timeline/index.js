@@ -82,17 +82,17 @@ export const Index = (props) => {
       <main className="main-timeline">
         <FirstSection>
           <h1>
-            Return to office <br />
-            or remote culture
+            How the pandemic shaped <br />
+            the office culture
           </h1>
-          <p>Top companies that changed their plans during pandemic.</p>
+          <p>Comparing top companies that changed their plans during the COVID-19 crisis.</p>
         </FirstSection>
         <TimelineSubtitle>Timeline from May 2020 to present</TimelineSubtitle>
         <TimelineSection>
           <Timeline />
         </TimelineSection>
         <GraphicSection>
-          <h2>Return to the office by Company</h2>
+          <h2>All companies heatmap</h2>
           <Graphic></Graphic>
           <CompaniesGraphic></CompaniesGraphic>
         </GraphicSection>

@@ -175,7 +175,7 @@ export const Timeline = () => {
                 initial={timelineData.value >= timelineData.previous ? "initial" : "exit"}
                 animate="visible"
                 exit={timelineData.value < timelineData.previous ? "initial" : "exit"}>
-                {publication?.company && <h3>{publication?.company}</h3>}
+                {publication?.company && <h3>{publication?.logo}{publication?.company}</h3>}
                 <h4>{publication?.title}</h4>
                 <p>{publication?.content}</p>
               </Center>

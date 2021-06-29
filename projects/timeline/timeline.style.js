@@ -146,6 +146,7 @@ export const ConclusionContainer = styled(motion.div)`
 export const Conclusion = styled(motion.div)`
   background-color: #f9f3e4;
   padding: 2rem;
+  position: relative;
   width: 300px;
   p {
     font-size: 1rem;
@@ -169,6 +170,13 @@ export const Conclusion = styled(motion.div)`
       margin-top: 1rem;
       text-align: right;
     }
+  }
+  .logo {
+    position: absolute;
+    bottom: 1rem;
+    left: 2rem;
+    max-height: 14%;
+    width: 14%;
   }
   a {
     color: #2c9faa;
