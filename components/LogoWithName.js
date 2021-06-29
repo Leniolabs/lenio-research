@@ -1,5 +1,6 @@
 import React from "react";
 import { LogoHeaderContainer } from "@components/styled";
+import PropTypes from "prop-types";
 
 const LogoWithName = ({
   circleColor = "#30aab3",
@@ -27,6 +28,13 @@ const LogoWithName = ({
       </svg>
     </LogoHeaderContainer>
   );
+};
+
+LogoWithName.propTypes = {
+  circleColor: PropTypes.string,
+  color: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string
 };
 
 export default LogoWithName;
