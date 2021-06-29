@@ -109,10 +109,12 @@ export const Timeline = () => {
     setTimeout(() => {
       setUpdatedAnimation(true);
     }, 500);
-    const { calendar } = newPublication;
-    if (calendar) {
-      const graphicData = mapDatesToGraphic(calendar);
-      setGraphicData(graphicData);
+    if (newPublication?.calendar) {
+      const { calendar } = newPublication;
+      if (calendar) {
+        const graphicData = mapDatesToGraphic(calendar);
+        setGraphicData(graphicData);
+      }
     }
   }, [companyPublications, timelineData.value]);
 
@@ -174,8 +176,13 @@ export const Timeline = () => {
                 variants={variants}
                 initial={timelineData.value <= timelineData.previous ? "initial" : "exit"}
                 animate="visible"
-                exit={timelineData.value > timelineData.previous ? "initial" : "exit"}>
-                {publication?.company && <h3>{publication?.logo}{publication?.company}</h3>}
+                exit={timelineData.value < timelineData.previous ? "initial" : "exit"}>
+                {publication?.company && (
+                  <h3>
+                    {publication?.logo}
+                    {publication?.company}
+                  </h3>
+                )}
                 <h4>{publication?.title}</h4>
                 <p>{publication?.content}</p>
               </Center>

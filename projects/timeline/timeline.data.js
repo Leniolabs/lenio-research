@@ -74,7 +74,7 @@ export default [
           "Return to offices to September 1, and will expect employees to report to work in-person for at least three days a week. flexibility may not apply to employees in customer-facing roles “that spend lots of time with clients,” those who need to be on-site in data centers or labs, or those who depend on specialized equipment to work.",
 
         calendar: {
-          office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+          office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
           hybrid: [
             "Apr2020",
             "May2020",
@@ -92,8 +92,7 @@ export default [
             "May2021",
             "Jun2021",
             "Jul2021",
-            "Aug2021",
-            "Sep2021"
+            "Aug2021"
           ]
         }
       },
@@ -138,7 +137,7 @@ export default [
           "60% of Googlers coming together in the office for a few days a week, while another 20% will work in new office locations and 20% are anticipated to work remotely. “We’ll move to a hybrid workweek, where most Googlers spend approximately three days in the office and two days wherever they work best.” He advised that there will “be roles that may need to be on site more than three days a week due to the nature of the work.” “We’ll also offer opportunities for you to apply for completely remote work (away from your team or office) based on your role and team needs.” “Whether you choose to transfer to a different office or opt for completely remote work, your compensation will be adjusted according to your new location.” Going forward, Googlers will have the availability to work on a temporary basis from locations outside of their main office for a period of up to four weeks per year with the consent of the person’s manager.",
 
         calendar: {
-          office: ["S1ep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+          office: ["S1ep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
           hybrid: [
             "Apr2020",
             "May2020",
@@ -155,7 +154,7 @@ export default [
             "Apr2021",
             "May2021"
           ],
-          home: ["Jun2021", "Jul2021", "Aug2021", "Sep2021"]
+          home: []
         }
       }
     ],
@@ -219,7 +218,7 @@ export default [
             "Dec2019",
             "Jan2020",
             "Feb2020",
-            "Mar2020",
+            "Mar2020","Jan2021",
             "Feb2021",
             "Mar2021",
             "Apr2021",
@@ -239,7 +238,6 @@ export default [
             "Oct2020",
             "Nov2020",
             "Dec2020",
-            "Jan2021"
           ],
           home: []
         }
@@ -410,6 +408,12 @@ export default [
         calendar: {
           office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
           hybrid: [
+            "Jul2020",
+            "Aug2020",
+            "Sep2020",
+            "Oct2020",
+            "Nov2020",
+            "Dec2020",
             "Jan2021",
             "Feb2021",
             "Mar2021",
@@ -418,18 +422,12 @@ export default [
             "Jun2021",
             "Jul2021",
             "Aug2021",
-            "Sep2021"
+            "Sep2021",
           ],
           home: [
             "Apr2020",
             "May2020",
             "Jun2020",
-            "Jul2020",
-            "Aug2020",
-            "Sep2020",
-            "Oct2020",
-            "Nov2020",
-            "Dec2020"
           ]
         }
       },
@@ -509,15 +507,6 @@ export default [
         calendar: {
           office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
           hybrid: [
-            "Jan2021",
-            "Feb2021",
-            "Mar2021",
-            "Apr2021",
-            "May2021",
-            "Jun2021",
-            "Jul2021",
-            "Aug2021",
-            "Sep2021"
           ],
           home: [
             "Apr2020",
@@ -528,7 +517,16 @@ export default [
             "Sep2020",
             "Oct2020",
             "Nov2020",
-            "Dec2020"
+            "Dec2020",
+            "Jan2021",
+            "Feb2021",
+            "Mar2021",
+            "Apr2021",
+            "May2021",
+            "Jun2021",
+            "Jul2021",
+            "Aug2021",
+            "Sep2021"
           ]
         }
       },
@@ -717,9 +715,8 @@ export default [
             "Jan2020",
             "Feb2020",
             "Mar2020",
-            "Sep2021"
           ],
-          hybrid: ["Jun2021", "Jul2021", "Aug2021"],
+          hybrid: ["Jun2021", "Jul2021", "Aug2021", "Sep2021"],
           home: [
             "Apr2020",
             "May2020",
@@ -874,7 +871,7 @@ export default [
     publications: [
       {
         id: "1",
-        dateAt: "2021/10/09",
+        dateAt: "2020/10/09",
         title: "Hybrid model with adjusted salaries",
         link: "https://www.cnbc.com/2020/10/09/microsoft-implements-new-hybrid-remote-work-policy.html",
         content:
