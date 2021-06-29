@@ -15,7 +15,7 @@ const HEIGHT = 20;
 const LINE_OFFSET = 5;
 export const BigGraphic = ({ companies, selectedDate }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080.1 263.1">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 200">
       {Object.keys(companies).map((companyId, heightIndex) => {
         const graph = mapDatesToGraphic(companies[companyId]);
         const yPosition = heightIndex > 0 ? HEIGHT * heightIndex + INITIAL_Y : INITIAL_Y;

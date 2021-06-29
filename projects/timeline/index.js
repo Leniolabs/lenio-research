@@ -93,7 +93,6 @@ export const Index = (props) => {
         </TimelineSection>
         <GraphicSection>
           <h2>All companies heatmap</h2>
-          <Graphic></Graphic>
           <CompaniesGraphic></CompaniesGraphic>
         </GraphicSection>
         <TimelineSubtitle ref={ref}>Conclusions July 2020</TimelineSubtitle>
