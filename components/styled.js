@@ -26,6 +26,9 @@ export const RowContainer = styled.div`
   max-width: 65em;
   padding: 2rem;
 `;
+export const HeadLogoContainer = styled.div`
+  padding: 2rem;
+`;
 
 export const PostList = styled.div`
   display: flex;
