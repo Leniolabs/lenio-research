@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-
+import { Fragment } from "react";
 const black = "#2a3f55";
 const colors = {
   office: "#2aa881",
@@ -16,7 +16,7 @@ export const LineGraphic = ({ data, selectedDate }) => {
           const position = index > 0 ? WIDTH * index : INITIAL_POSITON;
           const linePosition = position + 18.6;
           return (
-            <>
+            <Fragment key={index}>
               <rect
                 key={index}
                 width={WIDTH}
@@ -37,7 +37,7 @@ export const LineGraphic = ({ data, selectedDate }) => {
                   strokeWidth="2"
                 />
               )}
-            </>
+            </Fragment>
           );
         })}
     </svg>

@@ -143,13 +143,14 @@ export const Timeline = () => {
     <div>
       <SelectorContainer>
         <PlayBtn onClick={onPlayOrStop}> {isPlaying ? "⏹️ Stop" : "▶️ Play"}</PlayBtn>
-        <div><LabelCompanies>Companies</LabelCompanies>
-        <CustomSelect
-          width={SELECT_WIDTH}
-          options={companiesOptions}
-          selectedOption={selectedOption}
-          onChange={onChangeCallback}></CustomSelect>
-          </div>
+        <div>
+          <LabelCompanies>Companies</LabelCompanies>
+          <CustomSelect
+            width={SELECT_WIDTH}
+            options={companiesOptions}
+            selectedOption={selectedOption}
+            onChange={onChangeCallback}></CustomSelect>
+        </div>
       </SelectorContainer>
 
       <TimelineContainer>

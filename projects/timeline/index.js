@@ -19,6 +19,7 @@ import ConclusionCard from "./components/ConclusionCard";
 import data from "./timeline.data";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
+import CompaniesGraphic from "./components/CompaniesGraphic";
 
 const container = {
   hidden: { opacity: 0 },
@@ -31,7 +32,7 @@ const container = {
   }
 };
 const item = {
-  hidden: { opacity: 0, y: 50},
+  hidden: { opacity: 0, y: 50 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 export const Index = (props) => {
@@ -93,6 +94,7 @@ export const Index = (props) => {
         <GraphicSection>
           <h2>Return to the office by Company</h2>
           <Graphic></Graphic>
+          <CompaniesGraphic></CompaniesGraphic>
         </GraphicSection>
         <TimelineSubtitle ref={ref}>Conclusions July 2020</TimelineSubtitle>
         {mounted && (
