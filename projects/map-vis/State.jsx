@@ -28,6 +28,7 @@ export const State = ({
   size,
   fillColor = "#f1f1f1",
   data = [],
+  labelIdx,
   onClick = () => null
 }) => {
   const d = useSVGMorph(shape === "hex" ? hexPath : shapePath, {
@@ -101,10 +102,10 @@ export const State = ({
 
   const hexGridValues = React.useMemo(() => {
     if (hexGrid && data) {
-      return howToPaintHexes(hexGrid, data);
+      return howToPaintHexes(hexGrid, data, labelIdx);
     }
     return [];
-  }, [hexGrid, data]);
+  }, [hexGrid, data, labelIdx]);
 
   return (
     <motion.g onClick={onClick}>
@@ -163,5 +164,6 @@ State.propTypes = {
   hexCorner: PropTypes.arrayOf(PropTypes.number),
   data: PropTypes.arrayOf(PropTypes.number),
   onClick: PropTypes.func,
+  labelIdx: PropTypes.number,
   onMouseOut: PropTypes.func
 };

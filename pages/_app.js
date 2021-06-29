@@ -3,7 +3,6 @@ import Head from "next/head";
 import { TrackingProvider } from "analytics/context";
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
   body {
     background-color: #fffbf0;
     box-sizing: border-box;
@@ -30,6 +29,16 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     max-width: 45em;
     padding: 1rem;
+    .switch-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      .switch-label {
+        font-size: 1rem;
+        text-align: center;
+      }
+    }
   }
   .row-container.big-row {
     max-width: 54em;

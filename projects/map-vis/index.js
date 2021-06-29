@@ -9,6 +9,7 @@ import { useTracking } from "analytics/context";
 import { generateBigHex } from "./Hexes/generateHexes";
 import { toPathString } from "flubber";
 import { CustomSelect } from "@components/select/select";
+import { Switch } from "@components/switch/Switch";
 
 import { State } from "./State";
 import { data } from "./data";
@@ -27,7 +28,7 @@ import { Scatterplot } from "./Scatterplot";
 import { BarChart } from "./BarChart";
 const HEX_SIZE = 15;
 
-const initialBarChartData = data
+const initialBarChartDataOut = data
   .sort(
     (a, b) => b.Age_18_to_34_out + b.Age_35_to_44_out - (a.Age_18_to_34_out + a.Age_35_to_44_out)
   )
@@ -39,8 +40,27 @@ const initialBarChartData = data
   }))
   .slice(0, 10);
 
-const initialBarChartData2 = data
+const initialBarChartDataIn = data
+  .sort((a, b) => b.Age_18_to_34_in + b.Age_35_to_44_in - (a.Age_18_to_34_in + a.Age_35_to_44_in))
+  .map((a) => ({
+    Age_18_to_34_in: a.Age_18_to_34_in,
+    Age_35_to_44_in: a.Age_35_to_44_in,
+    name: a.State,
+    Job_in: a.Job_in
+  }))
+  .slice(0, 10);
+
+const initialBarChartData2OrderedByAge = data
   .sort((a, b) => b.Age_65_or_older_in - a.Age_65_or_older_in)
+  .map((a) => ({
+    Age_65_or_older_in: a.Age_65_or_older_in,
+    name: a.State,
+    State_Individual_Income_Tax_Rates: a.State_Individual_Income_Tax_Rates
+  }))
+  .slice(0, 10);
+
+const initialBarChartData2OrderedByTax = data
+  .sort((a, b) => b.State_Individual_Income_Tax_Rates - a.State_Individual_Income_Tax_Rates)
   .map((a) => ({
     Age_65_or_older_in: a.Age_65_or_older_in,
     name: a.State,
@@ -50,14 +70,22 @@ const initialBarChartData2 = data
 
 const barChartValues2 = [
   [{ property: "State_Individual_Income_Tax_Rates", color: "#ffdfaa", label: "Individual Income Taxes" }],
-  [{ property: "Age_65_or_older_in", color: "#ff3f55", label: "% of Age 65 and older in" }]
+  [{ property: "Age_65_or_older_in", color: "#ff3f55", label: "% of Age 65 and older Moving In" }]
 ];
 
-const barChartValues = [
-  [{ property: "Job_out", color: "#ffdfaa", label: "% of Job Out" }],
+const barChartValuesOut = [
+  [{ property: "Job_out", color: "#ffdfaa", label: "% of  Moving Out for a Job" }],
   [
-    { property: "Age_18_to_34_out", color: "#55bfaa", label: "% of Age 18 to 34" },
-    { property: "Age_35_to_44_out", color: "#ff3f55", label: "% of Age 35 to 44" }
+    { property: "Age_18_to_34_out", color: "#55bfaa", label: "% of Age 18 to 34 Moving Out" },
+    { property: "Age_35_to_44_out", color: "#ff3f55", label: "% of Age 35 to 44 Moving Out" }
+  ]
+];
+
+const barChartValuesIn = [
+  [{ property: "Job_in", color: "#ffdfaa", label: "% of Moving In for a Job" }],
+  [
+    { property: "Age_18_to_34_in", color: "#55bfaa", label: "% of Age 18 to 34 Moving In" },
+    { property: "Age_35_to_44_in", color: "#ff3f55", label: "% of Age 35 to 44 Moving In" }
   ]
 ];
 
@@ -65,17 +93,53 @@ export const Index = ({ seeMore = false }) => {
   const { logEvent } = useTracking();
   const [shape, cycleShape] = useCycle("shape", "hex");
   const [hoveredState, setHoveredState] = React.useState("");
+  const [selectedLabelIdx, setSelectedLabelIdx] = React.useState(undefined);
   const [dataKeys, setDataKeys] = React.useState(KEY_ARRAY_OPTIONS[0]);
   const [scatterPlotX, setScatterPlotX] = React.useState(SCATTERPLOT_OPTIONS[14]);
   const [scatterPlotY, setScatterPlotY] = React.useState(SCATTERPLOT_OPTIONS[0]);
   const [scatterPlotZ, setScatterPlotZ] = React.useState(SCATTERPLOT_OPTIONS[30]);
-  const [barChartData, setBarChartData] = React.useState(initialBarChartData);
-  const [barChartData2, setBarChartData2] = React.useState(initialBarChartData2);
+  const [barChartData, setBarChartData] = React.useState(initialBarChartDataOut);
+  const [barChartData2, setBarChartData2] = React.useState(initialBarChartData2OrderedByAge);
+  const [barChartDataOrderBy, setBarChartDataOrderBy] = React.useState("out");
+  const [barChartData2OrderBy, setBarChartData2OrderBy] = React.useState("age");
   const [scatterPlotLinearFit, setScatterPlotLinearFit] = React.useState(
-    getLinearFitForPair(SCATTERPLOT_OPTIONS[14].label, SCATTERPLOT_OPTIONS[0].label)
+    getLinearFitForPair(SCATTERPLOT_OPTIONS[14].value, SCATTERPLOT_OPTIONS[0].value)
   );
+  const [scatterPlotXOptions, setScatterPlotXOptions] = React.useState([]);
+  const [scatterPlotYOptions, setScatterPlotYOptions] = React.useState([]);
+  const [optionType, setOptionType] = React.useState({ label: "Inbound", value: "IN" });
 
-  React.useEffect(() => {}, []);
+  const oldXInValue = React.useRef(SCATTERPLOT_OPTIONS[14]);
+  const oldYInValue = React.useRef(SCATTERPLOT_OPTIONS[0]);
+  const oldXOutValue = React.useRef(SCATTERPLOT_OPTIONS[8]);
+  const oldYOutValue = React.useRef(SCATTERPLOT_OPTIONS[9]);
+  const firstTimeRef = React.useRef(true);
+
+  React.useEffect(() => {
+    const prevInX = scatterPlotX;
+    const prevInY = scatterPlotY;
+    if (optionType.value.includes("IN")) {
+      setScatterPlotXOptions(SCATTERPLOT_OPTIONS.filter((o) => o.value.includes("_in")));
+      setScatterPlotX(oldXInValue.current);
+      setScatterPlotY(oldYInValue.current);
+      if (!firstTimeRef.current) {
+        oldXOutValue.current = prevInX;
+        oldYOutValue.current = prevInY;
+      }
+    }
+    if (optionType.value.includes("OUT")) {
+      setScatterPlotXOptions(SCATTERPLOT_OPTIONS.filter((o) => o.value.includes("_out")));
+      setScatterPlotX(oldXOutValue.current);
+      setScatterPlotY(oldYOutValue.current);
+      oldXInValue.current = prevInX;
+      oldYInValue.current = prevInY;
+    }
+    firstTimeRef.current = false;
+  }, [optionType]);
+
+  React.useEffect(() => {
+    setScatterPlotYOptions(scatterPlotXOptions.filter((o) => o.value !== scatterPlotX.value));
+  }, [scatterPlotX]);
 
   const colorScale = React.useMemo(() => {
     return scaleQuantize()
@@ -119,7 +183,7 @@ export const Index = ({ seeMore = false }) => {
     setScatterPlotData(
       generateScatterPlotData(data, scatterPlotX.value, scatterPlotY.value, scatterPlotZ.value)
     );
-    setScatterPlotLinearFit(getLinearFitForPair(scatterPlotX.label, scatterPlotY.label));
+    setScatterPlotLinearFit(getLinearFitForPair(scatterPlotX.value, scatterPlotY.value));
   }, [scatterPlotX, scatterPlotY, scatterPlotZ]);
 
   React.useEffect(() => {
@@ -145,6 +209,40 @@ export const Index = ({ seeMore = false }) => {
     }
   }, [dataKeys, shape, hoveredState]);
 
+  const handleSwitchOrder = () => {
+    if (barChartDataOrderBy === "out") {
+      setBarChartDataOrderBy("in");
+      setBarChartData(initialBarChartDataIn);
+    } else {
+      setBarChartDataOrderBy("out");
+      setBarChartData(initialBarChartDataOut);
+    }
+  };
+
+  const handleSwitchOrder2 = () => {
+    if (barChartData2OrderBy === "age") {
+      setBarChartData2OrderBy("tax");
+      setBarChartData2(initialBarChartData2OrderedByTax);
+    } else {
+      setBarChartData2OrderBy("age");
+      setBarChartData2(initialBarChartData2OrderedByAge);
+    }
+  };
+
+  React.useEffect(() => {
+    if (selectedLabelIdx !== undefined) {
+      setSelectedLabelIdx(undefined);
+    }
+  }, [shape, dataKeys]);
+
+  const handleBackgroundClick = () => {
+    if (selectedLabelIdx !== undefined) {
+      setSelectedLabelIdx(undefined);
+      return;
+    }
+    setHoveredState("");
+  };
+
   return (
     <section className="chart-wrapper map-viz-wrapper">
       <div className="head-main">
@@ -154,7 +252,7 @@ export const Index = ({ seeMore = false }) => {
           <br /> The US Housing Market
           <span className="author">
             An article written by{" "}
-            <a href="linkedin.com/in/manishgarg" target="_blank">
+            <a href="https://www.linkedin.com/in/manishgarg/" target="_blank">
               Manish Garg
             </a>
           </span>
@@ -201,7 +299,12 @@ export const Index = ({ seeMore = false }) => {
               = 4%
             </div>
           )}
-          <Legend title={hoveredState} data={mapLegendData}></Legend>
+          <Legend
+            title={hoveredState}
+            data={mapLegendData}
+            shape={shape}
+            selectedIndex={selectedLabelIdx}
+            onSetIndex={setSelectedLabelIdx}></Legend>
           {/* {dataKeys.label.includes("Reason") && shape === "hex" && (
             <Legend data={REASON_LEGEND_COLOR_MAPPING}></Legend>
           )}
@@ -213,7 +316,7 @@ export const Index = ({ seeMore = false }) => {
           )} */}
         </StickyContainer>
         <svg className="main-chart-mapvis" overflow="visible" viewBox={`80 70 430 220`}>
-          <Background onClick={() => setHoveredState("")} />
+          <Background onClick={handleBackgroundClick} />
           {data.map((state) => {
             if (!state.shape || !state.hex) {
               return null;
@@ -255,6 +358,7 @@ export const Index = ({ seeMore = false }) => {
                   hexCorner={hexArray[4]}
                   size={HEX_SIZE}
                   multi={false}
+                  labelIdx={selectedLabelIdx}
                   onClick={() => setHoveredState(state.State)}></State>
               </motion.g>
             );
@@ -283,43 +387,75 @@ export const Index = ({ seeMore = false }) => {
       </p>
       <div className="row-container">
         <h2>Age groups and reasons to migrate</h2>
-        <p className="sub-p">Top 10 states with age between 18 and 44 and job reasons moving out.</p>
+        <p className="sub-p">Top 10 states with age between 18 and 44 and job reasons for moving in or out.</p>
         <div className="stack-bar">
           {/* <div className="checkbox-group">
             <label for="ageout"> <input type="checkbox" id="ageout" name="ageout" value="Age Out"/>Order by Age out</label>
             <label for="jobout"> <input type="checkbox" id="jobout" name="jobout" value="Job Out"/>Order by Job out</label>
           </div> */}
-          <BarChart data={barChartData}></BarChart>
-          <p className="sub-p">Top 10 states with age 65 and older moving in and lower taxes states.</p>
+          <div className="switch-container">
+            <span className="switch-label">Show Moving In (by Age and Job)</span>
+            <Switch
+              id="barchart1-switch"
+              color1="42, 159, 170"
+              color2="255, 63, 85"
+              checked={barChartDataOrderBy === "out"}
+              onChange={handleSwitchOrder}
+            />
+            <span className="switch-label">Show Moving Out (by Age and Job)</span>
+          </div>
+          <BarChart data={barChartData} values={barChartDataOrderBy === "out" ? barChartValuesOut : barChartValuesIn}></BarChart>
+          <p className="sub-p">Top 10 states with age 65 and older moving in for retirement and lower taxes states.</p>
+          <div className="switch-container">
+            <span className="switch-label">Sort by Individual Income Taxes</span>
+            <Switch
+              id="barchart2-switch"
+              color1="255, 223, 170"
+              color2="255, 63, 85"
+              checked={barChartData2OrderBy === "age"}
+              onChange={handleSwitchOrder2}
+            />
+            <span className="switch-label">Sort by  % of Age 65 and older Moving In</span>
+          </div>
           <BarChart data={barChartData2} values={barChartValues2} />
         </div>
 
         <h2>Explore the data</h2>
-        <p className="sub-p">Here you can play with the different variables represented on the hexagon map. You can plot for example the linear relationship between the % of people with ages from 18 to 34 that moved out of the state vs the migration out of the state because of work. The color scale represent the Combined Sales Tax Rate per state.</p>
+        <p className="sub-p">Here you can play with the different variables represented on the map above. For example, you can plot the linear relationship between % of people with ages from 18 to 34 that moved out of the state vs the migration out of the state because of work. The color scale represent the Combined Sales Tax Rate per state.</p>
         <CustomSelect
-          width="200"
-          options={SCATTERPLOT_OPTIONS}
+          width={120}
+          options={[
+            { label: "Inbound", value: "IN" },
+            { label: "Outbound", value: "OUT" }
+          ]}
+          selectedOption={optionType}
+          label=""
+          onChange={(o) => setOptionType(o)}
+        />
+        <CustomSelect
+          width={200}
+          options={scatterPlotXOptions}
           selectedOption={scatterPlotX}
           label=""
           onChange={(o) => setScatterPlotX(o)}
         />
         <CustomSelect
-          width="200"
-          options={SCATTERPLOT_OPTIONS.filter((o) => o.label !== scatterPlotX.label)}
+          width={200}
+          options={scatterPlotYOptions}
           selectedOption={scatterPlotY}
           label=""
           onChange={(o) => setScatterPlotY(o)}
         />
         {/* <CustomSelect
-          width="200"
+          width={200}
           options={SCATTERPLOT_OPTIONS}
           selectedOption={scatterPlotZ}
           label=""
           onChange={(o) => setScatterPlotZ(o)}
         /> */}
         <Scatterplot
-          xTitle={scatterPlotX.value}
-          yTitle={scatterPlotY.value}
+          xTitle={scatterPlotX.label}
+          yTitle={scatterPlotY.label}
           colorTitle={scatterPlotZ.value}
           linearRegression={scatterPlotLinearFit}
           data={scatterPlotData}></Scatterplot>

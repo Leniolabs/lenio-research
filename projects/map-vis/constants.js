@@ -1,5 +1,5 @@
 export const INNER_HEX_DEFAULT_COLOR = "#F4E9F0";
-export const INNER_HEX_COLORS = ["#ff7b06", "#ffa00f", "#ffbf55", "#ffe3b0", "#f9efdd", "#fff0db"];
+export const INNER_HEX_COLORS = ["#ff7b06", "#ffa00f", "#ffbf55", "#ffe3b0", "#f9efdd", "#f9efdd"];
 
 // export const INNER_HEX_COLORS = ["#0D3EA0", "#3366FF", "#6690FF", "#BDD5FF", "#E3ECFF", "#E3ECFF"];
 export const LEGEND_COLORS = ["#2a9faa", "#9cd0d7", "#ffa0a8", "#ff3f55", "#F4E9F0"];
@@ -81,7 +81,23 @@ export const KEY_ARRAY_OPTIONS = [
   }
 ];
 
-const mapHelper = (s) => ({ value: s, label: s });
+const mapHelper = (s) => {
+  if (s.includes("Income")) {
+    const arr = s.split("_");
+    arr.splice(1, 0, "between");
+    arr[2] = arr[2] + "K";
+    if (arr[3] === "more") {
+      arr[3] = "or more";
+    } else {
+      arr.splice(3, 0, "and");
+      arr[4] = arr[4] + "K";
+    }
+
+    return { value: s, label: arr.join(" ") };
+  } else {
+    return { value: s, label: s.replace(/_/g, " ") };
+  }
+};
 
 export const SCATTERPLOT_OPTIONS = [
   ...KEY_ARRAY_OPTIONS[0].value.map(mapHelper),

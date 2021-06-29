@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { SectionTitle, Footer, FooterLogo } from "@components/styled";
-export { SectionTitle, FooterLogo };
+import { SectionTitle } from "@components/styled";
+export { SectionTitle };
 
 export const Layout = styled.div`
   position: relative;
@@ -44,18 +44,22 @@ export const Sidebar = styled.aside`
 `;
 export const Header = styled.header`
   grid-area: header;
-  overflow: visible;
   padding: 64px 20px 20px 80px;
   position: relative;
   .svg-home {
+    height: 534px;
+    max-width: calc(100% - 80px);
     position: absolute;
     top: -126px;
     width: 1000px;
   }
   @media (max-width: 600px) {
+    .svg-home {
+      max-width: calc(100% - 40px);
+    }
     padding: 15px 20px 20px;
   }
-  `;
+`;
 export const Main = styled.main`
   padding: 0 80px;
   display: flex;
@@ -63,6 +67,7 @@ export const Main = styled.main`
   grid-area: main;
   section {
     padding-top: 32px;
+    z-index: 1;
   }
   section:last-child {
     padding-bottom: 60px;
@@ -94,7 +99,9 @@ export const Small = styled.small`
   span a {
     color: #48d58c;
     text-decoration: none;
-    &:hover { color: white;}
+    &:hover {
+      color: white;
+    }
   }
 `;
 
@@ -115,9 +122,6 @@ export const BackgroundImage = styled.div`
   }
 `;
 
-export const FooterContainer = styled(Footer)`
-  grid-area: footer;
-`;
 export const HeroImage = styled.img`
   background: black;
   border: 2px solid #151d29;

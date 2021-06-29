@@ -49,13 +49,12 @@ const BarLegend = ({ data }) => {
       {data.map((d, idx) => {
         return (
           <g key={`label-${data.name}-${idx}`}>
-            <rect width="14" height="14" x={145 + idx * 150} y="338" fill={d.color} />
+            <rect width="12" height="12" x={130 + idx * 150} y="340" fill={d.color} />
             <text
               fill="#2a3f55"
-              fontFamily="'Source Sans Pro'"
-              fontSize="12"
+              fontSize="10"
               fontWeight="600"
-              transform={`translate(${6 + (idx + 1) * 152} 350)`}>
+              transform={`translate(${0 + (idx + 1) * 148} 350)`}>
               {d.label}
             </text>
           </g>
@@ -90,7 +89,10 @@ export const BarChart = ({
   }, [values]);
 
   return (
-    <svg className="millennials" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 585.8 354.9">
+    <motion.svg
+      className="millennials"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 585.8 354.9">
       <rect width="430" height="295" x="144.1" fill="#fffefa" />
       <text
         fill="#2a3f55"
@@ -116,13 +118,18 @@ export const BarChart = ({
                   .map((prevs) => row[prevs.property])
                   .reduce((a, b) => a + b, 0);
                 return (
-                  <rect
-                    key={`bar-group-${row.name}-${barIdx}-${val.property}`}
+                  <motion.rect
+                    key={`bar-group-${row.name}-${idx}-${barIdx}-${val.property}`}
                     width={xScale(row[val.property])}
                     height={BAR_HEIGHT}
                     x={MARGIN.LEFT + xScale(previousPercentage)}
                     y={LABELS[idx] * 3 + barIdx * BAR_HEIGHT} // it is actually the width but horizontal...
                     fill={val.color}
+                    animate={{
+                      x: previousPercentage > 0 ? [-xScale(previousPercentage), 0] : 0,
+                      width: [0, xScale(row[val.property])]
+                    }}
+                    transition={{ duration: 0.5 }}
                   />
                 );
               });
@@ -165,7 +172,7 @@ export const BarChart = ({
           </g>
         );
       })}
-    </svg>
+    </motion.svg>
   );
 };
 
@@ -174,6 +181,14 @@ BarChart.propTypes = {
   yTitle: PropTypes.string,
   colorTitle: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.any),
-  values: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
+  values: PropTypes.arrayOf(
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        color: PropTypes.string,
+        label: PropTypes.string,
+        property: PropTypes.string
+      })
+    )
+  ),
   colors: PropTypes.object
 };

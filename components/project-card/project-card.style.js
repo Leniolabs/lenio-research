@@ -6,27 +6,33 @@ export const Card = styled.div`
   width: 100%;
   min-width: 335px;
   background: #fff;
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 2.2rem;
   box-sizing: border-box;
   margin-bottom: 40px;
   img {
     width: 100%;
   }
   display: grid;
-  grid-template-rows: 45px 1fr 180px;
+  grid-template-rows: 35px 35px 1fr 150px;
   p {
     color: #2a3f55;
     font-size: 1rem;
-    overflow: hidden;
+    letter-spacing: -0.01px;
     text-overflow: ellipsis;
   }
 `;
-export const CardTitle = styled.h6`
+export const CardTitle = styled.h3`
   text-transform: uppercase;
   margin: 0;
   font-size: 1.5rem;
-  color: #20212c;
-  padding-bottom: 16px;
+  color: #2e2f49;
+`;
+
+export const CardSubtitle = styled.span`
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffba58;
 `;
 
 export const Button = styled.a`
