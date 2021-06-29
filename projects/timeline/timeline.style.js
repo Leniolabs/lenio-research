@@ -15,9 +15,7 @@ export const SelectorContainer = styled.div`
   align-items: flex-end;
   margin: -0.5rem 2rem 0.5em;
   justify-content: space-between;
-  div {
-    margin: 0;
-  }
+  div { margin: 0; }
 `;
 
 export const Center = styled(motion.div)`
