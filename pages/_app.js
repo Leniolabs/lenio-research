@@ -4,7 +4,7 @@ import { TrackingProvider } from "analytics/context";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #f3f1e5;
+    background-color: #fffbf0;
     box-sizing: border-box;
     color: #45486d;
     font-family: 'Source Sans Pro', sans-serif;
@@ -184,6 +184,15 @@ const GlobalStyle = createGlobalStyle`
       width: 100%;
     }
   }
+  .main-timeline {
+    background: #fffbf0 url("/timeline-houses.svg") repeat-x bottom left;
+    background-position: center 100.08%;
+    background-size: 1350px;
+    padding: 0 0 10rem;
+    .conclusion-wrapper {
+      display: grid;
+    }
+  }
   .btn {
     background-color: transparent;
     border: 2px solid #3baacc;
@@ -252,6 +261,7 @@ const GlobalStyle = createGlobalStyle`
   .main-svg-space {
     background-color: #233042;
   }
+
 `;
 
 const theme = {
