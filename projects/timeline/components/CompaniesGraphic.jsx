@@ -23,7 +23,7 @@ const CompaniesGraphic = () => {
     nextGraphic();
     const timelineInterval = setInterval(() => {
       nextGraphic();
-    }, 4000);
+    }, 500);
     intervalRef.current = timelineInterval;
   };
 
@@ -40,6 +40,20 @@ const CompaniesGraphic = () => {
   };
   return (
     <div>
+      <svg viewBox="0 0 1080 14">
+        <text fill="#2a3f55" stroke="#2a3f55" strokeWidth=".2"  fontSize="12" transform="translate(411 10)">
+          Most from office
+        </text>
+        <rect width="16" height="7.6" x="390" y="3" fill="#2aa881" stroke="#2a3f55" strokeWidth=".3"/>
+        <text fill="#2a3f55" stroke="#2a3f55" strokeWidth=".2" fontSize="12" transform="translate(549.5 10)">
+          Hybrid
+        </text>
+        <rect width="16" height="7.6" x="528.5" y="3" fill="#ffbf55" stroke="#2a3f55" strokeWidth=".3"/>
+        <text fill="#2a3f55" stroke="#2a3f55" strokeWidth=".2" fontSize="12" transform="translate(635.7 10)">
+          Most from home
+        </text>
+        <rect width="16" height="7.6" x="614.7" y="3" fill="#ff3f55" stroke="#2a3f55" strokeWidth=".3"/>
+      </svg>
       <PlayBtn className="btn-graphic" onClick={onPlayOrStop}> {isPlaying ? "⏹️ Stop" : "▶️ Play"}</PlayBtn>
       {data_graphic.length > 0 && getComapniesData(data_graphic[index])}
       <svg viewBox="-36 0 997 33"><LineGraphicText></LineGraphicText></svg>

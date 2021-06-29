@@ -90,7 +90,7 @@ export const FirstSection = styled.section`
 `;
 
 export const GraphicSection = styled.section`
-  margin: 0 auto 6rem;
+  margin: 0 auto 3rem;
   max-width: 70em;
   h2 {
     font-size: 2.2rem;
@@ -189,20 +189,20 @@ export const AnimationContainer = styled.div`
   min-height: 200px;
 `;
 export const PlayBtn = styled.button`
-  background-color: #2c9faa;
-  border: 0;
-  border-radius: 25px;
-  color: white;
+  background-color: transparent;
+  border: 2px solid #2c9faa;
+  border-radius: 6px;
+  color: #45486d;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
-  padding: .4rem 1.2rem;
+  padding: .2rem 1rem .3rem;
   transition .3s ease all;
   &.btn-graphic {
-    margin: 0 0 .5rem 6rem;
+    margin: 0 0 .5rem 2rem;
   }
   &:hover {
-    background-color: #2ba881;
+    background-color: #2c9faa;
     color: white;
   }
 `;
