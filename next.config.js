@@ -12,7 +12,8 @@ module.exports = {
       "/": { page: "/" },
       "/vaccinations/index.html": { page: "/vaccinations" },
       "/space-flight/index.html": { page: "/space-flight" },
-      "/map-vis/index.html": { page: "/map-vis" }
+      "/map-vis/index.html": { page: "/map-vis" },
+      "/timeline/index.html": { page: "/timeline" }
     };
   }
 };
