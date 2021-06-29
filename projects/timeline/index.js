@@ -87,14 +87,13 @@ export const Index = (props) => {
           </h1>
           <p>Comparing top companies that changed their plans during the COVID-19 crisis.</p>
         </FirstSection>
-        <TimelineSubtitle>Timeline from May 2020 to present</TimelineSubtitle>
+        <GraphicSection>
+          <h2>Timeline from May 2020 to present</h2>
+          <CompaniesGraphic></CompaniesGraphic>
+        </GraphicSection>
         <TimelineSection>
           <Timeline />
         </TimelineSection>
-        <GraphicSection>
-          <h2>All companies heatmap</h2>
-          <CompaniesGraphic></CompaniesGraphic>
-        </GraphicSection>
         <TimelineSubtitle ref={ref}>Conclusions July 2020</TimelineSubtitle>
         {mounted && (
           <ConclusionContainer variants={container} initial="hidden" animate="show">
