@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React from "react";
 import { Conclusion } from "../timeline.style";
 import PropTypes from "prop-types";
 
 const ConclusionCard = ({ outcome, color, content, link, variants, logo }) => {
   const [_, mainContent, author] = content.match(/(.*)-(.*)/);
-  console.log(`logo`, logo);
   return (
     <Conclusion variants={variants}>
       <p>
