@@ -1,4 +1,6 @@
 import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+dayjs.extend(customParseFormat);
 
 export const getCompaniesOptions = (companies) => [
   { label: "All", key: "all" },
@@ -41,8 +43,18 @@ export const mapDatesToGraphic = (dates = {}) => {
   const dateKeys = Object.keys(dates);
   let newArray = [];
   dateKeys.forEach((item) => {
-    const newList = dates[item].map((date) => ({ date: dayjs(date).format(), status: item }));
+    const newList = dates[item].map((date) => {
+      {
+      }
+    });
     newArray = [...newArray, ...newList];
   });
-  return newArray.sort((a, b) => new Date(a.date) - new Date(b.date));
+  const a = newArray.sort((a, b) => new Date(a.date) - new Date(b.date));
+  return a;
 };
+// TODO: implement this instead dayjs
+// function parseDate(strDate){
+// const month = strDate.slice(0,3)
+// const year = strDate.slice(3)
+// return new Date(`01 ${month} ${year}`)
+// }
