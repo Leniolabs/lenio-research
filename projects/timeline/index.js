@@ -1,17 +1,14 @@
 /* eslint-disable jsx-a11y/no-onchange */
 import {
   Layout,
-  Header,
   Footer,
   FirstSection,
   GraphicSection,
   TimelineSection,
   ConclusionContainer,
-  TimelineSubtitle,
-  PlayBtn
+  TimelineSubtitle
 } from "./timeline.style";
 import { Timeline } from "./components/HorizontalTimeline";
-import { Graphic } from "./svg-components/Graphic";
 import Link from "next/link";
 import { LogoHeaderContainer } from "@components/styled";
 import { HeadLogoContainer } from "@components/styled";
@@ -35,8 +32,8 @@ const item = {
   hidden: { opacity: 0, y: 50 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
-export const Index = (props) => {
-  const { ref, inView, entry } = useInView({
+export const Index = () => {
+  const { ref, inView } = useInView({
     threshold: 0
   });
   const [mounted, setMounted] = useState(false);

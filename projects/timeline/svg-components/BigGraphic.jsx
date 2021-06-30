@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import customParseFormat from "dayjs/plugin/customParseFormat";
 import { motion } from "framer-motion";
 import { Fragment } from "react";
 import { mapDatesToGraphic } from "../components/utils";
