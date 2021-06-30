@@ -105,10 +105,9 @@ const CompaniesGraphic = () => {
       <PlayBtn className="btn-graphic" onClick={onPlayOrStop}>
         {isPlaying ? "⏹️ Stop" : "▶️ Play"}
       </PlayBtn>
-      <PlayBtn className="btn-graphic" onClick={nextGraphic}>
+      {/* <PlayBtn className="btn-graphic" onClick={nextGraphic}>
         &#8594;
-      </PlayBtn>
-
+      </PlayBtn> */}
       {data_graphic.length > 0 && getComapniesData(data_graphic[index])}
       <svg viewBox="-36 0 997 33">
         <LineGraphicText></LineGraphicText>
