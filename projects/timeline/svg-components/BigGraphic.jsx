@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
 import { motion } from "framer-motion";
 import { Fragment } from "react";
 import { mapDatesToGraphic } from "../components/utils";
@@ -14,6 +15,7 @@ const INITIAL_Y = 10;
 const HEIGHT = 20;
 const LINE_OFFSET = 5;
 export const BigGraphic = ({ companies, selectedDate }) => {
+  const formatedDate = dayjs(selectedDate, "MMMYYYY").format();
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 200">
       {Object.keys(companies).map((companyId, heightIndex) => {
@@ -43,7 +45,7 @@ export const BigGraphic = ({ companies, selectedDate }) => {
                     stroke={black}
                     strokeWidth=".3"
                   />
-                  {dayjs(selectedDate).isSame(date, "month") && (
+                  {dayjs(formatedDate).isSame(date, "month") && (
                     <motion.line
                       initial={{ x: -40 }}
                       animate={{ x: 0 }}
