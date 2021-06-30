@@ -42,7 +42,7 @@ export const Index = () => {
           content="Data Visualization of Opportunities in The US Housing Market"
         />
         <meta name="twitter:image" content="https://research.leniolabs.com/map-vis.png" />
-        <meta property="og:url" content="https://research.leniolabs.com/vaccinations.html" />
+        <meta property="og:url" content="https://research.leniolabs.com/map-vis.html" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
