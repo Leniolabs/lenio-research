@@ -4,8 +4,7 @@ export const Buildings = (props) => {
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1077.89 149.45"
-      {...props}
-    >
+      {...props}>
       <path
         fill="#fffbf0"
         stroke="#2a3f55"
@@ -4207,6 +4206,5 @@ export const Buildings = (props) => {
         d="M1058.03 133.32h2.13v8.1h-2.13zM1054.02 133.32h2.13v8.1h-2.13z"
       />
     </svg>
-  )
-}
-
+  );
+};
