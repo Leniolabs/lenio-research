@@ -13,7 +13,7 @@ export default [
         content:
           "Will keep its employees home until June 30, 2021, for roles that don't need to be in the office",
         calendar: {
-          office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+          office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
           hybrid: [
             "Apr2020",
             "May2020",
@@ -30,7 +30,7 @@ export default [
             "Apr2021",
             "May2021"
           ],
-          home: ["Jun2021", "Jul2021", "Aug2021", "Sep2021"]
+          home: []
         }
       },
       {
@@ -1545,7 +1545,18 @@ export const data_graphic = [
       home: []
     },
     amazon: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Oct2020",
+      "Nov2020",
+      "Dec2020",
+      "Jan2021",
+      "Feb2021",
+      "Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -1553,18 +1564,6 @@ export const data_graphic = [
         "Jul2020",
         "Aug2020",
         "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021",
-        "Jun2021",
-        "Jul2021",
-        "Aug2021",
-        "Sep2021"
       ],
       home: []
     },
@@ -1595,7 +1594,8 @@ export const data_graphic = [
     },
     salesforce: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -1614,12 +1614,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     uber: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -1638,12 +1638,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     twitter: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -1662,12 +1662,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     spotify: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -1686,12 +1686,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     microsoft: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -1710,12 +1710,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     netflix: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -1734,8 +1734,7 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     }
   },
   {
@@ -1765,7 +1764,18 @@ export const data_graphic = [
       home: []
     },
     amazon: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Oct2020",
+      "Nov2020",
+      "Dec2020",
+      "Jan2021",
+      "Feb2021",
+      "Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -1773,33 +1783,12 @@ export const data_graphic = [
         "Jul2020",
         "Aug2020",
         "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021",
-        "Jun2021",
-        "Jul2021",
-        "Aug2021",
-        "Sep2021"
       ],
       home: []
     },
     facebook: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
       hybrid: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
         "Jan2021",
         "Feb2021",
         "Mar2021",
@@ -1810,11 +1799,22 @@ export const data_graphic = [
         "Aug2021",
         "Sep2021"
       ],
-      home: []
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020"
+      ]
     },
     salesforce: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -1833,12 +1833,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     uber: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -1857,12 +1857,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     twitter: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -1881,12 +1881,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     spotify: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -1905,12 +1905,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     microsoft: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -1929,12 +1929,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     netflix: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -1953,8 +1953,7 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     }
   },
   {
@@ -1992,23 +1991,16 @@ export const data_graphic = [
       home: []
     },
     amazon: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021",
-        "Jun2021",
-        "Jul2021",
-        "Aug2021",
-        "Sep2021"
-      ],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020",
+      "Jan2021",
+      "Feb2021",
+      "Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -2018,14 +2010,15 @@ export const data_graphic = [
         "Sep2020",
         "Oct2020",
         "Nov2020",
-        "Dec2020",
-        "Jan2021"
+        "Dec2020"
       ],
       home: []
     },
     facebook: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
       hybrid: [
+      ],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2044,12 +2037,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     salesforce: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2068,12 +2061,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     uber: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2092,12 +2085,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     twitter: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2116,12 +2109,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     spotify: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2140,12 +2133,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     microsoft: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2164,12 +2157,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     netflix: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2188,8 +2181,7 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     }
   },
   {
@@ -2227,23 +2219,16 @@ export const data_graphic = [
       home: []
     },
     amazon: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021",
-        "Jun2021",
-        "Jul2021",
-        "Aug2021",
-        "Sep2021"
-      ],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020",
+      "Jan2021",
+      "Feb2021",
+      "Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -2253,14 +2238,14 @@ export const data_graphic = [
         "Sep2020",
         "Oct2020",
         "Nov2020",
-        "Dec2020",
-        "Jan2021"
+        "Dec2020"
       ],
       home: []
     },
     facebook: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
+      hybrid: ["Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -2281,37 +2266,9 @@ export const data_graphic = [
       ]
     },
     salesforce: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
-      hybrid: ["Jun2021", "Jul2021", "Aug2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021"
-      ]
-    },
-    uber: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
+      hybrid: ["Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -2331,9 +2288,33 @@ export const data_graphic = [
         "Jul2021"
       ]
     },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+      ]
+    },
     twitter: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2352,12 +2333,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     spotify: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2376,12 +2357,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     microsoft: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2400,12 +2381,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     netflix: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2424,8 +2405,7 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     }
   },
   {
@@ -2439,10 +2419,6 @@ export const data_graphic = [
         "Jan2020",
         "Feb2020",
         "Mar2020",
-        "Jun2021",
-        "Jul2021",
-        "Aug2021",
-        "Sep2021"
       ],
       hybrid: [
         "Apr2020",
@@ -2458,28 +2434,25 @@ export const data_graphic = [
         "Feb2021",
         "Mar2021",
         "Apr2021",
-        "May2021"
-      ],
-      home: []
-    },
-    amazon: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
         "May2021",
         "Jun2021",
         "Jul2021",
         "Aug2021",
         "Sep2021"
       ],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020",
+      "Jan2021",
+      "Feb2021",
+      "Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -2489,14 +2462,14 @@ export const data_graphic = [
         "Sep2020",
         "Oct2020",
         "Nov2020",
-        "Dec2020",
-        "Jan2021"
+        "Dec2020"
       ],
       home: []
     },
     facebook: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
+      hybrid: ["Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -2517,37 +2490,9 @@ export const data_graphic = [
       ]
     },
     salesforce: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
-      hybrid: ["Jun2021", "Jul2021", "Aug2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021"
-      ]
-    },
-    uber: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
+      hybrid: ["Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -2567,9 +2512,33 @@ export const data_graphic = [
         "Jul2021"
       ]
     },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+      ]
+    },
     twitter: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2588,12 +2557,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     spotify: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2612,12 +2581,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     microsoft: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2636,8 +2605,7 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     netflix: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
@@ -2675,41 +2643,6 @@ export const data_graphic = [
         "Jan2020",
         "Feb2020",
         "Mar2020",
-        "Jun2021",
-        "Jul2021",
-        "Aug2021",
-        "Sep2021"
-      ],
-      hybrid: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021"
-      ],
-      home: []
-    },
-    amazon: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Jul2021",
-        "Aug2021",
-        "Sep2021"
       ],
       hybrid: [
         "Apr2020",
@@ -2726,13 +2659,42 @@ export const data_graphic = [
         "Mar2021",
         "Apr2021",
         "May2021",
-        "Jun2021"
+        "Jun2021",
+        "Jul2021",
+        "Aug2021",
+        "Sep2021"
+      ],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"
+      ],
+      hybrid: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+        "Jun2021",
       ],
       home: []
     },
     facebook: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
+      hybrid: ["Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -2753,37 +2715,9 @@ export const data_graphic = [
       ]
     },
     salesforce: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
-      hybrid: ["Jun2021", "Jul2021", "Aug2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021"
-      ]
-    },
-    uber: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
+      hybrid: ["Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -2803,9 +2737,33 @@ export const data_graphic = [
         "Jul2021"
       ]
     },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+      ]
+    },
     twitter: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2824,12 +2782,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     spotify: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -2848,8 +2806,7 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     microsoft: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
@@ -2904,41 +2861,6 @@ export const data_graphic = [
         "Jan2020",
         "Feb2020",
         "Mar2020",
-        "Jun2021",
-        "Jul2021",
-        "Aug2021",
-        "Sep2021"
-      ],
-      hybrid: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021"
-      ],
-      home: []
-    },
-    amazon: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Jul2021",
-        "Aug2021",
-        "Sep2021"
       ],
       hybrid: [
         "Apr2020",
@@ -2955,13 +2877,42 @@ export const data_graphic = [
         "Mar2021",
         "Apr2021",
         "May2021",
-        "Jun2021"
+        "Jun2021",
+        "Jul2021",
+        "Aug2021",
+        "Sep2021"
+      ],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"
+      ],
+      hybrid: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+        "Jun2021",
       ],
       home: []
     },
     facebook: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
+      hybrid: ["Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -2982,37 +2933,9 @@ export const data_graphic = [
       ]
     },
     salesforce: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
-      hybrid: ["Jun2021", "Jul2021", "Aug2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021"
-      ]
-    },
-    uber: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
+      hybrid: ["Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -3032,9 +2955,33 @@ export const data_graphic = [
         "Jul2021"
       ]
     },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+      ]
+    },
     twitter: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -3053,12 +3000,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     spotify: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -3077,8 +3024,7 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     microsoft: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
@@ -3125,7 +3071,7 @@ export const data_graphic = [
   {
     date: "Dec2020",
     google: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -3143,13 +3089,13 @@ export const data_graphic = [
         "May2021",
         "Jun2021",
         "Jul2021",
-        "Aug2021",
-        "Sep2021"
+        "Aug2021"
       ],
       home: []
     },
     amazon: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020",
+      ],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -3174,7 +3120,8 @@ export const data_graphic = [
     },
     facebook: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
+      hybrid: ["Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -3195,37 +3142,9 @@ export const data_graphic = [
       ]
     },
     salesforce: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
-      hybrid: ["Jun2021", "Jul2021", "Aug2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021"
-      ]
-    },
-    uber: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
+      hybrid: ["Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -3245,9 +3164,33 @@ export const data_graphic = [
         "Jul2021"
       ]
     },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+      ]
+    },
     twitter: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -3266,12 +3209,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     spotify: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -3290,8 +3233,7 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     microsoft: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
@@ -3338,7 +3280,7 @@ export const data_graphic = [
   {
     date: "Jan2021",
     google: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -3356,13 +3298,13 @@ export const data_graphic = [
         "May2021",
         "Jun2021",
         "Jul2021",
-        "Aug2021",
-        "Sep2021"
+        "Aug2021"
       ],
       home: []
     },
     amazon: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020",
+      ],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -3387,7 +3329,8 @@ export const data_graphic = [
     },
     facebook: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
+      hybrid: ["Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -3408,37 +3351,9 @@ export const data_graphic = [
       ]
     },
     salesforce: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
-      hybrid: ["Jun2021", "Jul2021", "Aug2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021"
-      ]
-    },
-    uber: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
+      hybrid: ["Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -3458,9 +3373,33 @@ export const data_graphic = [
         "Jul2021"
       ]
     },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+      ]
+    },
     twitter: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -3479,12 +3418,12 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     spotify: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -3503,8 +3442,7 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     microsoft: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
@@ -3551,7 +3489,7 @@ export const data_graphic = [
   {
     date: "Feb2021",
     google: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -3569,13 +3507,13 @@ export const data_graphic = [
         "May2021",
         "Jun2021",
         "Jul2021",
-        "Aug2021",
-        "Sep2021"
+        "Aug2021"
       ],
       home: []
     },
     amazon: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020",
+      ],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -3600,7 +3538,8 @@ export const data_graphic = [
     },
     facebook: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
+      hybrid: ["Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -3622,7 +3561,12 @@ export const data_graphic = [
     },
     salesforce: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      hybrid: ["Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021", "Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -3639,7 +3583,10 @@ export const data_graphic = [
     },
     uber: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
+      hybrid: ["Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -3655,13 +3602,12 @@ export const data_graphic = [
         "Mar2021",
         "Apr2021",
         "May2021",
-        "Jun2021",
-        "Jul2021"
       ]
     },
     twitter: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -3680,12 +3626,17 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     spotify: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      hybrid: ["Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -3769,95 +3720,7 @@ export const data_graphic = [
       home: []
     },
     amazon: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
-      hybrid: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021",
-        "Jun2021",
-        "Jul2021",
-        "Aug2021"
-      ],
-      home: []
-    },
-    facebook: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021"
-      ]
-    },
-    salesforce: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021"
-      ]
-    },
-    uber: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Aug2021", "Sep2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021",
-        "Jun2021",
-        "Jul2021"
-      ]
-    },
-    twitter: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021" ],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -3876,13 +3739,109 @@ export const data_graphic = [
         "Jun2021",
         "Jul2021",
         "Aug2021",
-        "Sep2021"
       ],
       home: []
     },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021", "Aug2021",
+      "Sep2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021"
+      ]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021", "Aug2021",
+      "Sep2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021"
+      ]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+      ]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: [],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+        "Jun2021",
+        "Jul2021",
+        "Aug2021",
+        "Sep2021"
+      ]
+    },
     spotify: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      hybrid: ["Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -3966,101 +3925,7 @@ export const data_graphic = [
       home: []
     },
     amazon: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
-      hybrid: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021",
-        "Jun2021",
-        "Jul2021",
-        "Aug2021"
-      ],
-      home: []
-    },
-    facebook: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021"
-      ]
-    },
-    salesforce: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021"
-      ]
-    },
-    uber: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
-      hybrid: ["May2021", "Jun2021", "Jul2021", "Aug2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021"
-      ]
-    },
-    twitter: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021" ],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -4079,13 +3944,108 @@ export const data_graphic = [
         "Jun2021",
         "Jul2021",
         "Aug2021",
-        "Sep2021"
       ],
       home: []
     },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021", "Aug2021",
+      "Sep2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021"
+      ]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021", "Aug2021",
+      "Sep2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021"
+      ]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
+      hybrid: ["Jun2021",
+      "Jul2021",
+      "Aug2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+      ]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: [],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+        "Jun2021",
+        "Jul2021",
+        "Aug2021",
+        "Sep2021"
+      ]
+    },
     spotify: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      hybrid: ["Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -4118,16 +4078,7 @@ export const data_graphic = [
       home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020", "Sep2020", "Oct2020"]
     },
     netflix: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020","Sep2021"],
       hybrid: [],
       home: [
         "Apr2020",
@@ -4185,101 +4136,7 @@ export const data_graphic = [
       home: []
     },
     amazon: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
-      hybrid: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021",
-        "Jun2021",
-        "Jul2021",
-        "Aug2021"
-      ],
-      home: []
-    },
-    facebook: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021"
-      ]
-    },
-    salesforce: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021"
-      ]
-    },
-    uber: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
-      hybrid: ["May2021", "Jun2021", "Jul2021", "Aug2021"],
-      home: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021"
-      ]
-    },
-    twitter: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021" ],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -4298,13 +4155,108 @@ export const data_graphic = [
         "Jun2021",
         "Jul2021",
         "Aug2021",
-        "Sep2021"
       ],
       home: []
     },
+    facebook: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021", "Aug2021",
+      "Sep2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021"
+      ]
+    },
+    salesforce: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: ["Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021", "Aug2021",
+      "Sep2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021"
+      ]
+    },
+    uber: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
+      hybrid: ["Jun2021",
+      "Jul2021",
+      "Aug2021"],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+      ]
+    },
+    twitter: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      hybrid: [],
+      home: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+        "Jun2021",
+        "Jul2021",
+        "Aug2021",
+        "Sep2021"
+      ]
+    },
     spotify: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      hybrid: ["Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -4337,16 +4289,7 @@ export const data_graphic = [
       home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020", "Sep2020", "Oct2020"]
     },
     netflix: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020","Sep2021"],
       hybrid: [],
       home: [
         "Apr2020",
@@ -4372,7 +4315,30 @@ export const data_graphic = [
   {
     date: "Jun2021",
     google: {
-      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
+      hybrid: [
+        "Apr2020",
+        "May2020",
+        "Jun2020",
+        "Jul2020",
+        "Aug2020",
+        "Sep2020",
+        "Oct2020",
+        "Nov2020",
+        "Dec2020",
+        "Jan2021",
+        "Feb2021",
+        "Mar2021",
+        "Apr2021",
+        "May2021",
+      ],
+      home: []
+    },
+    amazon: {
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020" ],
       hybrid: [
         "Apr2020",
         "May2020",
@@ -4395,41 +4361,14 @@ export const data_graphic = [
       ],
       home: []
     },
-    amazon: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
-      hybrid: [
-        "Apr2020",
-        "May2020",
-        "Jun2020",
-        "Jul2020",
-        "Aug2020",
-        "Sep2020",
-        "Oct2020",
-        "Nov2020",
-        "Dec2020",
-        "Jan2021",
-        "Feb2021",
-        "Mar2021",
-        "Apr2021",
-        "May2021",
-        "Jun2021",
-        "Jul2021",
-        "Aug2021"
-      ],
-      home: []
-    },
     facebook: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      hybrid: ["Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021", "Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -4446,7 +4385,12 @@ export const data_graphic = [
     },
     salesforce: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      hybrid: ["Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021", "Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -4462,17 +4406,10 @@ export const data_graphic = [
       ]
     },
     uber: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
-      hybrid: ["May2021", "Jun2021", "Jul2021", "Aug2021"],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020", "Sep2021"],
+      hybrid: ["Jun2021",
+      "Jul2021",
+      "Aug2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -4486,12 +4423,14 @@ export const data_graphic = [
         "Jan2021",
         "Feb2021",
         "Mar2021",
-        "Apr2021"
+        "Apr2021",
+        "May2021",
       ]
     },
     twitter: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: [
+      hybrid: [],
+      home: [
         "Apr2020",
         "May2020",
         "Jun2020",
@@ -4510,12 +4449,17 @@ export const data_graphic = [
         "Jul2021",
         "Aug2021",
         "Sep2021"
-      ],
-      home: []
+      ]
     },
     spotify: {
       office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020"],
-      hybrid: ["Mar2021", "Apr2021", "May2021", "Jun2021", "Jul2021", "Aug2021", "Sep2021"],
+      hybrid: ["Mar2021",
+      "Apr2021",
+      "May2021",
+      "Jun2021",
+      "Jul2021",
+      "Aug2021",
+      "Sep2021"],
       home: [
         "Apr2020",
         "May2020",
@@ -4548,16 +4492,7 @@ export const data_graphic = [
       home: ["Apr2020", "May2020", "Jun2020", "Jul2020", "Aug2020", "Sep2020", "Oct2020"]
     },
     netflix: {
-      office: [
-        "Sep2019",
-        "Oct2019",
-        "Nov2019",
-        "Dec2019",
-        "Jan2020",
-        "Feb2020",
-        "Mar2020",
-        "Sep2021"
-      ],
+      office: ["Sep2019", "Oct2019", "Nov2019", "Dec2019", "Jan2020", "Feb2020", "Mar2020","Sep2021"],
       hybrid: [],
       home: [
         "Apr2020",
