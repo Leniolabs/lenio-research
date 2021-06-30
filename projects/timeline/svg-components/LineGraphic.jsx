@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import dayjs from "dayjs";
 import { Fragment } from "react";
 const black = "#2a3f55";

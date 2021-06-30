@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import dayjs from "dayjs";
 import { motion } from "framer-motion";
 import { Fragment } from "react";
