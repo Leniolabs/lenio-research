@@ -17,11 +17,11 @@ const CompaniesGraphic = () => {
   const [mounted, setMounted] = useState(false);
 
   const nextGraphic = () => {
-    setIndex((prevIndex) => (prevIndex + 1 >= limit ? 0 : prevIndex + 1));
+    setIndex((prevIndex) => (prevIndex + 1 > limit ? 0 : prevIndex + 1));
   };
 
   useEffect(() => {
-    if (index === limit - 1 && mounted) {
+    if (index >= limit && mounted) {
       onPlayOrStop();
       setMounted(false);
     }
@@ -105,9 +105,9 @@ const CompaniesGraphic = () => {
       <PlayBtn className="btn-graphic" onClick={onPlayOrStop}>
         {isPlaying ? "⏹️ Stop" : "▶️ Play"}
       </PlayBtn>
-      {/* <PlayBtn className="btn-graphic" onClick={nextGraphic}>
+      <PlayBtn className="btn-graphic" onClick={nextGraphic}>
         &#8594;
-      </PlayBtn> */}
+      </PlayBtn>
 
       {data_graphic.length > 0 && getComapniesData(data_graphic[index])}
       <svg viewBox="-36 0 997 33">
