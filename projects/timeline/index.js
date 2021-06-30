@@ -102,6 +102,7 @@ export const Index = (props) => {
             ))}
           </ConclusionContainer>
         )}
+        <p className="footnote">Last Updated June 30th 2021.</p>
       </main>
       <Footer></Footer>
     </Layout>

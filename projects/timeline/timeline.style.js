@@ -187,10 +187,10 @@ export const Conclusion = styled(motion.div)`
   }
   .image-wrapper {
     position: absolute;
-    bottom: 30px;
-    left: 30px;
-    width: 32px;
-    height: 32px;
+    bottom: 1rem;
+    left: 2rem;
+    width: 10%;
+    min-height: 10%;
     img {
       object-fit: cover;
       width: 100%;
