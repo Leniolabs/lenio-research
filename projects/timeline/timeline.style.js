@@ -210,10 +210,10 @@ export const PlayBtn = styled.button`
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
-  padding: .2rem 1rem .3rem;
-  transition .3s ease all;
+  padding: 0.2rem 1rem 0.3rem;
+  transition: 0.3s ease all;
   &.btn-graphic {
-    margin: 0 0 .5rem 2rem;
+    margin: 0 0 0.5rem 2rem;
   }
   &:hover {
     background-color: #2c9faa;
