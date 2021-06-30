@@ -46,7 +46,7 @@ export const Index = (props) => {
       setMounted(true);
     }
   }, [inView]);
-  const conclusionList = data.map(({ conclusion }) => conclusion);
+  const conclusionList = data.map(({ conclusion, logo }) => ({ conclusion, logo }));
   return (
     <Layout>
       <header>
@@ -97,8 +97,8 @@ export const Index = (props) => {
         <TimelineSubtitle ref={ref}>Conclusions July 2020</TimelineSubtitle>
         {mounted && (
           <ConclusionContainer variants={container} initial="hidden" animate="show">
-            {conclusionList?.map((props, key) => (
-              <ConclusionCard key={key} variants={item} {...props} />
+            {conclusionList?.map(({ conclusion, logo }, key) => (
+              <ConclusionCard key={key} variants={item} {...conclusion} logo={logo} />
             ))}
           </ConclusionContainer>
         )}

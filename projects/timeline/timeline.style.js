@@ -15,7 +15,9 @@ export const SelectorContainer = styled.div`
   align-items: flex-end;
   margin: -0.5rem 2rem 0.5em;
   justify-content: space-between;
-  div { margin: 0; }
+  div {
+    margin: 0;
+  }
 `;
 
 export const Center = styled(motion.div)`
@@ -182,6 +184,18 @@ export const Conclusion = styled(motion.div)`
     font-size: 1rem;
     font-weight: 600;
     text-align: right;
+  }
+  .image-wrapper {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 32px;
+    height: 32px;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
   }
 `;
 export const AnimationContainer = styled.div`

@@ -621,7 +621,7 @@ export default [
   {
     company: "Salesforce",
     key: "salesforce",
-    logo: { src: "/static/images/logos/google.svg", alt: "logo" },
+    logo: { src: "/static/images/logos/salesforce.svg", alt: "salesforce logo" },
     publications: [
       {
         id: "1",
@@ -714,7 +714,7 @@ export default [
   {
     company: "Uber",
     key: "uber",
-    logo: { src: "/static/images/logos/google.svg", alt: "logo" },
+    logo: { src: "/static/images/logos/uber.svg", alt: "uber logo" },
     publications: [
       {
         id: "1",
@@ -791,7 +791,7 @@ export default [
   {
     company: "Twitter",
     key: "twitter",
-    logo: { src: "/static/images/logos/google.svg", alt: "logo" },
+    logo: { src: "/static/images/logos/twitter.svg", alt: "twitter logo" },
     publications: [
       {
         id: "1",
@@ -836,7 +836,7 @@ export default [
   {
     company: "Spotify",
     key: "spotify",
-    logo: { src: "/static/images/logos/google.svg", alt: "logo" },
+    logo: { src: "/static/images/logos/spotify.svg", alt: "spotify logo" },
     publications: [
       {
         id: "1",
@@ -875,7 +875,7 @@ export default [
   {
     company: "Microsoft",
     key: "microsoft",
-    logo: { src: "/static/images/logos/google.svg", alt: "logo" },
+    logo: { src: "/static/images/logos/microsoft.svg", alt: "microsoft logo" },
     publications: [
       {
         id: "1",
@@ -939,7 +939,7 @@ export default [
   {
     company: "Netflix",
     key: "netflix",
-    logo: { src: "/static/images/logos/google.svg", alt: "logo" },
+    logo: { src: "/static/images/logos/netflix.svg", alt: "netflix logo" },
     publications: [
       {
         id: "1",
