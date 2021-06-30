@@ -44,8 +44,7 @@ export const mapDatesToGraphic = (dates = {}) => {
   let newArray = [];
   dateKeys.forEach((item) => {
     const newList = dates[item].map((date) => {
-      {
-      }
+      return { date: dayjs(date, "MMMYYYY").format(), status: item };
     });
     newArray = [...newArray, ...newList];
   });
