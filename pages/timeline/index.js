@@ -1,16 +1,15 @@
 import TimelineMainSnippet from "@projects/timeline";
 import Head from "next/head";
 
-
 export const Index = () => {
   return (
     <>
-    <Head>
+      <Head>
         <title>Leniolabs_ Research</title>
         <meta
           name="description"
           content="Data Visualization of how the pandemic shaped the office culture"
-      />
+        />
         <meta
           name="title"
           content="Leniolabs_ Research: How the pandemic shaped the office culture"
