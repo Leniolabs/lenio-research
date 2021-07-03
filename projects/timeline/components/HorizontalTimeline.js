@@ -7,7 +7,8 @@ import {
   SelectorContainer,
   LineContainer,
   PlayBtn,
-  AnimationContainer
+  AnimationContainer,
+  SourceLink
 } from "../timeline.style";
 import data from "../timeline.data";
 import { CustomSelect } from "@components/select/select";
@@ -141,6 +142,7 @@ export const Timeline = () => {
       startTimeline();
     }
   };
+
   return (
     <div>
       <SelectorContainer>
@@ -185,6 +187,7 @@ export const Timeline = () => {
                 )}
                 <h4>{publication?.title}</h4>
                 <p>{publication?.content}</p>
+                <SourceLink href={publication?.link}>See sourde</SourceLink>
               </Center>
             )}
           </AnimatePresence>

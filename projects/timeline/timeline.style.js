@@ -220,3 +220,9 @@ export const PlayBtn = styled.button`
     color: white;
   }
 `;
+
+export const SourceLink = styled.a`
+  text-decoration: none;
+  color: #2c9faa;
+  cursor: pointer;
+`;
