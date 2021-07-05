@@ -1,5 +1,14 @@
 export const mockData = [
   {
+    key: "timeline",
+    link: "timeline",
+    imgPreview: "timeline-big.jpg",
+    title: "Timeline",
+    subtitle: "June 30, 2021",
+    description:
+      "How the pandemic shaped the office culture. We analyzed the tweets and news from top tech companies to compare how they adapted their office culture to the pandemic crisis from May 2020 until today."
+  },
+  {
     key: "space-flight",
     link: "space-flight",
     imgPreview: "space-day2.png",
