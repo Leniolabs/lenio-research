@@ -1,5 +1,14 @@
 export const mockData = [
   {
+    key: "timeline",
+    link: "timeline",
+    imgPreview: "timeline-big.jpg",
+    title: "Timeline",
+    subtitle: "June 30, 2021",
+    description:
+      "How the pandemic shaped the office culture. We analyzed the tweets and news from top tech companies to compare how they adapted their office culture to the pandemic crisis from May 2020 until today."
+  },
+  {
     key: "space-flight",
     link: "space-flight",
     imgPreview: "space-day2.png",
@@ -16,14 +25,5 @@ export const mockData = [
     subtitle: "March 5, 2021",
     description:
       "Once a distant possibility, the COVID-19 vaccine has finally started rolling out to most of the corners of the world. In this visualization we attempt to graphically represent this information, merging the wonders of SVG and frontend technologies."
-  },
-  {
-    key: "timeline",
-    link: "timeline",
-    imgPreview: "return-to-office.png",
-    title: "Timeline",
-    subtitle: "June 30, 2021",
-    description:
-      "How the pandemic shaped the office culture. We analyzed the tweets and news from top tech companies to compare how they adapted their office culture to the pandemic crisis from May 2020 until today."
   }
 ];
