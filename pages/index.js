@@ -10,11 +10,11 @@ export const Index = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta
           name="description"
-          content="Visualization of some milestones of humanity exploring space and the distance traveled from planet Earth"
+          content="Data Visualization of how the pandemic shaped the office culture"
         />
         <meta
           name="title"
-          content="Leniolabs_ Research: International Day of Human Space Flight"
+          content="Leniolabs_ Research: How the pandemic shaped the office culture"
           key="title"
         />
         <meta name="twitter:card" content="summary_large_image" />
@@ -22,24 +22,24 @@ export const Index = () => {
         <meta name="twitter:creator" content="@Leniolabs_" />
         <meta
           name="twitter:title"
-          content="Leniolabs_ Research: International Day of Human Space Flight"
+          content="Leniolabs_ Research: How the pandemic shaped the office culture"
         />
         <meta
           name="twitter:description"
-          content="Visualization of some milestones of humanity exploring space and the distance traveled from planet Earth"
+          content="Data Visualization of how the pandemic shaped the office culture"
         />
-        <meta name="twitter:image" content="https://research.leniolabs.com/space-day.png" />
-        <meta property="og:url" content="https://research.leniolabs.com/vaccinations.html" />
+        <meta name="twitter:image" content="https://research.leniolabs.com/return-to-office.png" />
+        <meta property="og:url" content="https://research.leniolabs.com/timeline.html" />
         <meta property="og:type" content="website" />
         <meta
           property="og:title"
-          content="Leniolabs_ Research: International Day of Human Space Flight"
+          content="Leniolabs_ Research: How the pandemic shaped the office culture"
         />
-        <meta property="og:image" content="https://research.leniolabs.com/space-day.png" />
-        <meta property="og:image:alt" content="Visualization of vaccination progress by country" />
+        <meta property="og:image" content="https://research.leniolabs.com/return-to-office.png" />
+        <meta property="og:image:alt" content="Opportunities in The US Housing Market" />
         <meta
           property="og:description"
-          content="Visualization of some milestones of humanity exploring space and the distance traveled from planet Earth"
+          content="Data Visualization of how the pandemic shaped the office culture"
         />
         <meta property="og:site_name" content="Leniolabs_ Research" />
         <meta property="og:locale" content="en_US" />
