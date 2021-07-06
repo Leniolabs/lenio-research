@@ -7,7 +7,8 @@ export const TextTooltip = ({ children, width }) => {
   if (!process.browser) {
     return null;
   }
-  const mount = React.useRef(document.getElementById("portal-root"));
+  const mount = React.useRef();
+  mount.current = document.getElementById("portal-root");
   const el = document.createElement("div");
 
   React.useEffect(() => {
