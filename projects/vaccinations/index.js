@@ -31,7 +31,7 @@ const dataOptions = [
   { value: "not-fully", label: "Only One Dose" }
 ];
 
-async function getServerSideProps() {
+async function getVaccineData() {
   // use context to get the url called
   const BASE_URL = "https://research-vaccines-lambda.s3.amazonaws.com/data/";
   const countryDataR = await fetch(`${BASE_URL}country_data.json`);
@@ -42,11 +42,9 @@ async function getServerSideProps() {
   const vacPer100 = await vacPer100R.json();
 
   return {
-    props: {
-      countryData,
-      fullyVacPer100,
-      vacPer100
-    }
+    countryData,
+    fullyVacPer100,
+    vacPer100
   };
 }
 
@@ -54,6 +52,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
   const [countryData, setCountryData] = React.useState([]);
   const [fullyVacPer100, setFullyVacPer100] = React.useState([]);
   const [vacPer100, setVacPer100] = React.useState([]);
+  const firstTimePlay = React.useRef(true);
   const options = React.useMemo(() => {
     return generateDateOptions(fullyVacPer100);
   }, [fullyVacPer100]);
@@ -62,8 +61,8 @@ export const Index = ({ seeMore = false, animated = false }) => {
     if (vacPer100 && fullyVacPer100) {
       console.log(vacPer100.length, fullyVacPer100.length);
       return {
-        fully: fullyVacPer100.length > 0 && fullyVacPer100,
-        "not-fully": vacPer100.length > 0 && vacPer100
+        fully: fullyVacPer100.length > 0 ? fullyVacPer100 : [],
+        "not-fully": vacPer100.length > 0 ? vacPer100 : []
       };
     }
     return {};
@@ -90,41 +89,75 @@ export const Index = ({ seeMore = false, animated = false }) => {
   const [parsedData, setParsedData] = React.useState([]);
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [legendFilter, setLegendFilter] = React.useState(null);
+  const [dateChange, setDateChange] = React.useState(null);
   const { logEvent } = useTracking();
 
   React.useEffect(() => {
     if (DATA_MAPPER === {}) return;
-    if (dataIndex !== DATA_MAPPER[dataName].length - 1 && isPlaying) {
+    if (dataIndex > 0 && isPlaying) {
       setTimeout(() => {
-        setDataIndex(dataIndex + 1);
+        if (dateChange) {
+          setDataIndex(dateChange);
+          setDateChange(null);
+        } else {
+          setDataIndex((prevDataIndex) => prevDataIndex - 1);
+        }
       }, 200);
     } else {
       setIsPlaying(false);
     }
-  }, [dataIndex, isPlaying, DATA_MAPPER]);
+  }, [dataIndex, isPlaying, DATA_MAPPER, dateChange]);
 
   React.useEffect(() => {
-    setTimeout(() => setIsPlaying(true), 1000);
-  }, []);
-
-  React.useEffect(() => {
-    setParsedData(
-      getParsedData(
-        DATA_MAPPER[dataName][dataIndex]?.data,
-        COLOR_MAPPERS[colorMapper],
-        countryList,
-        legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
-        countryData
-      )
-    );
+    if (DATA_MAPPER[dataName][options[dataIndex]?.value]?.data) {
+      setParsedData(
+        getParsedData(
+          DATA_MAPPER[dataName][options[dataIndex]?.value]?.data,
+          COLOR_MAPPERS[colorMapper],
+          countryList,
+          legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
+          countryData
+        )
+      );
+    }
   }, [dataName, dataIndex, colorMapper, legendFilter, countryList]);
 
   React.useEffect(() => {
-    getServerSideProps()
+    if (DATA_MAPPER === {}) return;
+
+    if (dataIndex === 0 && DATA_MAPPER[dataName].length > 0) {
+      if (firstTimePlay.current) {
+        setParsedData(
+          getParsedData(
+            DATA_MAPPER[dataName][options[0]?.value]?.data,
+            COLOR_MAPPERS[colorMapper],
+            countryList,
+            legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
+            countryData
+          )
+        );
+      } else {
+        const lastIndex = DATA_MAPPER[dataName].length - 1;
+        setParsedData(
+          getParsedData(
+            DATA_MAPPER[dataName][options[lastIndex]?.value]?.data,
+            COLOR_MAPPERS[colorMapper],
+            countryList,
+            legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
+            countryData
+          )
+        );
+        setDataIndex(lastIndex);
+      }
+    }
+  }, [DATA_MAPPER, dataIndex]);
+
+  React.useEffect(() => {
+    getVaccineData()
       .then((resp) => {
-        setCountryData(resp.props.countryData);
-        setFullyVacPer100(resp.props.fullyVacPer100);
-        setVacPer100(resp.props.vacPer100);
+        setCountryData(resp.countryData);
+        setFullyVacPer100(resp.fullyVacPer100);
+        setVacPer100(resp.vacPer100);
       })
       .catch((err) => {
         console.log(err);
@@ -137,10 +170,11 @@ export const Index = ({ seeMore = false, animated = false }) => {
       action: "Pressed Play",
       label: isPlaying ? "stop" : "play"
     });
-    if (dataIndex === DATA_MAPPER[dataName].length - 1) {
-      setDataIndex(0);
+    if (dataIndex === 0 && DATA_MAPPER) {
+      setDataIndex(DATA_MAPPER[dataName].length > 0 ? DATA_MAPPER[dataName].length - 1 : 0);
     }
     setIsPlaying(!isPlaying);
+    firstTimePlay.current = false;
   }, [dataIndex, isPlaying, dataName]);
 
   const onChangeCallback = React.useCallback((option) => {
@@ -149,7 +183,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
       action: "Changed Date",
       label: option.value
     });
-    setDataIndex(option.value);
+    setDateChange(option.index);
   }, []);
 
   // const onColorMapperChange = React.useCallback((option) => {

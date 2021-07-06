@@ -13,7 +13,7 @@ const RowContainer = styled.div`
   padding: 2rem;
 `;
 
-export const Index = (props) => {
+export const Index = ({ countryData = [], fullyVacPer100 = [], vacPer100 = [] }) => {
   return (
     <div>
       <Head>
@@ -84,9 +84,9 @@ export const Index = (props) => {
       <VaccinationMainSnippet
         seeMore={false}
         animated
-        countryData={props.countryData}
-        fullyVacPer100={props.fullyVacPer100}
-        vacPer100={props.vacPer100}
+        countryData={countryData}
+        fullyVacPer100={fullyVacPer100}
+        vacPer100={vacPer100}
       />
       <Footer />
     </div>
