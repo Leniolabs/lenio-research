@@ -1,4 +1,5 @@
 export const getParsedData = (data, colorMapper, countryList, legendFilter, countryData) => {
+  // debugger;
   let countries = countryData;
   if (countryList) {
     countries = countryData.filter((r) => countryList.includes(r.name));
@@ -23,7 +24,13 @@ export const getParsedData = (data, colorMapper, countryList, legendFilter, coun
 };
 
 export const generateDateOptions = (dateArray) => {
-  return dateArray.map((dayData, idx) => ({ value: idx, label: dayData.date }));
+  const dateList = dateArray.map((dayData, idx, arr) => ({
+    index: arr.length - 1 - idx,
+    value: idx,
+    label: dayData.date
+  }));
+  const sorted = dateList.sort((a, b) => new Date(b.label) - new Date(a.label));
+  return sorted;
 };
 
 export const optionGenerator = (

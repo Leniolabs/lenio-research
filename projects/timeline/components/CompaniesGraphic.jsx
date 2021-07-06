@@ -3,6 +3,7 @@ import { BigGraphic } from "../svg-components/BigGraphic";
 import { LineGraphicText } from "../svg-components/LineGraphicText";
 import { data_graphic } from "../timeline.data";
 import { PlayBtn } from "../timeline.style";
+import { useTracking } from "analytics/context";
 
 const getComapniesData = (data) => {
   const { date, ...companies } = data;
@@ -15,6 +16,7 @@ const CompaniesGraphic = () => {
   const limit = data_graphic.length - 1;
   const [index, setIndex] = useState(limit);
   const [mounted, setMounted] = useState(false);
+  const { logEvent } = useTracking();
 
   const nextGraphic = () => {
     setIndex((prevIndex) => (prevIndex + 1 > limit ? 0 : prevIndex + 1));
@@ -40,6 +42,11 @@ const CompaniesGraphic = () => {
     clearInterval(intervalRef.current);
   };
   const onPlayOrStop = () => {
+    logEvent({
+      category: "TimeLine",
+      action: "onPlayOrStop",
+      label: isPlaying ? "stop" : "play"
+    });
     if (isPlaying) {
       stopInterval();
     } else {
