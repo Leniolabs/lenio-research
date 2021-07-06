@@ -20,6 +20,7 @@ import {
   mapDatesToGraphic
 } from "./utils";
 import { AnimatePresence } from "framer-motion";
+import { useTracking } from "analytics/context";
 
 const variants = {
   initial: {
@@ -60,6 +61,8 @@ export const Timeline = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [graphicData, setGraphicData] = useState([]);
   const [updatedAnimation, setUpdatedAnimation] = useState(true);
+  const { logEvent } = useTracking();
+
   const startTimeline = () => {
     setIsPlaying(true);
     nextDate();
@@ -70,6 +73,10 @@ export const Timeline = () => {
   };
 
   const stopTimeLine = () => {
+    logEvent({
+      category: "TimeLine",
+      action: "stopTimeLine"
+    });
     clearInterval(intervalRef.current);
     setIsPlaying(false);
   };
@@ -119,11 +126,20 @@ export const Timeline = () => {
   }, [companyPublications, timelineData.value]);
 
   const onChangeCallback = useCallback((option) => {
+    logEvent({
+      category: "TimeLine",
+      action: "onChangeCallback",
+      label: option.label
+    });
     setSelectedCompany(option.label);
     setSelectedOption(option);
   }, []);
 
   const nextDate = () => {
+    logEvent({
+      category: "TimeLine",
+      action: "nextDate"
+    });
     setTimelineData((currentSate) => {
       const nextValue = currentSate.value + 1;
       const nextState = {
@@ -135,6 +151,10 @@ export const Timeline = () => {
   };
 
   const onPlayOrStop = () => {
+    logEvent({
+      category: "TimeLine",
+      action: "onPlayOrStop"
+    });
     if (isPlaying) {
       stopTimeLine();
     } else {
