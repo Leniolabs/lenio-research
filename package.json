@@ -23,6 +23,7 @@
 		"react-horizontal-timeline": "^1.5.3",
 		"react-intersection-observer": "^8.32.0",
 		"react-is": "^17.0.0",
+		"react-player": "^2.9.0",
 		"react-select": "4.1.0",
 		"styled-components": "^5.0.0",
 		"svgpath": "^2.3.1",
