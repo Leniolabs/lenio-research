@@ -2,22 +2,21 @@ import { useEffect, useState } from "react";
 import ReactPlayer from "react-player/youtube";
 import PropTypes from "prop-types";
 
-// For the moment only working with youtube
-const VideoPlayer = ({ timeData, onDataChange }) => {
+const VideoPlayer = ({ timeData, onDataChange, ...extraProps }) => {
   const [seconds, setSeconds] = useState(0);
 
+  // Looking for entries could be better, right now is in linear time
   const entry = timeData.find((entry) => entry.date === toHHMMSS(seconds));
 
   useEffect(() => {
     entry && onDataChange && onDataChange({ ...entry, seconds });
   }, [seconds]);
 
+  const onProgressHandler = (e) => setSeconds(Math.round(e.playedSeconds));
+
   return (
     <div>
-      <ReactPlayer
-        url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
-        onProgress={(e) => setSeconds(Math.round(e.playedSeconds))}
-      />
+      <ReactPlayer onProgress={onProgressHandler} {...extraProps} />
     </div>
   );
 };
@@ -32,6 +31,7 @@ VideoPlayer.propTypes = {
   onDataChange: PropTypes.func
 };
 
+// TODO: Move to utils
 const toHHMMSS = (secs) => {
   const t = new Date(1970, 0, 1);
   t.setSeconds(secs);
