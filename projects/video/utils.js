@@ -46,7 +46,7 @@ export const timeEventToSeconds = (timeEvent) => {
  * @param {string} tsString the timestamp which we look for the closest one
  * @returns {number} the closest timestamp index
  */
-export const getClosestTimestampIndex = (tsStringList, tsString) => {
+export const getClosestTimeEventIndex = (tsStringList, tsString) => {
   const tsList = tsStringList.map(timeEventToSeconds);
   const positionInSecs = timeEventToSeconds(tsString);
 
