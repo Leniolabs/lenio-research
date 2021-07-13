@@ -1,22 +1,29 @@
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import ReactPlayer from "react-player/youtube";
 import PropTypes from "prop-types";
+import { getClosestTimestampIndex, secondsToTimeEvent } from "@projects/video/utils";
 
-const VideoPlayer = ({ timeData, onDataChange, ...extraProps }) => {
-  const [seconds, setSeconds] = useState(0);
+const VideoPlayer = ({ timeData, onDataChange, progressInterval = 100, ...extraProps }) => {
+  const timeEventList = useMemo(() => timeData.map((t) => t.date), [timeData]);
 
-  // Looking for entries could be better, right now is in linear time
-  const entry = timeData.find((entry) => entry.date === toHHMMSS(seconds));
+  const onProgressHandler = ({ playedSeconds }) => {
+    const timeEvent = secondsToTimeEvent(playedSeconds);
+    const entryIndex = getClosestTimestampIndex(timeEventList, timeEvent);
+    const entry = timeData[entryIndex];
 
-  useEffect(() => {
-    entry && onDataChange && onDataChange({ ...entry, seconds });
-  }, [seconds]);
-
-  const onProgressHandler = (e) => setSeconds(Math.round(e.playedSeconds));
+    if (entry) {
+      onDataChange(entry);
+    }
+  };
 
   return (
     <div>
-      <ReactPlayer onProgress={onProgressHandler} {...extraProps} />
+      <ReactPlayer
+        onProgress={onProgressHandler}
+        progressInterval={progressInterval}
+        controls
+        {...extraProps}
+      />
     </div>
   );
 };
@@ -28,14 +35,8 @@ VideoPlayer.propTypes = {
       value: PropTypes.number
     }).isRequired
   ),
-  onDataChange: PropTypes.func
-};
-
-// TODO: Move to utils
-const toHHMMSS = (secs) => {
-  const t = new Date(1970, 0, 1);
-  t.setSeconds(secs);
-  return t.toTimeString().split(" ")[0];
+  onDataChange: PropTypes.func,
+  progressInterval: PropTypes.number
 };
 
 export default VideoPlayer;
