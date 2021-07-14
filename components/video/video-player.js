@@ -17,14 +17,12 @@ const VideoPlayer = ({ timeData = [], onDataChange, progressInterval = 100, ...e
   };
 
   return (
-    <div>
-      <ReactPlayer
-        onProgress={onProgressHandler}
-        progressInterval={progressInterval}
-        controls
-        {...extraProps}
-      />
-    </div>
+    <ReactPlayer
+      onProgress={onProgressHandler}
+      progressInterval={progressInterval}
+      controls
+      {...extraProps}
+    />
   );
 };
 
