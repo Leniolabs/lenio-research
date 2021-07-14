@@ -63,8 +63,6 @@ test("[timeEventToSeconds] returns time event strings from edge cases", () => {
   // Invalid input
   expect(timeEventToSeconds("00:32:9")).toBe(0);
   expect(timeEventToSeconds("invalid")).toBe(0);
-
-  // Invalid input
   expect(timeEventToSeconds("23:95:80")).toBe(0);
 });
 
