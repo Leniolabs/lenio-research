@@ -207,7 +207,7 @@ export const Timeline = () => {
                 )}
                 <h4>{publication?.title}</h4>
                 <p>{publication?.content}</p>
-                <SourceLink href={publication?.link}>See sourde</SourceLink>
+                <SourceLink href={publication?.link}>Link to source</SourceLink>
               </Center>
             )}
           </AnimatePresence>
