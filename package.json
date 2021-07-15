@@ -6,7 +6,7 @@
 		"build": "next build",
 		"export": "next export",
 		"start": "next start",
-		"test": "jest --env=jsdom"
+		"test": "jest --env=jsdom --watchAll"
 	},
 	"dependencies": {
 		"d3-polygon": "^2.0.0",
