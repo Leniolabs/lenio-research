@@ -47,7 +47,8 @@ export const DistributionMeasures = ({ measures }) => (
           <path className="st6" d={`M99.9 ${yCoord} L110.1 ${yCoord}`} />
 
           {/* Guidelines */}
-          <path className="st4" d={`M105.4 ${yCoord} L760.6 ${yCoord}`} />
+
+          {!data.hideGuideline && <path className="st4" d={`M105.4 ${yCoord} L760.6 ${yCoord}`} />}
         </g>
       );
     })}

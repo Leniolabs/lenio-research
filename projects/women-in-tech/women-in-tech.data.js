@@ -65,7 +65,7 @@ export default {
       70: { value: 342.8 },
       80: { value: 257.2, visibleMark: true },
       90: { value: 171.6 },
-      100: { value: 86, visibleMark: true }
+      100: { value: 86, visibleMark: true, hideGuideline: true }
     }
   },
   entries: [
