@@ -1,5 +1,8 @@
-import DistributionGraphic from "./svg-components/DistributionGraphic";
 import { GraphicContainer, Presentation } from "./women-in-tech.style";
+import womenInTechData from "./women-in-tech.data";
+
+import DistributionGraphic from "./svg-components/DistributionGraphic";
+
 const Index = () => {
   return (
     <>
@@ -11,8 +14,9 @@ const Index = () => {
           </h1>
           <p>Over the years since 1970.</p>
         </Presentation>
+
         <GraphicContainer>
-          <DistributionGraphic />
+          <DistributionGraphic data={womenInTechData.data} />
         </GraphicContainer>
       </main>
     </>
