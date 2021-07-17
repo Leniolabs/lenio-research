@@ -1,5 +1,6 @@
 import TimelineMainSnippet from "@projects/timeline";
 import Head from "next/head";
+import Footer from "@components/footer";
 
 export const Index = () => {
   return (
@@ -44,6 +45,7 @@ export const Index = () => {
         <meta property="article:author" content="Leniolabs_ Research" />
       </Head>
       <TimelineMainSnippet />
+      <Footer />
     </>
   );
 };
