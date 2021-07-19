@@ -16,7 +16,7 @@ const Index = () => {
         </Presentation>
 
         <GraphicContainer>
-          <DistributionGraphic data={womenInTechData.data} />
+          <DistributionGraphic data={womenInTechData} />
         </GraphicContainer>
       </main>
     </>
