@@ -53,12 +53,6 @@ export const svgStyles = css`
   .st7 {
     fill: #010101;
   }
-  .st8 {
-    font-family: SourceSansPro-Regular;
-  }
-  .st10 {
-    font-family: OpenSans-Regular;
-  }
   .st11 {
     font-size: 11px;
   }
@@ -70,9 +64,6 @@ export const svgStyles = css`
   }
   .st17 {
     fill: #6b6c6c;
-  }
-  .st18 {
-    font-family: SourceSansPro-Bold;
   }
   .st19 {
     font-size: 18px;

@@ -20,11 +20,7 @@ DistributionContainer.propTypes = {
 };
 
 export const DistributionTitle = () => (
-  <text
-    transform="translate(230.2 58.6)"
-    className="st7"
-    fontFamily="SourceSansPro-SemiBold"
-    fontSize={30}>
+  <text transform="translate(230.2 58.6)" className="st7" fontSize={30}>
     Distribution of Women Bachelors by field
   </text>
 );
@@ -33,19 +29,19 @@ export const DistributionMeasures = () => (
   <>
     {/* y axis marks */}
     <text transform="translate(72.8 85.3)">
-      <tspan x={0} y={0} className="st7 st10 st11">
+      <tspan x={0} y={0} className="st7 st11">
         {"100"}
       </tspan>
-      <tspan x={6.3} y={172} className="st7 st10 st11">
+      <tspan x={6.3} y={172} className="st7 st11">
         {"80"}
       </tspan>
-      <tspan x={6.3} y={344} className="st7 st10 st11">
+      <tspan x={6.3} y={344} className="st7 st11">
         {"60"}
       </tspan>
-      <tspan x={6.3} y={516} className="st7 st10 st11">
+      <tspan x={6.3} y={516} className="st7 st11">
         {"40"}
       </tspan>
-      <tspan x={6.3} y={688} className="st7 st10 st11">
+      <tspan x={6.3} y={688} className="st7 st11">
         {"20"}
       </tspan>
     </text>
@@ -68,37 +64,37 @@ export const DistributionMeasures = () => (
     <path className="st6" d="M781.9 938.9L781.9 949.1" />
 
     {/* x axis marks */}
-    <text className="st7 st10 st14" transform="translate(125.3 963)">
+    <text className="st7 st14" transform="translate(125.3 963)">
       {"1970"}
     </text>
-    <text className="st7 st10 st14" transform="translate(190 963)">
+    <text className="st7 st14" transform="translate(190 963)">
       {"1975"}
     </text>
-    <text className="st7 st10 st14" transform="translate(254.6 963)">
+    <text className="st7 st14" transform="translate(254.6 963)">
       {"1980"}
     </text>
-    <text className="st7 st10 st14" transform="translate(319.2 963)">
+    <text className="st7 st14" transform="translate(319.2 963)">
       {"1985"}
     </text>
-    <text className="st7 st10 st14" transform="translate(383.8 963)">
+    <text className="st7 st14" transform="translate(383.8 963)">
       {"1990"}
     </text>
-    <text className="st7 st10 st14" transform="translate(448.4 963)">
+    <text className="st7 st14" transform="translate(448.4 963)">
       {"1995"}
     </text>
-    <text className="st7 st10 st14" transform="translate(513 963)">
+    <text className="st7 st14" transform="translate(513 963)">
       {"2000"}
     </text>
-    <text className="st7 st10 st14" transform="translate(577.7 963)">
+    <text className="st7 st14" transform="translate(577.7 963)">
       {"2005"}
     </text>
-    <text className="st7 st10 st14" transform="translate(642.3 963)">
+    <text className="st7 st14" transform="translate(642.3 963)">
       {"2010"}
     </text>
-    <text className="st7 st10 st14" transform="translate(707 963)">
+    <text className="st7 st14" transform="translate(707 963)">
       {"2015"}
     </text>
-    <text className="st7 st10 st14" transform="translate(768 963)">
+    <text className="st7 st14" transform="translate(768 963)">
       {"2020"}
     </text>
 
@@ -111,7 +107,7 @@ export const DistributionMeasures = () => (
     <path className="st2" d="M762.6 425.5L764.1 425.5" />
     <path className="st6" d="M105.2 84.4L105.2 954.4" />
     <path className="st6" d="M943.7 944.1L95.7 944.1" />
-    <text transform="rotate(-90 313.1 266.9)" className="st7 st8" fontSize={16}>
+    <text transform="rotate(-90 313.1 266.9)" className="st7" fontSize={16}>
       {"% of women getting degrees"}
     </text>
   </>
@@ -130,23 +126,23 @@ export const DistributionFooter = () => (
     <circle cx={116.4} cy={1006.1} r={3.2} fill="#32aab3" />
 
     <text transform="translate(175.8 1017.8)">
-      <tspan x={0} y={0} className="st7 st18 st19">
+      <tspan x={0} y={0} className="st7 st19">
         {"Data Research "}
       </tspan>
-      <tspan x={0} y={22} className="st7 st8 st19">
+      <tspan x={0} y={22} className="st7 st19">
         {"by Leniolabs_"}
       </tspan>
     </text>
 
     <path fill="none" d="M644.1 1004.9H964.3V1041.8H644.1z" />
     <text transform="translate(644.1 1013.4)">
-      <tspan x={0} y={0} className="st7 st18 st14">
+      <tspan x={0} y={0} className="st7 st14">
         {"Sources:"}
       </tspan>
-      <tspan x={45.7} y={0} className="st7 st8 st14">
+      <tspan x={45.7} y={0} className="st7 st14">
         {" National Center for Education Statistics, tables 325 - "}
       </tspan>
-      <tspan x={0} y={15} className="st7 st8 st14">
+      <tspan x={0} y={15} className="st7 st14">
         {"trends in degrees by field and sex"}
       </tspan>
     </text>
