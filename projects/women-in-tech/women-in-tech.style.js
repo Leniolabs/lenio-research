@@ -1,23 +1,39 @@
 import styled, { css } from "styled-components";
 
 export const GraphicContainer = styled.div`
-  width: 90%;
-  max-width: 800px;
   margin: 0 auto 8rem auto;
+  max-width: 95%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    height: calc(50vh + 300px);
+  }
+
+  @media (min-width: 1024px) {
+    margin-bottom: 10rem;
+
 `;
 
 export const Presentation = styled.section`
   background-size: 220px;
   padding: 4rem 0 6rem;
-  margin-bottom: 5rem;
   text-align: center;
+
+  @media (min-width: 768px) {
+    margin-bottom: 5rem;
+  }
+
   * {
     margin: 0;
   }
+
   h1 {
     font-size: 3.2rem;
     line-height: 1;
   }
+
   p {
     font-size: 1.4rem;
     margin-top: 1rem;
