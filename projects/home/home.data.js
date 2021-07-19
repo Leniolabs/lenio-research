@@ -1,5 +1,14 @@
 export const mockData = [
   {
+    key: "map-vis",
+    link: "map-vis",
+    imgPreview: "map-vis.png",
+    title: "Housing Market",
+    subtitle: "July 20, 2021",
+    description:
+      "The housing market is witnessing an evolution with many housing trends accelerating by 5–10 years. States like Texas, Idaho, Florida, and Wyoming are witnessing unprecedented growth in the housing market as an increasing number of families move there."
+  },
+  {
     key: "timeline",
     link: "timeline",
     imgPreview: "timeline-big.jpg",
