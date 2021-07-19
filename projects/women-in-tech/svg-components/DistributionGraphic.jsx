@@ -28,17 +28,19 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
 };
 
 DistributionGraphic.propTypes = {
-  data: PropTypes.arrayOf({
-    text: PropTypes.shape({
-      children: PropTypes.string,
-      transform: PropTypes.string,
-      className: PropTypes.string
-    }),
-    path: PropTypes.shape({
-      d: PropTypes.string,
-      className: PropTypes.string
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.shape({
+        children: PropTypes.string,
+        transform: PropTypes.string,
+        className: PropTypes.string
+      }),
+      path: PropTypes.shape({
+        d: PropTypes.string,
+        className: PropTypes.string
+      })
     })
-  })
+  )
 };
 
 export default DistributionGraphic;
