@@ -74,12 +74,10 @@ export const svgStyles = css`
   }
   .st14 {
     font-size: 12px;
+    fill: #6b6c6c;
   }
   .st15 {
     fill: #14192e;
-  }
-  .st17 {
-    fill: #6b6c6c;
   }
   .st19 {
     font-size: 18px;
