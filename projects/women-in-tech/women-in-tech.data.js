@@ -1,71 +1,71 @@
 export default {
-  // x position belonging to each date
-  entryPoints: {
+  // Graphic axes and values for each point
+  measures: {
     xPoints: {
-      1970: { value: 135, reference: true },
+      1970: { value: 135, visibleMark: true },
       1971: { value: 149.9 },
       1972: { value: 162.5 },
       1973: { value: 177.4 },
       1974: { value: 190.6 },
-      1975: { value: 202.1, reference: true },
+      1975: { value: 202.1, visibleMark: true },
       1976: { value: 217 },
       1977: { value: 228.9 },
       1978: { value: 242.1 },
       1979: { value: 257 },
-      1980: { value: 270.6, reference: true },
+      1980: { value: 270.6, visibleMark: true },
       1981: { value: 284.3 },
       1982: { value: 296.6 },
       1983: { value: 312 },
       1984: { value: 324.3 },
-      1985: { value: 336.1, reference: true },
+      1985: { value: 336.1, visibleMark: true },
       1986: { value: 349.8 },
       1987: { value: 363.4 },
       1988: { value: 376.1 },
       1989: { value: 389.3 },
-      1990: { value: 404.3, reference: true },
+      1990: { value: 404.3, visibleMark: true },
       1991: { value: 418.3 },
       1992: { value: 430.2 },
       1993: { value: 444.3 },
       1994: { value: 457.5 },
-      1995: { value: 470.2, reference: true },
+      1995: { value: 470.2, visibleMark: true },
       1996: { value: 484.7 },
       1997: { value: 497.3 },
       1998: { value: 510.2 },
       1999: { value: 523 },
-      2000: { value: 537.9, reference: true },
+      2000: { value: 537.9, visibleMark: true },
       2001: { value: 551.1 },
       2002: { value: 565.2 },
       2003: { value: 576.6 },
       2004: { value: 591.5 },
-      2005: { value: 603.8, reference: true },
+      2005: { value: 603.8, visibleMark: true },
       2006: { value: 617.5 },
       2007: { value: 630.7 },
       2008: { value: 644.3 },
       2009: { value: 657.9 },
-      2010: { value: 670.7, reference: true },
+      2010: { value: 670.7, visibleMark: true },
       2011: { value: 683 },
       2012: { value: 697.9 },
       2013: { value: 711.1 },
       2014: { value: 724.3 },
-      2015: { value: 737.5, reference: true },
+      2015: { value: 737.5, visibleMark: true },
       2016: { value: 751.1 },
       2017: { value: 763 },
       2018: { value: 767 },
       2019: { value: 780 },
-      2020: { value: 782, reference: true }
+      2020: { value: 782, visibleMark: true }
     },
     yPoints: {
-      0: { value: 942.3 },
-      10: { value: 657.9 },
-      20: { value: 670.7, reference: true },
-      30: { value: 683 },
-      40: { value: 697.9, reference: true },
-      50: { value: 711.1 },
-      60: { value: 724.3, reference: true },
-      70: { value: 737.5 },
-      80: { value: 751.1, reference: true },
-      90: { value: 763 },
-      100: { value: 767, reference: true }
+      0: { value: 942 },
+      10: { value: 856.4 },
+      20: { value: 770.8, visibleMark: true },
+      30: { value: 658.2 },
+      40: { value: 599.6, visibleMark: true },
+      50: { value: 514 },
+      60: { value: 428.4, visibleMark: true },
+      70: { value: 342.8 },
+      80: { value: 257.2, visibleMark: true },
+      90: { value: 171.6 },
+      100: { value: 86, visibleMark: true }
     }
   },
   entries: [
@@ -77,7 +77,7 @@ export default {
       },
       path: {
         className: "st1",
-        data: [
+        yPoints: [
           { date: 1970, value: 77.064 },
           { date: 1971, value: 75.516 },
           { date: 1972, value: 76.902 },
@@ -137,7 +137,7 @@ export default {
       },
       path: {
         className: "st1",
-        data: [
+        yPoints: [
           { date: 1970, value: 68.422 },
           { date: 1971, value: 65.53 },
           { date: 1972, value: 62.6 },
@@ -197,7 +197,7 @@ export default {
       },
       path: {
         className: "st1",
-        data: [
+        yPoints: [
           { date: 1970, value: 74.535 },
           { date: 1971, value: 74.149 },
           { date: 1972, value: 73.554 },
@@ -257,7 +257,7 @@ export default {
       },
       path: {
         className: "st1",
-        data: [
+        yPoints: [
           { date: 1970, value: 44.413 },
           { date: 1971, value: 46.234 },
           { date: 1972, value: 47.607 },
@@ -317,7 +317,7 @@ export default {
       },
       path: {
         className: "st1",
-        data: [
+        yPoints: [
           { date: 1970, value: 65.57 },
           { date: 1971, value: 64.556 },
           { date: 1972, value: 63.664 },
@@ -377,7 +377,7 @@ export default {
       },
       path: {
         className: "st1",
-        data: [
+        yPoints: [
           { date: 1970, value: 73.756 },
           { date: 1971, value: 73.876 },
           { date: 1972, value: 74.62 },
@@ -437,7 +437,7 @@ export default {
       },
       path: {
         className: "st1",
-        data: [
+        yPoints: [
           { date: 1970, value: 35.299 },
           { date: 1971, value: 35.461 },
           { date: 1972, value: 36.62 },
@@ -497,7 +497,7 @@ export default {
       },
       path: {
         className: "st1",
-        data: [
+        yPoints: [
           { date: 1970, value: 29.088 },
           { date: 1971, value: 29.394 },
           { date: 1972, value: 29.81 },
@@ -557,7 +557,7 @@ export default {
       },
       path: {
         className: "st1",
-        data: [
+        yPoints: [
           { date: 1970, value: 4.2297 },
           { date: 1971, value: 5.4527 },
           { date: 1972, value: 7.4207 },
@@ -617,7 +617,7 @@ export default {
       },
       path: {
         className: "st1",
-        data: [
+        yPoints: [
           { date: 1970, value: 36.794 },
           { date: 1971, value: 36.166 },
           { date: 1972, value: 36.055 },
@@ -677,7 +677,7 @@ export default {
       },
       path: {
         className: "st1",
-        data: [
+        yPoints: [
           { date: 1970, value: 38.03 },
           { date: 1971, value: 39.046 },
           { date: 1972, value: 40.191 },
@@ -737,7 +737,7 @@ export default {
       },
       path: {
         className: "st1",
-        data: [
+        yPoints: [
           { date: 1970, value: 13.792 },
           { date: 1971, value: 14.858 },
           { date: 1972, value: 14.836 },
@@ -803,7 +803,7 @@ export default {
         strokeLinejoin: "round",
         strokeMiterlimit: 10,
         strokeWidth: 3,
-        data: [
+        yPoints: [
           { date: 1970, value: 13.567 },
           { date: 1971, value: 13.55 },
           { date: 1972, value: 14.869 },
