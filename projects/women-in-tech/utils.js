@@ -1,12 +1,11 @@
-const TableConstants = {
+import { scaleLinear } from "d3-scale";
+
+const GraphicConstants = Object.freeze({
   BOTTOM_LIMIT: 942,
   TOP_LIMIT: 83,
   LEFT_LIMIT: 136,
-  RIGHT_LIMIT: 782,
-  // 1% in table is equal to near 8.6 points:
-  // (BOTTOM_LIMIT - TOP_LIMIT) / 100 => (942 - 83) / 100
-  PERCENTAGE_IN_POINTS: 8.62
-};
+  RIGHT_LIMIT: 782
+});
 
 export const buildPath = (xValues, yValues) => {
   const startX = xValues[yValues[0].date].value;
@@ -21,21 +20,28 @@ export const buildPath = (xValues, yValues) => {
 };
 
 const getVerticalPointFromPercentage = (percentage) => {
-  const { BOTTOM_LIMIT, PERCENTAGE_IN_POINTS } = TableConstants;
+  const { TOP_LIMIT, BOTTOM_LIMIT } = GraphicConstants;
+  const getVerticalPoint = scaleLinear().domain([0, 100]).range([BOTTOM_LIMIT, TOP_LIMIT]);
 
-  return (BOTTOM_LIMIT - percentage * PERCENTAGE_IN_POINTS).toFixed(2);
+  return getVerticalPoint(percentage);
 };
 
 export const buildMeasureXCoordinate = (index, numOfElements) => {
-  const { RIGHT_LIMIT, LEFT_LIMIT } = TableConstants;
-  const spaceBetweenPoints = (RIGHT_LIMIT - LEFT_LIMIT) / (numOfElements - 1);
+  const { RIGHT_LIMIT, LEFT_LIMIT } = GraphicConstants;
 
-  return (LEFT_LIMIT + spaceBetweenPoints * index).toFixed(2);
+  const getMeasureX = scaleLinear()
+    .domain([0, numOfElements - 1])
+    .range([LEFT_LIMIT, RIGHT_LIMIT]);
+
+  return getMeasureX(index);
 };
 
 export const buildMeasureYCoordinate = (index, numOfElements) => {
-  const { BOTTOM_LIMIT, TOP_LIMIT } = TableConstants;
-  const spaceBetweenPoints = (BOTTOM_LIMIT - TOP_LIMIT) / (numOfElements - 1);
+  const { BOTTOM_LIMIT, TOP_LIMIT } = GraphicConstants;
 
-  return (BOTTOM_LIMIT - spaceBetweenPoints * index).toFixed(2);
+  const getMeasureY = scaleLinear()
+    .domain([0, numOfElements - 1])
+    .range([BOTTOM_LIMIT, TOP_LIMIT]);
+
+  return getMeasureY(index);
 };
