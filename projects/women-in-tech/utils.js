@@ -9,12 +9,12 @@ const TableConstants = {
 };
 
 export const buildPath = (xValues, yValues) => {
-  const startX = xValues[yValues[0].date];
+  const startX = xValues[yValues[0].date].value;
   const startY = getVerticalPointFromPercentage(yValues[0].value);
 
   let string = `M ${startX} ${startY} L`;
   yValues.slice(1).forEach((entry) => {
-    string += `${xValues[entry.date]} ${getVerticalPointFromPercentage(entry.value)} `;
+    string += `${xValues[entry.date].value} ${getVerticalPointFromPercentage(entry.value)} `;
   });
 
   return string.slice(0, -1);
@@ -31,4 +31,11 @@ export const buildMeasureXCoordinate = (index, numOfElements) => {
   const spaceBetweenPoints = (RIGHT_LIMIT - LEFT_LIMIT) / (numOfElements - 1);
 
   return (LEFT_LIMIT + spaceBetweenPoints * index).toFixed(2);
+};
+
+export const buildMeasureYCoordinate = (index, numOfElements) => {
+  const { BOTTOM_LIMIT, TOP_LIMIT } = TableConstants;
+  const spaceBetweenPoints = (BOTTOM_LIMIT - TOP_LIMIT) / (numOfElements - 1);
+
+  return (BOTTOM_LIMIT - spaceBetweenPoints * index).toFixed(2);
 };
