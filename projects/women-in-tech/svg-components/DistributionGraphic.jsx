@@ -11,30 +11,28 @@ import { buildPath } from "../utils";
 
 const DistributionGraphic = ({ data, ...extraProps }) => {
   const {
-    entryPoints,
-    entryPoints: { xPoints },
+    measures,
+    measures: { xPoints },
     entries
   } = data;
-  console.log(xPoints);
 
   return (
     <DistributionContainer {...extraProps}>
       <DistributionTitle />
 
-      {/* Entries Evolution + Career */}
       {entries.map((entry) => {
-        const { data: yPoints, ...pathData } = entry.path;
+        const { yPoints, ...pathData } = entry.path;
         const path = buildPath(xPoints, yPoints);
 
         return (
-          <motion.g key={entry.children}>
+          <motion.g key={entry.text.children}>
             <path {...pathData} d={path} />
             <text {...entry.text} />
           </motion.g>
         );
       })}
 
-      <DistributionMeasures entryPoints={entryPoints} />
+      <DistributionMeasures measures={measures} />
       <DistributionFooter />
     </DistributionContainer>
   );

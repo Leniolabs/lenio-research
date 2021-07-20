@@ -16,6 +16,7 @@ export const DistributionContainer = ({ children, ...props }) => (
     {children}
   </svg>
 );
+
 DistributionContainer.propTypes = {
   children: PropTypes.any
 };
@@ -26,13 +27,13 @@ export const DistributionTitle = () => (
   </text>
 );
 
-export const DistributionMeasures = ({ entryPoints }) => (
+export const DistributionMeasures = ({ measures }) => (
   <>
     {/* Y points and labels */}
-    {Object.entries(entryPoints.yPoints).map(([point, value], idx, points) => {
+    {Object.entries(measures.yPoints).map(([point, data], idx, points) => {
       const yCoord = buildMeasureYCoordinate(idx, points.length);
 
-      if (!value.reference) {
+      if (!data.visibleMark) {
         return null;
       }
 
@@ -47,10 +48,10 @@ export const DistributionMeasures = ({ entryPoints }) => (
     })}
 
     {/* X points and labels */}
-    {Object.entries(entryPoints.xPoints).map(([point, value], idx, points) => {
+    {Object.entries(measures.xPoints).map(([point, data], idx, points) => {
       const xCoord = buildMeasureXCoordinate(idx, points.length);
 
-      if (!value.reference) {
+      if (!data.visibleMark) {
         return null;
       }
 
@@ -81,7 +82,7 @@ export const DistributionMeasures = ({ entryPoints }) => (
 );
 
 DistributionMeasures.propTypes = {
-  entryPoints: PropTypes.shape({
+  measures: PropTypes.shape({
     xPoints: PropTypes.any,
     yPoints: PropTypes.any
   })
