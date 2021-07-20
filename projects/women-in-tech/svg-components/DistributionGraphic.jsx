@@ -20,6 +20,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
     <DistributionContainer {...extraProps}>
       <DistributionTitle />
 
+      {/* Entries Evolution + Career */}
       {entries.map((entry) => {
         const { yPoints, ...pathData } = entry.path;
         const path = buildPath(xPoints, yPoints);
