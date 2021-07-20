@@ -122,31 +122,3 @@ export const DistributionFooter = () => (
     </text>
   </>
 );
-
-// This was present in the svg file but I don't see any change after removing it
-// Leaving just in case its needed
-/*
-   <path className="st2" d="M99.9 253.5L101.4 253.5" />
-      <path
-        fill="none"
-        stroke="#d3d3d3"
-        strokeDasharray="3 4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={0.5}
-        d="M105.4 253.5L760.6 253.5"
-      />
-      <path className="st2" d="M762.6 253.5L764.1 253.5" />
-      <path className="st2" d="M103.9 772.5L105.4 772.5" />
-      <path className="st4" d="M109.4 772.5L760.5 772.5" />
-      <path className="st2" d="M762.6 772.5L764.1 772.5" />
-      <path
-        fill="none"
-        stroke="#d3d3d3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeMiterlimit={10}
-        strokeWidth={0.5}
-        d="M103.9 83.3L943.7 83.3"
-      />
-      */
