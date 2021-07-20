@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { buildMeasureXCoordinate } from "../utils";
+import { buildMeasureXCoordinate, buildMeasureYCoordinate } from "../utils";
 import { svgStyles } from "../women-in-tech.style";
 
 export const DistributionContainer = ({ children, ...props }) => (
@@ -26,47 +26,45 @@ export const DistributionTitle = () => (
   </text>
 );
 
-export const DistributionMeasures = ({ importantPoints }) => (
+export const DistributionMeasures = ({ entryPoints }) => (
   <>
-    {/* y axis marks */}
-    <text transform="translate(72.8 85.3)">
-      <tspan x={0} y={0} className="st7 st11">
-        {"100"}
-      </tspan>
-      <tspan x={6.3} y={172} className="st7 st11">
-        {"80"}
-      </tspan>
-      <tspan x={6.3} y={344} className="st7 st11">
-        {"60"}
-      </tspan>
-      <tspan x={6.3} y={516} className="st7 st11">
-        {"40"}
-      </tspan>
-      <tspan x={6.3} y={688} className="st7 st11">
-        {"20"}
-      </tspan>
-    </text>
+    {/* Y points and labels */}
+    {Object.entries(entryPoints.yPoints).map(([point, value], idx, points) => {
+      const yCoord = buildMeasureYCoordinate(idx, points.length);
 
-    <path className="st6" d="M99.9 253.5L110.1 253.5" />
-    <path className="st6" d="M99.9 83.5L110.1 83.5" />
-    <path className="st6" d="M99.9 598.5L110.1 598.5" />
-    <path className="st6" d="M99.9 772.5L110.1 772.5" />
+      if (!value.reference) {
+        return null;
+      }
+
+      return (
+        <g key={point}>
+          <text className="st7 st11" transform={`translate(72.8 ${+yCoord + 4})`}>
+            {point}
+          </text>
+          <path className="st6" d={`M99.9 ${yCoord} L110.1 ${yCoord}`} />
+        </g>
+      );
+    })}
 
     {/* X points and labels */}
-    {importantPoints.map((point, idx, points) => {
+    {Object.entries(entryPoints.xPoints).map(([point, value], idx, points) => {
       const xCoord = buildMeasureXCoordinate(idx, points.length);
+
+      if (!value.reference) {
+        return null;
+      }
 
       return (
         <g key={point}>
           <path className="st6" d={`M${xCoord} 938.9L${xCoord} 949.1`} />
-          <text className="st7 st14" transform={`translate(${xCoord - 13} 963)`}>
+          <text className="st7 st14" transform={`translate(${+xCoord - 13} 963)`}>
             {point}
           </text>
         </g>
       );
     })}
 
-    {/* Bars */}
+    {/* Axes */}
     <path className="st2" d="M103.9 598.5L105.4 598.5" />
     <path className="st4" d="M109.4 598.5L760.5 598.5" />
     <path className="st2" d="M762.6 598.5L764.1 598.5" />
@@ -75,6 +73,7 @@ export const DistributionMeasures = ({ importantPoints }) => (
     <path className="st2" d="M762.6 425.5L764.1 425.5" />
     <path className="st6" d="M105.2 84.4L105.2 954.4" />
     <path className="st6" d="M943.7 944.1L95.7 944.1" />
+
     <text transform="rotate(-90 313.1 266.9)" className="st7" fontSize={16}>
       {"% of women getting degrees"}
     </text>
@@ -82,7 +81,10 @@ export const DistributionMeasures = ({ importantPoints }) => (
 );
 
 DistributionMeasures.propTypes = {
-  importantPoints: PropTypes.arrayOf(PropTypes.any)
+  entryPoints: PropTypes.shape({
+    xPoints: PropTypes.any,
+    yPoints: PropTypes.any
+  })
 };
 
 export const DistributionFooter = () => (

@@ -10,7 +10,12 @@ import {
 import { buildPath } from "../utils";
 
 const DistributionGraphic = ({ data, ...extraProps }) => {
-  const { xPoints, entries, importantPoints } = data;
+  const {
+    entryPoints,
+    entryPoints: { xPoints },
+    entries
+  } = data;
+  console.log(xPoints);
 
   return (
     <DistributionContainer {...extraProps}>
@@ -29,7 +34,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
         );
       })}
 
-      <DistributionMeasures importantPoints={importantPoints} />
+      <DistributionMeasures entryPoints={entryPoints} />
       <DistributionFooter />
     </DistributionContainer>
   );
