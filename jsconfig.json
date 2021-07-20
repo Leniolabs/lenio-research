@@ -1,9 +1,16 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@components/*": ["components/*"],
-      "@projects/*": ["projects/*"]
-    }
-  }
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@components/*": [
+				"components/*"
+			],
+			"@pages/*": [
+				"pages/*"
+			],
+			"@projects/*": [
+				"projects/*"
+			]
+		}
+	}
 }

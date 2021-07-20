@@ -26,9 +26,50 @@ export const Index = () => {
           <Title>
             Data <span>research</span>
             <Small>
-              By <span><a href="https://www.leniolabs.com/">Leniolabs_</a></span>
+              By{" "}
+              <span>
+                <a href="https://www.leniolabs.com/">Leniolabs_</a>
+              </span>
             </Small>
           </Title>
+
+          <meta
+            name="description"
+            content="Data Visualization of Opportunities in The US Housing Market"
+          />
+          <meta
+            name="title"
+            content="Leniolabs_ Research: Opportunities in The US Housing Market"
+            key="title"
+          />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="https://research.leniolabs.com/" />
+          <meta name="twitter:creator" content="@Leniolabs_" />
+          <meta
+            name="twitter:title"
+            content="Leniolabs_ Research: Opportunities in The US Housing Market"
+          />
+          <meta
+            name="twitter:description"
+            content="Data Visualization of Opportunities in The US Housing Market"
+          />
+          <meta name="twitter:image" content="https://research.leniolabs.com/map-vis.png" />
+          <meta property="og:url" content="https://research.leniolabs.com/map-vis.html" />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:title"
+            content="Leniolabs_ Research: Opportunities in The US Housing Market"
+          />
+          <meta property="og:image" content="https://research.leniolabs.com/map-vis.png" />
+          <meta property="og:image:alt" content="Opportunities in The US Housing Market" />
+          <meta
+            property="og:description"
+            content="Data Visualization of Opportunities in The US Housing Market"
+          />
+          <meta property="og:site_name" content="Leniolabs_ Research" />
+          <meta property="og:locale" content="en_US" />
+          <meta property="article:author" content="Leniolabs_ Research" />
+
           <svg
             className="svg-home"
             preserveAspectRatio="xMinYMid slice"
@@ -41,7 +82,10 @@ export const Index = () => {
               <path strokeWidth="3.4" d="M1191 411a61 61 0 10-122 0 61 61 0 00122 0z" />
               <path strokeWidth=".8" d="M1228 411a98 98 0 10-196 0 98 98 0 00196 0z" />
               <path strokeWidth=".8" d="M1288 411a158 158 0 10-316 0 158 158 0 00316 0z" />
-              <path strokeWidth=".8" d="M1540 410.5a410.5 410.5 0 10-821 0 410.5 410.5 0 00821 0z" />
+              <path
+                strokeWidth=".8"
+                d="M1540 410.5a410.5 410.5 0 10-821 0 410.5 410.5 0 00821 0z"
+              />
               <path strokeWidth="6.8" d="M1147 411a17 17 0 10-34 0 17 17 0 0034 0z" />
               <line x2="971.5" y1="410.2" y2="410.2" strokeWidth="2" />
             </g>

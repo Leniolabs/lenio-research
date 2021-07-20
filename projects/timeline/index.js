@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/no-onchange */
 import {
   Layout,
-  Footer,
   FirstSection,
   GraphicSection,
   TimelineSection,
@@ -101,7 +100,6 @@ export const Index = () => {
         )}
         <p className="footnote">Last Updated June 30th 2021.</p>
       </main>
-      <Footer></Footer>
     </Layout>
   );
 };
