@@ -62,6 +62,29 @@ export const DistributionMeasures = () => (
     <path className="st6" d="M653.6 938.9L653.6 949.1" />
     <path className="st6" d="M718.3 938.9L718.3 949.1" />
     <path className="st6" d="M781.9 938.9L781.9 949.1" />
+    <path className="st2" d="M99.9 253.5L101.4 253.5" />
+    <path
+      fill="none"
+      stroke="#d3d3d3"
+      strokeDasharray="3 4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={0.5}
+      d="M105.4 253.5L760.6 253.5"
+    />
+    <path className="st2" d="M762.6 253.5L764.1 253.5" />
+    <path className="st2" d="M103.9 772.5L105.4 772.5" />
+    <path className="st4" d="M109.4 772.5L760.5 772.5" />
+    <path className="st2" d="M762.6 772.5L764.1 772.5" />
+    <path
+      fill="none"
+      stroke="#d3d3d3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeMiterlimit={10}
+      strokeWidth={0.5}
+      d="M103.9 83.3L943.7 83.3"
+    />
 
     {/* x axis marks */}
     <text className="st7 st14" transform="translate(125.3 963)">
@@ -148,31 +171,3 @@ export const DistributionFooter = () => (
     </text>
   </>
 );
-
-// This was present in the svg file but I don't see any change after removing it
-// Leaving just in case its needed
-/*
-   <path className="st2" d="M99.9 253.5L101.4 253.5" />
-      <path
-        fill="none"
-        stroke="#d3d3d3"
-        strokeDasharray="3 4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={0.5}
-        d="M105.4 253.5L760.6 253.5"
-      />
-      <path className="st2" d="M762.6 253.5L764.1 253.5" />
-      <path className="st2" d="M103.9 772.5L105.4 772.5" />
-      <path className="st4" d="M109.4 772.5L760.5 772.5" />
-      <path className="st2" d="M762.6 772.5L764.1 772.5" />
-      <path
-        fill="none"
-        stroke="#d3d3d3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeMiterlimit={10}
-        strokeWidth={0.5}
-        d="M103.9 83.3L943.7 83.3"
-      />
-      */
