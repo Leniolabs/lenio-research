@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import { render } from "@testing-library/react";
 import VideoPlayer from "./video-player";
