@@ -1,6 +1,6 @@
 import { scaleLinear } from "d3-scale";
 
-const GraphicConstants = Object.freeze({
+export const GraphicConstants = Object.freeze({
   BOTTOM_LIMIT: 942,
   TOP_LIMIT: 83,
   LEFT_LIMIT: 136,

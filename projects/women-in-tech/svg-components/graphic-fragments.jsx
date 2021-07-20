@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
-import { buildMeasureXCoordinate, buildMeasureYCoordinate } from "../utils";
+import { buildMeasureXCoordinate, buildMeasureYCoordinate, GraphicConstants } from "../utils";
 import { svgStyles } from "../women-in-tech.style";
+
+const { TOP_LIMIT } = GraphicConstants;
 
 export const DistributionContainer = ({ children, ...props }) => (
   <svg
@@ -43,6 +45,9 @@ export const DistributionMeasures = ({ measures }) => (
             {point}
           </text>
           <path className="st6" d={`M99.9 ${yCoord} L110.1 ${yCoord}`} />
+
+          {/* Guidelines */}
+          <path className="st4" d={`M105.4 ${yCoord} L760.6 ${yCoord}`} />
         </g>
       );
     })}
@@ -65,12 +70,21 @@ export const DistributionMeasures = ({ measures }) => (
       );
     })}
 
+    {/* Top Guide line */}
+    <path
+      fill="none"
+      stroke="#d3d3d3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeMiterlimit={10}
+      strokeWidth={0.5}
+      d={`M103.9 ${TOP_LIMIT} L943.7 ${TOP_LIMIT}`}
+    />
+
     {/* Axes */}
     <path className="st2" d="M103.9 598.5L105.4 598.5" />
-    <path className="st4" d="M109.4 598.5L760.5 598.5" />
     <path className="st2" d="M762.6 598.5L764.1 598.5" />
     <path className="st2" d="M103.9 425.5L105.4 425.5" />
-    <path className="st4" d="M109.4 425.5L760.5 425.5" />
     <path className="st2" d="M762.6 425.5L764.1 425.5" />
     <path className="st6" d="M105.2 84.4L105.2 954.4" />
     <path className="st6" d="M943.7 944.1L95.7 944.1" />
