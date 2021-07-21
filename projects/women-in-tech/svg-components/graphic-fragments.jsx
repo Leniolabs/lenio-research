@@ -29,7 +29,7 @@ export const DistributionTitle = () => (
   </text>
 );
 
-export const DistributionMeasures = ({ measures: {yPoints, xPoints} }) => (
+export const DistributionMeasures = ({ measures: { yPoints, xPoints } }) => (
   <>
     {/* Y points and labels */}
     {Object.entries(yPoints).map(([point, data], idx, points) => {

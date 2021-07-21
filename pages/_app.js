@@ -208,7 +208,12 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     &:hover { background-color: #3baacc; color: white; }
   }
-  .btn-map { background-color: #fff; float: left; margin: 0 2rem 1rem 0; }
+  .btn-map { 
+    background-color: #fff; 
+    float: left; 
+    margin: 0 2rem 1rem 0; 
+    z-index: 1; 
+  }
   footer a { color: #fcfcf4; text-decoration: none; }
   .footer-logo {
     background-color: #354156;
