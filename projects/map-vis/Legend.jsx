@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export const Legend = ({ title, data, shape, selectedIndex, onSetIndex }) => {
   return (
     <div className="legends">
-      <h3>{title}</h3>
+      <h3>{shape === 'hex' && title}</h3>
       {data.map((row, index) => {
         return (
           <React.Fragment key={row.name}>
@@ -25,7 +25,7 @@ export const Legend = ({ title, data, shape, selectedIndex, onSetIndex }) => {
                 }>
                 <span className="legend-name">{row.name}</span>
                 <span className="legend-number">
-                  {!!row.value && <span>{(row.value * 100).toFixed(2)} %</span>}
+                  {!!row.value && shape === 'hex' && <span>{(row.value * 100).toFixed(2)} %</span>}
                 </span>
               </span>
             </div>
