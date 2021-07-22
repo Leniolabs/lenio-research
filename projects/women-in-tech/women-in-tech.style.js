@@ -1,5 +1,11 @@
 import styled, { css } from "styled-components";
 
+export const Title = styled.h1``;
+
+export const Subtitle = styled.h2``;
+
+export const Paragraph = styled.p``;
+
 export const GraphicContainer = styled.div`
   margin: 0 auto 8rem auto;
   max-width: 95%;
@@ -13,7 +19,7 @@ export const GraphicContainer = styled.div`
 
   @media (min-width: 1024px) {
     margin-bottom: 10rem;
-
+  }
 `;
 
 export const Presentation = styled.section`
