@@ -1,8 +1,5 @@
-import { GraphicContainer, Presentation } from "./women-in-tech.style";
-import womenInTechData from "./women-in-tech.data";
-
-import DistributionGraphic from "./svg-components/DistributionGraphic";
-import Article from "./article";
+import TechRepresentation from "./tech-representation";
+import { Presentation } from "./women-in-tech.style";
 
 const Index = () => {
   return (
@@ -10,13 +7,18 @@ const Index = () => {
       <main>
         <Presentation>
           <h1>
-            Distribution of Women Bachelors <br />
-            by field
+            Representation and what happened <br />
+            to women in Tech
           </h1>
-          <p>Over the years since 1970.</p>
+          <span className="author">
+            An article written by{" "}
+            <a href="https://www.TODO/url" target="_blank" rel="noreferrer">
+              Lara Schvartzman
+            </a>{" "}
+          </span>
         </Presentation>
 
-        <Article />
+        <TechRepresentation />
       </main>
     </>
   );
