@@ -1,5 +1,8 @@
 import PropTypes from "prop-types";
+import { buildMeasureXCoordinate, buildMeasureYCoordinate, GraphicConstants } from "../utils";
 import { svgStyles } from "../women-in-tech.style";
+
+const { TOP_LIMIT } = GraphicConstants;
 
 export const DistributionContainer = ({ children, ...props }) => (
   <svg
@@ -15,6 +18,7 @@ export const DistributionContainer = ({ children, ...props }) => (
     {children}
   </svg>
 );
+
 DistributionContainer.propTypes = {
   children: PropTypes.any
 };
@@ -25,57 +29,49 @@ export const DistributionTitle = () => (
   </text>
 );
 
-export const DistributionMeasures = () => (
+export const DistributionMeasures = ({ measures }) => (
   <>
-    {/* y axis marks */}
-    <text transform="translate(72.8 85.3)">
-      <tspan x={0} y={0} className="st7 st11">
-        {"100"}
-      </tspan>
-      <tspan x={6.3} y={172} className="st7 st11">
-        {"80"}
-      </tspan>
-      <tspan x={6.3} y={344} className="st7 st11">
-        {"60"}
-      </tspan>
-      <tspan x={6.3} y={516} className="st7 st11">
-        {"40"}
-      </tspan>
-      <tspan x={6.3} y={688} className="st7 st11">
-        {"20"}
-      </tspan>
-    </text>
+    {/* Y points and labels */}
+    {Object.entries(measures.yPoints).map(([point, data], idx, points) => {
+      const yCoord = buildMeasureYCoordinate(idx, points.length);
 
-    <path className="st6" d="M99.9 425.5L110.1 425.5" />
-    <path className="st6" d="M99.9 253.5L110.1 253.5" />
-    <path className="st6" d="M99.9 83.5L110.1 83.5" />
-    <path className="st6" d="M99.9 598.5L110.1 598.5" />
-    <path className="st6" d="M99.9 772.5L110.1 772.5" />
-    <path className="st6" d="M136 938.9L136 949.1" />
-    <path className="st6" d="M200.7 938.9L200.7 949.1" />
-    <path className="st6" d="M265.4 938.9L265.4 949.1" />
-    <path className="st6" d="M330.1 938.9L330.1 949.1" />
-    <path className="st6" d="M394.8 938.9L394.8 949.1" />
-    <path className="st6" d="M459.5 938.9L459.5 949.1" />
-    <path className="st6" d="M524.2 938.9L524.2 949.1" />
-    <path className="st6" d="M588.9 938.9L588.9 949.1" />
-    <path className="st6" d="M653.6 938.9L653.6 949.1" />
-    <path className="st6" d="M718.3 938.9L718.3 949.1" />
-    <path className="st6" d="M781.9 938.9L781.9 949.1" />
-    <path className="st2" d="M99.9 253.5L101.4 253.5" />
-    <path
-      fill="none"
-      stroke="#d3d3d3"
-      strokeDasharray="3 4"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={0.5}
-      d="M105.4 253.5L760.6 253.5"
-    />
-    <path className="st2" d="M762.6 253.5L764.1 253.5" />
-    <path className="st2" d="M103.9 772.5L105.4 772.5" />
-    <path className="st4" d="M109.4 772.5L760.5 772.5" />
-    <path className="st2" d="M762.6 772.5L764.1 772.5" />
+      if (!data.visibleMark) {
+        return null;
+      }
+
+      return (
+        <g key={point}>
+          <text className="st7 st11" transform={`translate(72.8 ${+yCoord + 4})`}>
+            {point}
+          </text>
+          <path className="st6" d={`M99.9 ${yCoord} L110.1 ${yCoord}`} />
+
+          {/* Guidelines */}
+
+          {!data.hideGuideline && <path className="st4" d={`M105.4 ${yCoord} L760.6 ${yCoord}`} />}
+        </g>
+      );
+    })}
+
+    {/* X points and labels */}
+    {Object.entries(measures.xPoints).map(([point, data], idx, points) => {
+      const xCoord = buildMeasureXCoordinate(idx, points.length);
+
+      if (!data.visibleMark) {
+        return null;
+      }
+
+      return (
+        <g key={point}>
+          <path className="st6" d={`M${xCoord} 938.9L${xCoord} 949.1`} />
+          <text className="st7 st14" transform={`translate(${+xCoord - 13} 963)`}>
+            {point}
+          </text>
+        </g>
+      );
+    })}
+
+    {/* Top Guide line */}
     <path
       fill="none"
       stroke="#d3d3d3"
@@ -83,58 +79,29 @@ export const DistributionMeasures = () => (
       strokeLinejoin="round"
       strokeMiterlimit={10}
       strokeWidth={0.5}
-      d="M103.9 83.3L943.7 83.3"
+      d={`M103.9 ${TOP_LIMIT} L943.7 ${TOP_LIMIT}`}
     />
 
-    {/* x axis marks */}
-    <text className="st7 st14" transform="translate(125.3 963)">
-      {"1970"}
-    </text>
-    <text className="st7 st14" transform="translate(190 963)">
-      {"1975"}
-    </text>
-    <text className="st7 st14" transform="translate(254.6 963)">
-      {"1980"}
-    </text>
-    <text className="st7 st14" transform="translate(319.2 963)">
-      {"1985"}
-    </text>
-    <text className="st7 st14" transform="translate(383.8 963)">
-      {"1990"}
-    </text>
-    <text className="st7 st14" transform="translate(448.4 963)">
-      {"1995"}
-    </text>
-    <text className="st7 st14" transform="translate(513 963)">
-      {"2000"}
-    </text>
-    <text className="st7 st14" transform="translate(577.7 963)">
-      {"2005"}
-    </text>
-    <text className="st7 st14" transform="translate(642.3 963)">
-      {"2010"}
-    </text>
-    <text className="st7 st14" transform="translate(707 963)">
-      {"2015"}
-    </text>
-    <text className="st7 st14" transform="translate(768 963)">
-      {"2020"}
-    </text>
-
-    {/* Bars */}
+    {/* Axes */}
     <path className="st2" d="M103.9 598.5L105.4 598.5" />
-    <path className="st4" d="M109.4 598.5L760.5 598.5" />
     <path className="st2" d="M762.6 598.5L764.1 598.5" />
     <path className="st2" d="M103.9 425.5L105.4 425.5" />
-    <path className="st4" d="M109.4 425.5L760.5 425.5" />
     <path className="st2" d="M762.6 425.5L764.1 425.5" />
     <path className="st6" d="M105.2 84.4L105.2 954.4" />
     <path className="st6" d="M943.7 944.1L95.7 944.1" />
+
     <text transform="rotate(-90 313.1 266.9)" className="st7" fontSize={16}>
       {"% of women getting degrees"}
     </text>
   </>
 );
+
+DistributionMeasures.propTypes = {
+  measures: PropTypes.shape({
+    xPoints: PropTypes.any,
+    yPoints: PropTypes.any
+  })
+};
 
 export const DistributionFooter = () => (
   <>
