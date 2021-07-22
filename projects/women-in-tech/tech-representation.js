@@ -71,7 +71,7 @@ const TechRepresentation = () => {
         />
         <CenteredImage
           src="/static/images/women-in-tech/mosaic-sexualized.jpg"
-          alt="Ads promoting computed with sexualized women. 'How's your love life?' "
+          alt="Ads promoting computers with sexualized women. 'How's your love life?' "
         />
 
         <Paragraph>
@@ -91,8 +91,7 @@ const TechRepresentation = () => {
         <Paragraph>
           So, if we want a more inclusive field of work, where everyone feels welcomed, it is time
           to think about the role models we present. Representation is key,{" "}
-          <i>you can’t be what you can’t</i>
-          see.
+          <i>you can’t be what you can’t</i> see.
         </Paragraph>
       </RowContainer>
     </Article>
