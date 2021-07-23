@@ -28,7 +28,7 @@ const TechRepresentation = () => {
       </RowContainer>
 
       <GraphicContainer>
-        <DistributionGraphic data={womenInTechData.data} />
+        <DistributionGraphic data={womenInTechData} />
       </GraphicContainer>
 
       <RowContainer>
@@ -91,7 +91,7 @@ const TechRepresentation = () => {
         <Paragraph>
           So, if we want a more inclusive field of work, where everyone feels welcomed, it is time
           to think about the role models we present. Representation is key,{" "}
-          <i>you can’t be what you can’t</i> see.
+          <i>you can’t be what you can’t see</i>.
         </Paragraph>
       </RowContainer>
     </Article>
