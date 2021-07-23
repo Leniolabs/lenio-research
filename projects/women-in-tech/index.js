@@ -1,7 +1,5 @@
-import { GraphicContainer, Presentation } from "./women-in-tech.style";
-import womenInTechData from "./women-in-tech.data";
-
-import DistributionGraphic from "./svg-components/DistributionGraphic";
+import WomenInTechArticle from "./article";
+import { Presentation } from "./women-in-tech.style";
 
 const Index = () => {
   return (
@@ -9,15 +7,21 @@ const Index = () => {
       <main>
         <Presentation>
           <h1>
-            Distribution of Women Bachelors <br />
-            by field
+            Representation and what happened <br />
+            to women in Tech
           </h1>
-          <p>Over the years since 1970.</p>
+          <span className="author">
+            An article written by{" "}
+            <a
+              href="https://www.linkedin.com/in/lara-schv"
+              target="_blank"
+              rel="noopener noreferrer">
+              Lara Schvartzman
+            </a>{" "}
+          </span>
         </Presentation>
 
-        <GraphicContainer>
-          <DistributionGraphic data={womenInTechData.data} />
-        </GraphicContainer>
+        <WomenInTechArticle />
       </main>
     </>
   );
