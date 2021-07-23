@@ -1,65 +1,5 @@
+import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
-
-export const Article = styled.article`
-  margin-bottom: 5rem;
-`;
-
-export const RowContainer = ({ children, cssStyles }) => (
-  <div
-    css={css`
-      margin: 0 auto;
-      ${cssStyles}
-    `}
-    className="row-container">
-    {children}
-  </div>
-);
-
-export const Title = ({ children }) => styled.h1``;
-
-export const CenteredImage = ({ alt, src, ...imageProps }) => (
-  <div
-    css={css`
-      display: flex;
-      justify-content: center;
-      margin: 2rem 0;
-
-      img {
-        max-width: 90%;
-      }
-    `}>
-    <img alt={alt} src={src} {...imageProps} />
-  </div>
-);
-
-export const Subtitle = styled.h2`
-  font-size: 2rem;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 1rem;
-`;
-
-export const Paragraph = ({ children }) => <p className="">{children}</p>;
-
-export const GraphicContainer = ({ children }) => (
-  <div
-    className="row-container"
-    css={css`
-      margin: 0 auto 2rem auto;
-      max-width: 95%;
-      display: flex;
-      justify-content: center;
-
-      @media (min-width: 768px) {
-        min-height: 80vh;
-        svg {
-          height: calc(50vh + 300px);
-        }
-      }
-    `}>
-    {children}
-  </div>
-);
 
 export const Presentation = styled.section`
   background-size: 220px;
@@ -93,6 +33,19 @@ export const Presentation = styled.section`
       color: #2a9faa;
     }
   }
+`;
+
+export const Article = styled.article`
+  margin-bottom: 5rem;
+`;
+
+export const Title = styled.h1``;
+
+export const Subtitle = styled.h2`
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
 `;
 
 export const svgStyles = css`
@@ -138,3 +91,59 @@ export const svgStyles = css`
     font-size: 18px;
   }
 `;
+
+export const Paragraph = styled.p``;
+
+export const RowContainer = ({ children }) => (
+  <div
+    css={css`
+      margin: 0 auto;
+    `}
+    className="row-container">
+    {children}
+  </div>
+);
+
+RowContainer.propTypes = { children: PropTypes.any };
+
+export const CenteredImage = ({ alt, src, ...imageProps }) => (
+  <div
+    css={css`
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0;
+
+      img {
+        max-width: 90%;
+      }
+    `}>
+    <img alt={alt} src={src} {...imageProps} />
+  </div>
+);
+
+CenteredImage.propTypes = {
+  alt: PropTypes.string,
+  src: PropTypes.string
+};
+
+export const GraphicContainer = ({ children }) => (
+  <div
+    className="row-container"
+    css={css`
+      margin: 0 auto 2rem auto;
+      max-width: 95%;
+      display: flex;
+      justify-content: center;
+
+      @media (min-width: 768px) {
+        min-height: 80vh;
+        svg {
+          height: calc(50vh + 300px);
+        }
+      }
+    `}>
+    {children}
+  </div>
+);
+
+GraphicContainer.propTypes = { children: PropTypes.any };

@@ -10,7 +10,7 @@ import {
   Article
 } from "./women-in-tech.style";
 
-const TechRepresentation = () => {
+const WomenInTechArticle = () => {
   return (
     <Article>
       <RowContainer>
@@ -98,4 +98,4 @@ const TechRepresentation = () => {
   );
 };
 
-export default TechRepresentation;
+export default WomenInTechArticle;

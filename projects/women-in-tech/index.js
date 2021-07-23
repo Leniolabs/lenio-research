@@ -1,4 +1,4 @@
-import TechRepresentation from "./tech-representation";
+import WomenInTechArticle from "./article";
 import { Presentation } from "./women-in-tech.style";
 
 const Index = () => {
@@ -12,13 +12,16 @@ const Index = () => {
           </h1>
           <span className="author">
             An article written by{" "}
-            <a href="https://www.TODO/url" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.linkedin.com/in/lara-schv"
+              target="_blank"
+              rel="noopener noreferrer">
               Lara Schvartzman
             </a>{" "}
           </span>
         </Presentation>
 
-        <TechRepresentation />
+        <WomenInTechArticle />
       </main>
     </>
   );
