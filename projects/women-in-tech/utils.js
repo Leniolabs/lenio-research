@@ -1,4 +1,4 @@
-import { scaleLinear } from "d3-scale";
+import { scaleLinear, scaleOrdinal, scaleQuantize, scaleSequential } from "d3-scale";
 
 export const GraphicConstants = Object.freeze({
   BOTTOM_LIMIT: 942,
@@ -45,3 +45,20 @@ export const buildMeasureYCoordinate = (index, numOfElements) => {
 
   return getMeasureY(index);
 };
+
+export const getLastItemVerticalPoint = (yPoints, numOfSlots) => {
+  const { BOTTOM_LIMIT, TOP_LIMIT } = GraphicConstants;
+  const lastYPercentage = yPoints[yPoints.length - 1].value;
+  const verticalPoint = getVerticalPointFromPercentage(lastYPercentage);
+
+  const getDiscretePosition = scaleQuantize()
+    .domain([TOP_LIMIT, BOTTOM_LIMIT])
+    .range(getScaledArray(numOfSlots));
+
+  const discreteYPos = getDiscretePosition(verticalPoint);
+
+  return buildMeasureYCoordinate(Math.abs(discreteYPos - numOfSlots), numOfSlots);
+};
+
+// n is 5 => [1,2,3,4,5]; n is 10 => [1,2,3,4,5,6,7,8,9,10];
+const getScaledArray = (n) => new Array(n).fill(null).map((_, i) => i + 1);

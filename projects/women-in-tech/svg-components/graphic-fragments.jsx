@@ -1,4 +1,6 @@
+import { motion } from "framer-motion";
 import PropTypes from "prop-types";
+import { css } from "styled-components";
 import { buildMeasureXCoordinate, buildMeasureYCoordinate, GraphicConstants } from "../utils";
 import { svgStyles } from "../women-in-tech.style";
 
@@ -138,3 +140,18 @@ export const DistributionFooter = () => (
     </text>
   </>
 );
+
+export const CareerEntry = ({ children }) => {
+  return (
+    <motion.g
+      css={css`
+        cursor: pointer;
+      `}>
+      {children}
+    </motion.g>
+  );
+};
+
+CareerEntry.propTypes = {
+  children: PropTypes.any
+};
