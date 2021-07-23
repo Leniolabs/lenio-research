@@ -72,8 +72,7 @@ export default {
     {
       text: {
         className: "st14",
-        transform: "translate(774 215.3)",
-        children: "Health professions"
+        value: "Health professions"
       },
       path: {
         className: "st1",
@@ -132,8 +131,7 @@ export default {
     {
       text: {
         className: "st14",
-        transform: "translate(774 229.6)",
-        children: "Public administration & social services"
+        value: "Public administration & social services"
       },
       path: {
         className: "st1",
@@ -192,8 +190,7 @@ export default {
     {
       text: {
         className: "st14",
-        transform: "translate(774 243.5)",
-        children: "Education"
+        value: "Education"
       },
       path: {
         className: "st1",
@@ -252,8 +249,7 @@ export default {
     {
       text: {
         className: "st14",
-        transform: "translate(774 264.9)",
-        children: "Psychology"
+        value: "Psychology"
       },
       path: {
         className: "st1",
@@ -312,8 +308,7 @@ export default {
     {
       text: {
         className: "st14",
-        transform: "translate(774 334.2)",
-        children: "English language and literature/letters"
+        value: "English language and literature/letters"
       },
       path: {
         className: "st1",
@@ -372,8 +367,7 @@ export default {
     {
       text: {
         className: "st14",
-        transform: "translate(774 353.7)",
-        children: "Foreign languages and literatures"
+        value: "Foreign languages and literatures"
       },
       path: {
         className: "st1",
@@ -432,8 +426,7 @@ export default {
     {
       text: {
         className: "st14",
-        transform: "translate(774 392.8)",
-        children: "Communication, journalism"
+        value: "Communication, journalism"
       },
       path: {
         className: "st1",
@@ -492,8 +485,7 @@ export default {
     {
       text: {
         className: "st14",
-        transform: "translate(774 406)",
-        children: "Biological and biomedical sciences"
+        value: "Biological and biomedical sciences"
       },
       path: {
         className: "st1",
@@ -552,8 +544,7 @@ export default {
     {
       text: {
         className: "st14",
-        transform: "translate(774 484.5)",
-        children: "Agriculture and natural resources"
+        value: "Agriculture and natural resources"
       },
       path: {
         className: "st1",
@@ -612,8 +603,7 @@ export default {
     {
       text: {
         className: "st14",
-        transform: "translate(774 514.6)",
-        children: "Social sciences and history"
+        value: "Social sciences and history"
       },
       path: {
         className: "st1",
@@ -672,8 +662,7 @@ export default {
     {
       text: {
         className: "st14",
-        transform: "translate(774 580.3)",
-        children: "Mathematics and statistics"
+        value: "Mathematics and statistics"
       },
       path: {
         className: "st1",
@@ -732,8 +721,7 @@ export default {
     {
       text: {
         className: "st14",
-        transform: "translate(774 601.5)",
-        children: "Physical sciences"
+        value: "Physical sciences"
       },
       path: {
         className: "st1",
@@ -791,10 +779,9 @@ export default {
     },
     {
       text: {
-        transform: "translate(773.7 777.4)",
         className: "st18 st14",
         fill: "#ee1f48",
-        children: "Computer and Information Science"
+        value: "Computer and Information Science"
       },
       path: {
         fill: "none",
@@ -856,7 +843,7 @@ export default {
       }
     },
     {
-      text: { className: "st14", children: "Business" },
+      text: { className: "st14", value: "Business" },
       path: {
         className: "st1",
         yPoints: [
@@ -914,7 +901,7 @@ export default {
     {
       text: {
         className: "st14",
-        children: "Engineering and engineering technologies"
+        value: "Engineering and engineering technologies"
       },
       path: {
         className: "st1",
@@ -971,7 +958,7 @@ export default {
       }
     },
     {
-      text: { className: "st14", children: "Visual and performing arts" },
+      text: { className: "st14", value: "Visual and performing arts" },
       path: {
         className: "st1",
         yPoints: [
@@ -1029,7 +1016,7 @@ export default {
     {
       text: {
         className: "st14",
-        children: "Architecture and related services"
+        value: "Architecture and related services"
       },
       path: {
         className: "st1",

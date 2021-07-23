@@ -7,7 +7,9 @@ import {
   DistributionMeasures,
   DistributionTitle
 } from "./graphic-fragments";
-import { buildPath } from "../utils";
+import { getVerticalPointFromPercentage, buildPath, GraphicConstants } from "../utils";
+
+const { RIGHT_LIMIT } = GraphicConstants;
 
 const DistributionGraphic = ({ data, ...extraProps }) => {
   const {
@@ -24,11 +26,14 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
       {entries.map((entry) => {
         const { yPoints, ...pathData } = entry.path;
         const path = buildPath(xPoints, yPoints);
+        const lastPointY = getVerticalPointFromPercentage(yPoints[yPoints.length - 1].value);
 
         return (
           <motion.g key={entry.text.children}>
             <path {...pathData} d={path} />
-            <text {...entry.text} />
+            <text {...entry.text} transform={`translate(${RIGHT_LIMIT - 10} ${lastPointY})`}>
+              {entry.text.value}
+            </text>
           </motion.g>
         );
       })}

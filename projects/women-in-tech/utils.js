@@ -19,7 +19,7 @@ export const buildPath = (xValues, yValues) => {
   return string.slice(0, -1);
 };
 
-const getVerticalPointFromPercentage = (percentage) => {
+export const getVerticalPointFromPercentage = (percentage) => {
   const { TOP_LIMIT, BOTTOM_LIMIT } = GraphicConstants;
   const getVerticalPoint = scaleLinear().domain([0, 100]).range([BOTTOM_LIMIT, TOP_LIMIT]);
 
