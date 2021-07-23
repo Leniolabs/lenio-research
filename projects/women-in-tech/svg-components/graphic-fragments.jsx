@@ -25,7 +25,7 @@ DistributionContainer.propTypes = {
 
 export const DistributionTitle = () => (
   <text transform="translate(230.2 58.6)" className="st7" fontSize={30}>
-    Distribution of Women Bachelors by field
+    Percentage of Women Bachelors by field
   </text>
 );
 
@@ -91,7 +91,7 @@ export const DistributionMeasures = ({ measures }) => (
     <path className="st6" d="M943.7 944.1L95.7 944.1" />
 
     <text transform="rotate(-90 313.1 266.9)" className="st7" fontSize={16}>
-      {"% of women getting degrees"}
+      % of degrees granted to women
     </text>
   </>
 );
