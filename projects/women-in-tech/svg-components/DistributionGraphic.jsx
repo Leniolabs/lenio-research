@@ -7,7 +7,7 @@ import {
   DistributionTitle,
   CareerEntry
 } from "./graphic-fragments";
-import { buildPath, GraphicConstants, getLastItemVerticalPoint } from "../utils";
+import { buildPath, GraphicConstants, getVerticalPointFromPercentage, getLastItem } from "../utils";
 import { generateSlots, getFilledSlots } from "../slotUtils";
 
 const { BOTTOM_LIMIT, TOP_LIMIT } = GraphicConstants;
@@ -29,10 +29,15 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
       numOfSlots: SLOT_RESOLUTION
     });
 
-    const points = entries.map((entry) => ({
-      position: getLastItemVerticalPoint(entry.path.yPoints, SLOT_RESOLUTION),
-      label: entry.text.value
-    }));
+    const points = entries.map(({ path: { yPoints }, text }) => {
+      const textY = getVerticalPointFromPercentage(getLastItem(yPoints).value);
+
+      return {
+        position: textY,
+        value: textY,
+        label: text.value
+      };
+    });
 
     const obj = {};
     getFilledSlots(slots, points).forEach((slot) => {

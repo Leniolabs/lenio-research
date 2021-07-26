@@ -12,7 +12,7 @@ export const SlotDirection = Object.freeze({
 });
 
 const LABEL_UNAVAILABLE_TO_RELOCATE =
-  "There is a clash between labels or the label is out of bounds, please increase number of slots";
+  "There's a clash between labels or the label is out of bounds, please increase number of slots. Displayed data may be lost";
 
 export const getSlotPositionFromRange = (domain, range, n) => {
   const getSlotPosition = scaleLinear().domain(domain).range(range);
@@ -52,9 +52,13 @@ const slotIndexIsAvailable = (slots, index) => {
   return nextSlotIsAvailable && !isOutOfRange;
 };
 
-const insertSlot = (slots, index, slotToRelocate) => {
+const insertSlot = (slots, index, slotToInsert) => {
   slots = [...slots];
-  slots[index + 1] = { ...slotToRelocate, position: slots[index + 1].position };
+  slots[index] = {
+    ...slotToInsert,
+    position: slots[index].position,
+    value: slotToInsert.value
+  };
 
   return slots;
 };
@@ -62,21 +66,16 @@ const insertSlot = (slots, index, slotToRelocate) => {
 const relocateSlot = (slots, slotToRelocate) => {
   slots = [...slots];
   const { slot: conflictSlot, index } = checkSlot(slots, slotToRelocate.position);
-  const [prevIndex, nextIndex] = [index - 1, index + 1];
 
-  // Try move up. (in this first case the positions are inversed (due to how svg works))
-  if (slotToRelocate.position < conflictSlot.position) {
-    if (slotIndexIsAvailable(slots, prevIndex)) {
-      slots = insertSlot(slots, prevIndex, slotToRelocate);
-    } else {
-      console.warn(LABEL_UNAVAILABLE_TO_RELOCATE);
-    }
+  // determine which index we should check next
+  const relocateIndex = slotToRelocate.value < conflictSlot.value ? index + 1 : index - 1;
+  console.log(slotToRelocate.value, conflictSlot.value);
+
+  if (slotIndexIsAvailable(slots, relocateIndex)) {
+    slots = insertSlot(slots, relocateIndex, slotToRelocate);
   } else {
-    if (slotIndexIsAvailable(slots, nextIndex)) {
-      slots = insertSlot(slots, nextIndex, slotToRelocate);
-    } else {
-      console.warn(LABEL_UNAVAILABLE_TO_RELOCATE);
-    }
+    console.warn(LABEL_UNAVAILABLE_TO_RELOCATE);
+    // Call recursively?
   }
 
   return slots;
@@ -89,15 +88,15 @@ export const getFilledSlots = (slots, points) => {
 
   points.forEach((point) => {
     const { position } = point;
-
     const { slot, index } = checkSlot(filledSlots, position);
 
+    // An existing label means the slot is already in use
     if (slot.label) {
       // Swap them to see which is the most appropiate slot for this label
       filledSlots = relocateSlot(filledSlots, point);
     } else {
       //Add it
-      filledSlots[index] = point;
+      filledSlots = insertSlot(filledSlots, index, point);
     }
   });
 

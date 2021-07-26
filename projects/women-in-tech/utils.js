@@ -47,16 +47,4 @@ export const buildMeasureYCoordinate = (index, numOfElements) => {
   return getMeasureY(index);
 };
 
-export const getLastItemVerticalPoint = (yPoints, numOfSlots) => {
-  const { BOTTOM_LIMIT, TOP_LIMIT } = GraphicConstants;
-  const lastYPercentage = yPoints[yPoints.length - 1].value;
-  const verticalPoint = getVerticalPointFromPercentage(lastYPercentage);
-
-  const getDiscretePosition = scaleQuantize()
-    .domain([TOP_LIMIT, BOTTOM_LIMIT])
-    .range(getScaledArray(numOfSlots));
-
-  const discreteYPos = getDiscretePosition(verticalPoint);
-
-  return buildMeasureYCoordinate(Math.abs(discreteYPos - numOfSlots), numOfSlots);
-};
+export const getLastItem = (arr) => arr[arr.length - 1];
