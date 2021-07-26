@@ -13,7 +13,7 @@ import { generateSlots, getFilledSlots } from "../slotUtils";
 const { BOTTOM_LIMIT, TOP_LIMIT } = GraphicConstants;
 
 // Number of slots. The less resolution you set, the possibilities of text clashing grow
-const SLOT_RESOLUTION = 105;
+const SLOT_RESOLUTION = 85;
 
 const DistributionGraphic = ({ data, ...extraProps }) => {
   const {

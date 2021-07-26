@@ -1,6 +1,17 @@
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
+export const GraphicColors = Object.freeze({
+  RED: "#ee1f48",
+  LIGHT_GREY: "#d3d3d3",
+  DARK_GREY: "#2b2c2b",
+  BLACK: "#010101",
+  GREY: "#6b6c6c",
+  DARK_BLUE: "#14192e",
+  WHITE: "#fffefa",
+  CYAN: "#32aab3"
+});
+
 export const Presentation = styled.section`
   background-size: 220px;
   padding: 4rem 0 6rem;
@@ -59,45 +70,46 @@ export const svgStyles = css`
   .st1 {
     opacity: 0.3;
     stroke-miterlimit: 10;
-    stroke: #2b2c2b;
+    stroke: ${GraphicColors.DARK_GREY};
   }
   .st2,
   .st4 {
-    stroke: #d3d3d3;
+    stroke: ${GraphicColors.LIGHT_GREY};
     stroke-width: 0.5;
   }
   .st4 {
     stroke-dasharray: 3.0099, 4.0132;
   }
   .st6 {
-    stroke: #010101;
+    stroke: ${GraphicColors.BLACK};
     stroke-miterlimit: 10;
   }
   .st6,
   .st7 {
-    fill: #010101;
+    fill: ${GraphicColors.BLACK};
   }
   .st11 {
     font-size: 11px;
   }
   .st14 {
     font-size: 12px;
-    fill: #6b6c6c;
+    fill: ${GraphicColors.GREY};
   }
   .st15 {
-    fill: #14192e;
+    fill: ${GraphicColors.DARK_BLUE};
   }
   .st19 {
     font-size: 18px;
   }
 `;
+
 export const NormalPath = (props) => <path {...props} />;
 
 export const HighlightedPath = (props) => (
   <path
     fill="none"
     style={{
-      stroke: "#ee1f48",
+      stroke: GraphicColors.RED,
       strokeLinecap: "round",
       strokeLinejoin: "round",
       strokeMiterlimit: 10,
