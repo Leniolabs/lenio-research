@@ -1,8 +1,10 @@
+import { motion } from "framer-motion";
 import PropTypes from "prop-types";
+import { css } from "styled-components";
 import { buildMeasureXCoordinate, buildMeasureYCoordinate, GraphicConstants } from "../utils";
-import { svgStyles } from "../women-in-tech.style";
+import { GraphicColors, HighlightedPath, NormalPath, svgStyles } from "../women-in-tech.style";
 
-const { TOP_LIMIT } = GraphicConstants;
+const { TOP_LIMIT, RIGHT_LIMIT } = GraphicConstants;
 
 export const DistributionContainer = ({ children, ...props }) => (
   <svg
@@ -14,7 +16,7 @@ export const DistributionContainer = ({ children, ...props }) => (
     xmlSpace="preserve"
     css={svgStyles}
     {...props}>
-    <path fill="#fffefa" d="M0 0H994.6V1078.8H0z" />
+    <path fill={GraphicColors.WHITE} d="M0 0H994.6V1078.8H0z" />
     {children}
   </svg>
 );
@@ -74,7 +76,7 @@ export const DistributionMeasures = ({ measures }) => (
     {/* Top Guide line */}
     <path
       fill="none"
-      stroke="#d3d3d3"
+      stroke={GraphicColors.LIGHT_GREY}
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeMiterlimit={10}
@@ -113,7 +115,7 @@ export const DistributionFooter = () => (
       d="M130.1 1028.4h6.9v2.3h-9.7V1016h2.8v12.4zm18.6 4.5h-9.2v-2.2h9.2v2.2z"
       className="st15"
     />
-    <circle cx={116.4} cy={1006.1} r={3.2} fill="#32aab3" />
+    <circle cx={116.4} cy={1006.1} r={3.2} fill={GraphicColors.CYAN} />
 
     <text transform="translate(175.8 1017.8)">
       <tspan x={0} y={0} className="st7 st19">
@@ -138,3 +140,38 @@ export const DistributionFooter = () => (
     </text>
   </>
 );
+
+export const CareerEntry = ({ onTextClick, highlight, pathData, textData }) => {
+  const PathComponent = highlight ? HighlightedPath : NormalPath;
+
+  const { path, ...pathProps } = pathData;
+  const { value: textValue, translateY, ...textProps } = textData;
+
+  return (
+    <motion.g
+      css={css`
+        cursor: pointer;
+      `}>
+      <PathComponent d={path} {...pathProps} />
+      <text
+        onClick={onTextClick}
+        transform={`translate(${RIGHT_LIMIT - 10} ${translateY + 4})`}
+        {...textProps}
+        style={{ fill: highlight ? GraphicColors.RED : null }}>
+        {textValue}
+      </text>
+    </motion.g>
+  );
+};
+
+CareerEntry.propTypes = {
+  onTextClick: PropTypes.func,
+  highlight: PropTypes.bool,
+  pathData: PropTypes.shape({
+    path: PropTypes.string
+  }),
+  textData: PropTypes.shape({
+    value: PropTypes.string,
+    translateY: PropTypes.number
+  })
+};

@@ -1,4 +1,5 @@
-import { scaleLinear } from "d3-scale";
+import { scaleLinear, scaleQuantize } from "d3-scale";
+import { getScaledArray } from "./slotUtils";
 
 export const GraphicConstants = Object.freeze({
   BOTTOM_LIMIT: 942,
@@ -19,7 +20,7 @@ export const buildPath = (xValues, yValues) => {
   return string.slice(0, -1);
 };
 
-const getVerticalPointFromPercentage = (percentage) => {
+export const getVerticalPointFromPercentage = (percentage) => {
   const { TOP_LIMIT, BOTTOM_LIMIT } = GraphicConstants;
   const getVerticalPoint = scaleLinear().domain([0, 100]).range([BOTTOM_LIMIT, TOP_LIMIT]);
 
@@ -45,3 +46,5 @@ export const buildMeasureYCoordinate = (index, numOfElements) => {
 
   return getMeasureY(index);
 };
+
+export const getLastItem = (arr) => arr[arr.length - 1];
