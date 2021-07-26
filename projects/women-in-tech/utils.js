@@ -1,4 +1,5 @@
-import { scaleLinear, scaleOrdinal, scaleQuantize, scaleSequential } from "d3-scale";
+import { scaleLinear, scaleQuantize } from "d3-scale";
+import { getScaledArray } from "./slotUtils";
 
 export const GraphicConstants = Object.freeze({
   BOTTOM_LIMIT: 942,
@@ -59,6 +60,3 @@ export const getLastItemVerticalPoint = (yPoints, numOfSlots) => {
 
   return buildMeasureYCoordinate(Math.abs(discreteYPos - numOfSlots), numOfSlots);
 };
-
-// n is 5 => [1,2,3,4,5]; n is 10 => [1,2,3,4,5,6,7,8,9,10];
-const getScaledArray = (n) => new Array(n).fill(null).map((_, i) => i + 1);

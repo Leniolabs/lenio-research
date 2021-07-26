@@ -1,6 +1,5 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { motion } from "framer-motion";
 import {
   DistributionContainer,
   DistributionFooter,
@@ -9,8 +8,12 @@ import {
   CareerEntry
 } from "./graphic-fragments";
 import { buildPath, GraphicConstants, getLastItemVerticalPoint } from "../utils";
+import { generateSlots, getFilledSlots } from "../slotUtils";
 
-const { RIGHT_LIMIT } = GraphicConstants;
+const { RIGHT_LIMIT, BOTTOM_LIMIT, TOP_LIMIT } = GraphicConstants;
+
+// Number of slots. The less resolution you set, the possibilities of text clashing grow
+const SLOT_RESOLUTION = 105;
 
 const DistributionGraphic = ({ data, ...extraProps }) => {
   const {
@@ -18,6 +21,26 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
     measures: { xPoints },
     entries
   } = data;
+
+  const filledSlots = React.useMemo(() => {
+    const slots = generateSlots({
+      bottomLimit: BOTTOM_LIMIT,
+      topLimit: TOP_LIMIT,
+      numOfSlots: SLOT_RESOLUTION
+    });
+
+    const points = entries.map((entry) => ({
+      position: getLastItemVerticalPoint(entry.path.yPoints, SLOT_RESOLUTION),
+      label: entry.text.value
+    }));
+
+    const obj = {};
+    getFilledSlots(slots, points).forEach((slot) => {
+      obj[slot.label] = slot.position;
+    });
+
+    return obj;
+  }, [entries]);
 
   return (
     <DistributionContainer {...extraProps}>
@@ -27,7 +50,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
       {entries.map((entry) => {
         const { yPoints, ...pathData } = entry.path;
         const path = buildPath(xPoints, yPoints);
-        const lastPointY = getLastItemVerticalPoint(yPoints, yPoints.length * 2);
+        let lastPointY = filledSlots[entry.text.value];
 
         return (
           <CareerEntry
