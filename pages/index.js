@@ -45,7 +45,7 @@ export const Index = () => {
         <meta property="og:locale" content="en_US" />
         <meta property="article:author" content="Leniolabs_ Research" />
       </Head>
-      <Home></Home>
+      <Home />
     </div>
   );
 };
