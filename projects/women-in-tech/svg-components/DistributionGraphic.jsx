@@ -63,7 +63,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
             highlight={entry.highlight}
             pathData={{ path, ...pathData }}
             textData={{ translateY: lastPointY, ...entry.text }}
-            onClick={(e) => console.log(e.currentTarget.closest("g"))}
+            onTextClick={(e) => console.log(e.currentTarget.closest("g"))}
           />
         );
       })}

@@ -141,7 +141,7 @@ export const DistributionFooter = () => (
   </>
 );
 
-export const CareerEntry = ({ highlight, pathData, textData }) => {
+export const CareerEntry = ({ onTextClick, highlight, pathData, textData }) => {
   const PathComponent = highlight ? HighlightedPath : NormalPath;
 
   const { path, ...pathProps } = pathData;
@@ -154,6 +154,7 @@ export const CareerEntry = ({ highlight, pathData, textData }) => {
       `}>
       <PathComponent d={path} {...pathProps} />
       <text
+        onClick={onTextClick}
         transform={`translate(${RIGHT_LIMIT - 10} ${translateY + 4})`}
         {...textProps}
         style={{ fill: highlight ? GraphicColors.RED : null }}>
@@ -164,6 +165,7 @@ export const CareerEntry = ({ highlight, pathData, textData }) => {
 };
 
 CareerEntry.propTypes = {
+  onTextClick: PropTypes.func,
   highlight: PropTypes.bool,
   pathData: PropTypes.shape({
     path: PropTypes.string

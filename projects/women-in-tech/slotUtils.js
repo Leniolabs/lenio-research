@@ -69,7 +69,6 @@ const relocateSlot = (slots, slotToRelocate) => {
 
   // determine which index we should check next
   const relocateIndex = slotToRelocate.value < conflictSlot.value ? index + 1 : index - 1;
-  console.log(slotToRelocate.value, conflictSlot.value);
 
   if (slotIndexIsAvailable(slots, relocateIndex)) {
     slots = insertSlot(slots, relocateIndex, slotToRelocate);
