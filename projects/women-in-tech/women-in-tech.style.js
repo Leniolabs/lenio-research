@@ -91,6 +91,22 @@ export const svgStyles = css`
     font-size: 18px;
   }
 `;
+export const NormalPath = (props) => <path {...props} />;
+
+export const HighlightedPath = (props) => (
+  <path
+    fill="none"
+    style={{
+      stroke: "#ee1f48",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      strokeMiterlimit: 10,
+      strokeWidth: 3,
+      fill: "none"
+    }}
+    {...props}
+  />
+);
 
 export const Paragraph = styled.p``;
 

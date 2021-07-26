@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import PropTypes from "prop-types";
 import { css } from "styled-components";
 import { buildMeasureXCoordinate, buildMeasureYCoordinate, GraphicConstants } from "../utils";
-import { svgStyles } from "../women-in-tech.style";
+import { HighlightedPath, NormalPath, svgStyles } from "../women-in-tech.style";
 
-const { TOP_LIMIT } = GraphicConstants;
+const { TOP_LIMIT, RIGHT_LIMIT } = GraphicConstants;
 
 export const DistributionContainer = ({ children, ...props }) => (
   <svg
@@ -141,17 +141,35 @@ export const DistributionFooter = () => (
   </>
 );
 
-export const CareerEntry = ({ children }) => {
+export const CareerEntry = ({ highlight, pathData, textData }) => {
+  let PathComponent = NormalPath;
+  if (highlight) {
+    PathComponent = HighlightedPath;
+  }
+
+  const { path, ...pathProps } = pathData;
+  const { value: textValue, translateY, ...textProps } = textData;
+
   return (
     <motion.g
       css={css`
         cursor: pointer;
       `}>
-      {children}
+      <PathComponent d={path} {...pathProps} />
+      <text transform={`translate(${RIGHT_LIMIT - 10} ${translateY})`} {...textProps}>
+        {textValue}
+      </text>
     </motion.g>
   );
 };
 
 CareerEntry.propTypes = {
-  children: PropTypes.any
+  highlight: PropTypes.bool,
+  pathData: PropTypes.shape({
+    path: PropTypes.string
+  }),
+  textData: PropTypes.shape({
+    value: PropTypes.string,
+    translateY: PropTypes.number
+  })
 };

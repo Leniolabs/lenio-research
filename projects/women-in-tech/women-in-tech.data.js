@@ -778,18 +778,13 @@ export default {
       }
     },
     {
+      highlight: true,
       text: {
         className: "st18 st14",
         fill: "#ee1f48",
         value: "Computer and Information Science"
       },
       path: {
-        fill: "none",
-        stroke: "#ee1f48",
-        strokeLinecap: "round",
-        strokeLinejoin: "round",
-        strokeMiterlimit: 10,
-        strokeWidth: 3,
         yPoints: [
           { date: 1970, value: 13.567 },
           { date: 1971, value: 13.55 },

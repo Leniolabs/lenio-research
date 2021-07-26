@@ -10,7 +10,7 @@ import {
 import { buildPath, GraphicConstants, getLastItemVerticalPoint } from "../utils";
 import { generateSlots, getFilledSlots } from "../slotUtils";
 
-const { RIGHT_LIMIT, BOTTOM_LIMIT, TOP_LIMIT } = GraphicConstants;
+const { BOTTOM_LIMIT, TOP_LIMIT } = GraphicConstants;
 
 // Number of slots. The less resolution you set, the possibilities of text clashing grow
 const SLOT_RESOLUTION = 105;
@@ -55,12 +55,11 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
         return (
           <CareerEntry
             key={entry.text.value}
-            onClick={(e) => console.log(e.currentTarget.closest("g"))}>
-            <path {...pathData} d={path} />
-            <text {...entry.text} transform={`translate(${RIGHT_LIMIT - 10} ${lastPointY})`}>
-              {entry.text.value}
-            </text>
-          </CareerEntry>
+            highlight={entry.highlight}
+            pathData={{ path, ...pathData }}
+            textData={{ translateY: lastPointY, ...entry.text }}
+            onClick={(e) => console.log(e.currentTarget.closest("g"))}
+          />
         );
       })}
 
