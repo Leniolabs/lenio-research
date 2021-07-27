@@ -274,6 +274,16 @@ const GlobalStyle = createGlobalStyle`
       background-size: 100vw;
       padding-bottom: 6rem;
       min-height: 35vh;
+      @media (max-width: 415px) {
+        padding-bottom: 1rem;
+        min-height: 25vh;
+      }
+      img {
+        width: 200px;
+        @media (max-width: 415px) {
+          width: 100px;
+        }
+      }
     }
     h2 { 
       font-size: 2rem;

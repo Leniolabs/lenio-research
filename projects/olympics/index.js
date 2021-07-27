@@ -26,9 +26,8 @@ export const Index = () => {
     <section className="chart-wrapper olympics-wrapper">
       <div className="head-main">
         <SectionTitle>
-          <span className="intro-title">Data visualizations of</span>
           Olympics
-          <br /><img src={'/logo-olympics.svg'} alt='logo' width="200" />
+          <br /><img src={'/logo-olympics.svg'} alt='logo' />
         </SectionTitle>
       </div>
       <div className="row-container">
@@ -36,9 +35,9 @@ export const Index = () => {
       <BarChart
         data={barChartData.sort((a, b) => (a.total_medals < b.total_medals) ? 1 : -1).slice(0, 11)}
         values={[[
-          { property: "gold_medals", color: "#F7C655", label: "medals of Gold" },
-          { property: "silver_medals", color: "#AABFBF", label: "medals of Silver" },
-          { property: "bronce_medals", color: "#DB8860", label: "medals of Bronce" }
+          { property: "gold_medals", color: "#F7C655", label: "Gold Medals" },
+          { property: "silver_medals", color: "#AABFBF", label: "Silver Medals" },
+          { property: "bronce_medals", color: "#DB8860", label: "Bronce Medals" }
         ]]} />
       </div>
     </section>
