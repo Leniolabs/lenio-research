@@ -63,7 +63,7 @@ const WomenInTechArticle = () => {
         </Paragraph>
         <CenteredImage
           src="/static/images/women-in-tech/computer-girls.jpg"
-          alt="'The Computer Girls article"
+          alt="The Computer Girls article"
         />
         <Paragraph>
           As Apple released Macintosh 128K and the Commodore 64 was introduced in the market, they
@@ -80,7 +80,7 @@ const WomenInTechArticle = () => {
         />
         <CenteredImage
           src="/static/images/women-in-tech/mosaic-sexualized.jpg"
-          alt="Ads promoting computers with sexualized women. 'How's your love life?' "
+          alt={'Ads promoting computers with sexualized women. "How\'s your love life?" '}
         />
 
         <Paragraph>
@@ -104,7 +104,9 @@ const WomenInTechArticle = () => {
 
         <CenteredImage
           src="/static/images/women-in-tech/nerd-movies.jpg"
-          alt="Films where nerd male heros saves the girl: 'War Games', 'Revenge of the nerds', 'Weird Science'"
+          alt={
+            "Films where nerd male heros saves the girl: 'War Games', 'Revenge of the nerds', 'Weird Science'"
+          }
         />
 
         <Paragraph>
