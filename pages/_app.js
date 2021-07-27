@@ -271,10 +271,9 @@ const GlobalStyle = createGlobalStyle`
     background-color: #fff;
     .head-main {
       background: #fffbf0 url("/bg-olympics.svg") no-repeat bottom center;
-      background-size: 1260px;
-      padding: 4rem 0 10rem;
+      background-size: 100vw;
+      padding-bottom: 6rem;
       min-height: 35vh;
-      width: 100%;
     }
     h2 { 
       font-size: 2rem;

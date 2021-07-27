@@ -28,13 +28,13 @@ export const Index = () => {
         <SectionTitle>
           <span className="intro-title">Data visualizations of</span>
           Olympics
-          <br /><img src={'/logo-olympics.svg'} alt='logo' width="100px" />
+          <br /><img src={'/logo-olympics.svg'} alt='logo' width="200" />
         </SectionTitle>
       </div>
       <div className="row-container">
         <h2>Number of olympic medals by country</h2>
       <BarChart
-        data={barChartData.sort((a, b) => (a.total_medals < b.total_medals) ? 1 : -1).slice(0, 10)}
+        data={barChartData.sort((a, b) => (a.total_medals < b.total_medals) ? 1 : -1).slice(0, 11)}
         values={[[
           { property: "gold_medals", color: "#F7C655", label: "medals of Gold" },
           { property: "silver_medals", color: "#AABFBF", label: "medals of Silver" },

@@ -5,7 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import { generateBigHex } from "../map-vis/Hexes/generateHexes";
 import { toPathString } from "flubber";
 
-const LABELS = [0, 300, 600, 900, 1200, 1500, 1800, 2100, 2400, 2700];
+const LABELS = [0, 250, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500];
 
 const HEX_PATH_STRING = toPathString(generateBigHex({ size: 2, center: [0, 0] }));
 const MARGIN = { LEFT: 143.8 };
@@ -65,7 +65,6 @@ const BarLegend = ({ data }) => {
 };
 
 BarLegend.propTypes = {
-  title: PropTypes.string,
   data: PropTypes.any
 };
 
@@ -114,14 +113,14 @@ export const BarChart = ({
                 return (
                   <motion.rect
                     key={`bar-group-${row.name}-${idx}-${barIdx}-${val.property}`}
-                    width={xScale(row[val.property])}
+                    width={xScale(row[val.property]) / 6}
                     height={BAR_HEIGHT}
-                    x={MARGIN.LEFT + xScale(previousPercentage)}
+                    x={(MARGIN.LEFT + xScale(previousPercentage) / 6)}
                     y={LABELS[idx] / 10 + (barIdx * BAR_HEIGHT) + (17 / 2)} // it is actually the width but horizontal...
                     fill={val.color}
                     animate={{
                       x: previousPercentage > 0 ? [-xScale(previousPercentage), 0] : 0,
-                      width: [0, xScale(row[val.property])]
+                      width: [0, xScale(row[val.property]) / 6]
                     }}
                     transition={{ duration: 0.5 }}
                   />
@@ -148,14 +147,14 @@ export const BarChart = ({
               fill="#2a3f55"
               fontFamily="'Source Sans Pro'"
               fontSize="13"
-              transform={`translate(${MARGIN.LEFT + xScale(v)} 312.8)`}
+              transform={`translate(${(MARGIN.LEFT + xScale(v) / 6)} 312.8)`}
               textAnchor="middle">
               {v}
             </text>
-            {v !== 0 && v !== 100 && (
+            {v !== 0 && (
               <line
-                x1={MARGIN.LEFT + xScale(v)}
-                x2={MARGIN.LEFT + xScale(v)}
+                x1={(MARGIN.LEFT + xScale(v) / 6)}
+                x2={(MARGIN.LEFT + xScale(v) / 6)}
                 y2="298.4"
                 fill="none"
                 stroke="#2a3f55"
