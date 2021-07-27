@@ -1,5 +1,14 @@
 export const mockData = [
   {
+    key: "olympics",
+    link: "olympics",
+    imgPreview: "map-vis.png",
+    title: "Olympics",
+    subtitle: "July 27, 2021",
+    description:
+      "Number of olympic medals by country"
+  },
+  {
     key: "map-vis",
     link: "map-vis",
     imgPreview: "map-vis.png",

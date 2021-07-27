@@ -1,0 +1,21 @@
+
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 143.5 65.6" style="enable-background:new 0 0 143.5 65.6;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#1281C5;stroke-width:2.81;}
+	.st1{fill:none;stroke:#010101;stroke-width:2.81;}
+	.st2{fill:none;stroke:#EE354F;stroke-width:2.81;}
+	.st3{fill:none;stroke:#FCB130;stroke-width:2.81;}
+	.st4{fill:none;stroke:#06A64F;stroke-width:2.81;}
+</style>
+<g>
+	<circle class="st0" cx="22.2" cy="22.2" r="20.8"/>
+	<circle class="st1" cx="71.8" cy="22.2" r="20.8"/>
+	<circle class="st2" cx="121.3" cy="22.2" r="20.8"/>
+	<circle class="st3" cx="47" cy="43.4" r="20.8"/>
+	<circle class="st4" cx="96.5" cy="43.4" r="20.8"/>
+	<path class="st0" d="M38.9,9.7c5.6,7.4,5.6,17.6,0,25"/>
+	<path class="st1" d="M88.4,9.7c5.6,7.4,5.6,17.6,0,25 M71.8,43.1c-4.5,0-8.9-1.5-12.5-4.2"/>
+	<path class="st2" d="M121.3,43.1c-4.5,0-8.9-1.5-12.5-4.2"/>
+</g>
+</svg>

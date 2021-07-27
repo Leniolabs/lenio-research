@@ -267,7 +267,57 @@ const GlobalStyle = createGlobalStyle`
   .main-svg-space {
     background-color: #233042;
   }
-
+  .chart-wrapper.olympics-wrapper {
+    background-color: #fff;
+    .head-main {
+      background: #fffbf0 url("/bg-olympics.svg") no-repeat bottom center;
+      background-size: 100vw;
+      padding-bottom: 6rem;
+      min-height: 35vh;
+      @media (max-width: 415px) {
+        padding-bottom: 1rem;
+        min-height: 25vh;
+      }
+      img {
+        width: 200px;
+        @media (max-width: 415px) {
+          width: 100px;
+        }
+      }
+    }
+    h2 { 
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .sub-p {
+      font-size: 1.2rem;
+      font-weight: normal;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+    .text-p {
+      font-size: 1.4rem;
+      line-height: 1.5;
+      margin: 4rem auto 3rem;
+      max-width: 650px;
+      padding: 1.2rem 2.5rem;
+      position: relative;
+      .comilla {
+        font-size: 8rem;
+        position: absolute;
+        left: -1.4rem;
+        top: -2.6rem;
+      }
+      a {
+        font-weight: bold;
+        margin: .5rem;
+        display: block;
+        text-align: right;
+      }
+    }
+  }
 `;
 
 const theme = {
