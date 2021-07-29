@@ -1,13 +1,19 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { motion } from "framer-motion";
 import {
   DistributionContainer,
   DistributionFooter,
   DistributionMeasures,
-  DistributionTitle
+  DistributionTitle,
+  CareerEntry
 } from "./graphic-fragments";
-import { buildPath } from "../utils";
+import { buildPath, GraphicConstants, getVerticalPointFromPercentage, getLastItem } from "../utils";
+import { generateSlots, getFilledSlots } from "../slotUtils";
+
+const { BOTTOM_LIMIT, TOP_LIMIT } = GraphicConstants;
+
+// Number of slots. The less resolution you set, the possibilities of text clashing grow
+const SLOT_RESOLUTION = 85;
 
 const DistributionGraphic = ({ data, ...extraProps }) => {
   const {
@@ -15,6 +21,31 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
     measures: { xPoints },
     entries
   } = data;
+
+  const filledSlots = React.useMemo(() => {
+    const slots = generateSlots({
+      bottomLimit: BOTTOM_LIMIT,
+      topLimit: TOP_LIMIT,
+      numOfSlots: SLOT_RESOLUTION
+    });
+
+    const points = entries.map(({ path: { yPoints }, text }) => {
+      const textY = getVerticalPointFromPercentage(getLastItem(yPoints).value);
+
+      return {
+        position: textY,
+        value: textY,
+        label: text.value
+      };
+    });
+
+    const obj = {};
+    getFilledSlots(slots, points).forEach((slot) => {
+      obj[slot.label] = slot.position;
+    });
+
+    return obj;
+  }, [entries]);
 
   return (
     <DistributionContainer {...extraProps}>
@@ -24,12 +55,16 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
       {entries.map((entry) => {
         const { yPoints, ...pathData } = entry.path;
         const path = buildPath(xPoints, yPoints);
+        let lastPointY = filledSlots[entry.text.value];
 
         return (
-          <motion.g key={entry.text.children}>
-            <path {...pathData} d={path} />
-            <text {...entry.text} />
-          </motion.g>
+          <CareerEntry
+            key={entry.text.value}
+            highlight={entry.highlight}
+            pathData={{ path, ...pathData }}
+            textData={{ translateY: lastPointY, ...entry.text }}
+            onTextClick={(e) => console.log(e.currentTarget.closest("g"))}
+          />
         );
       })}
 

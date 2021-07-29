@@ -62,13 +62,13 @@ export const Index = () => {
             // onChange={onCountriesChange}
           />
         </StickyContainer>
-      <BarChart
-        data={barChartData.sort((a, b) => (a.total_medals < b.total_medals) ? 1 : -1).slice(0, 11)}
-        values={[[
-          { property: "gold_medals", color: "#F7C655", label: "Gold Medals" },
-          { property: "silver_medals", color: "#AABFBF", label: "Silver Medals" },
-          { property: "bronce_medals", color: "#DB8860", label: "Bronce Medals" }
-        ]]} />
+        <BarChart
+          data={barChartData.sort((a, b) => (a.total_medals < b.total_medals) ? 1 : -1).slice(0, 11)}
+          values={[[
+            { property: "gold_medals", color: "#F7C655", label: "Gold Medals" },
+            { property: "silver_medals", color: "#AABFBF", label: "Silver Medals" },
+            { property: "bronce_medals", color: "#DB8860", label: "Bronce Medals" }
+          ]]} />
         <a href="/data-olympics.json">
           <button className="btn download-btn">Download Data</button>
         </a>
