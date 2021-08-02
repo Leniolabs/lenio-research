@@ -47,7 +47,56 @@ export const Index = () => {
       <div className="row-container">
         <h2>Pole Vault</h2>
         <svg viewBox="0 0 2365 1282" overflow="visible">
-          <image href="olympics-salto.gif" width="2580" height="1127" x="-155" y="80" />
+          <path
+            fill="none"
+            stroke="#EF4458"
+            strokeWidth={5.196}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit={10}
+            d="M274.6 807.2l128.6-41.5 63.5-53.2 63.7-49.4 128.4-29.5L786 609.7l68.1-27.3 59.3-6.7"
+          />
+          <circle fill="#EF4458" cx={274.6} cy={807.2} r={9.8} />
+          <circle fill="#EF4458" cx={402.7} cy={764.3} r={9.8} />
+          <circle fill="#EF4458" cx={466.4} cy={713} r={9.8} />
+          <circle fill="#EF4458" cx={529.8} cy={663.4} r={9.8} />
+          <circle fill="#EF4458" cx={658.2} cy={633} r={9.8} />
+          <circle fill="#EF4458" cx={785.7} cy={609.9} r={9.8} />
+          <circle fill="#EF4458" cx={853.9} cy={582.1} r={9.8} />
+          <circle fill="#EF4458" cx={913.4} cy={575.7} r={9.8} />
+          <path
+            fill="none"
+            stroke="#2B4055"
+            strokeWidth={5.196}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit={10}
+            d="M1167.2 531h64.2"
+          />
+          <circle fill="#2B4055" cx={1167.2} cy={531} r={9.8} />
+          <circle fill="#2B4055" cx={1231.4} cy={531} r={9.8} />
+          <path
+            fill="none"
+            stroke="#2C9FAA"
+            strokeWidth={5.196}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeMiterlimit={10}
+            d="M1293.6 498.1l64.8-91.1 63.7-60.8 65.7-25.1 126.5-59.9 127.7-26.9 127.1-6.6 126.5-3.7 68.3-2 70-2 70-3 69-66"
+          />
+          <circle fill="#2C9FAA" cx={1293.6} cy={498.1} r={9.8} />
+          <circle fill="#2C9FAA" cx={1357.7} cy={408.1} r={9.8} />
+          <circle fill="#2C9FAA" cx={1421.5} cy={346.4} r={9.8} />
+          <circle fill="#2C9FAA" cx={1487.6} cy={320.2} r={9.8} />
+          <circle fill="#2C9FAA" cx={1614} cy={261.1} r={9.8} />
+          <circle fill="#2C9FAA" cx={1742.8} cy={233.9} r={9.8} />
+          <circle fill="#2C9FAA" cx={1868.1} cy={227.9} r={9.8} />
+          <circle fill="#2C9FAA" cx={1995.2} cy={224} r={9.8} />
+          <circle fill="#2C9FAA" cx={2063.9} cy={222} r={9.8} />
+          <circle fill="#2C9FAA" cx={2133.9} cy={220} r={9.8} />
+          <circle fill="#2C9FAA" cx={2203.9} cy={217} r={9.8} />
+          <circle fill="#2C9FAA" cx={2273.9} cy={151} r={9.8} />
+          <image href="olympics-salto-blanco.gif" width="2580" height="1127" x="-155" y="80" />
           <path
             fill="none"
             stroke="#2B4055"
@@ -321,66 +370,32 @@ export const Index = () => {
             strokeMiterlimit={10}
             d="M164 873.1h16.9M164 764.3h16.9M164 655.1h16.9M164 543.4h16.9M164 434.3h16.9M164 322.5h16.9M164 213.4h16.9M164 104.3h16.9"
           />
-          <path
-            fill="none"
-            stroke="#EF4458"
-            strokeWidth={5.196}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeMiterlimit={10}
-            d="M274.6 807.2l128.6-41.5 63.5-53.2 63.7-49.4 128.4-29.5L786 609.7l68.1-27.3 59.3-6.7"
-          />
-          <circle fill="#EF4458" cx={274.6} cy={807.2} r={9.8} />
-          <circle fill="#EF4458" cx={402.7} cy={764.3} r={9.8} />
-          <circle fill="#EF4458" cx={466.4} cy={713} r={9.8} />
-          <circle fill="#EF4458" cx={529.8} cy={663.4} r={9.8} />
-          <circle fill="#EF4458" cx={658.2} cy={633} r={9.8} />
-          <circle fill="#EF4458" cx={785.7} cy={609.9} r={9.8} />
-          <circle fill="#EF4458" cx={853.9} cy={582.1} r={9.8} />
-          <circle fill="#EF4458" cx={913.4} cy={575.7} r={9.8} />
-          <path
-            fill="none"
-            stroke="#2B4055"
-            strokeWidth={5.196}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeMiterlimit={10}
-            d="M1167.2 531h64.2"
-          />
-          <circle fill="#2B4055" cx={1167.2} cy={531} r={9.8} />
-          <circle fill="#2B4055" cx={1231.4} cy={531} r={9.8} />
-          <path
-            fill="none"
-            stroke="#2C9FAA"
-            strokeWidth={5.196}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeMiterlimit={10}
-            d="M1293.6 498.1l64.8-91.1 63.7-60.8 65.7-25.1 126.5-59.9 127.7-26.9 127.1-6.6 126.5-3.7 68.3-2 70-2 70-3 69-66"
-          />
-          <circle fill="#2C9FAA" cx={1293.6} cy={498.1} r={9.8} />
-          <circle fill="#2C9FAA" cx={1357.7} cy={408.1} r={9.8} />
-          <circle fill="#2C9FAA" cx={1421.5} cy={346.4} r={9.8} />
-          <circle fill="#2C9FAA" cx={1487.6} cy={320.2} r={9.8} />
-          <circle fill="#2C9FAA" cx={1614} cy={261.1} r={9.8} />
-          <circle fill="#2C9FAA" cx={1742.8} cy={233.9} r={9.8} />
-          <circle fill="#2C9FAA" cx={1868.1} cy={227.9} r={9.8} />
-          <circle fill="#2C9FAA" cx={1995.2} cy={224} r={9.8} />
-          <circle fill="#2C9FAA" cx={2063.9} cy={222} r={9.8} />
-          <circle fill="#2C9FAA" cx={2133.9} cy={220} r={9.8} />
-          <circle fill="#2C9FAA" cx={2203.9} cy={217} r={9.8} />
-          <circle fill="#2C9FAA" cx={2273.9} cy={151} r={9.8} />
-          <rect x="2100" y="-10" width="450" height="180" fill="white" stroke="black" />
-          <text x="2110" y="40" fontSize="40">
-            <polygon points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" />
-            6.03
-            <tspan x="2110" y="95">
-              Thiago Braz
-            </tspan>
-            <tspan x="2110" y="145">
-              Brazil, Rio de Janeiro
-            </tspan>
-          </text>
+          <svg className="tooltip-pole" viewBox="334 50 1800 1000">
+            <path
+              fill="#F8F3E6"
+              stroke="#2B4055"
+              strokeMiterlimit={10}
+              d="M2002.5 197.5h-119.8l-14.6 11-15.9-11h-119.7v-104h270z"
+            />
+            <text
+              transform="translate(1746.747 137.047)"
+              fill="#2B4055"
+              fontFamily="'SourceSansPro-Regular'"
+              fontSize={38}>
+              {"5.97"}
+            </text>
+            <text
+              transform="translate(1746.747 173.464)"
+              fill="#2B4055"
+              fontFamily="'SourceSansPro-Regular'"
+              fontSize={30}>
+              {"Renaud Lavillenie"}
+            </text>
+            <g stroke="#2B4055" strokeMiterlimit={10}>
+              <path fill="#2B4055" d="M1825.7 112.7h36v25h-36z" />
+              <path fill="#FFF" d="M1825.7 125.7h36v12.1h-36z" />
+            </g>
+          </svg>
           <g>
             <text
               transform="translate(391.413 33.188)"
