@@ -88,7 +88,7 @@ const WomenInTechArticle = () => {
         <CenteredImage
           src="/static/images/women-in-tech/mosaic-sexualized.jpg"
           alt={"1980s computer and game advertisements"}
-          figCaption="1980s computer and game advertisements."
+          figCaption="1980s computer and computer software advertisements."
         />
 
         <Paragraph>
