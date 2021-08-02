@@ -323,7 +323,7 @@ const PoleVis = () => {
         stroke="transparent"
       />
       <image
-        href={`./olympics-salto-blanco.gif?r=${timestamp}`}
+        href={`/static/olympics/olympics-salto-blanco.gif?r=${timestamp}`}
         style={{ pointerEvents: "none" }}
         width="2580"
         height="1127"
