@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 import { useTracking } from "analytics/context";
 import { PoleData } from "./poleData";
 
-const TOOLTIP_WIDTH = 320;
-const TOOLTIP_HEIGHT = 100;
+const TOOLTIP_WIDTH = 380;
+const TOOLTIP_HEIGHT = 110;
 const CIRCLE_SIZE = 24;
 const GIF_DURATION_MS = 4500;
 
@@ -23,25 +23,25 @@ const PoleTooltip = ({ x, y, name, countryCode, record }) => {
         }z`}
       />
       <text
-        transform="translate(15.32 44.385)"
+        transform="translate(15.32 46.385)"
         fill="#2B4055"
         fontFamily="'Source Sans Pro'"
-        fontSize="38">
+        fontSize="48">
         {record.toFixed(2)}
       </text>
       <text
-        transform="translate(15.32 80.802)"
+        transform="translate(15.32 88.802)"
         fill="#2B4055"
         fontFamily="'Source Sans Pro'"
-        fontSize="30">
+        fontSize="36">
         {name}
       </text>
       <g stroke="#2B4055" strokeMiterlimit="10">
         <image
           href={`https://www.countryflags.io/${countryCode}/flat/64.png`}
           height="48"
-          x="200"
-          y="6"
+          x="315"
+          y="7"
         />
       </g>
     </g>
@@ -91,6 +91,8 @@ const PoleVis = () => {
         cx={274.6}
         cy={807.2}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#EF4458"
@@ -99,6 +101,8 @@ const PoleVis = () => {
         cx={402.7}
         cy={764.3}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#EF4458"
@@ -107,6 +111,8 @@ const PoleVis = () => {
         cx={466.4}
         cy={713}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#EF4458"
@@ -115,6 +121,8 @@ const PoleVis = () => {
         cx={529.8}
         cy={663.4}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#EF4458"
@@ -123,6 +131,8 @@ const PoleVis = () => {
         cx={658.2}
         cy={633}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#EF4458"
@@ -131,6 +141,8 @@ const PoleVis = () => {
         cx={785.7}
         cy={609.9}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#EF4458"
@@ -139,6 +151,8 @@ const PoleVis = () => {
         cx={853.9}
         cy={582.1}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#EF4458"
@@ -147,6 +161,8 @@ const PoleVis = () => {
         cx={913.4}
         cy={575.7}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <path
         fill="none"
@@ -155,7 +171,7 @@ const PoleVis = () => {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit={10}
-        d="M1167.2 531h64.2"
+        d="M1167.2 531l64.2-10"
       />
       <circle
         fill="#2B4055"
@@ -164,14 +180,18 @@ const PoleVis = () => {
         cx={1167.2}
         cy={531}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#2B4055"
-        onMouseEnter={() => setTooltipData(getData(1231.4, 531, 9))}
+        onMouseEnter={() => setTooltipData(getData(1231.4, 521, 9))}
         onMouseOut={() => setTooltipData(null)}
         cx={1231.4}
-        cy={531}
+        cy={521}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <path
         fill="none"
@@ -180,7 +200,7 @@ const PoleVis = () => {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit={10}
-        d="M1293.6 498.1l64.8-91.1 63.7-60.8 65.7-25.1 126.5-59.9 127.7-26.9 127.1-6.6 126.5-3.7 68.3-2 70-2 70-3 69-66"
+        d="M1293.6 498.1l64.8-91.1 63.7-60.8 65.7-25.1 126.5-59.9 127.7-26.9 127.1-6.6 126.5-3.7 68.3-2 70-2 70-3 0-66"
       />
       <circle
         fill="#2C9FAA"
@@ -189,6 +209,8 @@ const PoleVis = () => {
         cx={1293.6}
         cy={498.1}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#2C9FAA"
@@ -197,6 +219,8 @@ const PoleVis = () => {
         cx={1357.7}
         cy={408.1}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#2C9FAA"
@@ -205,6 +229,8 @@ const PoleVis = () => {
         cx={1421.5}
         cy={346.4}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#2C9FAA"
@@ -213,6 +239,8 @@ const PoleVis = () => {
         cx={1487.6}
         cy={320.2}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#2C9FAA"
@@ -221,6 +249,8 @@ const PoleVis = () => {
         cx={1614}
         cy={261.1}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#2C9FAA"
@@ -229,6 +259,8 @@ const PoleVis = () => {
         cx={1742.8}
         cy={233.9}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#2C9FAA"
@@ -237,6 +269,8 @@ const PoleVis = () => {
         cx={1868.1}
         cy={227.9}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#2C9FAA"
@@ -245,6 +279,8 @@ const PoleVis = () => {
         cx={1995.2}
         cy={224}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#2C9FAA"
@@ -253,6 +289,8 @@ const PoleVis = () => {
         cx={2063.9}
         cy={222}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#2C9FAA"
@@ -261,6 +299,8 @@ const PoleVis = () => {
         cx={2133.9}
         cy={220}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#2C9FAA"
@@ -269,14 +309,18 @@ const PoleVis = () => {
         cx={2203.9}
         cy={217}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <circle
         fill="#2C9FAA"
-        onMouseEnter={() => setTooltipData(getData(2273.9, 151, 21))}
+        onMouseEnter={() => setTooltipData(getData(2203, 151, 21))}
         onMouseOut={() => setTooltipData(null)}
-        cx={2273.9}
+        cx={2203}
         cy={151}
         r={9.8}
+        strokeWidth={40}
+        stroke="transparent"
       />
       <image
         href={`olympics-salto-blanco.gif?r=${timestamp}`}
@@ -308,10 +352,10 @@ const PoleVis = () => {
         d="M164 1100.3h2181.1"
       />
       <text
-        transform="translate(137.472 1156.615)"
+        transform="translate(154 1147.568)"
         fill="#2B4055"
         fontFamily="'Source Sans Pro'"
-        fontSize={38}>
+        fontSize={26}>
         {"1890"}
       </text>
       <text
@@ -496,13 +540,13 @@ const PoleVis = () => {
         fontSize={26}>
         {"2012"}
       </text>
-      <text
+      {/* <text
         transform="translate(2230.658 1156.568)"
         fill="#2B4055"
         fontFamily="'Source Sans Pro'"
         fontSize={38}>
         {"2020"}
-      </text>
+      </text> */}
       <path
         fill="none"
         stroke="#5961AC"

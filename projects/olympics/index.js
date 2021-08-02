@@ -1,14 +1,14 @@
 import * as React from "react";
 import Link from "next/link";
-import { SectionTitle, StickyContainer } from "../map-vis/style";
+import { SectionTitle, MainTitle, MainSubTitle } from "./style";
 import { data } from "./data";
-import { BarChart } from "./BarChart";
-import { CountrySelect } from "@projects/vaccinations/components/country-select/countrySelect";
-import { getGroupedOptions, optionGenerator } from "./utils";
+// import { BarChart } from "./BarChart";
+// import { CountrySelect } from "@projects/vaccinations/components/country-select/countrySelect";
+// import { getGroupedOptions, optionGenerator } from "./utils";
 import PoleVis from "./PoleVis";
 
 export const Index = () => {
-  const SELECT_WIDTH = 270;
+  // const SELECT_WIDTH = 270;
   // const [isPlaying, setIsPlaying] = React.useState(false);
 
   const initialBarChartData = data.reduce((acc, it) => {
@@ -28,13 +28,13 @@ export const Index = () => {
     barChartData.push(initialBarChartData[country]);
   }
 
-  const countryOptions = React.useMemo(() => {
-    return optionGenerator(barChartData);
-  }, [barChartData]);
+  // const countryOptions = React.useMemo(() => {
+  //   return optionGenerator(barChartData);
+  // }, [barChartData]);
 
-  const groupedOptions = React.useMemo(() => {
-    return getGroupedOptions(countryOptions);
-  }, [countryOptions]);
+  // const groupedOptions = React.useMemo(() => {
+  //   return getGroupedOptions(countryOptions);
+  // }, [countryOptions]);
 
   return (
     <section className="chart-wrapper olympics-wrapper">
@@ -46,10 +46,22 @@ export const Index = () => {
         </SectionTitle>
       </div>
       <div className="row-container">
-        <h2>Pole Vault</h2>
+        <MainTitle>Evolution of the Pole Vault</MainTitle>
+        <MainSubTitle>Materials and Olympic records</MainSubTitle>
         <PoleVis></PoleVis>
+        <p className="sources-text">
+          Sources:{" "}
+          <Link href="www.nature.com/naturematerials">
+            Materials and technology in sport. Mike Caine, Kim Blair and Mike Vasquez. NATURE
+            MATERIALS | VOL 11 | AUGUST 2012
+          </Link>{" "}
+          and{" "}
+          <Link href="https://www.youtube.com/watch?v=K9t0JSCxaQY&list=LL&index=9&t=2s">
+            Evolution of the Pole Vault Olympic Record! | Top Moments
+          </Link>
+        </p>
       </div>
-      <div className="row-container">
+      {/*       <div className="row-container">
         <h2>Number of olympic medals by country</h2>
         <p>
           Source: All &nbsp;
@@ -83,6 +95,7 @@ export const Index = () => {
           <button className="btn download-btn">Download Data</button>
         </a>
       </div>
+ */}
     </section>
   );
 };
