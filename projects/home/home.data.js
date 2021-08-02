@@ -1,13 +1,14 @@
 export const mockData = [
-  // {
-  //   key: "olympics",
-  //   link: "olympics",
-  //   imgPreview: "map-vis.png",
-  //   title: "Olympics",
-  //   subtitle: "July 27, 2021",
-  //   description:
-  //     "Number of olympic medals by country"
-  // },
+  {
+    key: "olympics",
+    link: "olympics",
+    imgPreview: "olympics.png",
+    title: "Olympics",
+    subtitle: "August 3, 2021",
+    description:
+      "We analyzed how materials and technology had an impact on sports. This is a data viz about the evolution of Pole Vault, comparing Olympic records with pole materials."
+    // description: "Number of olympic medals by country"
+  },
   {
     key: "map-vis",
     link: "map-vis",

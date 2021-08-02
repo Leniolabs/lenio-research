@@ -13,6 +13,19 @@ export const SectionTitle = styled.h1`
   }
   img {
     margin-top: 1rem;
+    + a {
+      color: inherit;
+      font-size: 0.8rem;
+      font-weight: normal;
+      opacity: 0.8;
+      position: absolute;
+      bottom: -24px;
+      right: 10px;
+      text-decoration: none;
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
   .author {
     display: block;

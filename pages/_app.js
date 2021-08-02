@@ -273,6 +273,7 @@ const GlobalStyle = createGlobalStyle`
       background: #fffbf0 url("/bg-olympics.svg") no-repeat bottom center;
       background-size: 100vw;
       padding-bottom: 6rem;
+      position: relative;
       min-height: 35vh;
       @media (max-width: 415px) {
         padding-bottom: 1rem;
