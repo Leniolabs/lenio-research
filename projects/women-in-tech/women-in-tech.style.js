@@ -147,15 +147,7 @@ export const CenteredImage = ({ alt, src, figCaption, ...imageProps }) => (
       }
     `}>
     <img alt={alt} src={src} {...imageProps} />
-    {figCaption && (
-      <figcaption
-        css={css`
-          margin-top: 0.4rem;
-          font-size: 0.9em;
-        `}>
-        {figCaption}
-      </figcaption>
-    )}
+    {figCaption && <FigCaption>{figCaption}</FigCaption>}
   </div>
 );
 
@@ -172,7 +164,8 @@ export const GraphicContainer = ({ children }) => (
       margin: 0 auto 2rem auto;
       max-width: 95%;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
 
       @media (min-width: 768px) {
         min-height: 80vh;
@@ -184,5 +177,11 @@ export const GraphicContainer = ({ children }) => (
     {children}
   </div>
 );
+
+export const FigCaption = styled.figcaption`
+  margin-top: 0.6rem;
+  font-size: 0.9em;
+  text-align: center;
+`;
 
 GraphicContainer.propTypes = { children: PropTypes.any };
