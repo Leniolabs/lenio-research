@@ -13,14 +13,27 @@ import { generateSlots, getFilledSlots } from "../slotUtils";
 const { BOTTOM_LIMIT, TOP_LIMIT } = GraphicConstants;
 
 // Number of slots. The less resolution you set, the possibilities of text clashing grow
-const SLOT_RESOLUTION = 85;
+const SLOT_RESOLUTION = 80;
 
 const DistributionGraphic = ({ data, ...extraProps }) => {
+  const [graphicData, setGraphicData] = React.useState(data);
+
   const {
     measures,
     measures: { xPoints },
     entries
-  } = data;
+  } = graphicData;
+
+  const onCareerClickHandler = (careerName) => {
+    setGraphicData((prev) => ({
+      ...prev,
+      entries: prev.entries.map((career) =>
+        career.text.value === careerName
+          ? { ...career, highlight: true, path: { ...career.path, className: "" } }
+          : { ...career, highlight: false, path: { ...career.path, className: "st1" } }
+      )
+    }));
+  };
 
   const filledSlots = React.useMemo(() => {
     const slots = generateSlots({
@@ -63,7 +76,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
             highlight={entry.highlight}
             pathData={{ path, ...pathData }}
             textData={{ translateY: lastPointY, ...entry.text }}
-            onTextClick={(e) => console.log(e.currentTarget.closest("g"))}
+            onTextClick={() => onCareerClickHandler(entry.text.value)}
           />
         );
       })}
