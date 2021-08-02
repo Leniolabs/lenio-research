@@ -361,7 +361,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
         </svg>
 
         {!seeMore ? (
-          <a href="/data.json">
+          <a href="/data-vaccination.json">
             <button className="btn download-btn">Download Data</button>
           </a>
         ) : (
