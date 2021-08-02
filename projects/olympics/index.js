@@ -43,6 +43,9 @@ export const Index = () => {
           Olympics
           <br />
           <img src={"/logo-olympics.svg"} alt="logo" />
+          <Link href="https://www.freepik.com/macrovector" className="pic-author">
+            Remix of athlete set vectors created by macrovector
+          </Link>
         </SectionTitle>
       </div>
       <div className="row-container">
