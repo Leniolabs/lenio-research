@@ -323,16 +323,14 @@ const PoleVis = () => {
         stroke="transparent"
       />
       <image
-        href={`olympics-salto-blanco.gif?r=${timestamp}`}
+        href={`olympics-salto-blanco.gif`}
         style={{ pointerEvents: "none" }}
         width="2580"
         height="1127"
         x="-155"
         y="80"
         onLoad={() => {
-          console.log("loaded");
           setTimeout(() => {
-            console.log("should be visible");
             setTooltipData(getData(2273.9, 151, 21));
           }, GIF_DURATION_MS);
         }}
