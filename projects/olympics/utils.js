@@ -1,4 +1,3 @@
-
 export const optionGenerator = (
   arr,
   labelAccessor = (d) => d.country,

@@ -279,23 +279,11 @@ const GlobalStyle = createGlobalStyle`
         min-height: 25vh;
       }
       img {
-        width: 200px;
+        width: 180px;
         @media (max-width: 415px) {
           width: 100px;
         }
       }
-    }
-    h2 { 
-      font-size: 2rem;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    .sub-p {
-      font-size: 1.2rem;
-      font-weight: normal;
-      margin: 0 auto 2rem;
-      text-align: center;
     }
     .text-p {
       font-size: 1.4rem;
