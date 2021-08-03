@@ -7,7 +7,7 @@ import { PoleData } from "./poleData";
 const TOOLTIP_WIDTH = 380;
 const TOOLTIP_HEIGHT = 110;
 const CIRCLE_SIZE = 24;
-const GIF_DURATION_MS = 4500;
+const GIF_DURATION_MS = 18600;
 
 const PoleTooltip = ({ x, y, name, countryCode, record }) => {
   const actualX = x - TOOLTIP_WIDTH / 2;
@@ -329,11 +329,6 @@ const PoleVis = () => {
         height="1127"
         x="-155"
         y="80"
-        onLoad={() => {
-          setTimeout(() => {
-            setTooltipData(getData(2273.9, 151, 21));
-          }, GIF_DURATION_MS);
-        }}
       />
       <path
         fill="none"

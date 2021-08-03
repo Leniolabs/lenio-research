@@ -54,7 +54,7 @@ export const Index = () => {
         <PoleVis></PoleVis>
         <p className="sources-text">
           Sources:{" "}
-          <Link href="www.nature.com/naturematerials">
+          <Link href="https://www.nature.com/nmat/">
             Materials and technology in sport. Mike Caine, Kim Blair and Mike Vasquez. NATURE
             MATERIALS | VOL 11 | AUGUST 2012
           </Link>{" "}
