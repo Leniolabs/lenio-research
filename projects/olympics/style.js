@@ -53,7 +53,7 @@ export const MainSubTitle = styled.p`
   text-align: center;
 `;
 
-export const Background = styled.rect`
+export const poleGif = styled.image`
   x: -200;
   y: 60;
   width: 100vw;
