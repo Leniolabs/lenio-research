@@ -49,8 +49,8 @@ export const Index = () => {
         </SectionTitle>
       </div>
       <div className="row-container">
-        <MainTitle>Evolution of the Pole Vault</MainTitle>
-        <MainSubTitle>Materials and Olympic records</MainSubTitle>
+        <MainTitle>Pole vault olympic records</MainTitle>
+        <MainSubTitle>Evolution of pole materials</MainSubTitle>
         <PoleVis></PoleVis>
         <p className="sources-text">
           Sources:{" "}
