@@ -7,7 +7,8 @@ import {
   RowContainer,
   Subtitle,
   CenteredImage,
-  Article
+  Article,
+  FigCaption
 } from "./women-in-tech.style";
 
 const WomenInTechArticle = () => {
@@ -30,6 +31,10 @@ const WomenInTechArticle = () => {
 
       <GraphicContainer>
         <DistributionGraphic data={womenInTechData} />
+        <FigCaption>
+          Percentage of degrees granted to women, by field. Source: National Center for Education
+          Statistics, tables 325.
+        </FigCaption>
       </GraphicContainer>
 
       <RowContainer>
@@ -49,7 +54,8 @@ const WomenInTechArticle = () => {
         </Paragraph>
         <CenteredImage
           src="/static/images/women-in-tech/top-secret-rosies.jpg"
-          alt="Two women programming ENIAC"
+          alt="Marlyn Wescoff and Ruth Lichterman programming the ENIAC"
+          figCaption="Marlyn Wescoff (standing) and Ruth Lichterman (crouching) programming the ENIAC. Source: archives of the ARL Technical Library."
         />
 
         <Paragraph>
@@ -64,6 +70,7 @@ const WomenInTechArticle = () => {
         <CenteredImage
           src="/static/images/women-in-tech/computer-girls.jpg"
           alt="The Computer Girls article"
+          figCaption="The Computer Girls article, Cosmopolitan, April 1967."
         />
         <Paragraph>
           As Apple released Macintosh 128K and the Commodore 64 was introduced in the market, they
@@ -76,11 +83,12 @@ const WomenInTechArticle = () => {
         </Paragraph>
         <CenteredImage
           src="/static/images/women-in-tech/mosaic-toys.jpg"
-          alt="Ads promoting computers as toys. 'Why buy just a videogame?', 'Two bytes are better than one', 'What kind of man owns this computer?'"
+          alt="1980s computer and game ads: 'Why buy just a videogame?', 'Two bytes are better than one', 'What kind of man owns this computer?'"
         />
         <CenteredImage
           src="/static/images/women-in-tech/mosaic-sexualized.jpg"
-          alt={'Ads promoting computers with sexualized women. "How\'s your love life?" '}
+          alt={"1980s computer and game advertisements"}
+          figCaption="1980s computer and computer software advertisements."
         />
 
         <Paragraph>
@@ -104,9 +112,8 @@ const WomenInTechArticle = () => {
 
         <CenteredImage
           src="/static/images/women-in-tech/nerd-movies.jpg"
-          alt={
-            "Films where nerd male heros saves the girl: 'War Games', 'Revenge of the nerds', 'Weird Science'"
-          }
+          alt={"'War Games', 'Revenge of the nerds', 'Weird Science'"}
+          figCaption="War Games (1983), Revenge of the nerds (1984) and Weird Science (1985) movies."
         />
 
         <Paragraph>

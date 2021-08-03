@@ -134,11 +134,12 @@ export const RowContainer = ({ children }) => (
 
 RowContainer.propTypes = { children: PropTypes.any };
 
-export const CenteredImage = ({ alt, src, ...imageProps }) => (
+export const CenteredImage = ({ alt, src, figCaption, ...imageProps }) => (
   <div
     css={css`
       display: flex;
-      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       margin: 2rem 0;
 
       img {
@@ -146,12 +147,14 @@ export const CenteredImage = ({ alt, src, ...imageProps }) => (
       }
     `}>
     <img alt={alt} src={src} {...imageProps} />
+    {figCaption && <FigCaption>{figCaption}</FigCaption>}
   </div>
 );
 
 CenteredImage.propTypes = {
   alt: PropTypes.string,
-  src: PropTypes.string
+  src: PropTypes.string,
+  figCaption: PropTypes.string
 };
 
 export const GraphicContainer = ({ children }) => (
@@ -161,7 +164,8 @@ export const GraphicContainer = ({ children }) => (
       margin: 0 auto 2rem auto;
       max-width: 95%;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
 
       @media (min-width: 768px) {
         min-height: 80vh;
@@ -173,5 +177,11 @@ export const GraphicContainer = ({ children }) => (
     {children}
   </div>
 );
+
+export const FigCaption = styled.figcaption`
+  margin-top: 0.6rem;
+  font-size: 0.9em;
+  text-align: center;
+`;
 
 GraphicContainer.propTypes = { children: PropTypes.any };

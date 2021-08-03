@@ -330,9 +330,7 @@ const PoleVis = () => {
         x="-155"
         y="80"
         onLoad={() => {
-          console.log("loaded");
           setTimeout(() => {
-            console.log("should be visible");
             setTooltipData(getData(2273.9, 151, 21));
           }, GIF_DURATION_MS);
         }}

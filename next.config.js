@@ -14,7 +14,8 @@ module.exports = {
       "/space-flight/index.html": { page: "/space-flight" },
       "/map-vis/index.html": { page: "/map-vis" },
       "/timeline/index.html": { page: "/timeline" },
-      "/women-in-tech/index.html": { page: "/women-in-tech" }
+      "/women-in-tech/index.html": { page: "/women-in-tech" },
+      "/olympics/index.html": { page: "/olympics" }
     };
   }
 };
