@@ -200,7 +200,7 @@ const PoleVis = () => {
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeMiterlimit={10}
-        d="M1293.6 498.1l64.8-91.1 63.7-60.8 65.7-25.1 126.5-59.9 127.7-26.9 127.1-6.6 126.5-3.7 68.3-2 70-2 70-3 0-66"
+        d="M1293.6 498.1l64.8-91.1 63.7-60.8 65.7-25.1 126.5-59.9 127.7-26.9 127.1-6.6 126.5-3.7 68.3-2 70-2 70-3 0-28"
       />
       <circle
         fill="#2C9FAA"
@@ -314,16 +314,16 @@ const PoleVis = () => {
       />
       <circle
         fill="#2C9FAA"
-        onMouseEnter={() => setTooltipData(getData(2203, 151, 21))}
+        onMouseEnter={() => setTooltipData(getData(2203, 190, 21))}
         onMouseOut={() => setTooltipData(null)}
         cx={2203}
-        cy={151}
+        cy={190}
         r={9.8}
         strokeWidth={40}
         stroke="transparent"
       />
       <image
-        href={`olympics-salto-blanco.gif?r=${timestamp}`}
+        href={`olympics-salto-pause.gif?r=${timestamp}`}
         style={{ pointerEvents: "none" }}
         width="2580"
         height="1127"
@@ -540,13 +540,13 @@ const PoleVis = () => {
         fontSize={26}>
         {"2012"}
       </text>
-      {/* <text
-        transform="translate(2230.658 1156.568)"
+      <text
+        transform="translate(2240 1147.568)"
         fill="#2B4055"
         fontFamily="'Source Sans Pro'"
-        fontSize={38}>
+        fontSize={26}>
         {"2020"}
-      </text> */}
+      </text>
       <path
         fill="none"
         stroke="#5961AC"

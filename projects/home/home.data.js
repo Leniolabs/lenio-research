@@ -6,7 +6,7 @@ export const mockData = [
     title: "Olympics",
     subtitle: "August 3, 2021",
     description:
-      "We analyzed how materials and technology had an impact on sports. This is a data viz about the evolution of Pole Vault, comparing Olympic records with pole materials."
+      "We analyzed how materials and technology had an impact on sports. This is a data visualization about the evolution of Pole Vault, comparing Olympic records with pole materials."
     // description: "Number of olympic medals by country"
   },
   {
