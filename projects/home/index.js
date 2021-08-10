@@ -35,11 +35,11 @@ export const Index = () => {
 
           <meta
             name="description"
-            content="Data Visualization of Opportunities in The US Housing Market"
+            content="Data Visualization of Evolution of the Pole Vault"
           />
           <meta
             name="title"
-            content="Leniolabs_ Research: Opportunities in The US Housing Market"
+            content="Leniolabs_ Research: Olympics"
             key="title"
           />
           <meta name="twitter:card" content="summary_large_image" />
@@ -47,24 +47,24 @@ export const Index = () => {
           <meta name="twitter:creator" content="@Leniolabs_" />
           <meta
             name="twitter:title"
-            content="Leniolabs_ Research: Opportunities in The US Housing Market"
+            content="Leniolabs_ Research: Olympics"
           />
           <meta
             name="twitter:description"
-            content="Data Visualization of Opportunities in The US Housing Market"
+            content="Data Visualization of Evolution of the Pole Vault"
           />
-          <meta name="twitter:image" content="https://research.leniolabs.com/map-vis.png" />
-          <meta property="og:url" content="https://research.leniolabs.com/map-vis.html" />
+          <meta name="twitter:image" content="https://research.leniolabs.com/pole-vault-meta.gif" />
+          <meta property="og:url" content="https://research.leniolabs.com/olympics" />
           <meta property="og:type" content="website" />
           <meta
             property="og:title"
-            content="Leniolabs_ Research: Opportunities in The US Housing Market"
+            content="Leniolabs_ Research: Olympics"
           />
-          <meta property="og:image" content="https://research.leniolabs.com/map-vis.png" />
+          <meta property="og:image" content="https://research.leniolabs.com/pole-vault-meta.gif" />
           <meta property="og:image:alt" content="Opportunities in The US Housing Market" />
           <meta
             property="og:description"
-            content="Data Visualization of Opportunities in The US Housing Market"
+            content="Data Visualization of Evolution of the Pole Vault"
           />
           <meta property="og:site_name" content="Leniolabs_ Research" />
           <meta property="og:locale" content="en_US" />
