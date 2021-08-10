@@ -1,5 +1,23 @@
 import styled from "styled-components";
 
+export const PlayText = styled.button`
+  background-color: ${(props) => props.disabled ? '#b5b5b5': '#3baacc'};
+  border: 0 solid #5a60ab;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bolder;
+  margin: 2rem 0;
+  padding: .3rem 1rem;
+  transition .3s ease all;
+  opacity: ${(props) => props.disabled ? '0.4': '1'};
+  &:hover {
+    background-color: ${(props) => props.disabled ? '#b5b5b5': '#5a60ab'};
+    color: white;
+    cursor: ${(props) => props.disabled ? 'default': 'pointer'};
+  }
+`;
+
 export const SectionTitle = styled.h1`
   font-size: 3rem;
   color: #2a3f55;

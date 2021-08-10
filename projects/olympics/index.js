@@ -1,6 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
-import { SectionTitle, MainTitle, MainSubTitle } from "./style";
+import { SectionTitle, MainTitle, MainSubTitle, PlayText } from "./style";
 import medals from "./medals.json";
 import { useTracking } from "analytics/context";
 import { BarChart } from "./BarChart";
@@ -40,7 +40,6 @@ const YEAR_OPTIONS = [
 ].map((year, idx) => ({ value: year, label: year, index: idx }));
 
 export const Index = () => {
-  // const SELECT_WIDTH = 270;
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [dataIndex, setDataIndex] = React.useState(0);
   const { logEvent } = useTracking();
@@ -56,7 +55,6 @@ export const Index = () => {
   }, [dataIndex]);
 
   React.useEffect(() => {
-    console.log("hello");
     if (dataIndex < YEAR_OPTIONS.length - 1 && isPlaying) {
       setTimeout(() => {
         if (dateChange) {
@@ -79,6 +77,10 @@ export const Index = () => {
     });
     setDataIndex(option.index);
   }, []);
+
+  const repeat = () => {
+    setDataIndex(0);
+  };
 
   return (
     <section className="chart-wrapper olympics-wrapper">
@@ -110,13 +112,16 @@ export const Index = () => {
       </div>
       <div className="row-container">
         <MainTitle>Medals accumulated by year</MainTitle>
-        <MainSubTitle onClick={() => setIsPlaying(true)}>Play</MainSubTitle>
+        <MainSubTitle>Olympic medals per country over time</MainSubTitle>
         <CustomSelect
           options={YEAR_OPTIONS}
           selectedOption={YEAR_OPTIONS[dataIndex]}
           label="Select Date"
           onChange={onChangeCallback}
         />
+        <PlayText x="50" disabled={isPlaying && dataIndex < YEAR_OPTIONS.length - 1} onClick={() => dataIndex === YEAR_OPTIONS.length - 1 ? repeat() : setIsPlaying(true)}>
+          {dataIndex === YEAR_OPTIONS.length - 1 ? "⏹ Reset" : "▶️ Play"}
+        </PlayText>
         <BarChart
           data={barChartData}
           values={[
@@ -127,36 +132,17 @@ export const Index = () => {
             ]
           ]}
         />
+        <a href="/data-olympics.json">
+          <button className="btn download-btn">Download Data</button>
+        </a>
         <p className="sources-text">
           Sources:{" "}
-          <Link href="https://www.nature.com/nmat/">
-            Materials and technology in sport. Mike Caine, Kim Blair and Mike Vasquez. NATURE
-            MATERIALS | VOL 11 | AUGUST 2012
-          </Link>{" "}
-          and{" "}
-          <Link href="https://www.youtube.com/watch?v=K9t0JSCxaQY&list=LL&index=9&t=2s">
-            Evolution of the Pole Vault Olympic Record! | Top Moments
-          </Link>
-        </p>
-      </div>
-      {/*       <div className="row-container">
-        <h2>Number of olympic medals by country</h2>
-        <p>
-          Source: All &nbsp;
           <Link href="https://en.wikipedia.org/wiki/1896_Summer_Olympics_medal_table">
             Summer_Olympics_medal_table
           </Link>{" "}
           at Wikipedia.
         </p>
-        <StickyContainer>
-          
-        </StickyContainer>
-        
-        <a href="/data-olympics.json">
-          <button className="btn download-btn">Download Data</button>
-        </a>
       </div>
- */}
     </section>
   );
 };
