@@ -111,7 +111,7 @@ export const Index = () => {
         </Main>
         <Footer />
         <FooterLogoContainer>
-          <img src="/footer-logo.svg" alt="two icons"></img>
+          <img src="/static/footer-logo.svg" alt="two icons"></img>
         </FooterLogoContainer>
       </Layout>
     </>

@@ -72,7 +72,7 @@ export const Footer = styled.footer`
 `;
 
 export const FirstSection = styled.section`
-  background: #fffbf0 url("/timeline-buildings.svg") repeat-x bottom left;
+  background: #fffbf0 url("/static/timeline-buildings.svg") repeat-x bottom left;
   background-size: 220px;
   padding: 4rem 0 12rem;
   margin-bottom: 5rem;

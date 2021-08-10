@@ -2,7 +2,7 @@ export const mockData = [
   {
     key: "olympics",
     link: "olympics",
-    imgPreview: "olympics.png",
+    imgPreview: "/static/olympics.png",
     title: "Olympics",
     subtitle: "August 3, 2021",
     description:
@@ -12,7 +12,7 @@ export const mockData = [
   {
     key: "map-vis",
     link: "map-vis",
-    imgPreview: "map-vis.png",
+    imgPreview: "/static/map-vis.png",
     title: "Housing Market",
     subtitle: "July 20, 2021",
     description:
@@ -21,7 +21,7 @@ export const mockData = [
   {
     key: "timeline",
     link: "timeline",
-    imgPreview: "timeline-big.jpg",
+    imgPreview: "/static/timeline-big.jpg",
     title: "Timeline",
     subtitle: "June 30, 2021",
     description:
@@ -30,7 +30,7 @@ export const mockData = [
   {
     key: "space-flight",
     link: "space-flight",
-    imgPreview: "space-day2.png",
+    imgPreview: "/static/space-day2.png",
     title: "Space flight",
     subtitle: "April 12, 2021",
     description:
@@ -39,7 +39,7 @@ export const mockData = [
   {
     key: "vaccinations",
     link: "vaccinations",
-    imgPreview: "vaccinations_twitter_cover2.png",
+    imgPreview: "/static/vaccinations_twitter_cover2.png",
     title: "Vaccinations",
     subtitle: "March 5, 2021",
     description:
