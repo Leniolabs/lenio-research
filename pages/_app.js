@@ -154,7 +154,7 @@ const GlobalStyle = createGlobalStyle`
   .sources-text {
     font-size: 1rem;
     font-style: italic;
-    margin: 5rem auto;
+    margin: 3rem auto;
     text-align: center;
   }
   .stack-bar {
