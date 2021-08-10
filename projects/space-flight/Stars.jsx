@@ -18,9 +18,9 @@ export const Stars = ({ scale }) => {
       <g
         transform={`translate(0, 400) scale(${scaleN}) translate(0, -400)`}
         style={{ transition: "all 0.4s ease-out" }}>
-        <image href={"./stars-bg.svg"} width="1212" height="900" />
-        <image href={"./stars.svg"} width="1212" height="900" />
-        <image href={"./constelations.svg"} width="1212" height="900" />
+        <image href={"./static/stars-bg.svg"} width="1212" height="900" />
+        <image href={"./static/stars.svg"} width="1212" height="900" />
+        <image href={"./static/constelations.svg"} width="1212" height="900" />
       </g>
     </svg>
   );
