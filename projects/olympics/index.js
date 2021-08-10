@@ -1,40 +1,84 @@
 import * as React from "react";
 import Link from "next/link";
 import { SectionTitle, MainTitle, MainSubTitle } from "./style";
-import { data } from "./data";
-// import { BarChart } from "./BarChart";
-// import { CountrySelect } from "@projects/vaccinations/components/country-select/countrySelect";
-// import { getGroupedOptions, optionGenerator } from "./utils";
+import medals from "./medals.json";
+import { useTracking } from "analytics/context";
+import { BarChart } from "./BarChart";
 import PoleVis from "./PoleVis";
+import CustomSelect from "@components/select/select";
+
+const YEAR_OPTIONS = [
+  "1896",
+  "1900",
+  "1904",
+  "1908",
+  "1912",
+  "1920",
+  "1924",
+  "1928",
+  "1932",
+  "1936",
+  "1948",
+  "1952",
+  "1956",
+  "1960",
+  "1964",
+  "1968",
+  "1972",
+  "1976",
+  "1980",
+  "1984",
+  "1988",
+  "1992",
+  "1996",
+  "2000",
+  "2004",
+  "2008",
+  "2012",
+  "2016",
+  "2020"
+].map((year, idx) => ({ value: year, label: year, index: idx }));
 
 export const Index = () => {
   // const SELECT_WIDTH = 270;
-  // const [isPlaying, setIsPlaying] = React.useState(false);
+  const [isPlaying, setIsPlaying] = React.useState(false);
+  const [dataIndex, setDataIndex] = React.useState(0);
+  const { logEvent } = useTracking();
+  const [dateChange, setDateChange] = React.useState(null);
+  const [barChartData, setBarChartData] = React.useState(medals[1896]);
 
-  const initialBarChartData = data.reduce((acc, it) => {
-    acc[it.code] = {
-      country: it.country,
-      code: it.code,
-      total_medals: ((acc[it.code] && acc[it.code].total_medals) || 0) + it.total_medals || 0,
-      gold_medals: ((acc[it.code] && acc[it.code].gold_medals) || 0) + it.gold_medals || 0,
-      silver_medals: ((acc[it.code] && acc[it.code].silver_medals) || 0) + it.silver_medals || 0,
-      bronce_medals: ((acc[it.code] && acc[it.code].bronce_medals) || 0) + it.bronce_medals || 0
-    };
-    return acc;
-  }, {});
+  React.useEffect(() => {
+    setBarChartData(
+      medals[YEAR_OPTIONS[dataIndex].value]
+        .sort((a, b) => (a.total_medals < b.total_medals ? 1 : -1))
+        .slice(0, 11)
+    );
+  }, [dataIndex]);
 
-  const barChartData = [];
-  for (const country in initialBarChartData) {
-    barChartData.push(initialBarChartData[country]);
-  }
+  React.useEffect(() => {
+    console.log("hello");
+    if (dataIndex < YEAR_OPTIONS.length - 1 && isPlaying) {
+      setTimeout(() => {
+        if (dateChange) {
+          setDataIndex(dateChange);
+          setDateChange(null);
+        } else {
+          setDataIndex((prevDataIndex) => prevDataIndex + 1);
+        }
+      }, 1000);
+    } else {
+      setIsPlaying(false);
+    }
+  }, [dataIndex, isPlaying]);
 
-  // const countryOptions = React.useMemo(() => {
-  //   return optionGenerator(barChartData);
-  // }, [barChartData]);
-
-  // const groupedOptions = React.useMemo(() => {
-  //   return getGroupedOptions(countryOptions);
-  // }, [countryOptions]);
+  const onChangeCallback = React.useCallback((option) => {
+    logEvent({
+      category: "Olympics",
+      action: "Changed Date",
+      label: option.value
+    });
+    setDataIndex(option.index);
+  }, []);
 
   return (
     <section className="chart-wrapper olympics-wrapper">
@@ -64,6 +108,37 @@ export const Index = () => {
           </Link>
         </p>
       </div>
+      <div className="row-container">
+        <MainTitle>Medals accumulated by year</MainTitle>
+        <MainSubTitle onClick={() => setIsPlaying(true)}>Play</MainSubTitle>
+        <CustomSelect
+          options={YEAR_OPTIONS}
+          selectedOption={YEAR_OPTIONS[dataIndex]}
+          label="Select Date"
+          onChange={onChangeCallback}
+        />
+        <BarChart
+          data={barChartData}
+          values={[
+            [
+              { property: "acc_gold", color: "#F7C655", label: "Gold Medals" },
+              { property: "acc_silver", color: "#AABFBF", label: "Silver Medals" },
+              { property: "acc_bronce", color: "#DB8860", label: "Bronce Medals" }
+            ]
+          ]}
+        />
+        <p className="sources-text">
+          Sources:{" "}
+          <Link href="https://www.nature.com/nmat/">
+            Materials and technology in sport. Mike Caine, Kim Blair and Mike Vasquez. NATURE
+            MATERIALS | VOL 11 | AUGUST 2012
+          </Link>{" "}
+          and{" "}
+          <Link href="https://www.youtube.com/watch?v=K9t0JSCxaQY&list=LL&index=9&t=2s">
+            Evolution of the Pole Vault Olympic Record! | Top Moments
+          </Link>
+        </p>
+      </div>
       {/*       <div className="row-container">
         <h2>Number of olympic medals by country</h2>
         <p>
@@ -74,26 +149,9 @@ export const Index = () => {
           at Wikipedia.
         </p>
         <StickyContainer>
-          <CountrySelect
-            width={SELECT_WIDTH}
-            options={groupedOptions}
-            selectedOption={groupedOptions.slice(0, 11)}
-            label="Countries"
-            // onChange={onCountriesChange}
-          />
+          
         </StickyContainer>
-        <BarChart
-          data={barChartData
-            .sort((a, b) => (a.total_medals < b.total_medals ? 1 : -1))
-            .slice(0, 11)}
-          values={[
-            [
-              { property: "gold_medals", color: "#F7C655", label: "Gold Medals" },
-              { property: "silver_medals", color: "#AABFBF", label: "Silver Medals" },
-              { property: "bronce_medals", color: "#DB8860", label: "Bronce Medals" }
-            ]
-          ]}
-        />
+        
         <a href="/data-olympics.json">
           <button className="btn download-btn">Download Data</button>
         </a>
