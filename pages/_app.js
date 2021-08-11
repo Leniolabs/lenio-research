@@ -40,6 +40,11 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   }
+  .justify-center-full-width {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
   .row-container.big-row {
     max-width: 54em;
   }
