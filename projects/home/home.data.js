@@ -4,7 +4,7 @@ export const mockData = [
     link: "olympics",
     imgPreview: "/static/olympics.png",
     title: "Olympics",
-    subtitle: "August 11, 2021",
+    subtitle: "August 12, 2021",
     description:
       "Two data visualizations of Olympics. We analyzed how materials and technology had an impact on Pole Vault, comparing Olympic records with each pole material. And we created a timeline animations of Top 12 countries with Olympic medals year by year."
   },
