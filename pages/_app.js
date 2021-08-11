@@ -13,7 +13,11 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     &:before, &:after { box-sizing: inherit; }
   }
-  p a { color: #2a9faa; }
+  p a { 
+    color: #2a9faa; 
+    cursor:pointer;
+    &:hover { color: inherit; }
+  }
   header.with-background {
     background: url("/static/bg-research.png") no-repeat bottom left;
     background-size: cover;
