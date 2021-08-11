@@ -10,12 +10,12 @@ module.exports = {
   exportPathMap: async function (defaultPathMap, { dev, dir, outDir, distDir, buildId }) {
     return {
       "/": { page: "/" },
-      "/vaccinations/index.html": { page: "/vaccinations" },
-      "/space-flight/index.html": { page: "/space-flight" },
-      "/map-vis/index.html": { page: "/map-vis" },
-      "/timeline/index.html": { page: "/timeline" },
-      "/women-in-tech/index.html": { page: "/women-in-tech" },
-      "/olympics/index.html": { page: "/olympics" }
+      "/vaccinations/index": { page: "/vaccinations" },
+      "/space-flight/index": { page: "/space-flight" },
+      "/map-vis/index": { page: "/map-vis" },
+      "/timeline/index": { page: "/timeline" },
+      "/women-in-tech/index": { page: "/women-in-tech" },
+      "/olympics/index": { page: "/olympics" }
     };
   }
 };
