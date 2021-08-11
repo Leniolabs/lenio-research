@@ -48,17 +48,11 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
 
   return (
     <>
-      <motion.svg
-        className="millennials"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 600 20">
+      <motion.svg className="millennials" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 20">
         <rect x={0} width={600} y={0} fill={"white"} height={20} />
         <BarLegend data={legendData} />
       </motion.svg>
-      <motion.svg
-        className="millennials"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 585.8 354.9">
+      <motion.svg className="millennials" xmlns="http://www.w3.org/2000/svg" viewBox="40 0 600 340">
         <AnimatePresence>
           <rect width="430" height="295" x="144.1" y="200" fill="#fffefa" />
           {data.map((d, idx) => {
@@ -182,7 +176,7 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
           fontSize="15"
           fontWeight="600"
           letterSpacing="0em"
-          transform="rotate(-90 92.3 79.8)">
+          transform="rotate(-90 110 50)">
           {yTitle}
         </text>
         {LABELS.map((v) => {
