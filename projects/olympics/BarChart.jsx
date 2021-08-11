@@ -130,7 +130,18 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
                       .reduce((a, b) => a + b, 0);
 
                     return (
-                      <>
+                      <motion.g
+                        key={`bar-group-${row.country}-${barIdx}-${val.property}`}
+                        initial={{
+                          y: MAX_Y
+                        }}
+                        exit={{
+                          y: MAX_Y
+                        }}
+                        animate={{
+                          y: LABELS[idx] / 10 + barIdx * BAR_HEIGHT + 17 / 2
+                        }}
+                        transition={{ duration: 1 }}>
                         <motion.rect
                           key={`bar-group-${row.country}-${barIdx}-${val.property}`}
                           width={xScale(row[val.property]) / 6}
@@ -138,11 +149,7 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
                           fill={val.color}
                           opacity={val.property === "acc_silver" ? 0.8 : 0.4}
                           initial={{
-                            x: MARGIN.LEFT,
-                            y: MAX_Y
-                          }}
-                          exit={{
-                            y: MAX_Y
+                            x: MARGIN.LEFT
                           }}
                           animate={{
                             x:
@@ -152,8 +159,7 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
                                     MARGIN.LEFT + xScale(previousPercentage) / 6
                                   ]
                                 : MARGIN.LEFT,
-                            width: [initialWidth, xScale(row[val.property]) / 6],
-                            y: LABELS[idx] / 10 + barIdx * BAR_HEIGHT + 17 / 2
+                            width: [initialWidth, xScale(row[val.property]) / 6]
                           }}
                           transition={{ duration: 1 }}
                         />
@@ -167,25 +173,18 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
                             letterSpacing="0em"
                             width={xScale(row[val.property]) / 6}
                             height={BAR_HEIGHT}
+                            y={8.5}
                             initial={{
-                              x: MARGIN.LEFT + xScale(previousPercentage) / 6 + 2,
-                              y:
-                                oldValuesIdx > -1
-                                  ? LABELS[oldValuesIdx] / 10 + barIdx * BAR_HEIGHT + 17 / 2 + 8.5
-                                  : MAX_Y
+                              x: MARGIN.LEFT + initialX + 2
                             }}
                             animate={{
-                              x: MARGIN.LEFT + xScale(previousPercentage) / 6 + 2,
-                              y: LABELS[idx] / 10 + barIdx * BAR_HEIGHT + 17 / 2 + 8.5
-                            }}
-                            exit={{
-                              y: MAX_Y
+                              x: MARGIN.LEFT + xScale(previousPercentage) / 6 + 2
                             }}
                             transition={{ duration: 1 }}>
                             {row[val.property]}
                           </motion.text>
                         )}
-                      </>
+                      </motion.g>
                     );
                   });
                 })}
