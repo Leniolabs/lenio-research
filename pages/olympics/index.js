@@ -34,11 +34,11 @@ export const Index = () => {
           name="twitter:description"
           content="Data Visualization of Top 12 countries with Olympic medals by year"
         />
-        <meta name="twitter:image" content="https://research.leniolabs.com/medals.gif" />
+        <meta name="twitter:image" content="https://research.leniolabs.com/static/medals.gif" />
         <meta property="og:url" content="https://research.leniolabs.com/olympics" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Leniolabs_ Research: Olympics" />
-        <meta property="og:image" content="https://research.leniolabs.com/medals.gif" />
+        <meta property="og:image" content="https://research.leniolabs.com/static/medals.gif" />
         <meta property="og:image:alt" content="Top 12 countries with Olympic medals by year" />
         <meta
           property="og:description"
