@@ -205,6 +205,7 @@ export const Index = () => {
             options={YEAR_OPTIONS}
             selectedOption={YEAR_OPTIONS[dataIndex]}
             label="Select Date"
+            isDisabled={isPlaying}
             onChange={onChangeCallback}
             disabledSearch
             maxWidth={700}
