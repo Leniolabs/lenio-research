@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { scaleLinear } from "d3-scale";
 import { AnimatePresence, motion } from "framer-motion";
 import usePrevious from "utils/usePrevious";
+import { getCountryCode } from "./utils";
 
 const LABELS = [0, 250, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500];
 const MARGIN = { LEFT: 143.8 };
@@ -56,14 +57,14 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
         <AnimatePresence>
           <rect width="430" height="295" x="144.1" y="200" fill="#fffefa" />
           {data.map((d, idx) => {
+            let olympicsFlag = false;
+            if (d.country === "ZZX") {
+              olympicsFlag = true;
+            }
+            const flagCode = getCountryCode(d.country);
             return (
-              <motion.text
+              <motion.g
                 key={`label_${d.country}`}
-                fill="#2a3f55"
-                fontFamily="'Source Sans Pro'"
-                fontSize="13"
-                textAnchor="end"
-                x={130}
                 initial={{
                   y: MAX_Y
                 }}
@@ -74,8 +75,31 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
                   y: MAX_Y
                 }}
                 transition={{ duration: 1 }}>
-                {d.country}
-              </motion.text>
+                {flagCode && (
+                  <motion.image
+                    href={`https://www.countryflags.io/${flagCode}/flat/64.png`}
+                    height="16"
+                    x="80"
+                    y={-12}
+                  />
+                )}
+                {olympicsFlag && (
+                  <motion.image
+                    href="/static/olympics/flag-olympics.svg"
+                    height="16"
+                    x="80"
+                    y={-12}
+                  />
+                )}
+                <motion.text
+                  fill="#2a3f55"
+                  fontFamily="'Source Sans Pro'"
+                  fontSize="13"
+                  textAnchor="end"
+                  x={130}>
+                  {d.country}
+                </motion.text>
+              </motion.g>
             );
           })}
           {data.map((row, idx) => {
