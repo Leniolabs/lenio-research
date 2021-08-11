@@ -8,7 +8,10 @@ export const Index = () => {
       <Head>
         <title>Leniolabs_ Research</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Data Visualization of Top 12 countries with Olympic medals by year" />
+        <meta
+          name="description"
+          content="Data Visualization of Top 12 countries with Olympic medals by year"
+        />
         <meta name="title" content="Leniolabs_ Research: Olympics" key="title" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="https://research.leniolabs.com/" />
