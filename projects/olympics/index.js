@@ -229,6 +229,11 @@ export const Index = () => {
           ]}
         />
         <div className="justify-center-full-width">
+          <p>
+            Usa did not finish the olympics. <a>Source link.</a>
+          </p>
+        </div>
+        <div className="justify-center-full-width">
           <a href="/data-olympics.json">
             <button className="btn download-btn">Download Data</button>
           </a>
