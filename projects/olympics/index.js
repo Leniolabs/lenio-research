@@ -8,36 +8,122 @@ import PoleVis from "./PoleVis";
 import CustomSelect from "@components/select/select";
 
 const YEAR_OPTIONS = [
-  "1896",
-  "1900",
-  "1904",
-  "1908",
-  "1912",
-  "1920",
-  "1924",
-  "1928",
-  "1932",
-  "1936",
-  "1948",
-  "1952",
-  "1956",
-  "1960",
-  "1964",
-  "1968",
-  "1972",
-  "1976",
-  "1980",
-  "1984",
-  "1988",
-  "1992",
-  "1996",
-  "2000",
-  "2004",
-  "2008",
-  "2012",
-  "2016",
-  "2020"
-].map((year, idx) => ({ value: year, label: year, index: idx }));
+  {
+    value: "1896",
+    name: "Athens, Greece",
+  },
+  {
+    value: "1900",
+    name: "Paris, France",
+  },
+  {
+    value: "1904",
+    name: "St. Louis, United States",
+  },
+  {
+    value: "1908",
+    name: "London, Great Britain",
+  },
+  {
+    value: "1912",
+    name: "Stockholm, Sweden",
+  },
+  {
+    value: "1920",
+    name: "Antwerp, Belgium",
+  },
+  {
+    value: "1924",
+    name: "Paris, France",
+  },
+  {
+    value: "1928",
+    name: "Amsterdam,  Netherlands",
+  },
+  {
+    value: "1932",
+    name: "	Los Angeles,  United States",
+  },
+  {
+    value: "1936",
+    name: "Berlin, Germany",
+  },
+  {
+    value: "1948",
+    name: "London, Great Britain",
+  },
+  {
+    value: "1952",
+    name: "Helsinki, Finland",
+  },
+  {
+    value: "1956",
+    name: "Melbourne, Australia and Stockholm, Sweden",
+  },
+  {
+    value: "1960",
+    name: "Rome, Italy",
+  },
+  {
+    value: "1964",
+    name: "Tokyo, Japan",
+  },
+  {
+    value: "1968",
+    name: "Mexico City, Mexico",
+  },
+  {
+    value: "1972",
+    name: "Munich, West Germany",
+  },
+  {
+    value: "1976",
+    name: "Montreal, Canada",
+  },
+  {
+    value: "1980",
+    name: "Moscow, Soviet Union",
+  },
+  {
+    value: "1984",
+    name: "Los Angeles, United States",
+  },
+  {
+    value: "1988",
+    name: "Seoul, South Korea",
+  },
+  {
+    value: "1992",
+    name: "Barcelona, Spain",
+  },
+  {
+    value: "1996",
+    name: "Atlanta, United States",
+  },
+  {
+    value: "2000",
+    name: "Sydney, Australia",
+  },
+  {
+    value: "2004",
+    name: "Athens, Greece",
+  },
+  {
+    value: "2008",
+    name: "Beijing, China",
+  },
+  {
+    value: "2012",
+    name: "London, Great Britain",
+  },
+  {
+    value: "2016",
+    name: "Rio de Janeiro, Brazil",
+  },
+  {
+    value: "2020",
+    name: "Tokyo, Japan",
+  }].map((year, idx) => ({ value: year.value, label: `${year.name} - ${year.value}`, index: idx }));
 
 export const Index = () => {
   const [isPlaying, setIsPlaying] = React.useState(false);
@@ -111,17 +197,23 @@ export const Index = () => {
         </p>
       </div>
       <div className="row-container">
-        <MainTitle>Medals accumulated by year</MainTitle>
+        <MainTitle>Olympic medals per country by year</MainTitle>
         <MainSubTitle>Olympic medals per country over time</MainSubTitle>
-        <CustomSelect
-          options={YEAR_OPTIONS}
-          selectedOption={YEAR_OPTIONS[dataIndex]}
-          label="Select Date"
-          onChange={onChangeCallback}
-        />
-        <PlayText x="50" disabled={isPlaying && dataIndex < YEAR_OPTIONS.length - 1} onClick={() => dataIndex === YEAR_OPTIONS.length - 1 ? repeat() : setIsPlaying(true)}>
-          {dataIndex === YEAR_OPTIONS.length - 1 ? "⏹ Reset" : "▶️ Play"}
-        </PlayText>
+        <div className="justify-center-full-width">
+          <CustomSelect
+            options={YEAR_OPTIONS}
+            selectedOption={YEAR_OPTIONS[dataIndex]}
+            label="Select Date"
+            onChange={onChangeCallback}
+            disabledSearch
+            width={700}
+          />
+        </div>
+        <div className="justify-center-full-width">
+          <PlayText x="50" disabled={isPlaying && dataIndex < YEAR_OPTIONS.length - 1} onClick={() => dataIndex === YEAR_OPTIONS.length - 1 ? repeat() : setIsPlaying(true)}>
+            {dataIndex === YEAR_OPTIONS.length - 1 ? "⏹ Reset" : "▶️ Play"}
+          </PlayText>
+        </div>
         <BarChart
           data={barChartData}
           values={[
@@ -132,9 +224,11 @@ export const Index = () => {
             ]
           ]}
         />
-        <a href="/data-olympics.json">
-          <button className="btn download-btn">Download Data</button>
-        </a>
+        <div className="justify-center-full-width">
+          <a href="/data-olympics.json">
+            <button className="btn download-btn">Download Data</button>
+          </a>
+        </div>
         <p className="sources-text">
           Sources:{" "}
           <Link href="https://en.wikipedia.org/wiki/1896_Summer_Olympics_medal_table">

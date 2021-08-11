@@ -7,7 +7,7 @@ export const PlayText = styled.button`
   color: white;
   font-size: 1rem;
   font-weight: bolder;
-  margin: 2rem 0;
+  margin: 1rem 0;
   padding: .3rem 1rem;
   transition .3s ease all;
   opacity: ${(props) => props.disabled ? '0.4': '1'};
