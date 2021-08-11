@@ -64,7 +64,14 @@ export const customStyles = {
   })
 };
 
-export const CustomSelect = ({ options, width = 400, label, selectedOption, disabledSearch = false, ...restProps }) => {
+export const CustomSelect = ({
+  options,
+  width = 400,
+  label,
+  selectedOption,
+  disabledSearch = false,
+  ...restProps
+}) => {
   return (
     <Select
       {...restProps}
