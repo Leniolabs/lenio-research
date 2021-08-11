@@ -166,6 +166,14 @@ const GlobalStyle = createGlobalStyle`
     margin: 3rem auto;
     text-align: center;
   }
+  .olympics-sources-text {
+    font-size: 1rem;
+    margin: 0 0 5px;
+    text-align: left;
+  }
+  .bold-source-text {
+    font-weight: bold;
+  }
   .stack-bar {
     margin: 3rem auto 6rem;
     .millennials { margin-bottom: 5rem;}
