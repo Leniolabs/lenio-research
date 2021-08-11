@@ -10,6 +10,7 @@ const MARGIN = { LEFT: 143.8 };
 
 const BAR_HEIGHT = 12;
 const MAX_Y = 320;
+const DURATION = 1;
 
 const BarLegend = ({ data }) => {
   return (
@@ -74,7 +75,7 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
                 exit={{
                   y: MAX_Y
                 }}
-                transition={{ duration: 1 }}>
+                transition={{ duration: DURATION }}>
                 {flagCode && (
                   <motion.image
                     href={`https://www.countryflags.io/${flagCode}/flat/64.png`}
@@ -141,7 +142,7 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
                         animate={{
                           y: LABELS[idx] / 10 + barIdx * BAR_HEIGHT + 17 / 2
                         }}
-                        transition={{ duration: 1 }}>
+                        transition={{ duration: DURATION }}>
                         <motion.rect
                           key={`bar-group-${row.country}-${barIdx}-${val.property}`}
                           width={xScale(row[val.property]) / 6}
@@ -161,9 +162,9 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
                                 : MARGIN.LEFT,
                             width: [initialWidth, xScale(row[val.property]) / 6]
                           }}
-                          transition={{ duration: 1 }}
+                          transition={{ duration: DURATION }}
                         />
-                        <clipPath id="myClip">
+                        <clipPath id={`clip-bar-group-${row.country}-${barIdx}-${val.property}`}>
                           <motion.rect
                             key={`bar-group-${row.country}-${barIdx}-${val.property}`}
                             width={xScale(row[val.property]) / 6}
@@ -182,11 +183,11 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
                                   : MARGIN.LEFT,
                               width: [initialWidth, xScale(row[val.property]) / 6]
                             }}
-                            transition={{ duration: 1 }}
+                            transition={{ duration: DURATION }}
                           />
                         </clipPath>
                         {xScale(row[val.property]) - xScale(previousPercentage) / 6 > 90 && (
-                          <g clipPath="url(#myClip)">
+                          <g clipPath={`url(#clip-bar-group-${row.country}-${barIdx}-${val.property})`}>
                             <motion.text
                               fill="#2a3f55"
                               fontSize="8"
@@ -201,7 +202,7 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
                               animate={{
                                 x: MARGIN.LEFT + xScale(previousPercentage) / 6 + 2
                               }}
-                              transition={{ duration: 1 }}>
+                              transition={{ duration: DURATION }}>
                               {row[val.property]}
                             </motion.text>
                           </g>
