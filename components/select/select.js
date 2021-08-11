@@ -64,7 +64,14 @@ export const customStyles = {
   })
 };
 
-export const CustomSelect = ({ options, width = 400, label, selectedOption, ...restProps }) => {
+export const CustomSelect = ({
+  options,
+  width = 400,
+  label,
+  selectedOption,
+  disabledSearch = false,
+  ...restProps
+}) => {
   return (
     <Select
       {...restProps}
@@ -73,7 +80,7 @@ export const CustomSelect = ({ options, width = 400, label, selectedOption, ...r
       components={{ Control, IndicatorSeparator: () => null }}
       theme={(theme) => ({ ...theme, colors: { ...theme.colors, ...customThemeColors } })}
       label={label}
-      isSearchable={!!label}
+      isSearchable={!!label && !disabledSearch}
       width={width}
       options={options}
       styles={customStyles}
@@ -85,7 +92,8 @@ CustomSelect.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({ label: PropTypes.string, value: PropTypes.any })),
   label: PropTypes.string,
   width: PropTypes.number,
-  selectedOption: PropTypes.any
+  selectedOption: PropTypes.any,
+  disabledSearch: PropTypes.bool
 };
 
 export default CustomSelect;

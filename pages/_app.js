@@ -13,9 +13,13 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     &:before, &:after { box-sizing: inherit; }
   }
-  p a { color: #2a9faa; }
+  p a { 
+    color: #2a9faa; 
+    cursor:pointer;
+    &:hover { color: inherit; }
+  }
   header.with-background {
-    background: url("/bg-research.png") no-repeat bottom left;
+    background: url("/static/bg-research.png") no-repeat bottom left;
     background-size: cover;
   }
   .lenio-iso-text {
@@ -39,6 +43,11 @@ const GlobalStyle = createGlobalStyle`
         text-align: center;
       }
     }
+  }
+  .justify-center-full-width {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
   .row-container.big-row {
     max-width: 54em;
@@ -90,7 +99,7 @@ const GlobalStyle = createGlobalStyle`
   .chart-wrapper.map-viz-wrapper {
     background-color: #fff;
     .head-main {
-      background: #fffbf0 url("/housing-market.svg") repeat-x bottom left;
+      background: #fffbf0 url("/static/housing-market.svg") repeat-x bottom left;
       background-size: 1260px;
       padding: 4rem 0 10rem;
       min-height: 35vh;
@@ -154,8 +163,16 @@ const GlobalStyle = createGlobalStyle`
   .sources-text {
     font-size: 1rem;
     font-style: italic;
-    margin: 5rem auto;
+    margin: 3rem auto;
     text-align: center;
+  }
+  .olympics-sources-text {
+    font-size: 1rem;
+    margin: 0 0 5px;
+    text-align: left;
+  }
+  .bold-source-text {
+    font-weight: bold;
   }
   .stack-bar {
     margin: 3rem auto 6rem;
@@ -185,7 +202,7 @@ const GlobalStyle = createGlobalStyle`
     }
   }
   .main-timeline {
-    background: #fffbf0 url("/timeline-houses.svg") repeat-x bottom left;
+    background: #fffbf0 url("/static/timeline-houses.svg") repeat-x bottom left;
     background-position: center 100.08%;
     background-size: 1350px;
     padding: 0 0 10rem;
@@ -270,7 +287,7 @@ const GlobalStyle = createGlobalStyle`
   .chart-wrapper.olympics-wrapper {
     background-color: #fff;
     .head-main {
-      background: #fffbf0 url("/bg-olympics.svg") no-repeat bottom center;
+      background: #fffbf0 url("/static/bg-olympics.svg") no-repeat bottom center;
       background-size: 100vw;
       padding-bottom: 6rem;
       position: relative;
@@ -320,7 +337,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/static/favicon.ico" />
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>

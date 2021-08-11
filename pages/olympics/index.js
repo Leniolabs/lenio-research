@@ -21,7 +21,10 @@ export const Index = () => {
     <div>
       <Head>
         <title>Leniolabs_ Research</title>
-        <meta name="description" content="Data Visualization of Evolution of the Pole Vault" />
+        <meta
+          name="description"
+          content="Data Visualization of Top 12 countries with Olympic medals by year"
+        />
         <meta name="title" content="Leniolabs_ Research: Olympics" key="title" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="https://research.leniolabs.com/olympics" />
@@ -29,17 +32,17 @@ export const Index = () => {
         <meta name="twitter:title" content="Leniolabs_ Research: Olympics" />
         <meta
           name="twitter:description"
-          content="Data Visualization of Evolution of the Pole Vault"
+          content="Data Visualization of Top 12 countries with Olympic medals by year"
         />
-        <meta name="twitter:image" content="https://research.leniolabs.com/pole-vault-meta.gif" />
+        <meta name="twitter:image" content="https://research.leniolabs.com/medals.gif" />
         <meta property="og:url" content="https://research.leniolabs.com/olympics" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Leniolabs_ Research: Olympics" />
-        <meta property="og:image" content="https://research.leniolabs.com/pole-vault-meta.gif" />
-        <meta property="og:image:alt" content="Evolution of the Pole Vault" />
+        <meta property="og:image" content="https://research.leniolabs.com/medals.gif" />
+        <meta property="og:image:alt" content="Top 12 countries with Olympic medals by year" />
         <meta
           property="og:description"
-          content="Data Visualization of Evolution of the Pole Vault"
+          content="Data Visualization of Top 12 countries with Olympic medals by year"
         />
         <meta property="og:site_name" content="Leniolabs_ Research" />
         <meta property="og:locale" content="en_US" />

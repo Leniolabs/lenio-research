@@ -2,17 +2,16 @@ export const mockData = [
   {
     key: "olympics",
     link: "olympics",
-    imgPreview: "olympics.png",
+    imgPreview: "/static/olympics.png",
     title: "Olympics",
-    subtitle: "August 3, 2021",
+    subtitle: "August 11, 2021",
     description:
-      "We analyzed how materials and technology had an impact on sports. This is a data visualization about the evolution of Pole Vault, comparing Olympic records with pole materials."
-    // description: "Number of olympic medals by country"
+      "Two data visualizations of Olympics. We analyzed how materials and technology had an impact on Pole Vault, comparing Olympic records with each pole material. And we created a timeline animations of Top 12 countries with Olympic medals year by year."
   },
   {
     key: "map-vis",
     link: "map-vis",
-    imgPreview: "map-vis.png",
+    imgPreview: "/static/map-vis.png",
     title: "Housing Market",
     subtitle: "July 20, 2021",
     description:
@@ -21,7 +20,7 @@ export const mockData = [
   {
     key: "timeline",
     link: "timeline",
-    imgPreview: "timeline-big.jpg",
+    imgPreview: "/static/timeline-big.jpg",
     title: "Timeline",
     subtitle: "June 30, 2021",
     description:
@@ -30,7 +29,7 @@ export const mockData = [
   {
     key: "space-flight",
     link: "space-flight",
-    imgPreview: "space-day2.png",
+    imgPreview: "/static/space-day2.png",
     title: "Space flight",
     subtitle: "April 12, 2021",
     description:
@@ -39,7 +38,7 @@ export const mockData = [
   {
     key: "vaccinations",
     link: "vaccinations",
-    imgPreview: "vaccinations_twitter_cover2.png",
+    imgPreview: "/static/vaccinations_twitter_cover2.png",
     title: "Vaccinations",
     subtitle: "March 5, 2021",
     description:
