@@ -163,26 +163,48 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
                           }}
                           transition={{ duration: 1 }}
                         />
-                        {/* We should use clip-path but I couldn't */}
-                        {xScale(row[val.property]) - xScale(previousPercentage) / 6 > 90 && (
-                          <motion.text
-                            fill="#2a3f55"
-                            fontFamily="'Source Sans Pro'"
-                            fontSize="8"
-                            fontWeight="600"
-                            letterSpacing="0em"
+                        <clipPath id="myClip">
+                          <motion.rect
+                            key={`bar-group-${row.country}-${barIdx}-${val.property}`}
                             width={xScale(row[val.property]) / 6}
                             height={BAR_HEIGHT}
-                            y={8.5}
+                            fill={val.color}
                             initial={{
-                              x: MARGIN.LEFT + initialX + 2
+                              x: MARGIN.LEFT
                             }}
                             animate={{
-                              x: MARGIN.LEFT + xScale(previousPercentage) / 6 + 2
+                              x:
+                                previousPercentage > 0
+                                  ? [
+                                      MARGIN.LEFT + initialX,
+                                      MARGIN.LEFT + xScale(previousPercentage) / 6
+                                    ]
+                                  : MARGIN.LEFT,
+                              width: [initialWidth, xScale(row[val.property]) / 6]
                             }}
-                            transition={{ duration: 1 }}>
-                            {row[val.property]}
-                          </motion.text>
+                            transition={{ duration: 1 }}
+                          />
+                        </clipPath>
+                        {xScale(row[val.property]) - xScale(previousPercentage) / 6 > 90 && (
+                          <g clipPath="url(#myClip)">
+                            <motion.text
+                              fill="#2a3f55"
+                              fontSize="8"
+                              fontWeight="600"
+                              letterSpacing="0em"
+                              width={xScale(row[val.property]) / 6}
+                              height={BAR_HEIGHT}
+                              y={8.5}
+                              initial={{
+                                x: MARGIN.LEFT + initialX + 2
+                              }}
+                              animate={{
+                                x: MARGIN.LEFT + xScale(previousPercentage) / 6 + 2
+                              }}
+                              transition={{ duration: 1 }}>
+                              {row[val.property]}
+                            </motion.text>
+                          </g>
                         )}
                       </motion.g>
                     );
@@ -195,7 +217,6 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
         <rect x={0} width={600} y={298} fill={"white"} height={200} />
         <text
           fill="#2a3f55"
-          fontFamily="'Source Sans Pro'"
           fontSize="15"
           fontWeight="600"
           letterSpacing="0em"
@@ -207,7 +228,6 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
             <g key={`line-${v}`}>
               <text
                 fill="#2a3f55"
-                fontFamily="'Source Sans Pro'"
                 fontSize="13"
                 transform={`translate(${MARGIN.LEFT + xScale(v) / 6} 312.8)`}
                 textAnchor="middle">
