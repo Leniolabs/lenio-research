@@ -23,7 +23,7 @@ export const Index = () => {
         <title>Leniolabs_ Research</title>
         <meta
           name="description"
-          content="Data Visualization of Top 12 countries with Olympic medals by year"
+          content="Data Visualization of Top countries with Olympic medals by year"
         />
         <meta name="title" content="Leniolabs_ Research: Olympics" key="title" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -32,17 +32,17 @@ export const Index = () => {
         <meta name="twitter:title" content="Leniolabs_ Research: Olympics" />
         <meta
           name="twitter:description"
-          content="Data Visualization of Top 12 countries with Olympic medals by year"
+          content="Data Visualization of Top countries with Olympic medals by year"
         />
         <meta name="twitter:image" content="https://research.leniolabs.com/static/medals.gif" />
         <meta property="og:url" content="https://research.leniolabs.com/olympics" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Leniolabs_ Research: Olympics" />
         <meta property="og:image" content="https://research.leniolabs.com/static/medals.gif" />
-        <meta property="og:image:alt" content="Top 12 countries with Olympic medals by year" />
+        <meta property="og:image:alt" content="Top countries with Olympic medals by year" />
         <meta
           property="og:description"
-          content="Data Visualization of Top 12 countries with Olympic medals by year"
+          content="Data Visualization of Top countries with Olympic medals by year"
         />
         <meta property="og:site_name" content="Leniolabs_ Research" />
         <meta property="og:locale" content="en_US" />
