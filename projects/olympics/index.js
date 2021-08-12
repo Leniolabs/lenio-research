@@ -81,7 +81,7 @@ export const Index = () => {
       </div>
       <div className="row-container">
         <MainTitle>Olympic medals per country by year</MainTitle>
-        <MainSubTitle>Top 12 countries with olympic medals</MainSubTitle>
+        <MainSubTitle>Top countries with olympic medals</MainSubTitle>
         <div className="justify-center-full-width">
           <CustomSelect
             options={YEAR_OPTIONS}
