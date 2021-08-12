@@ -108,20 +108,31 @@ export const Index = () => {
             [
               { property: "acc_gold", color: "#F7C655", label: "Gold Medals" },
               { property: "acc_silver", color: "#AABFBF", label: "Silver Medals" },
-              { property: "acc_bronce", color: "#DB8860", label: "Bronce Medals" }
+              { property: "acc_Bronze", color: "#DB8860", label: "Bronze Medals" }
             ]
           ]}
         />
-        <p className={`olympics-sources-text${YEAR_OPTIONS[dataIndex].value === "1948" ? ' bold-source-text' : ''}`}>
-          1948: Germany and Japan were not invited to participate in the games. {' '}
+        <p
+          className={`olympics-sources-text${
+            YEAR_OPTIONS[dataIndex].value === "1948" ? " bold-source-text" : ""
+          }`}>
+          1948: Germany and Japan were not invited to participate in the games.{" "}
           <Link href="https://en.wikipedia.org/wiki/1948_Summer_Olympics">Source link.</Link>
         </p>
-        <p className={`olympics-sources-text${YEAR_OPTIONS[dataIndex].value === "1980" ? ' bold-source-text' : ''}`}>
-          1980: USA and Japan were part of the boycott to protest against the Soviet invasion of Afghanistan. {' '}
+        <p
+          className={`olympics-sources-text${
+            YEAR_OPTIONS[dataIndex].value === "1980" ? " bold-source-text" : ""
+          }`}>
+          1980: USA and Japan were part of the boycott to protest against the Soviet invasion of
+          Afghanistan.{" "}
           <Link href="https://en.wikipedia.org/wiki/1948_Summer_Olympics">Source link.</Link>
         </p>
-        <p className={`olympics-sources-text${YEAR_OPTIONS[dataIndex].value === "1984" ? ' bold-source-text' : ''}`}>
-          1984: Russia and Poland were part of the boycott claiming 'chauvinistic sentiments and an anti-Soviet hysteria being whipped up in the United States. {' '}
+        <p
+          className={`olympics-sources-text${
+            YEAR_OPTIONS[dataIndex].value === "1984" ? " bold-source-text" : ""
+          }`}>
+          1984: Russia and Poland were part of the boycott claiming 'chauvinistic sentiments and an
+          anti-Soviet hysteria being whipped up in the United States.{" "}
           <Link href="https://en.wikipedia.org/wiki/1948_Summer_Olympics">Source link.</Link>
         </p>
         <div className="justify-center-full-width">
