@@ -29,11 +29,17 @@ export const getGroupedOptions = (options) => {
 
 export const getOlympicDataToUse = (medalsData, olympicYears, quantityPerYear = 11) => {
   const bestCountries = {};
+  const tempArray = [...Array(quantityPerYear).keys()];
+  const yPositions = tempArray.map((value) => 25 * value + 8.5);
   olympicYears.forEach(({ value: year }) => {
     const countries = medalsData[year];
     bestCountries[year] = countries
       .sort((a, b) => (a.total_medals < b.total_medals ? 1 : -1))
-      .slice(0, quantityPerYear);
+      .slice(0, quantityPerYear)
+      .map((item, idx) => {
+        item.yPosition = yPositions[idx];
+        return item;
+      });
   });
   return bestCountries;
 };

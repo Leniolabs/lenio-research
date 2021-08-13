@@ -101,7 +101,7 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
               </motion.g>
             );
           })}
-          {data.map((row, idx) => {
+          {data.map((row) => {
             return (
               <g key={`bar-group-${row.country}`}>
                 {values.map((arr, barIdx) => {
@@ -135,7 +135,6 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
                     const xScaleRowValProperty = xScale(row[val.property]);
                     const widthMotion = xScaleRowValProperty / 6;
                     const widthAnimation = [initialWidth, widthMotion];
-                    const yAnimated = LABELS[idx] / 10 + barIdx * BAR_HEIGHT + 17 / 2;
                     return (
                       <motion.g
                         key={`bar-group-${row.country}-${barIdx}-${val.property}`}
@@ -146,7 +145,7 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
                           y: MAX_Y
                         }}
                         animate={{
-                          y: yAnimated
+                          y: row.yPosition
                         }}
                         transition={{ duration: DURATION }}>
                         <motion.rect
