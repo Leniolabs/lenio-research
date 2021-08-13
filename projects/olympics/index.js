@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { SectionTitle, MainTitle, MainSubTitle, PlayText } from "./style";
 import medals from "./medals.json";
@@ -7,23 +7,21 @@ import { useTracking } from "analytics/context";
 import { BarChart } from "./BarChart";
 import PoleVis from "./PoleVis";
 import CustomSelect from "@components/select/select";
-
+import { getOlympicDataToUse } from "./utils";
 export const Index = () => {
-  const [isPlaying, setIsPlaying] = React.useState(false);
-  const [dataIndex, setDataIndex] = React.useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [dataIndex, setDataIndex] = useState(0);
   const { logEvent } = useTracking();
-  const [dateChange, setDateChange] = React.useState(null);
-  const [barChartData, setBarChartData] = React.useState(medals[1896]);
+  const [dateChange, setDateChange] = useState(null);
+  const { current: quantityOfBest } = useRef(11);
+  const bestCountriesPerYear = useRef(getOlympicDataToUse(medals, YEAR_OPTIONS, quantityOfBest));
+  const [barChartData, setBarChartData] = useState(bestCountriesPerYear.current[`1896`]);
 
-  React.useEffect(() => {
-    setBarChartData(
-      medals[YEAR_OPTIONS[dataIndex].value]
-        .sort((a, b) => (a.total_medals < b.total_medals ? 1 : -1))
-        .slice(0, 11)
-    );
+  useEffect(() => {
+    setBarChartData(bestCountriesPerYear.current[YEAR_OPTIONS[dataIndex].value]);
   }, [dataIndex]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (dataIndex < YEAR_OPTIONS.length - 1 && isPlaying) {
       setTimeout(() => {
         if (dateChange) {
@@ -38,7 +36,7 @@ export const Index = () => {
     }
   }, [dataIndex, isPlaying]);
 
-  const onChangeCallback = React.useCallback((option) => {
+  const onChangeCallback = useCallback((option) => {
     logEvent({
       category: "Olympics",
       action: "Changed Date",

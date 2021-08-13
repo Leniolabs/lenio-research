@@ -27,6 +27,17 @@ export const getGroupedOptions = (options) => {
   ];
 };
 
+export const getOlympicDataToUse = (medalsData, olympicYears, quantityPerYear = 11) => {
+  const bestCountries = {};
+  olympicYears.forEach(({ value: year }) => {
+    const countries = medalsData[year];
+    bestCountries[year] = countries
+      .sort((a, b) => (a.total_medals < b.total_medals ? 1 : -1))
+      .slice(0, quantityPerYear);
+  });
+  return bestCountries;
+};
+
 export const getCountryCode = (three_code) => {
   const country = countryCodes.find((c) => c["3code"] === three_code || c["3code2"] === three_code);
   if (country) {
