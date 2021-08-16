@@ -79,7 +79,7 @@ export const Dashboard = (props) => {
         ...r,
         country: r.key,
         value: r.value * 100,
-        yPosition: (idx) => 25 * idx + 8.5
+        yPosition: 25 * idx + 8.5
       }))
     );
   }, []);
