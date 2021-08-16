@@ -9,6 +9,7 @@
 		"test": "jest --env=jsdom --watchAll"
 	},
 	"dependencies": {
+		"crossfilter2": "^1.5.4",
 		"d3-polygon": "^2.0.0",
 		"d3-scale": "^3.2.3",
 		"dayjs": "^1.10.5",

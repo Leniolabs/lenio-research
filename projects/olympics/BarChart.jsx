@@ -40,7 +40,7 @@ BarLegend.propTypes = {
 export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
   const xScale = React.useMemo(() => {
     return scaleLinear().domain([0, 100]).range([0, 100]);
-  });
+  }, []);
 
   const legendData = React.useMemo(() => {
     return values.flat();
