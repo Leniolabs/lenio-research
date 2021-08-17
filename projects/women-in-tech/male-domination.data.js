@@ -1,6 +1,6 @@
 export default {
   config: {
-    yDomain: [-1, 1],
+    yDomain: [-0.1, 1],
     title: "Gender gap in male-dominated fields",
     legend: "Normalized gender gap (by total graduates in the field)"
   },
@@ -60,17 +60,18 @@ export default {
       2020: { value: 782, visibleMark: true }
     },
     yPoints: [
-      { label: "-1", value: 942 },
-      { label: "-0.8", value: 856.4, visibleMark: true },
-      { label: "-0.6", value: 770.8, visibleMark: true },
-      { label: "-0.4", value: 658.2, visibleMark: true },
-      { label: "-0.2", value: 599.6, visibleMark: true },
-      { label: 0, value: 514, visibleMark: true },
-      { label: 0.2, value: 428.4, visibleMark: true },
-      { label: 0.4, value: 342.8, visibleMark: true },
-      { label: 0.6, value: 257.2, visibleMark: true },
-      { label: 0.8, value: 171.6, visibleMark: true },
-      { label: 1, value: 86, visibleMark: true, hideGuideline: true }
+      { label: "-0.1" },
+      { label: "0", visibleMark: true },
+      { label: "0.1" },
+      { label: "0.2", visibleMark: true },
+      { label: "0.3" },
+      { label: "0.4", visibleMark: true },
+      { label: "0.5" },
+      { label: "0.6", visibleMark: true },
+      { label: "0.7" },
+      { label: "0.8", visibleMark: true },
+      { label: "0.9" },
+      { label: "1", visibleMark: true, hideGuideline: true }
     ]
   },
   entries: [
@@ -131,6 +132,7 @@ export default {
       }
     },
     {
+      highlight: true,
       text: {
         className: "st14",
         value: "Computer and information sciences"

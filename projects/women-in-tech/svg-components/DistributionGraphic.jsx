@@ -54,6 +54,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
     });
 
     const obj = {};
+
     getFilledSlots(slots, points).forEach((slot) => {
       obj[slot.label] = slot.position;
     });

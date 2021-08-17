@@ -60,17 +60,17 @@ export default {
       2020: { value: 782, visibleMark: true }
     },
     yPoints: [
-      { label: 0, value: 942 },
-      { label: 10, value: 856.4 },
-      { label: 20, value: 770.8, visibleMark: true },
-      { label: 30, value: 658.2 },
-      { label: 40, value: 599.6, visibleMark: true },
-      { label: 50, value: 514 },
-      { label: 60, value: 428.4, visibleMark: true },
-      { label: 70, value: 342.8 },
-      { label: 80, value: 257.2, visibleMark: true },
-      { label: 90, value: 171.6 },
-      { label: 100, value: 86, visibleMark: true, hideGuideline: true }
+      { label: 0 },
+      { label: 10 },
+      { label: 20, visibleMark: true },
+      { label: 30 },
+      { label: 40, visibleMark: true },
+      { label: 50 },
+      { label: 60, visibleMark: true },
+      { label: 70 },
+      { label: 80, visibleMark: true },
+      { label: 90 },
+      { label: 100, visibleMark: true, hideGuideline: true }
     ]
   },
   entries: [

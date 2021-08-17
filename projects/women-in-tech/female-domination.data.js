@@ -1,6 +1,6 @@
 export default {
   config: {
-    yDomain: [-1, 1],
+    yDomain: [-1, 0.875],
     title: "Gender gap in female-dominated fields",
     legend: "Normalized gender gap (by total graduates in the field)"
   },
@@ -60,17 +60,22 @@ export default {
       2020: { value: 782, visibleMark: true }
     },
     yPoints: [
-      { label: "-1", value: 942 },
-      { label: "-0.8", value: 856.4, visibleMark: true },
-      { label: "-0.6", value: 770.8, visibleMark: true },
-      { label: "-0.4", value: 658.2, visibleMark: true },
-      { label: "-0.2", value: 599.6, visibleMark: true },
-      { label: 0, value: 514, visibleMark: true },
-      { label: 0.2, value: 428.4, visibleMark: true },
-      { label: 0.4, value: 342.8, visibleMark: true },
-      { label: 0.6, value: 257.2, visibleMark: true },
-      { label: 0.8, value: 171.6, visibleMark: true },
-      { label: 1, value: 86, visibleMark: true, hideGuideline: true }
+      { label: "-1" },
+      { label: "-0.875" },
+      { label: "-0.75", visibleMark: true },
+      { label: "-0.625" },
+      { label: "-0.5", visibleMark: true },
+      { label: "-0.375" },
+      { label: "0.25", visibleMark: true },
+      { label: "0.125" },
+      { label: "0.0", visibleMark: true },
+      { label: "0.125" },
+      { label: "0.25", visibleMark: true },
+      { label: "0.375" },
+      { label: "0.50", visibleMark: true },
+      { label: "0.625" },
+      { label: "0.75", visibleMark: true },
+      { label: "0.875", hideGuideline: true }
     ]
   },
   entries: [

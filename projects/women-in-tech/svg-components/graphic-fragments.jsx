@@ -39,7 +39,7 @@ export const DistributionMeasures = ({ measures, legend = "" }) => (
   <>
     {/* Y points and labels */}
     {measures.yPoints.map((yPoint, idx, points) => {
-      const { label: point, value: data, visibleMark } = yPoint;
+      const { label, visibleMark, hideGuideline } = yPoint;
       const yCoord = buildMeasureYCoordinate(idx, points.length);
 
       if (!visibleMark) {
@@ -47,15 +47,15 @@ export const DistributionMeasures = ({ measures, legend = "" }) => (
       }
 
       return (
-        <g key={point}>
+        <g key={label}>
           <text className="st7 st11" transform={`translate(72.8 ${+yCoord + 4})`}>
-            {point}
+            {label}
           </text>
           <path className="st6" d={`M99.9 ${yCoord} L110.1 ${yCoord}`} />
 
           {/* Guidelines */}
 
-          {!data.hideGuideline && <path className="st4" d={`M105.4 ${yCoord} L760.6 ${yCoord}`} />}
+          {!hideGuideline && <path className="st4" d={`M105.4 ${yCoord} L760.6 ${yCoord}`} />}
         </g>
       );
     })}
