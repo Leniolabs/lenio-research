@@ -1,6 +1,8 @@
 export default {
   config: {
-    yDomain: [-1, 1]
+    yDomain: [-1, 1],
+    title: "Gender gap in female-dominated fields",
+    legend: "Normalized gender gap (by total graduates in the field)"
   },
   // Graphic axes and values for each point
   measures: {

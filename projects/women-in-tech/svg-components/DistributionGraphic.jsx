@@ -22,7 +22,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
     measures,
     measures: { xPoints },
     entries,
-    config: { yDomain }
+    config: { yDomain, title, legend }
   } = graphicData;
 
   const onCareerClickHandler = (careerName) => {
@@ -63,7 +63,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
 
   return (
     <DistributionContainer {...extraProps}>
-      <DistributionTitle />
+      <DistributionTitle title={title} />
 
       {/* Entries Evolution + Career */}
       {entries.map((entry) => {
@@ -82,7 +82,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
         );
       })}
 
-      <DistributionMeasures measures={measures} />
+      <DistributionMeasures measures={measures} legend={legend} />
       <DistributionFooter />
     </DistributionContainer>
   );

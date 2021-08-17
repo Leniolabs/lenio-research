@@ -25,13 +25,17 @@ DistributionContainer.propTypes = {
   children: PropTypes.any
 };
 
-export const DistributionTitle = () => (
+export const DistributionTitle = ({ title = "" }) => (
   <text transform="translate(230.2 58.6)" className="st7" fontSize={30}>
-    Percentage of Women Bachelors by field
+    {title}
   </text>
 );
 
-export const DistributionMeasures = ({ measures }) => (
+DistributionTitle.propTypes = {
+  title: PropTypes.string
+};
+
+export const DistributionMeasures = ({ measures, legend = "" }) => (
   <>
     {/* Y points and labels */}
     {measures.yPoints.map((yPoint, idx, points) => {
@@ -94,7 +98,7 @@ export const DistributionMeasures = ({ measures }) => (
     <path className="st6" d="M943.7 944.1L95.7 944.1" />
 
     <text transform="rotate(-90 313.1 266.9)" className="st7" fontSize={16}>
-      % of degrees granted to women
+      {legend}
     </text>
   </>
 );
@@ -103,7 +107,8 @@ DistributionMeasures.propTypes = {
   measures: PropTypes.shape({
     xPoints: PropTypes.any,
     yPoints: PropTypes.any
-  })
+  }),
+  legend: PropTypes.string
 };
 
 export const DistributionFooter = () => (

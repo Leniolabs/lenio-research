@@ -41,12 +41,12 @@ const WomenInTechArticle = () => {
 
       <GraphicContainer>
         <DistributionGraphic data={femaleDominationData} />
-        <FigCaption>Female Domination</FigCaption>
+        <FigCaption>Gender gap in female-dominated fields</FigCaption>
       </GraphicContainer>
 
       <GraphicContainer>
         <DistributionGraphic data={maleDominationData} />
-        <FigCaption>Male Domination</FigCaption>
+        <FigCaption>Gender gap in male-dominated fields</FigCaption>
       </GraphicContainer>
 
       <RowContainer>

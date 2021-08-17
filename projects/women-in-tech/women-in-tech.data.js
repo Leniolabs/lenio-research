@@ -1,7 +1,9 @@
 export default {
   // Graphic axes and values for each point
   config: {
-    yDomain: [0, 100]
+    yDomain: [0, 100],
+    legend: "% of degrees granted to women",
+    title: "Percentage of Women Bachelors by field"
   },
   measures: {
     xPoints: {
