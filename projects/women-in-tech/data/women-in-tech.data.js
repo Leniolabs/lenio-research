@@ -791,7 +791,6 @@ export default {
         value: "Computer and Information Science"
       },
       path: {
-        className: "st1",
         yPoints: [
           { date: 1970, value: 13.567 },
           { date: 1971, value: 13.55 },
