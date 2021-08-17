@@ -3,7 +3,9 @@ export default {
   config: {
     yDomain: [0, 100],
     legend: "% of degrees granted to women",
-    title: "Percentage of Women Bachelors by field"
+    title: "Percentage of Women Bachelors by field",
+    sources: `National Center for Education Statistics, tables 325 -
+    trends in degrees by field and sex`
   },
   measures: {
     xPoints: {

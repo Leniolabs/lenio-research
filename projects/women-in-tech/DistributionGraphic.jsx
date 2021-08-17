@@ -1,6 +1,6 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import Graphic from "./Graphic/index";
+import Graphic from "./Graphic";
 import { buildPath, GraphicConstants, getLastItem, getVerticalPointFromDomain } from "./utils";
 import { generateSlots, getFilledSlots } from "./slotUtils";
 
@@ -16,7 +16,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
     measures,
     measures: { xPoints },
     entries,
-    config: { yDomain, title, legend }
+    config: { yDomain, title, legend, sources }
   } = graphicData;
 
   const onCareerClickHandler = React.useCallback((careerName) => {
@@ -78,7 +78,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
       })}
 
       <Graphic.Measure measures={measures} legend={legend} />
-      <Graphic.Footer />
+      <Graphic.Footer sources={sources} />
     </Graphic>
   );
 };

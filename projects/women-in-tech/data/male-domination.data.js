@@ -2,7 +2,9 @@ export default {
   config: {
     yDomain: [-0.1, 1],
     title: "Gender gap in male-dominated fields",
-    legend: "Normalized gender gap (by total graduates in the field)"
+    legend: "Normalized gender gap (by total graduates in the field)",
+    sources: `National Center for Education Statistics, tables 325 -
+    trends in degrees by field and sex`
   },
   // Graphic axes and values for each point
   measures: {
