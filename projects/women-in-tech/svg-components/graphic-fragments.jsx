@@ -34,10 +34,11 @@ export const DistributionTitle = () => (
 export const DistributionMeasures = ({ measures }) => (
   <>
     {/* Y points and labels */}
-    {Object.entries(measures.yPoints).map(([point, data], idx, points) => {
+    {measures.yPoints.map((yPoint, idx, points) => {
+      const { label: point, value: data, visibleMark } = yPoint;
       const yCoord = buildMeasureYCoordinate(idx, points.length);
 
-      if (!data.visibleMark) {
+      if (!visibleMark) {
         return null;
       }
 

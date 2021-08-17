@@ -1,7 +1,8 @@
 import React from "react";
 import DistributionGraphic from "./svg-components/DistributionGraphic";
 import womenInTechData from "./women-in-tech.data";
-import womenInTechData2 from "./women-in-tech2.data";
+import femaleDominationData from "./female-domination.data";
+import maleDominationData from "./male-domination.data";
 import {
   GraphicContainer,
   Paragraph,
@@ -39,11 +40,13 @@ const WomenInTechArticle = () => {
       </GraphicContainer>
 
       <GraphicContainer>
-        <DistributionGraphic data={womenInTechData2} />
-        <FigCaption>
-          Percentage of degrees granted to women, by field. Source: National Center for Education
-          Statistics, tables 325.
-        </FigCaption>
+        <DistributionGraphic data={femaleDominationData} />
+        <FigCaption>Female Domination</FigCaption>
+      </GraphicContainer>
+
+      <GraphicContainer>
+        <DistributionGraphic data={maleDominationData} />
+        <FigCaption>Male Domination</FigCaption>
       </GraphicContainer>
 
       <RowContainer>

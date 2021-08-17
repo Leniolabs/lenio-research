@@ -7,7 +7,7 @@ import {
   DistributionTitle,
   CareerEntry
 } from "./graphic-fragments";
-import { buildPath, GraphicConstants, getVerticalPointFromPercentage, getLastItem } from "../utils";
+import { buildPath, GraphicConstants, getLastItem, getVerticalPointFromDomain } from "../utils";
 import { generateSlots, getFilledSlots } from "../slotUtils";
 
 const { BOTTOM_LIMIT, TOP_LIMIT } = GraphicConstants;
@@ -21,7 +21,8 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
   const {
     measures,
     measures: { xPoints },
-    entries
+    entries,
+    config: { yDomain }
   } = graphicData;
 
   const onCareerClickHandler = (careerName) => {
@@ -43,7 +44,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
     });
 
     const points = entries.map(({ path: { yPoints }, text }) => {
-      const textY = getVerticalPointFromPercentage(getLastItem(yPoints).value);
+      const textY = getVerticalPointFromDomain(yDomain, getLastItem(yPoints).value);
 
       return {
         position: textY,
@@ -67,7 +68,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
       {/* Entries Evolution + Career */}
       {entries.map((entry) => {
         const { yPoints, ...pathData } = entry.path;
-        const path = buildPath(xPoints, yPoints);
+        const path = buildPath(xPoints, yPoints, { yDomain });
         let lastPointY = filledSlots[entry.text.value];
 
         return (
