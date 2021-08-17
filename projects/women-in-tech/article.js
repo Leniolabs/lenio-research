@@ -1,8 +1,5 @@
 import React from "react";
-import DistributionGraphic from "./svg-components/DistributionGraphic";
-import womenInTechData from "./women-in-tech.data";
-import femaleDominationData from "./female-domination.data";
-import maleDominationData from "./male-domination.data";
+import DistributionGraphic from "./DistributionGraphic";
 import {
   GraphicContainer,
   Paragraph,
@@ -12,6 +9,10 @@ import {
   Article,
   FigCaption
 } from "./women-in-tech.style";
+
+import womenInTechData from "./data/women-in-tech.data";
+import femaleDominationData from "./data/female-domination.data";
+import maleDominationData from "./data/male-domination.data";
 
 const WomenInTechArticle = () => {
   return (
