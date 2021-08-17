@@ -1,5 +1,4 @@
-import { scaleLinear, scaleQuantize } from "d3-scale";
-import { getScaledArray } from "./slotUtils";
+import { scaleLinear } from "d3-scale";
 
 export const GraphicConstants = Object.freeze({
   BOTTOM_LIMIT: 942,
@@ -8,23 +7,23 @@ export const GraphicConstants = Object.freeze({
   RIGHT_LIMIT: 782
 });
 
-export const buildPath = (xValues, yValues) => {
+export const buildPath = (xValues, yValues, { yDomain = [0, 100] }) => {
   const startX = xValues[yValues[0].date].value;
-  const startY = getVerticalPointFromPercentage(yValues[0].value);
+  const startY = getVerticalPointFromDomain(yDomain, yValues[0].value);
 
   let string = `M ${startX} ${startY} L`;
   yValues.slice(1).forEach((entry) => {
-    string += `${xValues[entry.date].value} ${getVerticalPointFromPercentage(entry.value)} `;
+    string += `${xValues[entry.date].value} ${getVerticalPointFromDomain(yDomain, entry.value)} `;
   });
 
   return string.slice(0, -1);
 };
 
-export const getVerticalPointFromPercentage = (percentage) => {
+export const getVerticalPointFromDomain = (domain, input) => {
   const { TOP_LIMIT, BOTTOM_LIMIT } = GraphicConstants;
-  const getVerticalPoint = scaleLinear().domain([0, 100]).range([BOTTOM_LIMIT, TOP_LIMIT]);
+  const getVerticalPoint = scaleLinear().domain(domain).range([BOTTOM_LIMIT, TOP_LIMIT]);
 
-  return getVerticalPoint(percentage);
+  return getVerticalPoint(input);
 };
 
 export const buildMeasureXCoordinate = (index, numOfElements) => {

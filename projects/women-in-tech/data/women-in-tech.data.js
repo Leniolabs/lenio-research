@@ -1,5 +1,12 @@
 export default {
   // Graphic axes and values for each point
+  config: {
+    yDomain: [0, 100],
+    legend: "% of degrees granted to women",
+    title: "Percentage of Women Bachelors by field",
+    sources: `National Center for Education Statistics, tables 325 -
+    trends in degrees by field and sex`
+  },
   measures: {
     xPoints: {
       1970: { value: 135, visibleMark: true },
@@ -54,19 +61,19 @@ export default {
       2019: { value: 780 },
       2020: { value: 782, visibleMark: true }
     },
-    yPoints: {
-      0: { value: 942 },
-      10: { value: 856.4 },
-      20: { value: 770.8, visibleMark: true },
-      30: { value: 658.2 },
-      40: { value: 599.6, visibleMark: true },
-      50: { value: 514 },
-      60: { value: 428.4, visibleMark: true },
-      70: { value: 342.8 },
-      80: { value: 257.2, visibleMark: true },
-      90: { value: 171.6 },
-      100: { value: 86, visibleMark: true, hideGuideline: true }
-    }
+    yPoints: [
+      { label: 0 },
+      { label: 10 },
+      { label: 20, visibleMark: true },
+      { label: 30 },
+      { label: 40, visibleMark: true },
+      { label: 50 },
+      { label: 60, visibleMark: true },
+      { label: 70 },
+      { label: 80, visibleMark: true },
+      { label: 90 },
+      { label: 100, visibleMark: true, hideGuideline: true }
+    ]
   },
   entries: [
     {
@@ -784,7 +791,6 @@ export default {
         value: "Computer and Information Science"
       },
       path: {
-        className: "st1",
         yPoints: [
           { date: 1970, value: 13.567 },
           { date: 1971, value: 13.55 },
