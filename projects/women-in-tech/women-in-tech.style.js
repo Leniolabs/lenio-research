@@ -101,10 +101,10 @@ export const svgStyles = css`
     fill: ${GraphicColors.BLACK};
   }
   .st11 {
-    font-size: 11px;
+    font-size: 13px;
   }
   .st14 {
-    font-size: 12px;
+    font-size: 15px;
     fill: ${GraphicColors.GREY};
   }
   .st15 {
