@@ -1,5 +1,14 @@
 export const mockData = [
   {
+    key: "women-in-tech",
+    link: "women-in-tech",
+    imgPreview: "/static/all.jpg",
+    title: "Women in Tech",
+    subtitle: "August 19, 2021",
+    description:
+      "If we dig deep in the data sources at the National Center for Education Statistics we’ll find table number 325.35. There we can see some interesting figures regarding the number of degrees in computer and information sciences from 1970 to 2017, by level of degree and sex."
+  },
+  {
     key: "olympics",
     link: "olympics",
     imgPreview: "/static/olympics.png",
