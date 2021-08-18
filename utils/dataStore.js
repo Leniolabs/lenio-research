@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-labels */
+/* eslint-disable no-unused-vars */
 import React from "react";
 import crossfilter from "crossfilter2";
 
@@ -58,20 +60,32 @@ export function useDataStore(data, config) {
 
   const getData = React.useCallback(
     // eslint-disable-next-line no-unused-vars
-    (dimension, config) => {
-      // config = {
-      //   count: true,
-      //   sum: ['acc_gold', 'acc_silver']
-      // }
+    (dimension) => {
+      config = {
+        count: true,
+        sum: ["num_hijos"]
+      };
+      const reduceAdd = (p, v, nf) => {
+        Object.keys(p).forEach((key) => {
+          p[key] += v[key];
+        });
+        return p;
+      };
+      const reduceRemove = (p, v, nf) => p - 1;
+      const reduceInitial = () => {
+        const initialValues = {};
+        config.sum.forEach((value) => {
+          initialValues[value] = 0;
+        });
+        return initialValues;
+      };
       // return [
       //   {"key":"AS","count":1, "sum_acc_gold": 2, "sum_acc_silver": 2,},
       //   {"key":"AS","count":2, "sum_acc_gold": 4, "sum_acc_silver": 5,},
       // ]
       // do something with the config instead of using the reduceCount for all.
-      // return dimensions[dimension]
-      //   .group()
-      //   .reduce(config.reduceAdd, config.reduceRemove, config.reduceInitial);
-      return dimensions[dimension].group().reduceCount().all();
+      return dimensions[dimension].group().reduce(reduceAdd, reduceRemove, reduceInitial).all();
+      //return dimensions[dimension].group().reduceCount().all();
     },
     [dimensions]
   );

@@ -69,7 +69,7 @@ export const Dashboard = (props) => {
     ]
   };
 
-  const { cf, filterBy, dimensions, filters } = useDataStore(data, configDataStore);
+  const { cf, filterBy, dimensions, filters, getData } = useDataStore(data, configDataStore);
 
   React.useEffect(() => {
     const tempChartData = dimensions["estado_civil"].group().reduceCount().all();
@@ -84,6 +84,7 @@ export const Dashboard = (props) => {
     );
   }, []);
 
+  console.log(getData("estado_civil"));
   return (
     <div>
       <pre>{JSON.stringify(filters, undefined, 2)}</pre>
@@ -94,6 +95,7 @@ export const Dashboard = (props) => {
       </button>
       <button onClick={() => filterBy("division", null)}>Unfilter by Division</button>
       {/* <h4>accumulated golds</h4> */}
+      <pre>{}</pre>
       <pre>{JSON.stringify(chartData1, undefined, 2)}</pre>
       <BarChart
         data={chartData1}
