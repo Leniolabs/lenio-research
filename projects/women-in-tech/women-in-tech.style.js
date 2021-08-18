@@ -16,6 +16,7 @@ export const Presentation = styled.section`
   background: #fffbf0 url("/static/bg-women-in-tech.svg") repeat-x bottom center;
   background-size: cover;
   padding: 4rem 0 20rem;
+  position: relative;
   text-align: center;
 
   * {
@@ -39,6 +40,19 @@ export const Presentation = styled.section`
     margin-top: 1rem;
     a {
       color: #2a9faa;
+    }
+    + a {
+      color: inherit;
+      font-size: 0.8rem;
+      font-weight: normal;
+      opacity: 0.8;
+      position: absolute;
+      bottom: -24px;
+      right: 10px;
+      text-decoration: none;
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 `;
