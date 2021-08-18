@@ -1,4 +1,5 @@
 import WomenInTechArticle from "./article";
+import Link from "next/link";
 import { Presentation } from "./women-in-tech.style";
 
 const Index = () => {
@@ -19,6 +20,9 @@ const Index = () => {
               Lara Schvartzman
             </a>{" "}
           </span>
+          <Link href="https://www.freepik.com/vectors/people" className="pic-author">
+            Remix of people vector created by jcomp
+          </Link>
         </Presentation>
 
         <WomenInTechArticle />
