@@ -1,14 +1,8 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import {
-  DistributionContainer,
-  DistributionFooter,
-  DistributionMeasures,
-  DistributionTitle,
-  CareerEntry
-} from "./graphic-fragments";
-import { buildPath, GraphicConstants, getVerticalPointFromPercentage, getLastItem } from "../utils";
-import { generateSlots, getFilledSlots } from "../slotUtils";
+import Graphic from "./Graphic";
+import { buildPath, GraphicConstants, getLastItem, getVerticalPointFromDomain } from "./utils";
+import { generateSlots, getFilledSlots } from "./slotUtils";
 
 const { BOTTOM_LIMIT, TOP_LIMIT } = GraphicConstants;
 
@@ -21,10 +15,11 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
   const {
     measures,
     measures: { xPoints },
-    entries
+    entries,
+    config: { yDomain, title, legend, sources }
   } = graphicData;
 
-  const onCareerClickHandler = (careerName) => {
+  const onCareerClickHandler = React.useCallback((careerName) => {
     setGraphicData((prev) => ({
       ...prev,
       entries: prev.entries.map((career) =>
@@ -33,7 +28,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
           : { ...career, highlight: false, path: { ...career.path, className: "st1" } }
       )
     }));
-  };
+  }, []);
 
   const filledSlots = React.useMemo(() => {
     const slots = generateSlots({
@@ -43,7 +38,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
     });
 
     const points = entries.map(({ path: { yPoints }, text }) => {
-      const textY = getVerticalPointFromPercentage(getLastItem(yPoints).value);
+      const textY = getVerticalPointFromDomain(yDomain, getLastItem(yPoints).value);
 
       return {
         position: textY,
@@ -53,6 +48,7 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
     });
 
     const obj = {};
+
     getFilledSlots(slots, points).forEach((slot) => {
       obj[slot.label] = slot.position;
     });
@@ -61,17 +57,17 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
   }, [entries]);
 
   return (
-    <DistributionContainer {...extraProps}>
-      <DistributionTitle />
+    <Graphic {...extraProps}>
+      <Graphic.Title title={title} />
 
       {/* Entries Evolution + Career */}
       {entries.map((entry) => {
         const { yPoints, ...pathData } = entry.path;
-        const path = buildPath(xPoints, yPoints);
+        const path = buildPath(xPoints, yPoints, { yDomain });
         let lastPointY = filledSlots[entry.text.value];
 
         return (
-          <CareerEntry
+          <Graphic.Entry
             key={entry.text.value}
             highlight={entry.highlight}
             pathData={{ path, ...pathData }}
@@ -81,9 +77,9 @@ const DistributionGraphic = ({ data, ...extraProps }) => {
         );
       })}
 
-      <DistributionMeasures measures={measures} />
-      <DistributionFooter />
-    </DistributionContainer>
+      <Graphic.Measure measures={measures} legend={legend} />
+      <Graphic.Footer sources={sources} />
+    </Graphic>
   );
 };
 

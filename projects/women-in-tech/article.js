@@ -1,6 +1,5 @@
 import React from "react";
-import DistributionGraphic from "./svg-components/DistributionGraphic";
-import womenInTechData from "./women-in-tech.data";
+import DistributionGraphic from "./DistributionGraphic";
 import {
   GraphicContainer,
   Paragraph,
@@ -10,6 +9,10 @@ import {
   Article,
   FigCaption
 } from "./women-in-tech.style";
+
+import womenInTechData from "./data/women-in-tech.data";
+import femaleDominationData from "./data/female-domination.data";
+import maleDominationData from "./data/male-domination.data";
 
 const WomenInTechArticle = () => {
   return (
@@ -35,6 +38,16 @@ const WomenInTechArticle = () => {
           Percentage of degrees granted to women, by field. Source: National Center for Education
           Statistics, tables 325.
         </FigCaption>
+      </GraphicContainer>
+
+      <GraphicContainer>
+        <DistributionGraphic data={femaleDominationData} />
+        <FigCaption>Gender gap in female-dominated fields</FigCaption>
+      </GraphicContainer>
+
+      <GraphicContainer>
+        <DistributionGraphic data={maleDominationData} />
+        <FigCaption>Gender gap in male-dominated fields</FigCaption>
       </GraphicContainer>
 
       <RowContainer>

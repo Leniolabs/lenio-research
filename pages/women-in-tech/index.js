@@ -10,37 +10,36 @@ export const Index = () => {
     <>
       <Head>
         <title>Leniolabs_ Research</title>
-        <meta name="description" content="Distribution of Women Bachelors by field" />
+        <meta name="description" content="Representation and what happened to women in Tech" />
         <meta
           name="title"
-          content="Leniolabs_ Research: Distribution of Women Bachelors by field"
+          content="Leniolabs_ Research: What happened to women in Tech"
           key="title"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="https://research.leniolabs.com/" />
         <meta name="twitter:creator" content="@Leniolabs_" />
-        <meta
-          name="twitter:title"
-          content="Leniolabs_ Research: Distribution of Women Bachelors by field"
-        />
+        <meta name="twitter:title" content="Leniolabs_ Research: What happened to women in Tech" />
         <meta
           name="twitter:description"
-          content="Data Visualization of the distribution of Women Bachelors by field"
+          content="Representation and what happened to women in Tech"
         />
 
-        {/* TODO: update meta tags */}
-        {/* <meta name="twitter:image" content="https://research.leniolabs.com/return-to-office.png" /> */}
-        {/* <meta property="og:url" content="https://research.leniolabs.com/timeline.html" /> */}
-        <meta property="og:type" content="website" />
         <meta
-          property="og:title"
-          content="Leniolabs_ Research: Distribution of Women Bachelors by field"
+          name="twitter:image"
+          content="https://research.leniolabs.com/static/meta-women-in-tech.jpg"
         />
-        {/* <meta property="og:image" content="https://research.leniolabs.com/return-to-office.png" /> */}
-        <meta property="og:image:alt" content="Opportunities in The US Housing Market" />
+        <meta property="og:url" content="https://research.leniolabs.com/women-in-tech.html" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Leniolabs_ Research: What happened to women in Tech" />
+        <meta
+          property="og:image"
+          content="https://research.leniolabs.com/static/meta-women-in-tech.jpg"
+        />
+        <meta property="og:image:alt" content="Gender gap in male-female dominated fields" />
         <meta
           property="og:description"
-          content="Data Visualization of the distribution of Women Bachelors by field"
+          content="Representation and what happened to women in Tech"
         />
         <meta property="og:site_name" content="Leniolabs_ Research" />
         <meta property="og:locale" content="en_US" />

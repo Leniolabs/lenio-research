@@ -13,13 +13,11 @@ export const GraphicColors = Object.freeze({
 });
 
 export const Presentation = styled.section`
-  background-size: 220px;
-  padding: 4rem 0 6rem;
+  background: #fffbf0 url("/static/bg-women-in-tech.svg") repeat-x bottom center;
+  background-size: cover;
+  padding: 4rem 0 20rem;
+  position: relative;
   text-align: center;
-
-  @media (min-width: 768px) {
-    margin-bottom: 5rem;
-  }
 
   * {
     margin: 0;
@@ -43,11 +41,25 @@ export const Presentation = styled.section`
     a {
       color: #2a9faa;
     }
+    + a {
+      color: inherit;
+      font-size: 0.8rem;
+      font-weight: normal;
+      opacity: 0.8;
+      position: absolute;
+      bottom: -24px;
+      right: 10px;
+      text-decoration: none;
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 `;
 
 export const Article = styled.article`
-  margin-bottom: 5rem;
+  background-color: white;
+  padding: 5rem 0;
 `;
 
 export const Title = styled.h1``;
@@ -126,6 +138,9 @@ export const RowContainer = ({ children }) => (
   <div
     css={css`
       margin: 0 auto;
+      p {
+        line-height: 1.5;
+      }
     `}
     className="row-container">
     {children}
@@ -166,6 +181,9 @@ export const GraphicContainer = ({ children }) => (
       display: flex;
       flex-direction: column;
       align-items: center;
+      svg {
+        border: 1px solid #ffdfaa;
+      }
 
       @media (min-width: 768px) {
         min-height: 80vh;
@@ -179,8 +197,9 @@ export const GraphicContainer = ({ children }) => (
 );
 
 export const FigCaption = styled.figcaption`
+  font-size: 0.85em;
+  font-style: italic;
   margin-top: 0.6rem;
-  font-size: 0.9em;
   text-align: center;
 `;
 
