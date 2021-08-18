@@ -11,11 +11,11 @@ const Graphic = ({ children, ...props }) => (
     id="Layer_1"
     x={0}
     y={0}
-    viewBox="0 0 994.6 1078.8"
+    viewBox="0 0 1062 1078.8"
     xmlSpace="preserve"
     css={svgStyles}
     {...props}>
-    <path fill={GraphicColors.WHITE} d="M0 0H994.6V1078.8H0z" />
+    <path fill={GraphicColors.WHITE} d="M0 0H1150.6V1078.8H0z" />
     {children}
   </svg>
 );
