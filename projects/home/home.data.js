@@ -1,5 +1,14 @@
 export const mockData = [
   {
+    key: "women-in-tech",
+    link: "women-in-tech",
+    imgPreview: "/static/women-home.png",
+    title: "Women in Tech",
+    subtitle: "August 19, 2021",
+    description:
+      "Why did women stop coding? Digging deep into data sources from the National Center for Education Statistics, you find a steep drop in women’s bachelor degrees since 1984 that doesn’t seem to recover. Read this research to find out why."
+  },
+  {
     key: "olympics",
     link: "olympics",
     imgPreview: "/static/olympics.png",
