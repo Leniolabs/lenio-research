@@ -6,7 +6,7 @@ export const ListContainer = styled.div`
   }
   @media (min-width: 240px) {
     .swiper-container {
-      width: 300px;
+      width: 330px;
     }
   }
   @media (min-width: 768px) {
