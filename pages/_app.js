@@ -324,6 +324,25 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   }
+  .chart-wrapper.paralympics-wrapper {
+    background-color: #fff;
+    .head-main {
+      background: #fffbf0 url("/static/bg-olympics.svg") no-repeat bottom center;
+      background-size: 100vw;
+      padding-bottom: 6rem;
+      position: relative;
+      min-height: 35vh;
+      @media (max-width: 415px) {
+        padding-bottom: 1rem;
+        min-height: 25vh;
+      }
+      img {
+        width: 180px;
+        @media (max-width: 415px) {
+          width: 100px;
+        }
+      }
+    }
 `;
 
 const theme = {
