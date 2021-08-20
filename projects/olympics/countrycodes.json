@@ -205,7 +205,7 @@
   { "country": "Slovenia", "2code": "SI", "3code": "SVN" },
   { "country": "Solomon Islands", "2code": "SB", "3code": "SLB" },
   { "country": "Somalia", "2code": "SO", "3code": "SOM" },
-  { "country": "South Africa", "2code": "ZA", "3code": "ZAF" },
+  { "country": "South Africa", "2code": "ZA", "3code": "ZAF", "3code2": "RSA" },
   { "country": "South Georgia and the South Sandwich Islands", "2code": "GS", "3code": "SGS" },
   { "country": "South Sudan", "2code": "SS", "3code": "SSD" },
   { "country": "Spain", "2code": "ES", "3code": "ESP" },
@@ -251,5 +251,5 @@
   { "country": "Western Sahara", "2code": "EH", "3code": "ESH" },
   { "country": "Yemen", "2code": "YE", "3code": "YEM" },
   { "country": "Zambia", "2code": "ZM", "3code": "ZMB" },
-  { "country": "Zimbabwe", "2code": "ZW", "3code": "ZWE" }
+  { "country": "Zimbabwe", "2code": "ZW", "3code": "ZWE", "3code2": "RHO" }
 ]

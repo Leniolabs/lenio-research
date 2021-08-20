@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
-import { SectionTitle, MainTitle, MainSubTitle, PlayText } from "./style";
+import { SectionTitle, MainTitle, MainSubTitle, PlayText } from "../olympics/style";
 import medals from "./medals.json";
-import { YEAR_OPTIONS } from "./olympics.data";
+import { YEAR_OPTIONS } from "./paralympics.data";
 import { useTracking } from "analytics/context";
-import { BarChart } from "./BarChart";
-import PoleVis from "./PoleVis";
+import { BarChart } from "../olympics/BarChart";
 import CustomSelect from "@components/select/select";
-import { getOlympicDataToUse } from "./utils";
+import { getOlympicDataToUse } from "../olympics/utils";
+
 export const Index = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [dataIndex, setDataIndex] = useState(0);
@@ -15,7 +15,7 @@ export const Index = () => {
   const [dateChange, setDateChange] = useState(null);
   const { current: quantityOfBest } = useRef(11);
   const bestCountriesPerYear = useRef(getOlympicDataToUse(medals, YEAR_OPTIONS, quantityOfBest));
-  const [barChartData, setBarChartData] = useState(bestCountriesPerYear.current[`1896`]);
+  const [barChartData, setBarChartData] = useState(bestCountriesPerYear.current[`1960`]);
 
   useEffect(() => {
     setBarChartData(bestCountriesPerYear.current[YEAR_OPTIONS[dataIndex].value]);
@@ -50,36 +50,20 @@ export const Index = () => {
   };
 
   return (
-    <section className="chart-wrapper olympics-wrapper">
+    <section className="chart-wrapper paralympics-wrapper">
       <div className="head-main">
         <SectionTitle>
-          Olympics
+          Paralympics
           <br />
-          <img src={"/static/logo-olympics.svg"} alt="logo" />
+          <img src={"/static/paralympics-logo.png"} alt="logo" />
           <Link href="https://www.freepik.com/macrovector" className="pic-author">
             Remix of athlete set vectors created by macrovector
           </Link>
         </SectionTitle>
       </div>
       <div className="row-container">
-        <MainTitle>Pole vault olympic records</MainTitle>
-        <MainSubTitle>Evolution of pole materials</MainSubTitle>
-        <PoleVis></PoleVis>
-        <p className="sources-text">
-          Sources:{" "}
-          <Link href="https://www.nature.com/nmat/">
-            Materials and technology in sport. Mike Caine, Kim Blair and Mike Vasquez. NATURE
-            MATERIALS | VOL 11 | AUGUST 2012
-          </Link>{" "}
-          and{" "}
-          <Link href="https://www.youtube.com/watch?v=K9t0JSCxaQY&list=LL&index=9&t=2s">
-            Evolution of the Pole Vault Olympic Record! | Top Moments
-          </Link>
-        </p>
-      </div>
-      <div className="row-container">
-        <MainTitle>Olympic medals per country by year</MainTitle>
-        <MainSubTitle>Top countries with olympic medals</MainSubTitle>
+        <MainTitle>Paralympics medals per country by year</MainTitle>
+        <MainSubTitle>Top countries with paralympics medals</MainSubTitle>
         <div className="justify-center-full-width">
           <CustomSelect
             options={YEAR_OPTIONS}
@@ -110,38 +94,16 @@ export const Index = () => {
             ]
           ]}
         />
-        <p
-          className={`olympics-sources-text${
-            YEAR_OPTIONS[dataIndex].value === "1948" ? " bold-source-text" : ""
-          }`}>
-          1948: Germany and Japan were not invited to participate in the games.{" "}
-          <Link href="https://en.wikipedia.org/wiki/1948_Summer_Olympics">Source link.</Link>
-        </p>
-        <p
-          className={`olympics-sources-text${
-            YEAR_OPTIONS[dataIndex].value === "1980" ? " bold-source-text" : ""
-          }`}>
-          1980: USA and Japan were part of the boycott to protest against the Soviet invasion of
-          Afghanistan.{" "}
-          <Link href="https://en.wikipedia.org/wiki/1948_Summer_Olympics">Source link.</Link>
-        </p>
-        <p
-          className={`olympics-sources-text${
-            YEAR_OPTIONS[dataIndex].value === "1984" ? " bold-source-text" : ""
-          }`}>
-          1984: Russia and Poland were part of the boycott claiming 'chauvinistic sentiments and an
-          anti-Soviet hysteria being whipped up in the United States.{" "}
-          <Link href="https://en.wikipedia.org/wiki/1948_Summer_Olympics">Source link.</Link>
-        </p>
         <div className="justify-center-full-width">
-          <a href="/static/data-olympics.json">
+          {/* TODO: update data-paralympics.json with read data  */}
+          <a href="/static/data-paralympics.json">
             <button className="btn download-btn">Download Data</button>
           </a>
         </div>
         <p className="sources-text">
           Sources:{" "}
-          <Link href="https://en.wikipedia.org/wiki/1896_Summer_Olympics_medal_table">
-            Summer_Olympics_medal_table
+          <Link href="https://en.wikipedia.org/wiki/1960_Summer_Paralympics_medal_table">
+            Summer_Paralympics_medal_table
           </Link>{" "}
           at Wikipedia.
         </p>
