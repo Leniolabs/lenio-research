@@ -58,25 +58,45 @@ export function useDataStore(data, config) {
     [dimensions, filters]
   );
 
+  const reduceAddSum = (p, v) => {
+    Object.keys(p["sum"]).forEach((key) => {
+      p["sum"][key] += v[key];
+    });
+    return p;
+  };
+
+  const reduceRemoveSum = (p, v) => {
+    Object.keys(p["sum"]).forEach((key) => {
+      p["sum"][key] -= v[key];
+    });
+    return p;
+  };
+
   const getData = React.useCallback(
     // eslint-disable-next-line no-unused-vars
-    (dimension) => {
-      config = {
-        count: true,
-        sum: ["num_hijos"]
-      };
+    // TODO add count, helper
+    (dimension, config) => {
+      const needSum = config.sum.length ? true : false;
       const reduceAdd = (p, v, nf) => {
-        Object.keys(p).forEach((key) => {
-          p[key] += v[key];
-        });
+        if (needSum) {
+          p = { ...reduceAddSum(p, v) };
+        }
+        p.count += 1;
         return p;
       };
-      const reduceRemove = (p, v, nf) => p - 1;
+      const reduceRemove = (p, v, nf) => {
+        if (needSum) {
+          p = reduceRemoveSum(p, v);
+        }
+        return p;
+      };
       const reduceInitial = () => {
-        const initialValues = {};
-        config.sum.forEach((value) => {
-          initialValues[value] = 0;
-        });
+        const initialValues = { count: 0, sum: {} };
+        if (needSum) {
+          config.sum.forEach((value) => {
+            initialValues["sum"][value] = 0;
+          });
+        }
         return initialValues;
       };
       // return [

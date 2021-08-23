@@ -73,7 +73,6 @@ export const Dashboard = (props) => {
 
   React.useEffect(() => {
     const tempChartData = dimensions["estado_civil"].group().reduceCount().all();
-
     setChartData1(
       tempChartData.map((r, idx) => ({
         ...r,
@@ -84,7 +83,12 @@ export const Dashboard = (props) => {
     );
   }, []);
 
-  console.log(getData("estado_civil"));
+  const configFilter = {
+    count: true,
+    sum: ["num_hijos"]
+  };
+
+  // console.log(getData("estado_civil", configFilter));
   return (
     <div>
       <pre>{JSON.stringify(filters, undefined, 2)}</pre>
