@@ -74,12 +74,11 @@ export function useDataStore(data, config) {
 
   const getData = React.useCallback(
     // eslint-disable-next-line no-unused-vars
-    // TODO add count, helper
     (dimension, config) => {
       const needSum = config.sum.length ? true : false;
       const reduceAdd = (p, v, nf) => {
         if (needSum) {
-          p = { ...reduceAddSum(p, v) };
+          p = reduceAddSum(p, v);
         }
         p.count += 1;
         return p;
@@ -88,6 +87,7 @@ export function useDataStore(data, config) {
         if (needSum) {
           p = reduceRemoveSum(p, v);
         }
+        p.count -= 1;
         return p;
       };
       const reduceInitial = () => {

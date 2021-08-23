@@ -81,7 +81,7 @@ export const Dashboard = (props) => {
         yPosition: 25 * idx + 8.5
       }))
     );
-  }, []);
+  }, [filters]);
 
   const configFilter = {
     count: true,
@@ -100,8 +100,9 @@ export const Dashboard = (props) => {
       <button onClick={() => filterBy("division", null)}>Unfilter by Division</button>
       {/* <h4>accumulated golds</h4> */}
       <pre>{}</pre>
-      <pre>{JSON.stringify(chartData1, undefined, 2)}</pre>
+      {/* <pre>{JSON.stringify(chartData1, undefined, 2)}</pre> */}
       <BarChart
+        yTitle="Data"
         data={chartData1}
         values={[[{ property: "value", color: "#F7C655", label: "Gold Medals" }]]}></BarChart>
     </div>
