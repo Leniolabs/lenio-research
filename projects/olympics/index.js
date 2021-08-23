@@ -49,6 +49,20 @@ export const Index = () => {
     setDataIndex(0);
   };
 
+  const handlePlayButton = () => {
+    if (dataIndex === YEAR_OPTIONS.length - 1) {
+      repeat();
+    } else {
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const getTextButton = () => {
+    if (dataIndex === YEAR_OPTIONS.length - 1) return "▶️ Replay";
+    if (isPlaying) return "⏸ Pause";
+    if (!isPlaying) return "▶️ Play";
+  };
+
   return (
     <section className="chart-wrapper olympics-wrapper">
       <div className="head-main">
@@ -93,11 +107,8 @@ export const Index = () => {
           />
         </div>
         <div className="justify-center-full-width">
-          <PlayText
-            x="50"
-            disabled={isPlaying && dataIndex < YEAR_OPTIONS.length - 1}
-            onClick={() => (dataIndex === YEAR_OPTIONS.length - 1 ? repeat() : setIsPlaying(true))}>
-            {dataIndex === YEAR_OPTIONS.length - 1 ? "▶️ Replay" : "▶️ Play"}
+          <PlayText x="50" onClick={handlePlayButton}>
+            {getTextButton()}
           </PlayText>
         </div>
         <BarChart
