@@ -69,21 +69,26 @@ export const Dashboard = (props) => {
     ]
   };
 
-  const { cf, filterBy, dimensions, filters } = useDataStore(data, configDataStore);
+  const { cf, filterBy, dimensions, filters, getData } = useDataStore(data, configDataStore);
 
   React.useEffect(() => {
     const tempChartData = dimensions["estado_civil"].group().reduceCount().all();
-
     setChartData1(
       tempChartData.map((r, idx) => ({
         ...r,
         country: r.key,
         value: r.value * 100,
-        yPosition: (idx) => 25 * idx + 8.5
+        yPosition: 25 * idx + 8.5
       }))
     );
-  }, []);
+  }, [filters]);
 
+  const configFilter = {
+    count: true,
+    sum: ["num_hijos"]
+  };
+
+  // console.log(getData("estado_civil", configFilter));
   return (
     <div>
       <pre>{JSON.stringify(filters, undefined, 2)}</pre>
@@ -94,8 +99,10 @@ export const Dashboard = (props) => {
       </button>
       <button onClick={() => filterBy("division", null)}>Unfilter by Division</button>
       {/* <h4>accumulated golds</h4> */}
-      <pre>{JSON.stringify(chartData1, undefined, 2)}</pre>
+      <pre>{}</pre>
+      {/* <pre>{JSON.stringify(chartData1, undefined, 2)}</pre> */}
       <BarChart
+        yTitle="Data"
         data={chartData1}
         values={[[{ property: "value", color: "#F7C655", label: "Gold Medals" }]]}></BarChart>
     </div>
