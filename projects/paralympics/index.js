@@ -38,7 +38,7 @@ export const Index = () => {
 
   const onChangeCallback = useCallback((option) => {
     logEvent({
-      category: "Olympics",
+      category: "Paralympics",
       action: "Changed Date",
       label: option.value
     });
@@ -55,10 +55,8 @@ export const Index = () => {
         <SectionTitle>
           Paralympics
           <br />
-          <img src={"/static/paralympics-logo.png"} alt="logo" />
-          <Link href="https://www.freepik.com/macrovector" className="pic-author">
-            Remix of athlete set vectors created by macrovector
-          </Link>
+          <img src={"/static/paralympics-logo.svg"} alt="logo" />
+          <a href="https://www.freepik.com/vectors/people" target="blank">Remix of people vector created by freepik</a>
         </SectionTitle>
       </div>
       <div className="row-container">

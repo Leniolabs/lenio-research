@@ -2,9 +2,9 @@ export const mockData = [
   {
     key: "paralympics",
     link: "paralympics",
-    imgPreview: "/static/paralympics-logo.png",
+    imgPreview: "/static/paralympics-logo.svg",
     title: "Paralympics",
-    subtitle: "August 24, 2021",
+    subtitle: "August 27, 2021",
     description:
       "Data visualizations of Paralympics. We created a timeline animations of Top countries with Paralympics medals year by year."
   },
