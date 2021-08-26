@@ -327,7 +327,7 @@ const GlobalStyle = createGlobalStyle`
   .chart-wrapper.paralympics-wrapper {
     background-color: #fff;
     .head-main {
-      background: #fffbf0 url("/static/paralypic-athletes.svg") no-repeat bottom center;
+      background: #fffbf0 url("/static/paralympic-athletes.svg") no-repeat bottom center;
       background-size: 100vw;
       padding-bottom: 6rem;
       position: relative;
