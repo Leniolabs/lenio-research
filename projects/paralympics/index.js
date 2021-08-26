@@ -61,7 +61,7 @@ export const Index = () => {
       </div>
       <div className="row-container">
         <MainTitle>Paralympics medals per country by year</MainTitle>
-        <MainSubTitle>Top countries with paralympics medals</MainSubTitle>
+        <MainSubTitle>Top countries with Paralympics medals</MainSubTitle>
         <div className="justify-center-full-width">
           <CustomSelect
             options={YEAR_OPTIONS}
@@ -92,6 +92,9 @@ export const Index = () => {
             ]
           ]}
         />
+        <p className="olympics-sources-text">
+          West and East Germany are considered as Germany.
+        </p>
         <div className="justify-center-full-width">
           {/* TODO: update data-paralympics.json with read data  */}
           <a href="/static/data-paralympics.json">
