@@ -13,7 +13,7 @@ export const Card = styled.div`
     width: 100%;
   }
   display: grid;
-  grid-template-rows: 35px 35px 1fr 150px;
+  grid-template-rows: 35px 35px 1fr 160px;
   p {
     color: #2a3f55;
     font-size: 1rem;
@@ -32,7 +32,7 @@ export const CardSubtitle = styled.span`
   margin: 0;
   font-size: 1rem;
   font-weight: bold;
-  color: #ffba58;
+  color: #0f7a9e;
 `;
 
 export const Button = styled.a`
