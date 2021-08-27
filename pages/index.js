@@ -26,7 +26,7 @@ export const Index = () => {
           name="twitter:image"
           content="https://research.leniolabs.com/static/meta-paralympics.gif"
         />
-        <meta property="og:url" content="https://research.leniolabs.com/paralympics" />
+        <meta property="og:url" content="https://research.leniolabs.com/paralympics.html" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Leniolabs_ Research: Paralympics" />
         <meta
