@@ -169,7 +169,7 @@ const GlobalStyle = createGlobalStyle`
   .olympics-sources-text {
     font-size: 1rem;
     margin: 0 0 5px;
-    text-align: left;
+    text-align: center;
   }
   .bold-source-text {
     font-weight: bold;
@@ -337,9 +337,9 @@ const GlobalStyle = createGlobalStyle`
         min-height: 25vh;
       }
       img {
-        width: 120px;
+        width: 100px;
         @media (max-width: 415px) {
-          width: 100px;
+          width: 80px;
         }
       }
     }

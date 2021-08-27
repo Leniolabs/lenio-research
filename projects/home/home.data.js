@@ -2,7 +2,7 @@ export const mockData = [
   {
     key: "paralympics",
     link: "paralympics",
-    imgPreview: "/static/paralympics-logo.svg",
+    imgPreview: "/static/card-paralynpics.jpg",
     title: "Paralympics",
     subtitle: "August 27, 2021",
     description:
@@ -11,7 +11,7 @@ export const mockData = [
   {
     key: "women-in-tech",
     link: "women-in-tech",
-    imgPreview: "/static/women-home.png",
+    imgPreview: "/static/women-home2.jpg",
     title: "Women in Tech",
     subtitle: "August 19, 2021",
     description:
@@ -20,7 +20,7 @@ export const mockData = [
   {
     key: "olympics",
     link: "olympics",
-    imgPreview: "/static/olympics.png",
+    imgPreview: "/static/meta-olympics2.jpg",
     title: "Olympics",
     subtitle: "August 12, 2021",
     description:
@@ -29,7 +29,7 @@ export const mockData = [
   {
     key: "map-vis",
     link: "map-vis",
-    imgPreview: "/static/map-vis.png",
+    imgPreview: "/static/meta-mapvis2.jpg",
     title: "Housing Market",
     subtitle: "July 20, 2021",
     description:
