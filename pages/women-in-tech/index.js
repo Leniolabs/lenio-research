@@ -27,14 +27,14 @@ export const Index = () => {
 
         <meta
           name="twitter:image"
-          content="https://research.leniolabs.com/static/meta-women-in-tech.jpg"
+          content="https://research.leniolabs.com/static/meta-women-in-tech2.jpg"
         />
         <meta property="og:url" content="https://research.leniolabs.com/women-in-tech.html" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Leniolabs_ Research: What happened to women in Tech" />
         <meta
           property="og:image"
-          content="https://research.leniolabs.com/static/meta-women-in-tech.jpg"
+          content="https://research.leniolabs.com/static/meta-women-in-tech2.jpg"
         />
         <meta property="og:image:alt" content="Gender gap in male-female dominated fields" />
         <meta

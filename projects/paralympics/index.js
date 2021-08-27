@@ -56,7 +56,9 @@ export const Index = () => {
           Paralympics
           <br />
           <img src={"/static/paralympics-logo.svg"} alt="logo" />
-          <a href="https://www.freepik.com/vectors/people" target="blank">Remix of people vector created by freepik</a>
+          <a href="https://www.freepik.com/vectors/people" target="blank">
+            Remix of people vector created by freepik
+          </a>
         </SectionTitle>
       </div>
       <div className="row-container">
@@ -92,9 +94,7 @@ export const Index = () => {
             ]
           ]}
         />
-        <p className="olympics-sources-text">
-          West and East Germany are considered as Germany.
-        </p>
+        <p className="olympics-sources-text">West and East Germany are considered as Germany.</p>
         <div className="justify-center-full-width">
           {/* TODO: update data-paralympics.json with read data  */}
           <a href="/static/data-paralympics.json">
