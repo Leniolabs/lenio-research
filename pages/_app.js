@@ -169,7 +169,7 @@ const GlobalStyle = createGlobalStyle`
   .olympics-sources-text {
     font-size: 1rem;
     margin: 0 0 5px;
-    text-align: left;
+    text-align: center;
   }
   .bold-source-text {
     font-weight: bold;
@@ -324,6 +324,25 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   }
+  .chart-wrapper.paralympics-wrapper {
+    background-color: #fff;
+    .head-main {
+      background: #fffbf0 url("/static/paralympic-athletes.svg") no-repeat bottom center;
+      background-size: 100vw;
+      padding-bottom: 6rem;
+      position: relative;
+      min-height: 35vh;
+      @media (max-width: 415px) {
+        padding-bottom: 1rem;
+        min-height: 25vh;
+      }
+      img {
+        width: 100px;
+        @media (max-width: 415px) {
+          width: 80px;
+        }
+      }
+    }
 `;
 
 const theme = {
