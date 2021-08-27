@@ -27,7 +27,7 @@ export const Index = () => {
         />
         <meta name="title" content="Leniolabs_ Research: Olympics" key="title" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="https://research.leniolabs.com/olympics" />
+        <meta name="twitter:site" content="https://research.leniolabs.com/" />
         <meta name="twitter:creator" content="@Leniolabs_" />
         <meta name="twitter:title" content="Leniolabs_ Research: Olympics" />
         <meta
