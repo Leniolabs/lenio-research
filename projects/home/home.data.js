@@ -2,11 +2,11 @@ export const mockData = [
   {
     key: "paralympics",
     link: "paralympics",
-    imgPreview: "/static/card-paralynpics.jpg",
+    imgPreview: "/static/card-paralynpics2.jpg",
     title: "Paralympics",
-    subtitle: "August 27, 2021",
+    subtitle: "September 7, 2021",
     description:
-      "Data visualizations of Paralympics. We created a timeline animations of Top countries with Paralympics medals year by year."
+      "Data visualizations of Paralympics. We created a timeline animations of Top countries with Paralympics medals year by year, including Tokyo 2020."
   },
   {
     key: "women-in-tech",
