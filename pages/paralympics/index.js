@@ -34,11 +34,11 @@ export const Index = () => {
           name="twitter:description"
           content="Data Visualization of Top countries with Paralympic medals by year"
         />
-        <meta name="twitter:image" content="https://research.leniolabs.com/static/medalsp.gif" />
+        <meta name="twitter:image" content="https://research.leniolabs.com/static/medalsp2.gif" />
         <meta property="og:url" content="https://research.leniolabs.com/paralympics" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Leniolabs_ Research: Paralympics" />
-        <meta property="og:image" content="https://research.leniolabs.com/static/medalsp.gif" />
+        <meta property="og:image" content="https://research.leniolabs.com/static/medalsp2.gif" />
         <meta property="og:image:alt" content="Top countries with Paralympic medals by year" />
         <meta
           property="og:description"

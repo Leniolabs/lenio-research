@@ -95,6 +95,7 @@ export const Index = () => {
           ]}
         />
         <p className="olympics-sources-text">West and East Germany are considered as Germany.</p>
+        <p className="olympics-sources-text">The Soviet Union is considered as Russia.</p>
         <div className="justify-center-full-width">
           {/* TODO: update data-paralympics.json with read data  */}
           <a href="/static/data-paralympics.json">
