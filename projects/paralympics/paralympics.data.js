@@ -58,9 +58,9 @@ export const YEAR_OPTIONS = [
   {
     value: "2016",
     name: "Rio de Janeiro, Brazil"
-  // },
-  // {
-  //   value: "2020",
-  //   name: "Tokyo, Japan"
+  },
+  {
+    value: "2020",
+    name: "Tokyo, Japan"
   }
 ].map((year, idx) => ({ value: year.value, label: `${year.name} - ${year.value}`, index: idx }));
