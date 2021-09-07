@@ -9,23 +9,23 @@ export const YEAR_OPTIONS = [
   },
   {
     value: "1968",
-    name: "Mexico City, Mexico"
+    name: "Tel Aviv, Israel"
   },
   {
     value: "1972",
-    name: "Munich, West Germany"
+    name: "Heidelberg, West Germany"
   },
   {
     value: "1976",
-    name: "Montreal, Canada"
+    name: "Toronto, Canada"
   },
   {
     value: "1980",
-    name: "Moscow, Soviet Union"
+    name: "Arnhem, Netherlands"
   },
   {
     value: "1984",
-    name: "Los Angeles, United States"
+    name: "New York City, United States"
   },
   {
     value: "1988",
@@ -33,7 +33,7 @@ export const YEAR_OPTIONS = [
   },
   {
     value: "1992",
-    name: "Barcelona, Spain"
+    name: "Barcelona and Madrid, Spain"
   },
   {
     value: "1996",
@@ -41,7 +41,7 @@ export const YEAR_OPTIONS = [
   },
   {
     value: "2000",
-    name: "Sydney, Australia"
+    name: "	Sydney, Australia"
   },
   {
     value: "2004",
