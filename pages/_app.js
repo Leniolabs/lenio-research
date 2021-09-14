@@ -4,7 +4,8 @@ import { TrackingProvider } from "analytics/context";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #fffbf0;
+    ${"" /* background-color: #fffbf0; */}
+    background-color: #0a061b;
     box-sizing: border-box;
     color: #45486d;
     font-family: 'Source Sans Pro', sans-serif;
