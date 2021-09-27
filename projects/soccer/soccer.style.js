@@ -122,6 +122,20 @@ export const HighlightedPath = (props) => (
 
 export const Paragraph = styled.p``;
 
+export const SmallParagraph = styled.p`
+  font-size: 16px;
+  margin: 0px;
+  margin-bottom: 10px;
+`;
+
+export const ChartTitle = styled.p`
+  text-transform: capitalize;
+`;
+
+export const URLContainer = styled.div`
+  margin-top: 25px;
+`;
+
 export const RowContainer = ({ children }) => (
   <div
     css={css`
@@ -186,9 +200,7 @@ export const FigCaption = styled.figcaption`
 
 export const SoccerContainer = styled.div`
   display: grid;
-  grid-auto-columns: 1fr;
   grid-auto-rows: 1fr;
-  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
@@ -196,10 +208,28 @@ export const SoccerContainer = styled.div`
     "field button";
   justify-content: center;
   align-content: center;
-  justify-items: center;
   align-items: center;
   width: 100%;
   height: 100%;
+`;
+
+export const GridInformation = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`;
+
+export const Button = styled.button`
+  display: block;
+  margin-top: 40px;
+  width: 90px;
+  height: 40px;
+`;
+export const Form = styled.form`
+  margin-top: 20px;
+`;
+export const Input = styled.input`
+  width: 70px;
+  text-align: center;
 `;
 
 GraphicContainer.propTypes = { children: PropTypes.any };
