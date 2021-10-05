@@ -1,55 +1,9 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const TimelineContainer = styled.div`
-  background-color: #0a061b;
-  padding: 2rem 2rem 1rem;
-  display: flex;
-  display: grid;
-  grid-template-rows: 1fr minmax(210px, max-content) 1fr;
-`;
-
-export const SelectorContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  margin: -0.5rem 2rem 0.5em;
-  justify-content: space-between;
-  div {
-    margin: 0;
-  }
-`;
-
-export const Center = styled(motion.div)`
-  overflow: hidden;
-  h3 {
-    color: #45486d;
-    font-size: 2rem;
-    margin: 0;
-  }
-  h4 {
-    color: #2c9faa;
-    font-size: 1.5rem;
-    margin: 0.5rem 0 0;
-  }
-  date {
-    color: #6b6b6b;
-    font-weight: bold;
-    font-style: italic;
-  }
-  p {
-    color: #2b3f55;
-    line-height: 1.4;
-  }
-`;
-
-export const LabelCompanies = styled.h3`
-  font-size: 1em;
-  font-weight: bold;
-  margin: 10px 5px 10px auto;
-`;
-
 export const Layout = styled.div`
+  background-color: #1c1427;
+  color: #fff;
   position: relative;
   display: grid;
   grid-template-rows: 160px 1fr 80px;
@@ -61,41 +15,85 @@ export const Layout = styled.div`
 `;
 
 export const Header = styled.header`
-  padding: 1rem;
+  position: relative;
+`;
+
+export const GithubContainer = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
+export const MainAmazon = styled.main`
+  background-color: #1c1427;
+`;
+
+export const LegendBox = styled.div`
+  align-items: center;
+  background-color: #1c1427;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 0.5rem;
+  max-width: max-content;
+  div {
+    align-items: center;
+    display: flex;
+    margin-right: 1rem;
+  }
 `;
 
 export const Footer = styled.footer`
-  background-color: #354156;
+  background-color: #1c1427;
   color: #fcfcf4;
   padding: 2rem;
   text-align: right;
 `;
 
+export const CreatedByContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  div,
+  a {
+    font-size: 1rem;
+    margin: 0 1rem 0 0;
+  }
+`;
+
 export const FirstSection = styled.section`
-  padding: 4rem 0 12rem;
   margin-bottom: 5rem;
   min-height: 35vh;
   text-align: center;
-  * {
-    margin: 0;
-  }
   h1 {
     font-size: 3.2rem;
     line-height: 1;
+    margin: 0 auto 0.5rem;
   }
-  p {
-    font-size: 1.4rem;
-    margin-top: 1rem;
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 0;
   }
 `;
 
 export const GraphicSection = styled.section`
-  margin: 0 auto 3rem;
-  max-width: 70em;
-  h2 {
-    font-size: 2.2rem;
-    font-weight: normal;
-    text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 2rem;
+  .sidebar {
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .side-box {
+      border: 1px solid #fff;
+    }
+    svg {
+    }
   }
   svg {
     margin-right: 2rem;
