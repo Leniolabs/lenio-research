@@ -84,6 +84,7 @@ export function useDataStore(data, config) {
         return p;
       };
       const reduceRemove = (p, v, nf) => {
+        console.log("I am reducing");
         if (needSum) {
           p = reduceRemoveSum(p, v);
         }
