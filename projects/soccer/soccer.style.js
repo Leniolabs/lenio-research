@@ -50,7 +50,9 @@ export const Article = styled.article`
   margin-bottom: 5rem;
 `;
 
-export const Title = styled.h1``;
+export const Title = styled.h1`
+  word-wrap: break-word;
+`;
 
 export const Subtitle = styled.h2`
   font-size: 2rem;
@@ -120,7 +122,9 @@ export const HighlightedPath = (props) => (
   />
 );
 
-export const Paragraph = styled.p``;
+export const Paragraph = styled.p`
+  word-wrap: break-word;
+`;
 
 export const SmallParagraph = styled.p`
   font-size: 16px;
@@ -128,7 +132,7 @@ export const SmallParagraph = styled.p`
   margin-bottom: 10px;
 `;
 
-export const ChartTitle = styled.p`
+export const ChartTitle = styled.label`
   text-transform: capitalize;
 `;
 
@@ -197,18 +201,14 @@ export const FigCaption = styled.figcaption`
   font-size: 0.9em;
   text-align: center;
 `;
-
 export const SoccerContainer = styled.div`
   display: grid;
   grid-auto-rows: 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
-  grid-template-areas:
-    "field data"
-    "field button";
+  grid-template-areas: "field data";
+  grid-template-columns: auto auto;
   justify-content: center;
-  align-content: center;
-  align-items: center;
   width: 100%;
   height: 100%;
 `;
@@ -221,14 +221,32 @@ export const GridInformation = styled.div`
 export const Button = styled.button`
   display: block;
   margin-top: 40px;
-  width: 90px;
+  height: 40px;
+  justify-content: center;
+`;
+
+export const GetContainer = styled(GridInformation)`
+  display: flex;
+  margin: 20px 0;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: end;
+`;
+
+export const ButtonGetLatest = styled.button`
+  width: 110px;
   height: 40px;
 `;
+export const LabelContainer = styled.div`
+  margin-top: 10px;
+`;
+
+export const LabelSearch = styled.label``;
 export const Form = styled.form`
-  margin-top: 20px;
+  width: 60%;
 `;
 export const Input = styled.input`
-  width: 70px;
+  width: 100%;
   text-align: center;
 `;
 
