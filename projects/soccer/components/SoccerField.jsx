@@ -42,7 +42,7 @@ const Goal = styled(PenaltyArea)`
   stroke: yellow;
 `;
 
-export const SoccerField = ({ onClick, field }) => {
+export const SoccerField = ({ onClick, field, goal = {} }) => {
   const [coords, setCoords] = React.useState({
     received: [],
     shot: []
@@ -52,6 +52,14 @@ export const SoccerField = ({ onClick, field }) => {
   }, []);
   const svg = React.useRef();
 
+  React.useEffect(() => {
+    if (coords.received !== goal.received || coords.shot !== goal.shot) {
+      setCoords({
+        received: goal.received,
+        shot: goal.shot
+      });
+    }
+  }, [goal]);
   const getCoords = React.useCallback(
     (evt) => {
       const point = svg.current.createSVGPoint();
@@ -137,10 +145,10 @@ export const SoccerField = ({ onClick, field }) => {
               L ${scale(FIELD_WIDTH / 2 + 73)} ${scale(FIELD_HEIGHT)}
           `}
         />
-        {coords.received.length > 0 && (
+        {coords.received?.length > 0 && (
           <circle cx={coords.received[0]} cy={coords.received[1]} r="7" fill="blue" />
         )}
-        {coords.shot.length > 0 && (
+        {coords.shot?.length > 0 && (
           <circle cx={coords.shot[0]} cy={coords.shot[1]} r="7" fill="red" />
         )}
       </g>

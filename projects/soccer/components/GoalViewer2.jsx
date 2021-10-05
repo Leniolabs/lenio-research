@@ -42,8 +42,9 @@ export const GoalViewer = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data && data[0]) {
-            setGoal(data[0]);
+          if (data && Object.keys(data).length > 0) {
+            setGoal(data);
+            setField(information[0]);
           }
         })
         .catch(() => {
@@ -63,13 +64,12 @@ export const GoalViewer = () => {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + token
-        }
+        },
+        body: JSON.stringify(goal)
       })
         .then((response) => response.json())
-        .then((data) => {
-          if (data && data[0]) {
-            setGoal(data[0]);
-          }
+        .then(() => {
+          getGoal("messi/latest-to-fill");
         })
         .catch(() => {
           alert("Error: please contact administrator");
@@ -91,7 +91,7 @@ export const GoalViewer = () => {
   return (
     <Fragment>
       <div style={{ gridArea: "field" }}>
-        <SoccerField onClick={(coords) => onClickField(coords)} field={field} />
+        <SoccerField onClick={(coords) => onClickField(coords)} field={field} goal={goal} />
       </div>
       <div style={{ gridArea: "data", maxWidth: 400 }}>
         {goal && (
@@ -156,7 +156,10 @@ export const GoalViewer = () => {
           </label>
         </LabelContainer>
         <GetContainer>
-          <ButtonGetLatest onClick={() => getGoal("messi/latest-to-fill")}>
+          <ButtonGetLatest
+            onClick={() =>
+              getGoal(searchGoal ? `messi/getId/${searchGoal}` : "messi/latest-to-fill")
+            }>
             {searchGoal ? "Search" : "Get latest to fill"}
           </ButtonGetLatest>
           <Form>
