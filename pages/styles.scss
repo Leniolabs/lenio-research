@@ -11,6 +11,7 @@
   --greendark: #549b81;
   --reddark: #e02045;
   --blue: #3baacd;
+  --darkblue: #0a061b;
 }
 
 .light-bg {
@@ -28,7 +29,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: $creamlight;
+  background-color: $darkblue;
   color: $purpledark;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 1.2rem;
