@@ -42,7 +42,11 @@ const Goal = styled(PenaltyArea)`
   stroke: yellow;
 `;
 
-export const SoccerField = ({ onClick }) => {
+export const SoccerField = ({ onClick, field }) => {
+  const [coords, setCoords] = React.useState({
+    received: [],
+    shot: []
+  });
   const scale = React.useMemo(() => {
     return scaleLinear().range([0, 1400]).domain([0, 1400]);
   }, []);
@@ -54,7 +58,12 @@ export const SoccerField = ({ onClick }) => {
       point.x = evt.clientX;
       point.y = evt.clientY;
       const cursorPoint = point.matrixTransform(svg.current.getScreenCTM().inverse());
-      onClick([scale.invert(cursorPoint.x - 20), scale.invert(cursorPoint.y - 20)]);
+      const newCoords = [scale.invert(cursorPoint.x - 20), scale.invert(cursorPoint.y - 20)];
+      onClick(newCoords);
+      setCoords({
+        ...coords,
+        [field]: newCoords
+      });
     },
     [onClick]
   );
@@ -64,7 +73,7 @@ export const SoccerField = ({ onClick }) => {
       ref={svg}
       height={1400 - (MARGIN.TOP + MARGIN.BOTTOM)}
       width={800}
-      viewBox={`0 0 ${800} ${1400}`}>
+      viewBox={`0 0 ${700} ${1400}`}>
       <rect
         x={0}
         y={0}
@@ -128,6 +137,12 @@ export const SoccerField = ({ onClick }) => {
               L ${scale(FIELD_WIDTH / 2 + 73)} ${scale(FIELD_HEIGHT)}
           `}
         />
+        {coords.received.length > 0 && (
+          <circle cx={coords.received[0]} cy={coords.received[1]} r="7" fill="blue" />
+        )}
+        {coords.shot.length > 0 && (
+          <circle cx={coords.shot[0]} cy={coords.shot[1]} r="7" fill="red" />
+        )}
       </g>
     </svg>
   );

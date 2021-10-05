@@ -1,85 +1,127 @@
-import * as React from "react";
+import React, { useState, useCallback, Fragment } from "react";
 import PropTypes from "prop-types";
 import {
   Paragraph,
-  SoccerContainer,
   ChartTitle,
   Subtitle,
   Title,
   GridInformation,
   SmallParagraph,
-  URLContainer,
   Button,
-  Form,
-  Input
+  Input,
+  GetContainer,
+  ButtonGetLatest,
+  LabelSearch,
+  LabelContainer,
+  Form
 } from "../soccer.style";
 import { SoccerField } from "./SoccerField";
+import jwt from "jsonwebtoken";
 
-export const GoalViewer = ({ goal, idx, onSave, setGoalIdx }) => {
-  const [innerGoal, setInnerGoal] = React.useState(goal);
-  const [field, setField] = React.useState("received");
-  const [search, setSearch] = React.useState("");
-  const jsonData = JSON.stringify(innerGoal, undefined, 2);
+export const GoalViewer = () => {
+  const [goal, setGoal] = useState({});
+
+  const [secretWord, setSecretWord] = useState("");
+  const [field, setField] = useState("received");
+  const [searchGoal, setSearchGoal] = useState("");
+
   const information = ["received", "shot"];
-  React.useEffect(() => {
-    setInnerGoal(goal);
-    setField("received");
-  }, [goal]);
 
-  const onChange = React.useCallback(
+  const getGoal = async (endpoint, method, body = {}) => {
+    if (!secretWord) {
+      alert("Please enter a valid secret word");
+    }
+    if (secretWord) {
+      const token = jwt.sign({ payload: body }, secretWord);
+      await fetch(`${process.env.NEXT_PUBLIC_SOCCER_URL_API}/${endpoint}`, {
+        method: method,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token
+        }
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data && data[0]) {
+            setGoal(data[0]);
+          }
+        })
+        .catch(() => {
+          alert("Error: please contact administrator");
+        });
+    }
+  };
+
+  const onSaveGoal = async () => {
+    if (!secretWord) {
+      alert("Please enter a valid secret word");
+    }
+    if (secretWord) {
+      const token = jwt.sign({ payload: goal }, secretWord);
+      await fetch(`${process.env.NEXT_PUBLIC_SOCCER_URL_API}/messi/update/${goal.id}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token
+        }
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data && data[0]) {
+            setGoal(data[0]);
+          }
+        })
+        .catch(() => {
+          alert("Error: please contact administrator");
+        });
+    }
+  };
+
+  const onClickField = useCallback(
     (coords) => {
-      setInnerGoal({
-        ...innerGoal,
+      setGoal({
+        ...goal,
         [field]: coords
       });
       setField("shot");
     },
-    [field, innerGoal]
+    [field, goal]
   );
-
-  const onInputChange = React.useCallback(
-    (value) => {
-      setInnerGoal({
-        ...innerGoal,
-        url: value
-      });
-    },
-    [innerGoal]
-  );
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setGoalIdx(parseInt(search) - 1);
-  };
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-  };
 
   return (
-    <SoccerContainer>
+    <Fragment>
       <div style={{ gridArea: "field" }}>
-        <SoccerField onClick={(coords) => onChange(coords)} />
+        <SoccerField onClick={(coords) => onClickField(coords)} field={field} />
       </div>
-      <div>
-        {innerGoal && (
+      <div style={{ gridArea: "data", maxWidth: 400 }}>
+        {goal && (
           <>
             <Title>
-              #{parseInt(idx) + 1} | {innerGoal.Date}
+              #{goal.id ? `${goal.id} |` : "No info"} {goal.Date}
             </Title>
-            <Subtitle style={{ textAlign: "start" }}>Minute {innerGoal.Minute}</Subtitle>
+            <Subtitle style={{ textAlign: "start" }}>Minute {goal.Minute}</Subtitle>
+            <Paragraph>vs: {goal["Team"]}</Paragraph>
+            <Paragraph>Status Game: {goal["PartialStatus"]}</Paragraph>
+            <Paragraph>Assist by: {goal["Assist"]}</Paragraph>
+            <Paragraph>Type of goal: {goal["Type of goal"]}</Paragraph>
+            <Paragraph>Tournament: {goal["Tournament"]}</Paragraph>
             <Paragraph>
-              <b>{innerGoal["Home team"]}</b> vs. {innerGoal["Away team"]}
-            </Paragraph>
-            <Paragraph>
-              Final game result for FC Barcelona: <b>{innerGoal["Final Game Result"]}</b>
+              Final game result for FC Barcelona: <b>{goal["Final Result"]}</b>
             </Paragraph>
             <GridInformation>
               {information.map((info) => (
                 <div key={info}>
-                  <ChartTitle>{info}:</ChartTitle>
-                  {innerGoal[info] ? (
+                  <input
+                    type="radio"
+                    id={info}
+                    name={info}
+                    checked={info === field}
+                    onChange={() => setField(info)}
+                  />
+                  <ChartTitle onClick={() => setField(info)}>{info}:</ChartTitle>
+                  {goal[info] ? (
                     <>
-                      {innerGoal[info].map((goal) => (
+                      {goal[info].map((goal) => (
                         <SmallParagraph key={goal}>{goal}</SmallParagraph>
                       ))}
                     </>
@@ -93,23 +135,51 @@ export const GoalViewer = ({ goal, idx, onSave, setGoalIdx }) => {
             </GridInformation>
           </>
         )}
-        <URLContainer>
-          <label htmlFor={"url"}>URL: </label>
-          <input
-            name="url"
-            style={{ width: "55%" }}
-            onChange={(event) => onInputChange(event.target.value)}
-            value={innerGoal.url}></input>
-        </URLContainer>
-        <Button onClick={() => onSave(innerGoal, idx)}>Next</Button>
-        <Form onSubmit={handleSubmit}>
-          <label>
-            or search for goal #
-            <Input onChange={handleSearch} value={search} type="number" id="search" name="search" />
+        <Paragraph>
+          {`URL: `}
+          <a href="https://youtu.be/a1-iff3lh2U" rel="noopener noreferrer" target="_blank">
+            https://youtu.be/a1-iff3lh2U
+          </a>
+        </Paragraph>
+        <LabelContainer>
+          <label htmlFor={"secret word"}>
+            Enter secret word:
+            <Input
+              onChange={({ target: { value } }) => {
+                setSecretWord(value);
+              }}
+              value={secretWord}
+              type="text"
+              id="word-secret"
+              name="word-secret"
+            />
           </label>
-        </Form>
+        </LabelContainer>
+        <GetContainer>
+          <ButtonGetLatest onClick={() => getGoal("messi/latest-to-fill")}>
+            {searchGoal ? "Search" : "Get latest to fill"}
+          </ButtonGetLatest>
+          <Form>
+            <LabelSearch htmlFor={"search goal"}>
+              or search for goal #
+              <Input
+                onChange={({ target: { value } }) => setSearchGoal(value)}
+                value={searchGoal}
+                type="number"
+                id="search"
+                name="search"
+              />
+            </LabelSearch>
+          </Form>
+        </GetContainer>
+
+        <GridInformation>
+          <Button onClick={() => onSaveGoal(goal)} disabled={Object.keys(goal).length === 0}>
+            Save & Next To Fill
+          </Button>
+        </GridInformation>
       </div>
-    </SoccerContainer>
+    </Fragment>
   );
 };
 
@@ -117,5 +187,7 @@ GoalViewer.propTypes = {
   goal: PropTypes.any,
   idx: PropTypes.number,
   onSave: PropTypes.func,
-  setGoalIdx: PropTypes.func
+  setGoalIdx: PropTypes.func,
+  setSecret: PropTypes.func,
+  secret: PropTypes.any
 };
