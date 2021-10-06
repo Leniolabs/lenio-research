@@ -6,7 +6,7 @@ export const Layout = styled.div`
   color: #fff;
   position: relative;
   display: grid;
-  grid-template-rows: 160px 1fr 80px;
+  grid-template-rows: 110px 1fr 80px;
   min-height: 100vh;
   @media (max-width: 728px) {
     grid-template-columns: 1fr;
@@ -16,12 +16,18 @@ export const Layout = styled.div`
 
 export const Header = styled.header`
   position: relative;
+  > div {
+    padding: 1rem;
+  }
 `;
 
 export const GithubContainer = styled.div`
   position: absolute;
   top: 0;
   right: 0;
+  &:hover path {
+    fill: var(--amazonyellow);
+  }
 `;
 
 export const MainAmazon = styled.main`
@@ -35,7 +41,7 @@ export const LegendBox = styled.div`
   display: flex;
   justify-content: center;
   margin: auto;
-  padding: 0.5rem;
+  padding: 0.2rem;
   max-width: max-content;
   div {
     align-items: center;
@@ -44,27 +50,7 @@ export const LegendBox = styled.div`
   }
 `;
 
-export const Footer = styled.footer`
-  background-color: #1c1427;
-  color: #fcfcf4;
-  padding: 2rem;
-  text-align: right;
-`;
-
-export const CreatedByContainer = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  div,
-  a {
-    font-size: 1rem;
-    margin: 0 1rem 0 0;
-  }
-`;
-
 export const FirstSection = styled.section`
-  margin-bottom: 5rem;
-  min-height: 35vh;
   text-align: center;
   h1 {
     font-size: 3.2rem;
@@ -84,19 +70,79 @@ export const GraphicSection = styled.section`
   justify-content: space-between;
   padding: 0 2rem;
   .sidebar {
-    h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      text-align: center;
-    }
+    margin-top: 2rem;
+    min-width: 300px;
     .side-box {
       border: 1px solid #fff;
-    }
-    svg {
+      margin-top: 2rem;
+      padding: 1rem;
+      h3 {
+        background-color: #1c1427;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin: -2rem auto 0;
+        max-width: max-content;
+        padding: 0 0.5rem;
+        text-align: center;
+      }
+      .donut {
+        circle {
+          fill: transparent;
+        }
+      }
+      .howmanynumber {
+        background-color: var(--amazonlightpurple);
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+        max-width: max-content;
+      }
     }
   }
-  svg {
-    margin-right: 2rem;
+  .counter {
+    position: absolute;
+    bottom: 20vw;
+    left: 40vw;
+    .year {
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin: 0;
+    }
+    .km {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+`;
+
+export const Footer = styled.footer`
+  align-items: center;
+  background-color: #1c1427;
+  color: #fcfcf4;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  text-align: right;
+  .footnote {
+    font-size: 1rem;
+    a {
+      text-decoration: underline;
+      &:hover {
+        color: #feceab;
+      }
+    }
+  }
+`;
+
+export const CreatedByContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  div,
+  a {
+    font-size: 1rem;
+    margin: 0 1rem 0 0;
   }
 `;
 

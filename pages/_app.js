@@ -3,6 +3,13 @@ import Head from "next/head";
 import { TrackingProvider } from "analytics/context";
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    --amazongreen: #99B898;
+    --amazonred: #E84A5F;
+    --amazonorange: #FF847C;
+    --amazonyellow: #FECEAB;
+    --amazonlightpurple: #40394A
+  }
   body {
     ${"" /* background-color: #fffbf0; */}
     background-color: #0a061b;
