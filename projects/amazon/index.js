@@ -147,14 +147,15 @@ export const Index = () => {
           </LegendBox>
         </FirstSection>
         <GraphicSection>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="560"
-            height="860"
-            viewBox="0 0 760 1150"
-            overflow="visible">
-            <g>
-              <g>
+          <div className="map-container">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="560"
+              height="860"
+              viewBox="0 0 760 1150"
+              preserveAspectRatio="xMinYMin meet"
+              overflow="visible">
+              <g className="map-svg">
                 <path
                   fill="#40394A"
                   d="M82.5,319.2c1.9-3.9,2.9-6.6,5.9-9.9c1.3-1.5,2.4-3.3,4-4.5c1.2-0.9,3.7-2.1,3.8-3.8
@@ -692,357 +693,356 @@ export const Index = () => {
                   />
                 </g>
               </g>
-            </g>
-            <g>
-              <circle fill="#99B898" cx="305.9" cy="276.2" r="10" />
-              <circle fill="#99B898" cx="325.9" cy="276.2" r="10" />
-              <circle fill="#99B898" cx="345.9" cy="276.2" r="10" />
-              <circle fill="#99B898" cx="365.9" cy="276.2" r="10" />
-              <circle fill="#99B898" cx="385.9" cy="276.2" r="10" />
-              <circle fill="#99B898" cx="405.9" cy="276.2" r="10" />
-              <circle fill="#99B898" cx="425.9" cy="276.2" r="10" />
-              <circle fill="#99B898" cx="445.9" cy="276.2" r="10" />
-              <circle fill="#99B898" cx="465.9" cy="276.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="485.9" cy="276.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="505.9" cy="276.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="525.9" cy="276.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="545.9" cy="276.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="565.9" cy="276.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="585.9" cy="276.2" r="10" />
-              <circle fill="#99B898" cx="605.9" cy="276.2" r="10" />
-              <circle fill="#99B898" cx="105.9" cy="276.2" r="10" />
-              <circle fill="#99B898" cx="125.9" cy="276.2" r="10" />
-              <circle fill="#99B898" cx="145.9" cy="276.2" r="10" />
-              <circle fill="#99B898" cx="165.9" cy="276.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="185.9" cy="276.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="205.9" cy="276.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="225.9" cy="276.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="245.9" cy="276.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="265.9" cy="276.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="285.9" cy="276.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="305.9" cy="296.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="325.9" cy="296.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="345.9" cy="296.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="365.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="385.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="405.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="425.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="445.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="465.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="485.9" cy="296.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="505.9" cy="296.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="525.9" cy="296.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="545.9" cy="296.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="565.9" cy="296.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="585.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="605.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="105.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="125.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="145.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="165.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="185.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="205.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="225.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="245.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="265.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="285.9" cy="296.2" r="10" />
-              <circle fill="#99B898" cx="305.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="325.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="345.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="365.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="385.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="405.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="425.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="445.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="465.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="485.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="505.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="525.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="125.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="145.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="165.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="185.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="205.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="225.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="245.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="265.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="285.9" cy="236.2" r="10" />
-              <circle fill="#99B898" cx="305.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="325.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="345.9" cy="256.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="365.9" cy="256.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="385.9" cy="256.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="405.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="425.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="445.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="465.9" cy="256.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="485.9" cy="256.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="505.9" cy="256.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="525.9" cy="256.2" r="10" />
-              <circle fill="var(--amazonyellow, #FECEAB)" cx="545.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="125.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="145.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="165.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="185.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="205.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="225.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="245.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="265.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="285.9" cy="256.2" r="10" />
-              <circle fill="#99B898" cx="305.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="325.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="345.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="365.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="385.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="405.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="425.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="445.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="465.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="485.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="505.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="525.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="165.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="185.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="205.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="225.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="245.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="265.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="285.9" cy="196.2" r="10" />
-              <circle fill="#99B898" cx="305.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="325.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="345.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="365.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="385.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="405.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="425.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="445.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="465.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="485.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="505.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="525.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="125.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="145.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="165.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="185.9" cy="216.2" r="10" />
-              <circle fill="#99B898" cx="205.9" cy="216.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="225.9" cy="216.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="245.9" cy="216.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="265.9" cy="216.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="285.9" cy="216.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="305.9" cy="156.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="325.9" cy="156.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="345.9" cy="156.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="365.9" cy="156.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="385.9" cy="156.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="405.9" cy="156.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="425.9" cy="156.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="445.9" cy="156.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="465.9" cy="156.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="485.9" cy="156.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="265.9" cy="156.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="285.9" cy="156.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="305.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="325.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="345.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="365.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="385.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="405.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="425.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="445.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="465.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="485.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="505.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="185.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonred, #E84A5F)" cx="205.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="225.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="245.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="265.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="285.9" cy="176.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="305.9" cy="136.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="325.9" cy="136.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="345.9" cy="136.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="365.9" cy="136.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="385.9" cy="136.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="405.9" cy="136.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="285.9" cy="136.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="345.9" cy="116.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="365.9" cy="116.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="385.9" cy="116.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="405.9" cy="116.2" r="10" />
-              <circle fill="#99B898" cx="305.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="325.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="345.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="365.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="385.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="405.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="425.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="445.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="465.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="485.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="505.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="525.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="545.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="565.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="585.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="105.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="125.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="145.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="165.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="185.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="205.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="225.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="245.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="265.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="285.9" cy="316.2" r="10" />
-              <circle fill="#99B898" cx="305.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="325.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="345.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="365.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="385.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="405.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="425.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="445.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="465.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="485.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="505.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="525.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="545.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="565.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="105.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="125.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="145.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="165.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="185.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="205.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="225.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="245.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="265.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="285.9" cy="336.2" r="10" />
-              <circle fill="#99B898" cx="305.9" cy="356.2" r="10" />
-              <circle fill="#99B898" cx="325.9" cy="356.2" r="10" />
-              <circle fill="#99B898" cx="345.9" cy="356.2" r="10" />
-              <circle fill="#99B898" cx="365.9" cy="356.2" r="10" />
-              <circle fill="#99B898" cx="385.9" cy="356.2" r="10" />
-              <circle fill="#99B898" cx="405.9" cy="356.2" r="10" />
-              <circle fill="#99B898" cx="425.9" cy="356.2" r="10" />
-              <circle fill="#99B898" cx="445.9" cy="356.2" r="10" />
-              <circle fill="#99B898" cx="465.9" cy="356.2" r="10" />
-              <circle fill="#99B898" cx="485.9" cy="356.2" r="10" />
-              <circle fill="#99B898" cx="505.9" cy="356.2" r="10" />
-              <circle fill="#99B898" cx="525.9" cy="356.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="545.9" cy="356.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="125.9" cy="356.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="145.9" cy="356.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="165.9" cy="356.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="185.9" cy="356.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="205.9" cy="356.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="225.9" cy="356.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="245.9" cy="356.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="265.9" cy="356.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="285.9" cy="356.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="305.9" cy="376.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="325.9" cy="376.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="345.9" cy="376.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="365.9" cy="376.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="385.9" cy="376.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="405.9" cy="376.2" r="10" />
-              <circle fill="#99B898" cx="425.9" cy="376.2" r="10" />
-              <circle fill="#99B898" cx="445.9" cy="376.2" r="10" />
-              <circle fill="#99B898" cx="465.9" cy="376.2" r="10" />
-              <circle fill="#99B898" cx="485.9" cy="376.2" r="10" />
-              <circle fill="#99B898" cx="505.9" cy="376.2" r="10" />
-              <circle fill="#99B898" cx="525.9" cy="376.2" r="10" />
-              <circle fill="#99B898" cx="545.9" cy="376.2" r="10" />
-              <circle fill="#99B898" cx="145.9" cy="376.2" r="10" />
-              <circle fill="#99B898" cx="165.9" cy="376.2" r="10" />
-              <circle fill="#99B898" cx="185.9" cy="376.2" r="10" />
-              <circle fill="#99B898" cx="205.9" cy="376.2" r="10" />
-              <circle fill="#99B898" cx="225.9" cy="376.2" r="10" />
-              <circle fill="#99B898" cx="245.9" cy="376.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="265.9" cy="376.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="285.9" cy="376.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="305.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="325.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="345.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="365.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="385.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="405.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="425.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="445.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="465.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="485.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="505.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="525.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="145.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="165.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="185.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="205.9" cy="396.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="225.9" cy="396.2" r="10" />
-              <circle fill="#99B898" cx="245.9" cy="396.2" r="10" />
-              <circle fill="#99B898" cx="265.9" cy="396.2" r="10" />
-              <circle fill="#99B898" cx="285.9" cy="396.2" r="10" />
-              <circle fill="#99B898" cx="305.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="325.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="345.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="365.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="385.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="405.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="425.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="445.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="465.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="485.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="505.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="165.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="185.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="205.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="225.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="245.9" cy="416.2" r="10" />
-              <circle fill="#99B898" cx="265.9" cy="416.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="285.9" cy="416.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="305.9" cy="436.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="325.9" cy="436.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="345.9" cy="436.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="365.9" cy="436.2" r="10" />
-              <circle fill="#99B898" cx="425.9" cy="436.2" r="10" />
-              <circle fill="#99B898" cx="445.9" cy="436.2" r="10" />
-              <circle fill="#99B898" cx="465.9" cy="436.2" r="10" />
-              <circle fill="#99B898" cx="485.9" cy="436.2" r="10" />
-              <circle fill="#99B898" cx="505.9" cy="436.2" r="10" />
-              <circle fill="#99B898" cx="165.9" cy="436.2" r="10" />
-              <circle fill="#99B898" cx="185.9" cy="436.2" r="10" />
-              <circle fill="#99B898" cx="205.9" cy="436.2" r="10" />
-              <circle fill="#99B898" cx="225.9" cy="436.2" r="10" />
-              <circle fill="#99B898" cx="245.9" cy="436.2" r="10" />
-              <circle fill="#99B898" cx="265.9" cy="436.2" r="10" />
-              <circle fill="#99B898" cx="285.9" cy="436.2" r="10" />
-              <circle fill="#99B898" cx="305.9" cy="456.2" r="10" />
-              <circle fill="#99B898" cx="325.9" cy="456.2" r="10" />
-              <circle fill="#99B898" cx="345.9" cy="456.2" r="10" />
-              <circle fill="#99B898" cx="365.9" cy="456.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="485.9" cy="456.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="185.9" cy="456.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="205.9" cy="456.2" r="10" />
-              <circle fill="var(--amazonorange, #FF847C)" cx="225.9" cy="456.2" r="10" />
-              <circle fill="#99B898" cx="245.9" cy="456.2" r="10" />
-              <circle fill="#99B898" cx="265.9" cy="456.2" r="10" />
-              <circle fill="#99B898" cx="285.9" cy="456.2" r="10" />
-              <circle fill="#99B898" cx="305.9" cy="476.2" r="10" />
-              <circle fill="#99B898" cx="325.9" cy="476.2" r="10" />
-              <circle fill="#99B898" cx="345.9" cy="476.2" r="10" />
-              <circle fill="#99B898" cx="265.9" cy="476.2" r="10" />
-              <circle fill="#99B898" cx="285.9" cy="476.2" r="10" />
-              <circle fill="#99B898" cx="305.9" cy="496.2" r="10" />
-              <circle fill="#99B898" cx="325.9" cy="496.2" r="10" />
-              <circle fill="#99B898" cx="345.9" cy="496.2" r="10" />
-              <circle fill="#99B898" cx="265.9" cy="496.2" r="10" />
-              <circle fill="#99B898" cx="285.9" cy="496.2" r="10" />
-              <circle fill="#99B898" cx="305.9" cy="516.2" r="10" />
-              <circle fill="#99B898" cx="325.9" cy="516.2" r="10" />
-              <circle fill="#99B898" cx="345.9" cy="516.2" r="10" />
-              <circle fill="#99B898" cx="285.9" cy="516.2" r="10" />
-            </g>
-          </svg>
-          {/* <div
+              <g>
+                <circle fill="var(--amazonred, #E84A5F)" cx="305.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="325.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="345.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="365.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="385.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="405.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="425.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="445.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="465.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="485.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="505.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="525.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="545.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="565.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="585.9" cy="276.2" r="10" />
+                <circle fill="#99B898" cx="605.9" cy="276.2" r="10" />
+                <circle fill="#99B898" cx="105.9" cy="276.2" r="10" />
+                <circle fill="#99B898" cx="125.9" cy="276.2" r="10" />
+                <circle fill="#99B898" cx="145.9" cy="276.2" r="10" />
+                <circle fill="#99B898" cx="165.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="185.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="205.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="225.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="245.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="265.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="285.9" cy="276.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="305.9" cy="296.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="325.9" cy="296.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="345.9" cy="296.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="365.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="385.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="405.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="425.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="445.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="465.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="485.9" cy="296.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="505.9" cy="296.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="525.9" cy="296.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="545.9" cy="296.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="565.9" cy="296.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="585.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="605.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="105.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="125.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="145.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="165.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="185.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="205.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="225.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="245.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="265.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="285.9" cy="296.2" r="10" />
+                <circle fill="#99B898" cx="305.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="325.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="345.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="365.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="385.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="405.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="425.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="445.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="465.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="485.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="505.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="525.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="125.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="145.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="165.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="185.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="205.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="225.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="245.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="265.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="285.9" cy="236.2" r="10" />
+                <circle fill="#99B898" cx="305.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="325.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="345.9" cy="256.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="365.9" cy="256.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="385.9" cy="256.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="405.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="425.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="445.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="465.9" cy="256.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="485.9" cy="256.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="505.9" cy="256.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="525.9" cy="256.2" r="10" />
+                <circle fill="var(--amazonyellow, #FECEAB)" cx="545.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="125.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="145.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="165.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="185.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="205.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="225.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="245.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="265.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="285.9" cy="256.2" r="10" />
+                <circle fill="#99B898" cx="305.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="325.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="345.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="365.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="385.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="405.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="425.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="445.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="465.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="485.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="505.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="525.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="165.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="185.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="205.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="225.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="245.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="265.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="285.9" cy="196.2" r="10" />
+                <circle fill="#99B898" cx="305.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="325.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="345.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="365.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="385.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="405.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="425.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="445.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="465.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="485.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="505.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="525.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="125.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="145.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="165.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="185.9" cy="216.2" r="10" />
+                <circle fill="#99B898" cx="205.9" cy="216.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="225.9" cy="216.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="245.9" cy="216.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="265.9" cy="216.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="285.9" cy="216.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="305.9" cy="156.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="325.9" cy="156.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="345.9" cy="156.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="365.9" cy="156.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="385.9" cy="156.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="405.9" cy="156.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="425.9" cy="156.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="445.9" cy="156.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="465.9" cy="156.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="485.9" cy="156.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="265.9" cy="156.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="285.9" cy="156.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="305.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="325.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="345.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="365.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="385.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="405.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="425.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="445.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="465.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="485.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="505.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="185.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonred, #E84A5F)" cx="205.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="225.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="245.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="265.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="285.9" cy="176.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="305.9" cy="136.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="325.9" cy="136.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="345.9" cy="136.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="365.9" cy="136.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="385.9" cy="136.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="405.9" cy="136.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="285.9" cy="136.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="345.9" cy="116.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="365.9" cy="116.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="385.9" cy="116.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="405.9" cy="116.2" r="10" />
+                <circle fill="#99B898" cx="305.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="325.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="345.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="365.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="385.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="405.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="425.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="445.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="465.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="485.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="505.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="525.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="545.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="565.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="585.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="105.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="125.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="145.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="165.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="185.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="205.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="225.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="245.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="265.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="285.9" cy="316.2" r="10" />
+                <circle fill="#99B898" cx="305.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="325.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="345.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="365.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="385.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="405.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="425.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="445.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="465.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="485.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="505.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="525.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="545.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="565.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="105.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="125.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="145.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="165.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="185.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="205.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="225.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="245.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="265.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="285.9" cy="336.2" r="10" />
+                <circle fill="#99B898" cx="305.9" cy="356.2" r="10" />
+                <circle fill="#99B898" cx="325.9" cy="356.2" r="10" />
+                <circle fill="#99B898" cx="345.9" cy="356.2" r="10" />
+                <circle fill="#99B898" cx="365.9" cy="356.2" r="10" />
+                <circle fill="#99B898" cx="385.9" cy="356.2" r="10" />
+                <circle fill="#99B898" cx="405.9" cy="356.2" r="10" />
+                <circle fill="#99B898" cx="425.9" cy="356.2" r="10" />
+                <circle fill="#99B898" cx="445.9" cy="356.2" r="10" />
+                <circle fill="#99B898" cx="465.9" cy="356.2" r="10" />
+                <circle fill="#99B898" cx="485.9" cy="356.2" r="10" />
+                <circle fill="#99B898" cx="505.9" cy="356.2" r="10" />
+                <circle fill="#99B898" cx="525.9" cy="356.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="545.9" cy="356.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="125.9" cy="356.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="145.9" cy="356.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="165.9" cy="356.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="185.9" cy="356.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="205.9" cy="356.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="225.9" cy="356.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="245.9" cy="356.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="265.9" cy="356.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="285.9" cy="356.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="305.9" cy="376.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="325.9" cy="376.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="345.9" cy="376.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="365.9" cy="376.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="385.9" cy="376.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="405.9" cy="376.2" r="10" />
+                <circle fill="#99B898" cx="425.9" cy="376.2" r="10" />
+                <circle fill="#99B898" cx="445.9" cy="376.2" r="10" />
+                <circle fill="#99B898" cx="465.9" cy="376.2" r="10" />
+                <circle fill="#99B898" cx="485.9" cy="376.2" r="10" />
+                <circle fill="#99B898" cx="505.9" cy="376.2" r="10" />
+                <circle fill="#99B898" cx="525.9" cy="376.2" r="10" />
+                <circle fill="#99B898" cx="545.9" cy="376.2" r="10" />
+                <circle fill="#99B898" cx="145.9" cy="376.2" r="10" />
+                <circle fill="#99B898" cx="165.9" cy="376.2" r="10" />
+                <circle fill="#99B898" cx="185.9" cy="376.2" r="10" />
+                <circle fill="#99B898" cx="205.9" cy="376.2" r="10" />
+                <circle fill="#99B898" cx="225.9" cy="376.2" r="10" />
+                <circle fill="#99B898" cx="245.9" cy="376.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="265.9" cy="376.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="285.9" cy="376.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="305.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="325.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="345.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="365.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="385.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="405.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="425.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="445.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="465.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="485.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="505.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="525.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="145.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="165.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="185.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="205.9" cy="396.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="225.9" cy="396.2" r="10" />
+                <circle fill="#99B898" cx="245.9" cy="396.2" r="10" />
+                <circle fill="#99B898" cx="265.9" cy="396.2" r="10" />
+                <circle fill="#99B898" cx="285.9" cy="396.2" r="10" />
+                <circle fill="#99B898" cx="305.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="325.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="345.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="365.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="385.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="405.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="425.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="445.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="465.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="485.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="505.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="165.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="185.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="205.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="225.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="245.9" cy="416.2" r="10" />
+                <circle fill="#99B898" cx="265.9" cy="416.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="285.9" cy="416.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="305.9" cy="436.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="325.9" cy="436.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="345.9" cy="436.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="365.9" cy="436.2" r="10" />
+                <circle fill="#99B898" cx="425.9" cy="436.2" r="10" />
+                <circle fill="#99B898" cx="445.9" cy="436.2" r="10" />
+                <circle fill="#99B898" cx="465.9" cy="436.2" r="10" />
+                <circle fill="#99B898" cx="485.9" cy="436.2" r="10" />
+                <circle fill="#99B898" cx="505.9" cy="436.2" r="10" />
+                <circle fill="#99B898" cx="165.9" cy="436.2" r="10" />
+                <circle fill="#99B898" cx="185.9" cy="436.2" r="10" />
+                <circle fill="#99B898" cx="205.9" cy="436.2" r="10" />
+                <circle fill="#99B898" cx="225.9" cy="436.2" r="10" />
+                <circle fill="#99B898" cx="245.9" cy="436.2" r="10" />
+                <circle fill="#99B898" cx="265.9" cy="436.2" r="10" />
+                <circle fill="#99B898" cx="285.9" cy="436.2" r="10" />
+                <circle fill="#99B898" cx="305.9" cy="456.2" r="10" />
+                <circle fill="#99B898" cx="325.9" cy="456.2" r="10" />
+                <circle fill="#99B898" cx="345.9" cy="456.2" r="10" />
+                <circle fill="#99B898" cx="365.9" cy="456.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="485.9" cy="456.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="185.9" cy="456.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="205.9" cy="456.2" r="10" />
+                <circle fill="var(--amazonorange, #FF847C)" cx="225.9" cy="456.2" r="10" />
+                <circle fill="#99B898" cx="245.9" cy="456.2" r="10" />
+                <circle fill="#99B898" cx="265.9" cy="456.2" r="10" />
+                <circle fill="#99B898" cx="285.9" cy="456.2" r="10" />
+                <circle fill="#99B898" cx="305.9" cy="476.2" r="10" />
+                <circle fill="#99B898" cx="325.9" cy="476.2" r="10" />
+                <circle fill="#99B898" cx="345.9" cy="476.2" r="10" />
+                <circle fill="#99B898" cx="265.9" cy="476.2" r="10" />
+                <circle fill="#99B898" cx="285.9" cy="476.2" r="10" />
+                <circle fill="#99B898" cx="305.9" cy="496.2" r="10" />
+                <circle fill="#99B898" cx="325.9" cy="496.2" r="10" />
+                <circle fill="#99B898" cx="345.9" cy="496.2" r="10" />
+                <circle fill="#99B898" cx="265.9" cy="496.2" r="10" />
+                <circle fill="#99B898" cx="285.9" cy="496.2" r="10" />
+                <circle fill="#99B898" cx="305.9" cy="516.2" r="10" />
+                <circle fill="#99B898" cx="325.9" cy="516.2" r="10" />
+                <circle fill="#99B898" cx="345.9" cy="516.2" r="10" />
+                <circle fill="#99B898" cx="285.9" cy="516.2" r="10" />
+              </g>
+            </svg>
+            {/* <div
             style={{
               border: "5px solid rgb(27,17,39)",
               borderRadius: 50,
@@ -1053,10 +1053,73 @@ export const Index = () => {
             }}>
             <DotMap data={data} />
           </div> */}
-          <div className="counter">
-            <p className="year">2006</p>
-            <p className="km">123,40km</p>
-            <div className="player"></div>
+            <div className="counter">
+              <p className="year">2006</p>
+              <p className="km">123,40km</p>
+              <div className="player">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 732 90">
+                  <rect
+                    x="20"
+                    y="1.5"
+                    width="710"
+                    height="88"
+                    rx="2"
+                    fill="none"
+                    stroke="#fff"
+                    stroke-miterlimit="10"
+                    stroke-width="1"
+                  />
+                  <path fill="#2152bf" d="M93.6 32.8h600v5h-600z" />
+                  <text transform="translate(73.7 68.8)" font-size="20" fill="#fff">
+                    2001
+                  </text>
+                  <text transform="translate(367.1 68.8)" font-size="20" fill="#fff">
+                    2020
+                  </text>
+                  <text transform="translate(673.7 68.8)" font-size="20" fill="#fff">
+                    2040
+                  </text>
+                  <path
+                    fill="none"
+                    stroke="#120d2d"
+                    stroke-miterlimit="10"
+                    stroke-width=".8"
+                    d="M93.6 32.8v18M109 32.8v11.5M124.4 32.8v11.5M139.8 32.8v11.5M201.3 32.8v11.5M216.7 32.8v11.5M232.1 32.8v18M247.4 32.8v11.5M155.1 32.8v11.5M170.5 32.8v11.5M185.9 32.8v11.5M262.8 32.8v11.5M293.6 32.8v11.5M324.4 32.8v11.5M355.1 32.8v11.5M370.5 32.8v11.5M339.8 32.8v11.5M309 32.8v11.5M278.2 32.8v11.5M385.9 32.8v18M401.3 32.8v11.5M416.7 32.8v11.5M432.1 32.8v11.5M493.6 32.8v11.5M509 32.8v11.5M524.4 32.8v11.5M539.8 32.8v18M447.4 32.8v11.5M462.8 32.8v11.5M478.2 32.8v11.5M555.1 32.8v11.5M585.9 32.8v11.5M616.7 32.8v11.5M647.4 32.8v11.5M662.8 32.8v11.5M632.1 32.8v11.5M601.3 32.8v11.5M570.5 32.8v11.5M678.2 32.8v11.5M693.6 32.8v18"
+                  />
+                  <rect x="92.1" y="22.5" width="3" height="25.6" rx="1.5" fill="#fff" />
+                  <circle
+                    cx="35"
+                    cy="45"
+                    r="34.5"
+                    fill="#0a051b"
+                    stroke="#fff"
+                    stroke-miterlimit="10"
+                  />
+                  <text transform="translate(143.2 66.7)" font-size="12" fill="#fff">
+                    2005
+                  </text>
+                  <text transform="translate(220.1 66.7)" font-size="12" fill="#fff">
+                    2010
+                  </text>
+                  <text transform="translate(297 66.7)" font-size="12" fill="#fff">
+                    2015
+                  </text>
+                  <text transform="translate(450.9 66.7)" font-size="12" fill="#fff">
+                    2005
+                  </text>
+                  <text transform="translate(527.8 66.7)" font-size="12" fill="#fff">
+                    2010
+                  </text>
+                  <text transform="translate(604.7 66.7)" font-size="12" fill="#fff">
+                    2015
+                  </text>
+                  <path
+                    d="M26.6 33.5v23a2 2 0 0 0 3 1.8l18.8-11.1a2 2 0 0 0 0-3.5L29.7 32a2 2 0 0 0-3 1.6Z"
+                    fill="#fff"
+                  />
+                </svg>
+              </div>
+            </div>
           </div>
           <aside className="sidebar">
             <div className="side-box">
@@ -1087,11 +1150,36 @@ export const Index = () => {
             </div>
             <div className="side-box">
               <h3>How many</h3>
+              <svg className="stadium" xmlns="http://www.w3.org/2000/svg" width="68.9" height="47.4" overflow="visible"><path fill="#40394A" d="M0 0h68.9v47.4H0z"/><g opacity=".8" fill="none" stroke="#FFF" stroke-miterlimit="10"><path d="M3 2.8h63v41.7H3z"/><circle cx="34.5" cy="23.7" r="5.4"/><path d="M4.9 3C4.9 4.1 4 4.9 3 4.9M64 3c0 1.1.9 1.9 1.9 1.9M4.9 44.5c0-1.1-.9-1.9-1.9-1.9M64 44.5c0-1.1.9-1.9 1.9-1.9M3 12.1h9.6v23.1H3z"/><path d="M3 18.4h3.3V29H3zM12.4 29.1c2-1 3.3-3 3.3-5.4 0-2.4-1.4-4.4-3.3-5.4"/><g><path d="M66 35.3h-9.6V12.2H66z"/><path d="M66 29h-3.4V18.4H66zM56.5 29.1a6 6 0 0 1-3.3-5.4c0-2.4 1.4-4.4 3.3-5.4"/></g><path d="M34.5 2.9v41.7"/></g></svg>
               <p className="howmanynumber">x 123,200</p>
             </div>
             <div className="side-box">
               <h3>Annual trend</h3>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220"><path fill="none" stroke="#fff" stroke-miterlimit="10" d="M20.2 203.7H490M32.8 8.4v208.1"/><path d="M35 179.7c9.9 1 20 1.9 29.7-.2s17.7-7.7 25-14.3c8-7.1 15.7-14 26-17.5 9.7-3.2 21.4-4.3 30.4 1.6 7.7 5 13.2 13 21.7 17.1 8.8 4.3 18.8 4 28.3 2.7 5.4-.7 10.8-1.6 16.2-2.7a159.9 159.9 0 0 0 16.6-3.8 65.7 65.7 0 0 0 8.4-3.8c11.5-5.5 22.9-11.1 34.7-15.8a93.2 93.2 0 0 1 16.2-5.3c7.4-1.4 15 1.6 22.4-.7 9.3-2.8 14.7-12 20.5-19l10-12c3-4 5.5-8 8-12a58 58 0 0 1 35-24.6c14.8-4 30.4-4.8 45.6-6.9 17-2.3 34-6.2 49.3-14.3a106.2 106.2 0 0 0 11.7-7.2c1.6-1.1.1-3.7-1.5-2.6A121.5 121.5 0 0 1 440 57.9c-15.5 2.8-31.3 3.6-46.8 6.4a71.4 71.4 0 0 0-37.7 17.2c-6.2 6-10 13.5-15 20.4-3.1 4.2-6.6 8.1-9.9 12.2s-6.3 8.2-9.8 12a24 24 0 0 1-11.7 8.3c-5.4 1.4-11 .1-16.4 0-4.4-.1-8.9 1.3-13 2.7-12.3 4-24 9.7-35.7 15.3l-12.9 6.2c-5.7 2.6-12.7 3.6-19 4.9-10.3 2-21.1 4.4-31.7 3.4a32.2 32.2 0 0 1-14.8-5.2c-3.8-2.6-7-5.9-10.5-9a45.8 45.8 0 0 0-10.6-7.8 31.3 31.3 0 0 0-14.8-2.7 53.7 53.7 0 0 0-27.6 9c-8.4 5.6-14.9 13.5-23.2 19.1a49.2 49.2 0 0 1-29 7.5c-5-.1-9.8-.6-14.7-1-2-.2-2 2.8 0 3Z" fill="#e84a5f" opacity=".6"/><path fill="#e84a5f" d="M41.5 13.2h17v17h-17z"/><text transform="translate(68.3 26.5)" font-size="18" fill="#fff">Deforestation</text><text transform="translate(5 54.5)" font-size="14" fill="#fff" font-family="SourceSansPro-Regular, Source Sans Pro">2M</text><path fill="none" stroke="#fff" stroke-miterlimit="10" d="M28.5 50.7h4.3"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220">
+                <path
+                  fill="none"
+                  stroke="#fff"
+                  stroke-miterlimit="10"
+                  d="M20.2 203.7H490M32.8 8.4v208.1"
+                />
+                <path
+                  d="M35 179.7c9.9 1 20 1.9 29.7-.2s17.7-7.7 25-14.3c8-7.1 15.7-14 26-17.5 9.7-3.2 21.4-4.3 30.4 1.6 7.7 5 13.2 13 21.7 17.1 8.8 4.3 18.8 4 28.3 2.7 5.4-.7 10.8-1.6 16.2-2.7a159.9 159.9 0 0 0 16.6-3.8 65.7 65.7 0 0 0 8.4-3.8c11.5-5.5 22.9-11.1 34.7-15.8a93.2 93.2 0 0 1 16.2-5.3c7.4-1.4 15 1.6 22.4-.7 9.3-2.8 14.7-12 20.5-19l10-12c3-4 5.5-8 8-12a58 58 0 0 1 35-24.6c14.8-4 30.4-4.8 45.6-6.9 17-2.3 34-6.2 49.3-14.3a106.2 106.2 0 0 0 11.7-7.2c1.6-1.1.1-3.7-1.5-2.6A121.5 121.5 0 0 1 440 57.9c-15.5 2.8-31.3 3.6-46.8 6.4a71.4 71.4 0 0 0-37.7 17.2c-6.2 6-10 13.5-15 20.4-3.1 4.2-6.6 8.1-9.9 12.2s-6.3 8.2-9.8 12a24 24 0 0 1-11.7 8.3c-5.4 1.4-11 .1-16.4 0-4.4-.1-8.9 1.3-13 2.7-12.3 4-24 9.7-35.7 15.3l-12.9 6.2c-5.7 2.6-12.7 3.6-19 4.9-10.3 2-21.1 4.4-31.7 3.4a32.2 32.2 0 0 1-14.8-5.2c-3.8-2.6-7-5.9-10.5-9a45.8 45.8 0 0 0-10.6-7.8 31.3 31.3 0 0 0-14.8-2.7 53.7 53.7 0 0 0-27.6 9c-8.4 5.6-14.9 13.5-23.2 19.1a49.2 49.2 0 0 1-29 7.5c-5-.1-9.8-.6-14.7-1-2-.2-2 2.8 0 3Z"
+                  fill="#e84a5f"
+                  opacity=".6"
+                />
+                <path fill="#e84a5f" d="M41.5 13.2h17v17h-17z" />
+                <text transform="translate(68.3 26.5)" font-size="18" fill="#fff">
+                  Deforestation
+                </text>
+                <text
+                  transform="translate(5 54.5)"
+                  font-size="14"
+                  fill="#fff"
+                  font-family="SourceSansPro-Regular, Source Sans Pro">
+                  2M
+                </text>
+                <path fill="none" stroke="#fff" stroke-miterlimit="10" d="M28.5 50.7h4.3" />
+              </svg>
             </div>
           </aside>
         </GraphicSection>

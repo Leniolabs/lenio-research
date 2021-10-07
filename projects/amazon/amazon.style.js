@@ -6,7 +6,7 @@ export const Layout = styled.div`
   color: #fff;
   position: relative;
   display: grid;
-  grid-template-rows: 110px 1fr 80px;
+  grid-template-rows: 100px 1fr 140px;
   min-height: 100vh;
   @media (max-width: 728px) {
     grid-template-columns: 1fr;
@@ -39,6 +39,7 @@ export const LegendBox = styled.div`
   background-color: #1c1427;
   border: 1px solid #fff;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin: auto;
   padding: 0.2rem;
@@ -67,8 +68,26 @@ export const FirstSection = styled.section`
 export const GraphicSection = styled.section`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   padding: 0 2rem;
+  position: relative;
+  .map-container {
+    flex: 1 1 auto;
+    svg {
+      max-width: 580px;
+      width: 100%;
+    }
+  }
+  .map-svg {
+    > path,
+    > g {
+      paint-order: stroke;
+      &:hover {
+        stroke: #fff;
+        stroke-width: 0.5;
+        z-index: 1;
+      }
+    }
+  }
   .sidebar {
     margin-top: 2rem;
     min-width: 300px;
@@ -99,31 +118,40 @@ export const GraphicSection = styled.section`
     }
   }
   .counter {
-    position: absolute;
-    bottom: 20vw;
-    left: 40vw;
+    margin-top: -25rem;
+    margin-left: 30%;
+    @media (max-width: 48em) {
+      margin-left: 0;
+    }
     .year {
       font-size: 5rem;
       font-weight: 700;
       line-height: 1;
-      margin: 0;
+      margin: 0 0 0 1rem;
     }
     .km {
       font-size: 2rem;
       font-weight: 700;
-      margin: 0;
+      margin: 0 0 2rem 1rem;
+    }
+    .player {
+      margin-right: 1rem;
+      svg {
+        max-width: 700px;
+        width: 100%;
+      }
     }
   }
 `;
 
 export const Footer = styled.footer`
   align-items: center;
-  background-color: #1c1427;
   color: #fcfcf4;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   padding: 2rem;
-  text-align: right;
+  z-index: 1;
   .footnote {
     font-size: 1rem;
     a {
