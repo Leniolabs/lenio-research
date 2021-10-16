@@ -291,6 +291,11 @@ export const PlayBtn = styled.button`
   }
 `;
 
+export const HowManyOptionsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 export const SourceLink = styled.a`
   text-decoration: none;
   color: #2c9faa;

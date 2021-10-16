@@ -9,42 +9,20 @@ import {
   GraphicSection,
   Footer,
   CreatedByContainer,
-  GithubContainer,
-  AmazonContainer,
-  Card
+  GithubContainer
 } from "./amazon.style";
 import Link from "next/link";
 import { LogoHeaderContainer } from "@components/styled";
 import { HeadLogoContainer } from "@components/styled";
 import { useInView } from "react-intersection-observer";
 import { useState, useEffect } from "react";
-import { DotMap } from "./components/DotMap";
-import {
-  dotData,
-  dotData2,
-  coordinateData,
-  coordinateData2,
-  randomizeData
-} from "./components/sampleData";
-import { ScrollController } from "./components/ScrollController";
 import { AmazonasMap } from "./components/AmazonasMap";
 import { MapBackground } from "./components/MapBackground";
 import { Timeline } from "./components/Timeline";
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.5,
-      delay: 0.5
-    }
-  }
-};
-const item = {
-  hidden: { opacity: 0, y: 50 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
+import { data } from "./data";
+import { motion } from "framer-motion";
+import { HowMany } from "./components/HowMany";
+import { Trend } from "./components/Trend";
 
 export const Index = () => {
   const [playing, setPlaying] = React.useState(false);
@@ -76,6 +54,14 @@ export const Index = () => {
       setMounted(true);
     }
   }, [inView]);
+
+  const percentageLoss = React.useMemo(() => {
+    return 100 - data.find((d) => d.year === currentYear).percentRemaining;
+  }, [currentYear]);
+
+  const kmLost = React.useMemo(() => {
+    return data.find((d) => d.year === currentYear).totalLoss;
+  }, [currentYear]);
 
   return (
     <Layout>
@@ -179,79 +165,36 @@ export const Index = () => {
             <div className="side-box">
               <h3>% of deforestation</h3>
               <svg viewBox="0 0 40 40" className="donut">
-                <g stroke-width="3" transform="rotate(-90 20 20)">
+                <g strokeWidth="3" transform="rotate(-90 20 20)">
                   <circle
                     cx="20"
                     cy="20"
                     r="16"
-                    stroke-dasharray="100 100"
-                    stroke-dashoffset="0"
+                    strokeDasharray="100 100"
+                    strokeDashoffset="0"
                     stroke="var(--amazongreen, #99B898)"
                   />
-                  <circle
+                  <motion.circle
                     cx="20"
                     cy="20"
                     r="16"
-                    stroke-dasharray="40 100"
-                    stroke-dashoffset="0"
+                    animate={{
+                      strokeDasharray: `${percentageLoss} 100`
+                    }}
+                    strokeDashoffset="0"
                     stroke="var(--amazonred, #E84A5F)"
                   />
                 </g>
-                <text x="20" y="23" fill="#fff" fontSize=".65rem" text-anchor="middle">
-                  40%
+                <text x="20" y="23" fill="#fff" fontSize=".65rem" textAnchor="middle">
+                  {percentageLoss.toFixed(1)}%
                 </text>
               </svg>
             </div>
             <div className="side-box">
-              <h3>How many</h3>
-              <svg
-                className="stadium"
-                xmlns="http://www.w3.org/2000/svg"
-                width="68.9"
-                height="47.4"
-                overflow="visible">
-                <path fill="#40394A" d="M0 0h68.9v47.4H0z" />
-                <g opacity=".8" fill="none" stroke="#FFF" stroke-miterlimit="10">
-                  <path d="M3 2.8h63v41.7H3z" />
-                  <circle cx="34.5" cy="23.7" r="5.4" />
-                  <path d="M4.9 3C4.9 4.1 4 4.9 3 4.9M64 3c0 1.1.9 1.9 1.9 1.9M4.9 44.5c0-1.1-.9-1.9-1.9-1.9M64 44.5c0-1.1.9-1.9 1.9-1.9M3 12.1h9.6v23.1H3z" />
-                  <path d="M3 18.4h3.3V29H3zM12.4 29.1c2-1 3.3-3 3.3-5.4 0-2.4-1.4-4.4-3.3-5.4" />
-                  <g>
-                    <path d="M66 35.3h-9.6V12.2H66z" />
-                    <path d="M66 29h-3.4V18.4H66zM56.5 29.1a6 6 0 0 1-3.3-5.4c0-2.4 1.4-4.4 3.3-5.4" />
-                  </g>
-                  <path d="M34.5 2.9v41.7" />
-                </g>
-              </svg>
-              <p className="howmanynumber">x 123,200</p>
+              <HowMany kmLost={kmLost}></HowMany>
             </div>
             <div className="side-box">
-              <h3>Annual trend</h3>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 220">
-                <path
-                  fill="none"
-                  stroke="#fff"
-                  stroke-miterlimit="10"
-                  d="M20.2 203.7H490M32.8 8.4v208.1"
-                />
-                <path
-                  d="M35 179.7c9.9 1 20 1.9 29.7-.2s17.7-7.7 25-14.3c8-7.1 15.7-14 26-17.5 9.7-3.2 21.4-4.3 30.4 1.6 7.7 5 13.2 13 21.7 17.1 8.8 4.3 18.8 4 28.3 2.7 5.4-.7 10.8-1.6 16.2-2.7a159.9 159.9 0 0 0 16.6-3.8 65.7 65.7 0 0 0 8.4-3.8c11.5-5.5 22.9-11.1 34.7-15.8a93.2 93.2 0 0 1 16.2-5.3c7.4-1.4 15 1.6 22.4-.7 9.3-2.8 14.7-12 20.5-19l10-12c3-4 5.5-8 8-12a58 58 0 0 1 35-24.6c14.8-4 30.4-4.8 45.6-6.9 17-2.3 34-6.2 49.3-14.3a106.2 106.2 0 0 0 11.7-7.2c1.6-1.1.1-3.7-1.5-2.6A121.5 121.5 0 0 1 440 57.9c-15.5 2.8-31.3 3.6-46.8 6.4a71.4 71.4 0 0 0-37.7 17.2c-6.2 6-10 13.5-15 20.4-3.1 4.2-6.6 8.1-9.9 12.2s-6.3 8.2-9.8 12a24 24 0 0 1-11.7 8.3c-5.4 1.4-11 .1-16.4 0-4.4-.1-8.9 1.3-13 2.7-12.3 4-24 9.7-35.7 15.3l-12.9 6.2c-5.7 2.6-12.7 3.6-19 4.9-10.3 2-21.1 4.4-31.7 3.4a32.2 32.2 0 0 1-14.8-5.2c-3.8-2.6-7-5.9-10.5-9a45.8 45.8 0 0 0-10.6-7.8 31.3 31.3 0 0 0-14.8-2.7 53.7 53.7 0 0 0-27.6 9c-8.4 5.6-14.9 13.5-23.2 19.1a49.2 49.2 0 0 1-29 7.5c-5-.1-9.8-.6-14.7-1-2-.2-2 2.8 0 3Z"
-                  fill="#e84a5f"
-                  opacity=".6"
-                />
-                <path fill="#e84a5f" d="M41.5 13.2h17v17h-17z" />
-                <text transform="translate(68.3 26.5)" font-size="18" fill="#fff">
-                  Deforestation
-                </text>
-                <text
-                  transform="translate(5 54.5)"
-                  font-size="14"
-                  fill="#fff"
-                  font-family="SourceSansPro-Regular, Source Sans Pro">
-                  2M
-                </text>
-                <path fill="none" stroke="#fff" stroke-miterlimit="10" d="M28.5 50.7h4.3" />
-              </svg>
+              <Trend></Trend>
             </div>
           </aside>
         </GraphicSection>
