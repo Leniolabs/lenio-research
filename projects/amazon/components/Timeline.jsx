@@ -15,8 +15,7 @@ export const Timeline = ({ currentYear, onPlay, onPause, playing }) => {
   return (
     <div className="counter">
       <p className="year">{currentYear}</p>
-      {/* TODO Mariana: put the 2 as a upperindex */}
-      <p className="km">{kmLost}km^2</p>
+      <p className="km">{kmLost} km<sup>2</sup></p>
       <div className="player">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 732 90">
           <rect

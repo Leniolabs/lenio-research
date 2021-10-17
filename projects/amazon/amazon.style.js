@@ -43,6 +43,7 @@ export const LegendBox = styled.div`
   justify-content: center;
   margin: auto;
   padding: 0.2rem;
+  position: relative;
   max-width: max-content;
   div {
     align-items: center;
@@ -69,23 +70,26 @@ export const GraphicSection = styled.section`
   display: flex;
   flex-wrap: wrap;
   padding: 0 2rem;
-  position: relative;
   .map-container {
     flex: 1 1 auto;
     svg {
-      max-width: 580px;
+      margin-top: -50px;
+      max-width: 540px;
       width: 100%;
     }
   }
-  .map-svg {
-    > path,
-    > g {
-      paint-order: stroke;
-      &:hover {
-        stroke: #fff;
-        stroke-width: 0.5;
-        z-index: 1;
-      }
+  .map-svg-country {
+    opacity: 0;
+    fill: transparent;
+    paint-order: stroke;
+    stroke: #f8f8f0;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    &.slim-stroke {
+      stroke-width: 0.5;
+    }
+    &:hover {
+      opacity: 1;
     }
   }
   .sidebar {
@@ -93,8 +97,9 @@ export const GraphicSection = styled.section`
     min-width: 300px;
     .side-box {
       border: 1px solid #fff;
-      margin-top: 2rem;
+      margin-bottom: 2rem;
       padding: 1rem;
+      text-align: center;
       h3 {
         background-color: #1c1427;
         font-size: 1.4rem;
@@ -105,22 +110,28 @@ export const GraphicSection = styled.section`
         text-align: center;
       }
       .donut {
+        max-height: 220px;
         circle {
           fill: transparent;
         }
       }
+      .how-many-shapes {
+        margin: auto;
+        max-height: 180px;
+      }
       .howmanynumber {
         background-color: var(--amazonlightpurple);
-        font-size: 2rem;
+        border-radius: 4px;
+        font-size: 1.8rem;
+        margin: 0 auto;
         padding: 0.5rem 1rem;
-        max-width: max-content;
       }
     }
   }
   .counter {
-    margin-top: -25rem;
-    margin-left: 30%;
-    @media (max-width: 48em) {
+    margin-top: -30rem;
+    margin-left: 40%;
+    @media (max-width: 70em) {
       margin-left: 0;
     }
     .year {
@@ -137,6 +148,7 @@ export const GraphicSection = styled.section`
     .player {
       margin-right: 1rem;
       svg {
+        margin-top: -1rem;
         max-width: 700px;
         width: 100%;
       }
