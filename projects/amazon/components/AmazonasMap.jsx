@@ -9,8 +9,8 @@ import treeCoverLoss from "./treeCoverLoss";
 const COLORS = ["#99B898", "#E84A5F", "#FF847C"];
 
 export const AmazonasMap = ({ currentYear = 2001 }) => {
-  const xScale = scaleLinear().domain([0, 20]).range([165, 373]);
-  const yScale = scaleLinear().domain([0, 20]).range([25, 247]);
+  const xScale = scaleLinear().domain([0, 20]).range([60, 550]);
+  const yScale = scaleLinear().domain([0, 20]).range([110, 660]);
 
   const dataIndex = currentYear - 2001;
 
@@ -28,7 +28,7 @@ export const AmazonasMap = ({ currentYear = 2001 }) => {
             return (
               <motion.circle
                 key={`circle_${index}`}
-                r={4}
+                r={10}
                 cy={yScale(y)}
                 cx={xScale(x)}
                 animate={{
