@@ -9,8 +9,8 @@ import treeCoverLoss from "./treeCoverLoss";
 const COLORS = ["#FFFFFF", "#99B898", "#FECEAB", "#FF847C", "#E84A5F"];
 
 export const AmazonasMap = ({ currentYear = 2001 }) => {
-  const xScale = scaleLinear().domain([0, 20]).range([60, 550]);
-  const yScale = scaleLinear().domain([0, 20]).range([110, 660]);
+  const xScale = scaleLinear().domain([0, 40]).range([60, 550]);
+  const yScale = scaleLinear().domain([0, 40]).range([110, 660]);
 
   const dataIndex = currentYear - 2001;
 
@@ -19,17 +19,23 @@ export const AmazonasMap = ({ currentYear = 2001 }) => {
     return l || treeCoverLoss[treeCoverLoss.length - 1];
   }, [currentYear]);
 
-  console.log(lossData);
+  const colorScale = (value) => {
+    if(value > 0.75) return 4
+    if(value > 0.5) return 3
+    if(value > 0.25) return 2
+    if(value > 0) return 1
+    return 0
+  };
 
   return (
     <>
-      <motion.g>
+      <motion.g transform="translate(-35, -35) scale(1.05)">
         <AnimatePresence>
           {treeCover.map(({ x, y, z, rainforest }, index) => {
             if (!z || !rainforest) return null;
 
-            const treeLossValue = lossData.find((row) => row.x === x && row.y === y)?.z;
-            console.log(treeLossValue);
+            const treeLossValue = colorScale(lossData.find((row) => row.x === x && row.y === y)?.z);
+
             return (
               <motion.circle
                 key={`circle_${index}`}
@@ -38,7 +44,7 @@ export const AmazonasMap = ({ currentYear = 2001 }) => {
                 animate={{
                   fill: treeLossValue ? COLORS[treeLossValue] : COLORS[0],
                   // fillOpacity: treeLossValue > 2 ? 0.5 : 0.7,
-                  r: treeLossValue > 2 ? 10 : 11
+                  r: treeLossValue > 2 ? 4 : 5
                 }}
                 // animate={`v${elem.value}`}
                 // transition={{ duration: 0.25, type: "spring", stiffness: 20 }}
