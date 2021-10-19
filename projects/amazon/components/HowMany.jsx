@@ -24,12 +24,12 @@ const texasVarianst = {
   stadium: { opacity: 0 }
 };
 
-export const MorphingShape = ({ path1 }) => {
-  const d = useSVGMorph(path1, { duration: MORPH_DURATION });
+export const MorphingShape = ({ path1, fill = "#fff", duration = MORPH_DURATION }) => {
+  const d = useSVGMorph(path1, { duration });
   if (path1 === d.current) {
-    return <motion.path d={path1}></motion.path>;
+    return <motion.path d={path1} fill={fill}></motion.path>;
   } else {
-    return <motion.path d={d} />;
+    return <motion.path d={d} fill={fill} />;
   }
 };
 

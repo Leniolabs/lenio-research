@@ -1,89 +1,4 @@
 export const data = [
-  { year: 1988, kmRemaining: 23520, annualLoss: 21050, percentRemaining: 90.8, totalLoss: 376480 },
-  {
-    year: 1989,
-    kmRemaining: 3705750,
-    annualLoss: 17770,
-    percentRemaining: 90.4,
-    totalLoss: 394250
-  },
-  {
-    year: 1990,
-    kmRemaining: 3692020,
-    annualLoss: 13730,
-    percentRemaining: 90.0,
-    totalLoss: 407980
-  },
-  {
-    year: 1991,
-    kmRemaining: 3680990,
-    annualLoss: 11030,
-    percentRemaining: 89.8,
-    totalLoss: 419010
-  },
-  {
-    year: 1992,
-    kmRemaining: 3667204,
-    annualLoss: 13786,
-    percentRemaining: 89.4,
-    totalLoss: 432796
-  },
-  {
-    year: 1993,
-    kmRemaining: 3652308,
-    annualLoss: 14896,
-    percentRemaining: 89.1,
-    totalLoss: 447692
-  },
-  {
-    year: 1994,
-    kmRemaining: 3637412,
-    annualLoss: 14896,
-    percentRemaining: 88.7,
-    totalLoss: 462588
-  },
-  {
-    year: 1995,
-    kmRemaining: 3608353,
-    annualLoss: 29059,
-    percentRemaining: 88.0,
-    totalLoss: 491647
-  },
-  {
-    year: 1996,
-    kmRemaining: 3590192,
-    annualLoss: 18161,
-    percentRemaining: 87.6,
-    totalLoss: 509808
-  },
-  {
-    year: 1997,
-    kmRemaining: 3576965,
-    annualLoss: 13227,
-    percentRemaining: 87.2,
-    totalLoss: 523035
-  },
-  {
-    year: 1998,
-    kmRemaining: 3559582,
-    annualLoss: 17383,
-    percentRemaining: 86.8,
-    totalLoss: 540418
-  },
-  {
-    year: 1999,
-    kmRemaining: 3542323,
-    annualLoss: 17259,
-    percentRemaining: 86.4,
-    totalLoss: 557677
-  },
-  {
-    year: 2000,
-    kmRemaining: 3524097,
-    annualLoss: 18226,
-    percentRemaining: 86.0,
-    totalLoss: 575903
-  },
   {
     year: 2001,
     kmRemaining: 3505932,
@@ -152,5 +67,33 @@ export const data = [
   { year: 2018, kmRemaining: 3308313, annualLoss: 7536, percentRemaining: 80.7, totalLoss: 791687 },
   { year: 2019, kmRemaining: 3298551, annualLoss: 9762, percentRemaining: 80.5, totalLoss: 801449 },
   { year: 2020, kmRemaining: 3290125, annualLoss: 8426, percentRemaining: 80.3, totalLoss: 809875 },
-  { year: 2021, kmRemaining: 3279649, annualLoss: 10476, percentRemaining: 80.1, totalLoss: 820351 }
+  {
+    year: 2021,
+    kmRemaining: 3279649,
+    annualLoss: 10476,
+    percentRemaining: 80.1,
+    totalLoss: 820351
+  },
+  // { year: 2030, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  // { year: 2040, kmRemaining: 2800000, annualLoss: 25000, percentRemaining: 70, totalLoss: 1200000 }
+
+  { year: 2022, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2023, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2024, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2025, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2026, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2027, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2028, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2029, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2030, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2031, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2032, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2033, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2034, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2035, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2036, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2037, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2038, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2039, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 },
+  { year: 2040, kmRemaining: 3000000, annualLoss: 20000, percentRemaining: 75, totalLoss: 1000000 }
 ];

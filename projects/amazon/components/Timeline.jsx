@@ -1,21 +1,71 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import { data } from "../data";
+import { motion } from "framer-motion";
+import { MorphingShape } from "./HowMany";
 
-export const Timeline = ({ currentYear, onPlay, onPause, playing }) => {
+export const Timeline = ({
+  currentYear,
+  onPlay,
+  onPause,
+  onYearClick,
+  playing,
+  fromYear = 2001,
+  toYear = 2040,
+  threshold = 2021
+}) => {
   const handlePlay = React.useCallback(() => {
     if (!playing) onPlay?.();
     else onPause?.();
   }, [playing, onPlay, onPause]);
 
+  const yearBars = React.useMemo(() => {
+    return data.filter((d) => d.year >= fromYear && d.year <= toYear).map((d) => d.year);
+  }, [fromYear, toYear]);
+
+  const barWidth = React.useMemo(() => {
+    return 600 / yearBars.length;
+  }, [yearBars]);
+
+  const textYearVariants = React.useMemo(() => {
+    return {
+      end10: (i) => ({
+        x: 73 + (i + 1) * barWidth,
+        fontSize: 24
+      }),
+      end5: (i) => ({
+        x: 73 + (i + 1) * barWidth,
+        fontSize: 12
+      })
+    };
+  }, [barWidth]);
+
+  const playShape1 = React.useMemo(() => {
+    if (!playing) {
+      return "M26.6 33.5v23a2 2 0 0 0 3 1.8l18.8-11.1a2 2 0 0 0 0-3.5L29.7 32a2 2 0 0 0-3 1.6Z";
+    }
+    return "M20 33.5v23h10v-23z";
+  }, [playing]);
+
+  const playShape2 = React.useMemo(() => {
+    if (!playing) {
+      return "M26.6 33.5v23a2 2 0 0 0 3 1.8l18.8-11.1a2 2 0 0 0 0-3.5L29.7 32a2 2 0 0 0-3 1.6Z";
+    }
+    return "M38 33.5v23h10v-23z";
+  }, [playing]);
+
   const kmLost = React.useMemo(() => {
     return data.find((d) => d.year === currentYear).totalLoss;
   }, [currentYear]);
 
+  console.log(yearBars);
+
   return (
     <div className="counter">
       <p className="year">{currentYear}</p>
-      <p className="km">{kmLost} km<sup>2</sup></p>
+      <p className="km">
+        {kmLost} km<sup>2</sup>
+      </p>
       <div className="player">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 732 90">
           <rect
@@ -29,54 +79,64 @@ export const Timeline = ({ currentYear, onPlay, onPause, playing }) => {
             strokeMiterlimit="10"
             strokeWidth="1"
           />
-          <path fill="#2152bf" d="M93.6 32.8h600v5h-600z" />
-          <text transform="translate(73.7 68.8)" fontSize="20" fill="#fff">
-            2001
-          </text>
-          <text transform="translate(367.1 68.8)" fontSize="20" fill="#fff">
-            2020
-          </text>
-          <text transform="translate(673.7 68.8)" fontSize="20" fill="#fff">
-            2040
-          </text>
-          <path
-            fill="none"
-            stroke="#120d2d"
-            strokeMiterlimit="10"
-            strokeWidth=".8"
-            d="M93.6 32.8v18M109 32.8v11.5M124.4 32.8v11.5M139.8 32.8v11.5M201.3 32.8v11.5M216.7 32.8v11.5M232.1 32.8v18M247.4 32.8v11.5M155.1 32.8v11.5M170.5 32.8v11.5M185.9 32.8v11.5M262.8 32.8v11.5M293.6 32.8v11.5M324.4 32.8v11.5M355.1 32.8v11.5M370.5 32.8v11.5M339.8 32.8v11.5M309 32.8v11.5M278.2 32.8v11.5M385.9 32.8v18M401.3 32.8v11.5M416.7 32.8v11.5M432.1 32.8v11.5M493.6 32.8v11.5M509 32.8v11.5M524.4 32.8v11.5M539.8 32.8v18M447.4 32.8v11.5M462.8 32.8v11.5M478.2 32.8v11.5M555.1 32.8v11.5M585.9 32.8v11.5M616.7 32.8v11.5M647.4 32.8v11.5M662.8 32.8v11.5M632.1 32.8v11.5M601.3 32.8v11.5M570.5 32.8v11.5M678.2 32.8v11.5M693.6 32.8v18"
-          />
-
+          {yearBars.map((year, idx) => {
+            return (
+              <motion.path
+                key={`bar-${idx}`}
+                initial={false}
+                onClick={() => onYearClick(year)}
+                animate={{
+                  fill: year < currentYear ? (year > threshold ? "#2152bf" : "#FFFF55") : "#55ffff"
+                }}
+                d={`M${93.6 + barWidth * idx} ${32.8}h${barWidth - 1}v10h-${barWidth - 1}z`}
+              />
+            );
+          })}
+          <motion.text
+            custom={-1}
+            animate={"end10"}
+            initial={false}
+            variants={textYearVariants}
+            y={68}
+            // textAnchor="middle"
+            fontSize="20"
+            fill="#fff">
+            {fromYear}
+          </motion.text>
+          {yearBars.map((year, idx) => {
+            if (year % 5 !== 0) {
+              return null;
+            }
+            const yearType = year % 10 !== 0 || year === 2030 ? "end5" : "end10";
+            console.log(year, yearType);
+            return (
+              <motion.text
+                key={`text-year-${idx}`}
+                custom={idx}
+                animate={yearType}
+                initial={false}
+                variants={textYearVariants}
+                y={68}
+                textAnchor="middle"
+                transform="translate(73.7 68.8)"
+                fontSize="20"
+                fill="#fff">
+                {year}
+              </motion.text>
+            );
+          })}
           <g onClick={handlePlay} style={{ cursor: "pointer" }}>
             <circle cx="35" cy="45" r="34.5" fill="#0a051b" stroke="#fff" strokeMiterlimit="10" />
-            <path
-              d="M26.6 33.5v23a2 2 0 0 0 3 1.8l18.8-11.1a2 2 0 0 0 0-3.5L29.7 32a2 2 0 0 0-3 1.6Z"
-              fill="#fff"
-            />
+            <MorphingShape path1={playShape1} fill="#fff" duration={0.3} />
+            <MorphingShape path1={playShape2} fill="#fff" duration={0.3} />
           </g>
-
-          <text transform="translate(143.2 66.7)" fontSize="12" fill="#fff">
-            2005
-          </text>
-          <text transform="translate(220.1 66.7)" fontSize="12" fill="#fff">
-            2010
-          </text>
-          <text transform="translate(297 66.7)" fontSize="12" fill="#fff">
-            2015
-          </text>
-          <text transform="translate(450.9 66.7)" fontSize="12" fill="#fff">
-            2025
-          </text>
-          <text transform="translate(527.8 66.7)" fontSize="12" fill="#fff">
-            2030
-          </text>
-          <text transform="translate(604.7 66.7)" fontSize="12" fill="#fff">
-            2035
-          </text>
-
-          <rect
-            transform={`translate(${(currentYear - 2001) * 15.4}, 0)`}
-            x="92.1"
+          <motion.rect
+            animate={{
+              x: 89 + yearBars.findIndex((d) => currentYear === d) * barWidth
+            }}
+            transition={{
+              duration: 0.3
+            }}
             y="22.5"
             width="3"
             height="25.6"
@@ -91,6 +151,10 @@ export const Timeline = ({ currentYear, onPlay, onPause, playing }) => {
 
 Timeline.propTypes = {
   currentYear: PropTypes.number,
+  fromYear: PropTypes.number,
+  toYear: PropTypes.number,
+  threshold: PropTypes.number,
+  onYearClick: PropTypes.func,
   onPlay: PropTypes.func,
   onPause: PropTypes.func,
   playing: PropTypes.bool
