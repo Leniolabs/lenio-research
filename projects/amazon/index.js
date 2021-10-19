@@ -22,7 +22,6 @@ import { Timeline } from "./components/Timeline";
 import { data } from "./data";
 import { motion } from "framer-motion";
 import { HowMany } from "./components/HowMany";
-import { Trend } from "./components/Trend";
 
 export const Index = () => {
   const [playing, setPlaying] = React.useState(false);
@@ -43,11 +42,25 @@ export const Index = () => {
   useEffect(() => {
     if (playing) {
       const timer = setInterval(() => {
-        setCurrentYear((year) => (year >= 2020 ? 2001 : year + 1));
-      }, 2000);
+        setCurrentYear((year) => {
+          const currentIndex = data.findIndex((d) => d.year === year);
+          if (currentIndex + 1 >= data.length) {
+            return data[0].year;
+          } else {
+            return data[currentIndex + 1].year;
+          }
+        });
+      }, 500);
       return () => clearInterval(timer);
     }
   }, [playing]);
+
+  const onYearClick = React.useCallback(
+    (year) => {
+      setCurrentYear(year);
+    },
+    [currentYear]
+  );
 
   useEffect(() => {
     if (inView && !mounted) {
@@ -253,6 +266,7 @@ export const Index = () => {
               playing={playing}
               onPlay={handlePlay}
               onPause={handlePause}
+              onYearClick={onYearClick}
             />
           </div>
           <aside className="sidebar">
@@ -287,9 +301,6 @@ export const Index = () => {
             <div className="side-box">
               <HowMany kmLost={kmLost}></HowMany>
             </div>
-            {/* <div className="side-box">
-              <Trend></Trend>
-            </div> */}
           </aside>
         </GraphicSection>
       </MainAmazon>
