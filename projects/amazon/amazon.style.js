@@ -42,7 +42,6 @@ export const LegendBox = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin: auto;
-  padding: 0.2rem;
   position: relative;
   max-width: max-content;
   div {
@@ -55,7 +54,7 @@ export const LegendBox = styled.div`
 export const FirstSection = styled.section`
   text-align: center;
   h1 {
-    font-size: 3.2rem;
+    font-size: 3rem;
     line-height: 1;
     margin: 0 auto 0.5rem;
   }
@@ -93,7 +92,6 @@ export const GraphicSection = styled.section`
     }
   }
   .sidebar {
-    margin-top: 2rem;
     min-width: 300px;
     .side-box {
       border: 1px solid #fff;
@@ -115,13 +113,18 @@ export const GraphicSection = styled.section`
           fill: transparent;
         }
       }
+      .flex-shapes {
+        align-items: center;
+        display: flex;
+      }
       .how-many-shapes {
         margin: auto;
-        max-height: 180px;
+        max-width: 120px;
       }
       .howmanynumber {
         background-color: var(--amazonlightpurple);
         border-radius: 4px;
+        flex: 1 1 100%;
         font-size: 1.8rem;
         margin: 0 auto;
         padding: 0.5rem 1rem;
@@ -143,7 +146,7 @@ export const GraphicSection = styled.section`
     .km {
       font-size: 2rem;
       font-weight: 700;
-      margin: 0 0 2rem 1rem;
+      margin: 0 0 0 1rem;
     }
     .player {
       margin-right: 1rem;
@@ -306,6 +309,20 @@ export const PlayBtn = styled.button`
 export const HowManyOptionsContainer = styled.div`
   display: flex;
   flex-direction: row;
+  button {
+    background-color: var(--amazonlightpurple);
+    border: 0;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 10px;
+    padding: 5px 10px;
+    &:hover,
+    &:focus {
+      background-color: #3baacc;
+    }
+  }
 `;
 
 export const SourceLink = styled.a`

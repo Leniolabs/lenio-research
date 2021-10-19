@@ -67,7 +67,7 @@ export const Timeline = ({
         {kmLost} km<sup>2</sup>
       </p>
       <div className="player">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 732 90">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -30 732 120">
           <rect
             x="20"
             y="1.5"
