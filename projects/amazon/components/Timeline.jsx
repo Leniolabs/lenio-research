@@ -86,7 +86,7 @@ export const Timeline = ({
                 initial={false}
                 onClick={() => onYearClick(year)}
                 animate={{
-                  fill: year < currentYear ? (year > threshold ? "#2152bf" : "#FFFF55") : "#55ffff"
+                  fill: year < currentYear ? (year > threshold ? "#ffc165" : "#3baacd") : "#40384a"
                 }}
                 d={`M${93.6 + barWidth * idx} ${32.8}h${barWidth - 1}v10h-${barWidth - 1}z`}
               />
