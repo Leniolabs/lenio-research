@@ -287,9 +287,9 @@ export const Index = () => {
             <div className="side-box">
               <HowMany kmLost={kmLost}></HowMany>
             </div>
-            <div className="side-box">
+            {/* <div className="side-box">
               <Trend></Trend>
-            </div>
+            </div> */}
           </aside>
         </GraphicSection>
       </MainAmazon>

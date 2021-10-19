@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import treeCover from "./treeCover";
 import treeCoverLoss from "./treeCoverLoss";
 
-const COLORS = ["#99B898", "#E84A5F", "#FF847C"];
+const COLORS = ["#7dc77f", "#f1364f", "#fe844a"];
 
 export const AmazonasMap = ({ currentYear = 2001 }) => {
   const xScale = scaleLinear().domain([0, 20]).range([60, 550]);

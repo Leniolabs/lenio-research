@@ -5,9 +5,13 @@ import { TrackingProvider } from "analytics/context";
 const GlobalStyle = createGlobalStyle`
   :root {
     --amazongreen: #99B898;
+    --amazongreen: #7dc77f;
     --amazonred: #E84A5F;
+    --amazonred: #f1364f;
     --amazonorange: #FF847C;
+    --amazonorange: #fe844a;
     --amazonyellow: #FECEAB;
+    --amazonyellow: #ffc165;
     --amazonlightpurple: #40394A
   }
   body {
