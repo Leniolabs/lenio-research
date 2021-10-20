@@ -6,7 +6,7 @@ export const Layout = styled.div`
   color: #fff;
   position: relative;
   display: grid;
-  grid-template-rows: 100px 1fr 140px;
+  grid-template-rows: 100px 1fr 100px;
   min-height: 100vh;
   @media (max-width: 728px) {
     grid-template-columns: 1fr;
@@ -95,7 +95,7 @@ export const GraphicSection = styled.section`
     min-width: 300px;
     .side-box {
       border: 1px solid #fff;
-      margin-bottom: 2rem;
+      margin-top: 2rem;
       padding: 1rem;
       text-align: center;
       h3 {
@@ -127,12 +127,12 @@ export const GraphicSection = styled.section`
         flex: 1 1 100%;
         font-size: 1.8rem;
         margin: 0 auto;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem;
       }
     }
   }
   .counter {
-    margin-top: -30rem;
+    margin-top: -23rem;
     margin-left: 40%;
     @media (max-width: 70em) {
       margin-left: 0;
@@ -165,10 +165,11 @@ export const Footer = styled.footer`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 1rem;
   z-index: 1;
   .footnote {
     font-size: 1rem;
+    max-width: 600px;
     a {
       text-decoration: underline;
       &:hover {
@@ -307,8 +308,10 @@ export const PlayBtn = styled.button`
 `;
 
 export const HowManyOptionsContainer = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+  margin: 10px 0;
   button {
     background-color: var(--amazonlightpurple);
     border: 0;
@@ -316,7 +319,6 @@ export const HowManyOptionsContainer = styled.div`
     color: white;
     cursor: pointer;
     font-size: 1rem;
-    margin: 10px;
     padding: 5px 10px;
     &:hover,
     &:focus {
