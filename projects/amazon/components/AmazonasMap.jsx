@@ -20,11 +20,10 @@ export const AmazonasMap = ({ currentYear = 2001 }) => {
   }, [currentYear]);
 
   const colorScale = (value) => {
-    if(value > 0.75) return 4
-    if(value > 0.5) return 3
-    if(value > 0.25) return 2
-    if(value > 0) return 1
-    return 0
+    if(value > 0.6) return 4
+    if(value > 0.3) return 3
+    if(value > 0.1) return 2
+    return 1
   };
 
   return (
