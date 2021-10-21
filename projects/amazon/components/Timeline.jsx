@@ -2,7 +2,9 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import { data } from "../data";
 import { motion } from "framer-motion";
+import { NumberFormatter } from "@components/NumberFormatter";
 import { MorphingShape } from "./HowMany";
+import { TOTAL_AREA } from "./utils";
 
 export const Timeline = ({
   currentYear,
@@ -10,6 +12,7 @@ export const Timeline = ({
   onPause,
   onYearClick,
   playing,
+  percentage,
   fromYear = 2001,
   toYear = 2040,
   threshold = 2021
@@ -55,21 +58,23 @@ export const Timeline = ({
   }, [playing]);
 
   const kmLost = React.useMemo(() => {
-    return data.find((d) => d.year === currentYear).totalLoss;
-  }, [currentYear]);
-
-  console.log(yearBars);
+    return TOTAL_AREA * (percentage / 100);
+  }, [percentage]);
 
   return (
     <div className="counter">
       <p className="year">{currentYear}</p>
       <p className="km">
         <span className="km-lost">
-          {kmLost} km<sup>2</sup> <small>lost</small>
+          <NumberFormatter
+            number={kmLost}
+            divided={{ condition: (d) => d > 1000000, divisor: 1000000, indicator: "M" }}
+          />{" "}
+          km<sup>2</sup> <small>lost</small>
         </span>{" "}
-        /{" "}
         <span className="km-total">
-          5,500,000 km<sup>2</sup> <small>total</small>
+          <NumberFormatter number={5500000} />
+          km<sup>2</sup> <small>total</small>
         </span>
       </p>
       <div className="player">
@@ -93,7 +98,7 @@ export const Timeline = ({
                 initial={false}
                 onClick={() => onYearClick(year)}
                 animate={{
-                  fill: year < currentYear ? (year > threshold ? "#3b4dcd " : "#3baacd") : "#40384a"
+                  fill: year < currentYear ? (year > threshold ? "#3b4dcd" : "#3baacd") : "#40384a"
                 }}
                 d={`M${93.6 + barWidth * idx} ${32.8}h${barWidth - 1}v10h-${barWidth - 1}z`}
               />
@@ -115,7 +120,6 @@ export const Timeline = ({
               return null;
             }
             const yearType = year % 10 !== 0 || year === 2030 ? "end5" : "end10";
-            console.log(year, yearType);
             return (
               <motion.text
                 key={`text-year-${idx}`}
@@ -161,6 +165,7 @@ Timeline.propTypes = {
   fromYear: PropTypes.number,
   toYear: PropTypes.number,
   threshold: PropTypes.number,
+  percentage: PropTypes.number,
   onYearClick: PropTypes.func,
   onPlay: PropTypes.func,
   onPause: PropTypes.func,
