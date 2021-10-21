@@ -135,6 +135,13 @@ export const GraphicSection = styled.section`
         font-size: 1.8rem;
         margin: 0 auto;
         padding: 0.5rem;
+        .howmany-text {
+          background: rgba(29, 19, 39, .5);
+          display: block;
+          font-size: 1rem;
+          margin: -1rem -1rem 0rem;
+          padding: 0.2rem;
+        }
       }
     }
   }
@@ -329,7 +336,8 @@ export const HowManyOptionsContainer = styled.div`
     font-size: 1rem;
     padding: 5px 10px;
     &:hover,
-    &:focus {
+    &:focus,
+    &.active {
       background-color: #3baacc;
     }
   }

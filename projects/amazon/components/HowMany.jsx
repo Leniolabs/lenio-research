@@ -64,7 +64,7 @@ export const HowMany = ({ kmLost }) => {
 
   return (
     <div>
-      <h3>How many</h3>
+      <h3>How many times..?</h3>
       <HowManyOptionsContainer>
         <button onClick={() => setFigure("texas")}>Texas</button>
         <button onClick={() => setFigure("stadium")}>Maracana Stadium</button>
@@ -135,7 +135,12 @@ export const HowMany = ({ kmLost }) => {
             />
           </motion.g>
         </svg>
-        <p className="howmanynumber">x {howMany.toFixed(1)}</p>
+        <p className="howmanynumber">
+          <span className="howmany-text">Texas is 695,662 km<sup>2</sup></span>
+          <span className="howmany-text">Stadium is 0.186 km<sup>2</sup></span>
+          <span className="howmany-text">16000 Birds per km<sup>2</sup></span>
+          x {howMany.toFixed(1)}
+        </p>
       </div>
     </div>
   );

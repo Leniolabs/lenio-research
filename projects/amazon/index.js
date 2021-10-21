@@ -236,7 +236,7 @@ export const Index = () => {
               <svg width="40" height="40">
                 <circle stroke="#fff" fill="none" cx="20" cy="20" r="8" />
               </svg>
-              100 km2
+              10.000 km<sup>2</sup>
             </div>
             <div>
               <svg width="40" height="40">
@@ -266,7 +266,7 @@ export const Index = () => {
           </div>
           <aside className="sidebar">
             <div className="side-box">
-              <h3>% of deforestation</h3>
+              <h3>Deforestation %</h3>
               <svg viewBox="0 0 40 40" className="donut">
                 <g strokeWidth="3" transform="rotate(-90 20 20)">
                   <circle
