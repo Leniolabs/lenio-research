@@ -245,7 +245,7 @@ export const Index = () => {
             <div>
               <svg width="40" height="40">
                 <rect fill="var(--amazonyellow, #FECEAB)" x="12" y="12" width="16" height="16" />
-              </svg>x
+              </svg>
               <b>10%+</b>&nbsp;&nbsp;tree cover Loss
             </div>
             <div>
