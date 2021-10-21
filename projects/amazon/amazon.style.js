@@ -139,12 +139,8 @@ export const GraphicSection = styled.section`
     }
   }
   .counter {
-    margin-top: -6rem;
-    // margin-left: 40%;
+    margin-top: -5rem;
     width: 600px;
-    @media (max-width: 70em) {
-      margin-left: 0;
-    }
     .year {
       font-size: 5rem;
       font-weight: 700;
@@ -152,12 +148,19 @@ export const GraphicSection = styled.section`
       margin: 0 0 0 1rem;
     }
     .km {
-      font-size: 2rem;
       font-weight: 700;
       margin: 0 0 0 1rem;
     }
+    .km-lost {
+      font-size: 2rem;
+      margin-right: .8rem;
+    }
+    .km-total {
+      color: var(--amazongreen);
+      font-size: 1.2rem;
+      margin-left: .2rem;
+    }
     .player {
-      // margin-right: 1rem;
       svg {
         margin-top: -1rem;
         max-width: 700px;
@@ -175,6 +178,7 @@ export const Footer = styled.footer`
     font-size: 1rem;
     text-align: right;
     a {
+      color: #3baacd;
       text-decoration: underline;
       &:hover {
         color: #feceab;

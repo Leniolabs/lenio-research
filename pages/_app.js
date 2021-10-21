@@ -7,7 +7,7 @@ const GlobalStyle = createGlobalStyle`
     --amazongreen: #99B898;
     --amazongreen: #7dc77f;
     --amazonred: #E84A5F;
-    --amazonred: #f1364f;
+    --amazonred: #ff0000;
     --amazonorange: #FF847C;
     --amazonorange: #fe844a;
     --amazonyellow: #FECEAB;

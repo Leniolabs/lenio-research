@@ -64,7 +64,13 @@ export const Timeline = ({
     <div className="counter">
       <p className="year">{currentYear}</p>
       <p className="km">
-        {kmLost} km<sup>2</sup>
+        <span className="km-lost">
+          {kmLost} km<sup>2</sup> <small>lost</small>
+        </span>{" "}
+        /{" "}
+        <span className="km-total">
+          5,500,000 km<sup>2</sup> <small>total</small>
+        </span>
       </p>
       <div className="player">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -30 732 120">
@@ -87,7 +93,7 @@ export const Timeline = ({
                 initial={false}
                 onClick={() => onYearClick(year)}
                 animate={{
-                  fill: year < currentYear ? (year > threshold ? "#ffc165" : "#3baacd") : "#40384a"
+                  fill: year < currentYear ? (year > threshold ? "#3b4dcd " : "#3baacd") : "#40384a"
                 }}
                 d={`M${93.6 + barWidth * idx} ${32.8}h${barWidth - 1}v10h-${barWidth - 1}z`}
               />
