@@ -40,10 +40,14 @@ export const LegendBox = styled.div`
   border: 1px solid #fff;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   margin: auto;
   position: relative;
   max-width: max-content;
+  position: absolute;
+  bottom: 5rem;
+  left: 0;
+  max-width: 300px;
   div {
     align-items: center;
     display: flex;
@@ -71,33 +75,41 @@ export const GraphicSection = styled.section`
   padding: 0 2rem;
   .map-container {
     flex: 1 1 auto;
-    svg {
+    position: relative;
+    > svg {
       margin-top: -50px;
       max-width: 540px;
       width: 100%;
     }
   }
   .map-svg-country {
-    opacity: 0;
+    opacity: 1;
     fill: transparent;
-    paint-order: stroke;
     stroke: #f8f8f0;
-    stroke-width: 2;
+    stroke: #1c1427;
+    stroke-width: 0.5;
     stroke-miterlimit: 10;
+    paint-order: fill;
     &.slim-stroke {
-      stroke-width: 0.5;
+      stroke-width: 0.125;
+      &:hover {
+        stroke-width: 0.25;
+      }
     }
     &:hover {
-      opacity: 1;
+      stroke: white;
+      stroke-width: 0.5;
+      paint-order: stroke;
     }
   }
   .sidebar {
     min-width: 300px;
     .side-box {
-      border: 1px solid #fff;
-      margin-top: 2rem;
+      border: 1px solid rgba(255,255,255,0.5);
       padding: 1rem;
       text-align: center;
+      margin: 2rem 0 0 auto;
+      max-width: 300px;
       h3 {
         background-color: #1c1427;
         font-size: 1.4rem;
@@ -132,8 +144,9 @@ export const GraphicSection = styled.section`
     }
   }
   .counter {
-    margin-top: -23rem;
-    margin-left: 40%;
+    margin-top: -6rem;
+    // margin-left: 40%;
+    width: 600px;
     @media (max-width: 70em) {
       margin-left: 0;
     }
@@ -149,7 +162,7 @@ export const GraphicSection = styled.section`
       margin: 0 0 0 1rem;
     }
     .player {
-      margin-right: 1rem;
+      // margin-right: 1rem;
       svg {
         margin-top: -1rem;
         max-width: 700px;
@@ -160,16 +173,12 @@ export const GraphicSection = styled.section`
 `;
 
 export const Footer = styled.footer`
-  align-items: center;
   color: #fcfcf4;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   padding: 1rem;
   z-index: 1;
   .footnote {
     font-size: 1rem;
-    max-width: 600px;
+    text-align: right;
     a {
       text-decoration: underline;
       &:hover {
