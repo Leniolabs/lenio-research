@@ -9,7 +9,7 @@ import {
   useSpring
 } from "framer-motion";
 
-export const ScrollController = ({ elem }) => {
+export const ScrollController = ({ elem, elem2 }) => {
   const ref = React.useRef();
   const { scrollYProgress } = useElementScroll(ref);
   const yRange = useTransform(scrollYProgress, [0, 0.9], [0, 1]);

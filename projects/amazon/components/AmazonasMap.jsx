@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { scaleLinear } from "d3-scale";
 import { AnimatePresence, motion } from "framer-motion";
 import { colorScale } from "./utils";
+import newTreeCover from "./newTreeCover";
 
 const COLORS = ["#FFFFFF", "#99B898", "#FECEAB", "#FF847C", "#ff0000"];
 
@@ -18,8 +19,8 @@ export const AmazonasMap = ({ lossData }) => {
     <>
       <motion.g transform="translate(400, 245) scale(1.05)">
         <AnimatePresence>
-          {lossData.map(({ x, y, z }, index) => {
-            const treeLossValue = colorScale(z);
+          {newTreeCover.map(({ x, y }, index) => {
+            const treeLossValue = colorScale(lossData[index]);
 
             return (
               <motion.circle

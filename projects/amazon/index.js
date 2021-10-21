@@ -20,7 +20,7 @@ import { Timeline } from "./components/Timeline";
 import { Distribution } from "./components/Distribution";
 import { data } from "./data";
 import { HowMany } from "./components/HowMany";
-import newTreeCover from "./components/newTreeCover";
+import newTreeCoverLoss from "./components/newTreeCoverLoss";
 
 export const Index = () => {
   const [playing, setPlaying] = React.useState(false);
@@ -31,12 +31,12 @@ export const Index = () => {
   });
 
   const lossData = React.useMemo(() => {
-    return newTreeCover[currentYear] || newTreeCover[2001];
+    return newTreeCoverLoss[currentYear] || newTreeCoverLoss[2001];
   }, [currentYear]);
 
   const percentageLost = React.useMemo(() => {
     const numbers = lossData.reduce((acc, curr) => {
-      return acc + curr.z;
+      return acc + curr;
     }, 0);
 
     return (numbers / lossData.length) * 100;
