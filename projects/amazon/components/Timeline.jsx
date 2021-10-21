@@ -78,6 +78,7 @@ export const Timeline = ({
             stroke="#fff"
             strokeMiterlimit="10"
             strokeWidth="1"
+            opacity="0.5"
           />
           {yearBars.map((year, idx) => {
             return (

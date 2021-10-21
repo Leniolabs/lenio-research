@@ -82,24 +82,19 @@ export const GraphicSection = styled.section`
       width: 100%;
     }
   }
-  .map-svg-country {
-    opacity: 1;
+  .map-svg-country, .hover-map {
+    opacity: 0;
     fill: transparent;
     stroke: #f8f8f0;
     stroke: #1c1427;
-    stroke-width: 0.5;
     stroke-miterlimit: 10;
     paint-order: fill;
     &.slim-stroke {
       stroke-width: 0.125;
-      &:hover {
-        stroke-width: 0.25;
-      }
     }
     &:hover {
       stroke: white;
       stroke-width: 0.5;
-      paint-order: stroke;
     }
   }
   .sidebar {
