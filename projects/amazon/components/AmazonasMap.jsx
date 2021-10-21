@@ -28,7 +28,7 @@ export const AmazonasMap = ({ currentYear = 2001 }) => {
 
   return (
     <>
-      <motion.g transform="translate(-35, -35) scale(1.05)">
+      <motion.g transform="translate(400, 245) scale(1.05)">
         <AnimatePresence>
           {treeCover.map(({ x, y, z, rainforest }, index) => {
             if (!z || !rainforest) return null;

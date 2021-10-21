@@ -16,6 +16,7 @@ export const Layout = styled.div`
 
 export const Header = styled.header`
   position: relative;
+  z-index: 1;
   > div {
     padding: 1rem;
   }
@@ -82,19 +83,18 @@ export const GraphicSection = styled.section`
       width: 100%;
     }
   }
-  .map-svg-country, .hover-map {
+  .map-hover path {
     opacity: 0;
     fill: transparent;
     stroke: #f8f8f0;
-    stroke: #1c1427;
     stroke-miterlimit: 10;
-    paint-order: fill;
+    stroke-width: 0.125;
     &.slim-stroke {
-      stroke-width: 0.125;
+      stroke-width: 0.5;
     }
     &:hover {
+      opacity: 1;
       stroke: white;
-      stroke-width: 0.5;
     }
   }
   .sidebar {
