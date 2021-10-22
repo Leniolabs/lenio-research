@@ -1,5 +1,14 @@
 export const mockData = [
   {
+    key: "amazon",
+    link: "amazon",
+    imgPreview: "/static/amazonas.jpg",
+    title: "Amazon Deforestation",
+    subtitle: "October 20, 2021",
+    description:
+      "Data visualizations of Deforestation of Amazon. We created a timeline animations of deforestation area in Amazon year by year from 2020 and a progression up to 2040."
+  },
+  {
     key: "paralympics",
     link: "paralympics",
     imgPreview: "/static/card-paralynpics2.jpg",
