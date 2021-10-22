@@ -200,7 +200,8 @@ export const GraphicSection = styled.section`
       .play-btn {
         cursor: pointer;
         fill: white;
-        &:hover path {
+        &:hover path,
+        &:focus path {
           fill: var(--amazongreen);
         }
       }

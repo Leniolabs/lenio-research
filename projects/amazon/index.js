@@ -111,7 +111,8 @@ export const Index = () => {
                 height="75"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 165 165"
-                overflow="visible">
+                overflow="visible"
+                tabIndex="0">
                 <path
                   fill="currentColor"
                   d="M165.4 165.4H0V0h165.4v41.2H157V8.4H8.4V157H157v-34.3h8.4z"
@@ -320,8 +321,8 @@ export const Index = () => {
             target="_blank"
             rel="noreferrer">
             Amazon Tipping Point Paper
-          </a>
-          . Sources:{" "}
+          </a>.<br/>
+          Sources:{" "}
           <a href="https://restgis.com" target="_blank" rel="noreferrer">
             RestGis
           </a>

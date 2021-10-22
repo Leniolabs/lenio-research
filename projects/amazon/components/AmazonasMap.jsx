@@ -17,7 +17,7 @@ export const AmazonasMap = ({ lossData }) => {
 
   return (
     <>
-      <motion.g transform="translate(400, 245) scale(1.05)">
+      <motion.g transform="translate(400, 245) scale(1.05)" tabIndex="0">
         <AnimatePresence>
           {newTreeCover.map(({ x, y }, index) => {
             const treeLossValue = colorScale(lossData[index]);

@@ -25,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     &:before, &:after { box-sizing: inherit; }
   }
+  :focus:not(:focus-visible) { outline: none }
   p a { 
     color: #2a9faa; 
     cursor:pointer;

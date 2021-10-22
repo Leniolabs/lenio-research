@@ -78,7 +78,7 @@ export const Timeline = ({
         </span>
       </p>
       <div className="player">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -30 732 120">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -30 732 120" tabIndex="0">
           <rect
             x="20"
             y="1.5"
@@ -98,9 +98,10 @@ export const Timeline = ({
                 initial={false}
                 onClick={() => onYearClick(year)}
                 animate={{
-                  fill: year < currentYear ? (year > threshold ? "#3b4dcd" : "#3baacd") : "#40384a"
+                  fill: year < currentYear ? (year > threshold ? "#0074bf" : "#3baacd") : "#40384a"
                 }}
                 d={`M${93.6 + barWidth * idx} ${32.8}h${barWidth - 1}v10h-${barWidth - 1}z`}
+                tabIndex="0"
               />
             );
           })}
@@ -136,7 +137,7 @@ export const Timeline = ({
               </motion.text>
             );
           })}
-          <g onClick={handlePlay} className="play-btn">
+          <g onClick={handlePlay} className="play-btn" tabIndex="0">
             <circle cx="35" cy="45" r="34.5" fill="#0a051b" stroke="#fff" strokeMiterlimit="10" />
             <MorphingShape path1={playShape1} duration={0.3} />
             <MorphingShape path1={playShape2} duration={0.3} />
