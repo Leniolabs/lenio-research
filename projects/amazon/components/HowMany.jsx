@@ -155,7 +155,7 @@ export const HowMany = ({ percentage }) => {
                 16000 Birds per km<sup>2</sup>
               </span>
             )}
-            x
+            x{" "}
             <NumberFormatter
               number={howMany}
               divided={{ condition: (d) => d > 1000000, divisor: 1000000, indicator: "M" }}

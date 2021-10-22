@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export const Distribution = ({ percentage }) => {
   return (
     <div className="side-box">
-      <h3>Deforestation %</h3>
+      <h3>Deforestation <span>(%)</span></h3>
       <svg viewBox="0 0 40 40" className="donut">
         <g strokeWidth="3" transform="rotate(-90 20 20)">
           <circle

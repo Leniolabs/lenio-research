@@ -71,7 +71,7 @@ export const Timeline = ({
             divided={{ condition: (d) => d > 1000000, divisor: 1000000, indicator: "M" }}
           />{" "}
           km<sup>2</sup> <small>lost</small>
-        </span>{" "}
+        </span>{" "}/
         <span className="km-total">
           <NumberFormatter number={5500000} />
           km<sup>2</sup> <small>total</small>
@@ -136,10 +136,10 @@ export const Timeline = ({
               </motion.text>
             );
           })}
-          <g onClick={handlePlay} style={{ cursor: "pointer" }}>
+          <g onClick={handlePlay} className="play-btn">
             <circle cx="35" cy="45" r="34.5" fill="#0a051b" stroke="#fff" strokeMiterlimit="10" />
-            <MorphingShape path1={playShape1} fill="#fff" duration={0.3} />
-            <MorphingShape path1={playShape2} fill="#fff" duration={0.3} />
+            <MorphingShape path1={playShape1} duration={0.3} />
+            <MorphingShape path1={playShape2} duration={0.3} />
           </g>
           <motion.rect
             animate={{

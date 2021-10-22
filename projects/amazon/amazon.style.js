@@ -49,6 +49,9 @@ export const LegendBox = styled.div`
   bottom: 5rem;
   left: 0;
   max-width: 300px;
+  @media (max-width: 640px) {
+    bottom: 0;
+  }
   div {
     align-items: center;
     display: flex;
@@ -58,6 +61,8 @@ export const LegendBox = styled.div`
 
 export const FirstSection = styled.section`
   text-align: center;
+  position: relative;
+  z-index: 1;
   h1 {
     font-size: 3rem;
     line-height: 1;
@@ -74,6 +79,9 @@ export const GraphicSection = styled.section`
   display: flex;
   flex-wrap: wrap;
   padding: 0 2rem;
+  @media (max-width: 640px) {
+    padding: 0 1rem;
+  }
   .map-container {
     flex: 1 1 auto;
     position: relative;
@@ -81,6 +89,10 @@ export const GraphicSection = styled.section`
       margin-top: -50px;
       max-width: 540px;
       width: 100%;
+      @media (max-width: 640px) {
+        margin-left: -140px;
+        max-width: 400px;
+      }
     }
   }
   .map-hover path {
@@ -98,13 +110,17 @@ export const GraphicSection = styled.section`
     }
   }
   .sidebar {
-    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
     .side-box {
       border: 1px solid rgba(255,255,255,0.5);
       padding: 1rem;
       text-align: center;
       margin: 2rem 0 0 auto;
       max-width: 300px;
+      width: 100%;
       h3 {
         background-color: #1c1427;
         font-size: 1.4rem;
@@ -113,6 +129,9 @@ export const GraphicSection = styled.section`
         max-width: max-content;
         padding: 0 0.5rem;
         text-align: center;
+        span {
+          font-weight: normal;
+        }
       }
       .donut {
         max-height: 220px;
@@ -126,7 +145,7 @@ export const GraphicSection = styled.section`
       }
       .how-many-shapes {
         margin: auto;
-        max-width: 120px;
+        max-width: 110px;
       }
       .howmanynumber {
         background-color: var(--amazonlightpurple);
@@ -134,20 +153,25 @@ export const GraphicSection = styled.section`
         flex: 1 1 100%;
         font-size: 1.8rem;
         margin: 0 auto;
-        padding: 0.5rem;
+        padding: 1rem 0.5rem;
         .howmany-text {
-          background: rgba(29, 19, 39, .5);
+          background: rgba(29, 19, 39, 0.5);
           display: block;
           font-size: 1rem;
-          margin: -1rem -1rem 0rem;
-          padding: 0.2rem;
+          margin: -1rem -1rem 0.5rem;
+          padding: 0.2rem 0.2rem 0.5rem;
         }
       }
     }
   }
   .counter {
-    margin-top: -5rem;
+    margin-top: -4rem;
     width: 600px;
+    @media (max-width: 640px) {
+      order: -1;
+      margin-top: 1rem;
+      width: 90vw;
+    }
     .year {
       font-size: 5rem;
       font-weight: 700;
@@ -160,18 +184,25 @@ export const GraphicSection = styled.section`
     }
     .km-lost {
       font-size: 2rem;
-      margin-right: .8rem;
+      margin-right: 0.8rem;
     }
     .km-total {
       color: var(--amazongreen);
       font-size: 1.2rem;
-      margin-left: .2rem;
+      margin-left: 0.2rem;
     }
     .player {
       svg {
         margin-top: -1rem;
         max-width: 700px;
         width: 100%;
+      }
+      .play-btn {
+        cursor: pointer;
+        fill: white;
+        &:hover path {
+          fill: var(--amazongreen);
+        }
       }
     }
   }
