@@ -3,8 +3,20 @@ import Head from "next/head";
 import { TrackingProvider } from "analytics/context";
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    --amazongreen: #99B898;
+    --amazongreen: #7dc77f;
+    --amazonred: #E84A5F;
+    --amazonred: #ff0000;
+    --amazonorange: #FF847C;
+    --amazonorange: #fe844a;
+    --amazonyellow: #FECEAB;
+    --amazonyellow: #ffc165;
+    --amazonlightpurple: #40394A
+  }
   body {
-    background-color: #fffbf0;
+    ${"" /* background-color: #fffbf0; */}
+    background-color: #0a061b;
     box-sizing: border-box;
     color: #45486d;
     font-family: 'Source Sans Pro', sans-serif;
@@ -13,6 +25,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     &:before, &:after { box-sizing: inherit; }
   }
+  :focus:not(:focus-visible) { outline: none }
   p a { 
     color: #2a9faa; 
     cursor:pointer;
