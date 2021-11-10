@@ -5,10 +5,19 @@ import { motion } from "framer-motion";
 export const Distribution = ({ percentage }) => {
   return (
     <div className="side-box">
-      <h3>Deforestation <span>(%)</span></h3>
-      <svg viewBox="0 0 40 40" className="donut" aria-labelledby="title desc" role="img" tabIndex="0">
+      <h3>
+        Deforestation <span>(%)</span>
+      </h3>
+      <svg
+        viewBox="0 0 40 40"
+        className="donut"
+        aria-labelledby="title desc"
+        role="img"
+        tabIndex="0">
         <title id="title">Donut chart</title>
-        <desc id="desc">Donut chart showing percentage of deforestation in Amazon increasing by year.</desc>
+        <desc id="desc">
+          Donut chart showing percentage of deforestation in Amazon increasing by year.
+        </desc>
         <g strokeWidth="3" transform="rotate(-90 20 20)">
           <circle
             cx="20"
@@ -28,7 +37,6 @@ export const Distribution = ({ percentage }) => {
             stroke="var(--amazonred, #E84A5F)">
             <title id="title">Deforestation</title>
           </motion.circle>
-
         </g>
         <text x="20" y="23" fill="#fff" fontSize=".6rem" textAnchor="middle">
           {percentage.toFixed(1)}%
