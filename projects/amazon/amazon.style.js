@@ -67,11 +67,18 @@ export const FirstSection = styled.section`
     font-size: 3rem;
     line-height: 1;
     margin: 0 auto 0.5rem;
+    @media (max-width: 640px) {
+      font-size: 2.2rem;
+      margin-top: 2rem;
+    }
   }
   h2 {
     font-size: 1.8rem;
     font-weight: 700;
     margin-top: 0;
+    @media (max-width: 640px) {
+      font-size: 1.6rem;
+    }
   }
 `;
 
@@ -115,12 +122,15 @@ export const GraphicSection = styled.section`
     position: relative;
     z-index: 1;
     .side-box {
-      border: 1px solid rgba(255,255,255,0.5);
+      border: 1px solid rgba(255, 255, 255, 0.5);
       padding: 1rem;
       text-align: center;
       margin: 2rem 0 0 auto;
       max-width: 300px;
       width: 100%;
+      @media (max-width: 640px) {
+        margin: 2rem auto 0;
+      }
       h3 {
         background-color: #1c1427;
         font-size: 1.4rem;
