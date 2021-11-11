@@ -16,7 +16,7 @@ export const Index = () => {
           name="twitter:description"
           content="Data Visualization of Deforestation of the Amazon"
         />
-        <meta name="twitter:image" content="https://research.leniolabs.com/amazonas.png" />
+        <meta name="twitter:image" content="https://research.leniolabs.com/amazonas.jpg" />
         <meta property="og:url" content="https://research.leniolabs.com/amazon.html" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Leniolabs_ Research: Deforestation of the Amazon" />
