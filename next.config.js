@@ -16,7 +16,8 @@ module.exports = {
       "/timeline/index": { page: "/timeline" },
       "/women-in-tech/index": { page: "/women-in-tech" },
       "/olympics/index": { page: "/olympics" },
-      "/paralympics/index": { page: "/paralympics" }
+      "/paralympics/index": { page: "/paralympics" },
+      "/amazon/index": { page: "/paralympics" }
     };
   }
 };
