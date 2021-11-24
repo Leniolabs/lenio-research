@@ -33,7 +33,7 @@ export const GoalViewer = () => {
     }
     if (secretWord) {
       const token = jwt.sign({ payload: body }, secretWord);
-      await fetch(`${process.env.NEXT_PUBLIC_SOCCER_URL_API}/${endpoint}`, {
+      await fetch(`https://soccer-api.leniolabs.com/${endpoint}`, {
         method: method,
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export const GoalViewer = () => {
     }
     if (secretWord) {
       const token = jwt.sign({ payload: goal }, secretWord);
-      await fetch(`${process.env.NEXT_PUBLIC_SOCCER_URL_API}/messi/update/${goal.id}`, {
+      await fetch(`https://soccer-api.leniolabs.com/messi/update/${goal.id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
