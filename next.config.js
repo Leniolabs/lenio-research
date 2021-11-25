@@ -15,7 +15,8 @@ module.exports = {
       "/map-vis/index": { page: "/map-vis" },
       "/timeline/index": { page: "/timeline" },
       "/women-in-tech/index": { page: "/women-in-tech" },
-      "/olympics/index": { page: "/olympics" }
+      "/olympics/index": { page: "/olympics" },
+      "/soccer/index": { page: "/soccer" }
     };
   }
 };
