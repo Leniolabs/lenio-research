@@ -68,12 +68,10 @@ export const GoalViewer = () => {
         body: JSON.stringify(goal)
       })
         .then((response) => response.json())
-        .then(() => {
-          getGoal("messi/latest-to-fill");
-        })
         .catch(() => {
           alert("Error: please contact administrator");
         });
+      await getGoal("messi/latest-to-fill");
     }
   };
 
