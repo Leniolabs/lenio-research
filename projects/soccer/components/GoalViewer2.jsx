@@ -27,14 +27,14 @@ export const GoalViewer = () => {
 
   const information = ["received", "shot"];
 
-  const getGoal = async (endpoint, method, body = {}) => {
+  const getGoal = async (endpoint) => {
     if (!secretWord) {
       alert("Please enter a valid secret word");
     }
     if (secretWord) {
-      const token = jwt.sign({ payload: body }, secretWord);
+      const token = jwt.sign({ payload: {} }, secretWord);
       await fetch(`https://soccer-api.leniolabs.com/${endpoint}`, {
-        method: method,
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + token
