@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { SectionTitle, MainTitle, MainSubTitle } from "./style";
-import PoleVis from "./PoleVis";
-export const Index = () => {
+import WinterOlympicVis from "./WinterOlympicVis";
 
+export const Index = () => {
   return (
     <section className="chart-wrapper olympics-wrapper">
       <div className="head-main">
@@ -19,7 +19,7 @@ export const Index = () => {
       <div className="row-container">
         <MainTitle>Gender Gap in Winter Olympic Games</MainTitle>
         <MainSubTitle>And list of sports year by year</MainSubTitle>
-        <PoleVis></PoleVis>
+        <WinterOlympicVis />
         <p className="sources-text">
           Sources: <Link href="https://www.sports-reference.com/">Sports reference,</Link>{" "}
           <Link href="https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results">
