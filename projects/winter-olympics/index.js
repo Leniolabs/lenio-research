@@ -1,0 +1,37 @@
+import React from "react";
+import Link from "next/link";
+import { SectionTitle, MainTitle, MainSubTitle } from "./style";
+import PoleVis from "./PoleVis";
+export const Index = () => {
+
+  return (
+    <section className="chart-wrapper olympics-wrapper">
+      <div className="head-main">
+        <SectionTitle>
+          Winter Olympics
+          <br />
+          <img src={"/static/logo-olympics.svg"} alt="logo" />
+          <Link href="https://www.freepik.com/macrovector" className="pic-author">
+            Remix of athlete set vectors created by macrovector
+          </Link>
+        </SectionTitle>
+      </div>
+      <div className="row-container">
+        <MainTitle>Gender Gap in Winter Olympic Games</MainTitle>
+        <MainSubTitle>And list of sports year by year</MainSubTitle>
+        <PoleVis></PoleVis>
+        <p className="sources-text">
+          Sources: <Link href="https://www.sports-reference.com/">Sports reference,</Link>{" "}
+          <Link href="https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results">
+            Kaggle,
+          </Link>{" "}
+          <Link href="https://www.statista.com/statistics/266368/number-of-winter-olympic-games-participants-since-1924-by-gender/">
+            Statista
+          </Link>
+        </p>
+      </div>
+    </section>
+  );
+};
+
+export default Index;
