@@ -5,15 +5,13 @@ import WinterOlympicVis from "./WinterOlympicVis";
 
 export const Index = () => {
   return (
-    <section className="chart-wrapper olympics-wrapper">
+    <section className="chart-wrapper winter-wrapper">
       <div className="head-main">
         <SectionTitle>
           Winter Olympics
-          <br />
-          <img src={"/static/logo-olympics.svg"} alt="logo" />
-          <Link href="https://www.freepik.com/macrovector" className="pic-author">
+          {/* <Link href="https://www.freepik.com/macrovector" className="pic-author">
             Remix of athlete set vectors created by macrovector
-          </Link>
+          </Link> */}
         </SectionTitle>
       </div>
       <div className="row-container">

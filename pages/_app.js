@@ -356,6 +356,27 @@ const GlobalStyle = createGlobalStyle`
         }
       }
     }
+  }
+  .chart-wrapper.winter-wrapper {
+    background-color: #fff;
+    .head-main {
+      background: #fffbf0 url("/static/winter-athletes.svg") no-repeat bottom center;
+      background-size: 100vw;
+      padding-bottom: 6rem;
+      position: relative;
+      min-height: 35vh;
+      @media (max-width: 415px) {
+        padding-bottom: 1rem;
+        min-height: 25vh;
+      }
+      img {
+        width: 100px;
+        @media (max-width: 415px) {
+          width: 80px;
+        }
+      }
+    }
+  }
 `;
 
 const theme = {

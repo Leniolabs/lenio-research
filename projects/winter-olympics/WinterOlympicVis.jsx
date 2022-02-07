@@ -170,7 +170,7 @@ const WinterOlympicsVis = () => {
   }, []);
 
   return (
-    <svg viewBox="0 130 1204 700">
+    <svg viewBox="0 130 1204 700" overflow="visible">
       <path fill="#fffbf0" d="M0 0H1203.16V975.56H0z" opacity="0.1"></path>
 
       <path stroke="#000" strokeMiterlimit="10" d="M96.13 149.17L96.13 811.14"></path>
