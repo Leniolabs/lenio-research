@@ -6,47 +6,74 @@ import { winterOlympicsData } from "./winterOlympicsData";
 import { scaleLinear, scalePow } from "d3-scale";
 import { curveLinear, line } from "d3-shape";
 
-const TOOLTIP_WIDTH = 380;
+const TOOLTIP_WIDTH = 200;
 const TOOLTIP_HEIGHT = 110;
 const CIRCLE_SIZE = 24;
 const GIF_DURATION_MS = 18600;
 
-const WinterOlympicsTooltip = ({ x, y, name, countryCode, record }) => {
+const WinterOlympicsTooltip = ({ x, yMale, yFemale, data }) => {
   const actualX = x - TOOLTIP_WIDTH / 2;
-  const actualY = y - TOOLTIP_HEIGHT - CIRCLE_SIZE;
+  const actualYMale = yMale - CIRCLE_SIZE;
+  const actualYFemale = yFemale + CIRCLE_SIZE;
+
+  const maleSports = data.sports.filter((row) => row.gender === "M");
+  const femaleSports = data.sports.filter((row) => row.gender === "F");
+
+  const maleHeight = (maleSports.length + 1) * 18 + 12;
+  const femaleHeight = (femaleSports.length + 1) * 18 + 12;
+
   return (
-    <g transform={`translate(${actualX} ${actualY})`}>
-      <path
-        fill="#F8F3E6"
-        stroke="#2B4055"
-        strokeMiterlimit="10"
-        d={`M0,0h${TOOLTIP_WIDTH}v${TOOLTIP_HEIGHT}h-${TOOLTIP_WIDTH / 2 - 10}l-10 10l-10 -10h-${
-          TOOLTIP_WIDTH / 2 - 10
-        }z`}
-      />
-      <text
-        transform="translate(15.32 46.385)"
-        fill="#2B4055"
-        fontFamily="'Source Sans Pro'"
-        fontSize="48">
-        {record.toFixed(2)}
-      </text>
-      <text
-        transform="translate(15.32 88.802)"
-        fill="#2B4055"
-        fontFamily="'Source Sans Pro'"
-        fontSize="36">
-        {name}
-      </text>
-      <g stroke="#2B4055" strokeMiterlimit="10">
-        <image
-          href={`https://www.countryflags.io/${countryCode}/flat/64.png`}
-          height="48"
-          x="315"
-          y="7"
+    <>
+      <g transform={`translate(${actualX} ${actualYMale - maleHeight})`}>
+        <path
+          fill="#F8F3E6"
+          strokeMiterlimit="10"
+          d={`M0,0h${TOOLTIP_WIDTH}v${maleHeight}h-${TOOLTIP_WIDTH / 2 - 10}l-10 10l-10 -10h-${
+            TOOLTIP_WIDTH / 2 - 10
+          }z`}
         />
+        <text
+          transform="translate(12, 18)"
+          fontFamily="SourceSansPro-Bold, Source Sans Pro"
+          fontSize="12"
+          fontWeight="700">
+          Total: {maleSports.length}
+        </text>
+        {maleSports.map((row, i) => (
+          <text
+            transform={`translate(12, ${18 + (i + 1) * 18})`}
+            fontFamily="SourceSansPro-SemiBold, Source Sans Pro"
+            fontSize="11"
+            fontWeight="600">
+            {row.name}
+          </text>
+        ))}
       </g>
-    </g>
+      <g transform={`translate(${actualX} ${actualYFemale})`}>
+        <path
+          fill="#F8F3E6"
+          strokeMiterlimit="10"
+          d={`M0,0h${TOOLTIP_WIDTH / 2 - 10}l10 -10l10 10
+          h${TOOLTIP_WIDTH / 2 - 10}v${femaleHeight}h-${TOOLTIP_WIDTH}z`}
+        />
+        <text
+          transform="translate(12, 24)"
+          fontFamily="SourceSansPro-Bold, Source Sans Pro"
+          fontSize="12"
+          fontWeight="700">
+          Total: {femaleSports.length}
+        </text>
+        {femaleSports.map((row, i) => (
+          <text
+            transform={`translate(12, ${18 + (i + 1) * 18})`}
+            fontFamily="SourceSansPro-SemiBold, Source Sans Pro"
+            fontSize="11"
+            fontWeight="600">
+            {row.name}
+          </text>
+        ))}
+      </g>
+    </>
   );
 };
 
@@ -108,7 +135,7 @@ const WinterOlympicsVis = () => {
   const areaTrend = React.useMemo(() => {
     return line()
       .x((d) => scaleX(d.year))
-      .y((d) => scaleY(d.y * 100 / (d.maleQuantity + d.femaleQuantity)))
+      .y((d) => scaleY((d.y * 100) / (d.maleQuantity + d.femaleQuantity)))
       .curve(curveLinear)([
       ...winterOlympicsData
         .map((row) => ({ ...row, y: row.femaleQuantity }))
@@ -119,7 +146,28 @@ const WinterOlympicsVis = () => {
     ]);
   }, [winterOlympicsData, scaleX, scaleY]);
 
-  console.log([]);
+  const xLabelUnit = React.useMemo(() => {
+    return scaleX(xLabels[1]) - scaleX(xLabels[0]);
+  }, [scaleX, xLabels]);
+
+  const handleTooltip = React.useCallback(
+    (year) => {
+      return (e) => {
+        const data = winterOlympicsData.find((row) => row.year === year);
+        setTooltipData({
+          x: scaleX(data.year),
+          yMale: scaleY((data.maleQuantity * 100) / (data.maleQuantity + data.femaleQuantity)),
+          yFemale: scaleY((data.femaleQuantity * 100) / (data.maleQuantity + data.femaleQuantity)),
+          data
+        });
+      };
+    },
+    [winterOlympicsData]
+  );
+
+  const handleTooltipLeave = React.useCallback(() => {
+    setTooltipData(null);
+  }, []);
 
   return (
     <svg viewBox="0 130 1204 700">
@@ -130,24 +178,8 @@ const WinterOlympicsVis = () => {
       <text
         fontFamily="SourceSansPro-Regular, Source Sans Pro"
         fontSize="14"
-        letterSpacing="-.01em"
         transform="rotate(-90 276.445 229.335)">
-        p
-        <tspan x="7.57" y="0" letterSpacing="0em">
-          artici
-        </tspan>
-        <tspan x="37.49" y="0">
-          p
-        </tspan>
-        <tspan x="45.07" y="0" letterSpacing="0em">
-          an
-        </tspan>
-        <tspan x="59.78" y="0">
-          t
-        </tspan>
-        <tspan x="64.37" y="0" letterSpacing="0em">
-          s
-        </tspan>
+        participants
       </text>
       <g>
         {yLabels.map((label) => (
@@ -198,21 +230,6 @@ const WinterOlympicsVis = () => {
         ))}
       </g>
 
-      <text
-        fill="#595a5a"
-        fontFamily="SourceSansPro-Regular, Source Sans Pro"
-        fontSize="18"
-        transform="translate(1092.09 446.36)">
-        Men
-      </text>
-      <text
-        fill="#595a5a"
-        fontFamily="SourceSansPro-Regular, Source Sans Pro"
-        fontSize="18"
-        transform="translate(1085.34 509.99)">
-        Women
-      </text>
-
       <path fill="#f9f3e5" d={areaTrend} opacity="0.5" />
       <path
         fill="none"
@@ -229,10 +246,19 @@ const WinterOlympicsVis = () => {
         strokeWidth="3"
         d={femaleTrend}></path>
 
-      <circle cx="1072.78" cy="440.33" r="6.03" fill="#e8ac2a"></circle>
-      <circle cx="1072.78" cy="503.96" r="6.03" fill="#71b6c6"></circle>
-
       {tooltipData && <WinterOlympicsTooltip {...tooltipData}></WinterOlympicsTooltip>}
+
+      {xLabels.map((label) => (
+        <rect
+          x={scaleX(label) - xLabelUnit / 2}
+          y={150}
+          height={700}
+          width={xLabelUnit}
+          fill={"transparent"}
+          onMouseEnter={handleTooltip(label)}
+          onMouseLeave={handleTooltipLeave}
+        />
+      ))}
     </svg>
   );
 };
