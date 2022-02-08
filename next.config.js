@@ -18,7 +18,8 @@ module.exports = {
       "/olympics/index": { page: "/olympics" },
       "/paralympics/index": { page: "/paralympics" },
       "/amazon/index": { page: "/amazon" },
-      "/soccer/index": { page: "/soccer" }
+      "/soccer/index": { page: "/soccer" },
+      "/winter-olympics/index": { page: "/winter-olympics" }
     };
   }
 };

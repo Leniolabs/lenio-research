@@ -11,6 +11,7 @@
 	"dependencies": {
 		"d3-polygon": "^2.0.0",
 		"d3-scale": "^3.2.3",
+		"d3-shape": "^2.1.0",
 		"dayjs": "^1.10.5",
 		"flubber": "^0.4.2",
 		"framer-motion": "^4.0.3",
