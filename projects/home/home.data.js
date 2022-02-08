@@ -5,7 +5,8 @@ export const mockData = [
     imgPreview: "/static/winter-olympics.jpg",
     title: "Winter Olympics",
     subtitle: "February 8, 2022",
-    description: "Data visualizations of Gender Gap in Winter Olympic Games from 1924 to 2022, and list of sports by gender year by year."
+    description:
+      "Data visualizations of Gender Gap in Winter Olympic Games from 1924 to 2022, and list of sports by gender year by year."
   },
   {
     key: "amazon",
