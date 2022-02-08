@@ -1,6 +1,17 @@
 import TimelineMainSnippet from "@projects/timeline";
 import Head from "next/head";
 import Footer from "@components/footer";
+import styled from "styled-components";
+
+const RowContainer = styled.div`
+  background: #fffbf0;
+  color: #2a3f55;
+  margin: 0;
+  padding: 2rem;
+  > div {
+    position: relative;
+  }
+`;
 
 export const Index = () => {
   return (
@@ -44,7 +55,9 @@ export const Index = () => {
         <meta property="og:locale" content="en_US" />
         <meta property="article:author" content="Leniolabs_ Research" />
       </Head>
-      <TimelineMainSnippet />
+      <RowContainer>
+        <TimelineMainSnippet />
+      </RowContainer>
       <Footer />
     </>
   );

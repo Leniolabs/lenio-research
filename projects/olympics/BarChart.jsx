@@ -76,7 +76,7 @@ export const BarChart = ({ yTitle = "COUNTRY", data, values }) => {
                 transition={{ duration: DURATION }}>
                 {flagCode && (
                   <motion.image
-                    href={`https://www.countryflags.io/${flagCode}/flat/64.png`}
+                    href={`/static/olympics/flags/${flagCode.toLowerCase()}.svg`}
                     height="16"
                     x="80"
                     y={-12}

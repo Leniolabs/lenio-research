@@ -8,9 +8,13 @@ import { LogoHeaderContainer } from "@components/styled";
 import Footer from "@components/footer";
 
 const RowContainer = styled.div`
-  margin: 0 auto;
-  max-width: 45em;
+  background: #fffbf0;
+  color: #2a3f55;
+  margin: 0;
   padding: 2rem;
+  > div {
+    position: relative;
+  }
 `;
 
 export const Index = ({ countryData = [], fullyVacPer100 = [], vacPer100 = [] }) => {

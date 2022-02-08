@@ -126,7 +126,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
     if (DATA_MAPPER === {}) return;
 
     if (dataIndex === 0 && DATA_MAPPER[dataName].length > 0) {
-      if (firstTimePlay.current) {
+      if (firstTimePlay.current && DATA_MAPPER[dataName][options[0]?.value]?.data) {
         setParsedData(
           getParsedData(
             DATA_MAPPER[dataName][options[0]?.value]?.data,
