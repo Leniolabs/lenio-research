@@ -359,9 +359,12 @@ const GlobalStyle = createGlobalStyle`
   }
   .chart-wrapper.winter-wrapper {
     background-color: #fff;
+    .row-container {
+      max-width: 55em;
+    }
     .head-main {
       background: #fffbf0 url("/static/winter-athletes.svg") no-repeat bottom center;
-      background-size: 100vw;
+      background-size: 90vw;
       padding-bottom: 6rem;
       position: relative;
       min-height: 35vh;
@@ -370,7 +373,7 @@ const GlobalStyle = createGlobalStyle`
         min-height: 25vh;
       }
       img {
-        width: 100px;
+        width: 180px;
         @media (max-width: 415px) {
           width: 80px;
         }

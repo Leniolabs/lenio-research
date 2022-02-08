@@ -34,11 +34,11 @@ export const Index = () => {
           name="twitter:description"
           content="Data Visualization of Gender Gap in Winter Olympic games"
         />
-        <meta name="twitter:image" content="https://research.leniolabs.com/static/medals.gif" />
+        <meta name="twitter:image" content="https://research.leniolabs.com/static/winter-olympics.jpg" />
         <meta property="og:url" content="https://research.leniolabs.com/winter-olympics" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Leniolabs_ Research: Winter Olympics" />
-        <meta property="og:image" content="https://research.leniolabs.com/static/medals.gif" />
+        <meta property="og:image" content="https://research.leniolabs.com/static/winter-olympics.jpg" />
         <meta property="og:image:alt" content="Data Visualization of Gender Gap in Winter Olympic games" />
         <meta
           property="og:description"

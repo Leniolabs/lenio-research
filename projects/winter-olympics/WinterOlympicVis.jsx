@@ -26,6 +26,7 @@ const WinterOlympicsTooltip = ({ x, yMale, yFemale, data }) => {
     <>
       <g transform={`translate(${actualX} ${actualYMale - maleHeight})`}>
         <path
+          stroke="#9EA2AC"
           fill="#F8F3E6"
           strokeMiterlimit="10"
           d={`M0,0h${TOOLTIP_WIDTH}v${maleHeight}h-${TOOLTIP_WIDTH / 2 - 10}l-10 10l-10 -10h-${
@@ -34,44 +35,57 @@ const WinterOlympicsTooltip = ({ x, yMale, yFemale, data }) => {
         />
         <text
           transform="translate(12, 18)"
-          fontFamily="SourceSansPro-Bold, Source Sans Pro"
-          fontSize="12"
+          fontFamily="Source Sans Pro"
+          fontSize="17"
           fontWeight="700">
           Total: {maleSports.length}
         </text>
         {maleSports.map((row, i) => (
           <text
             transform={`translate(12, ${18 + (i + 1) * 18})`}
-            fontFamily="SourceSansPro-SemiBold, Source Sans Pro"
-            fontSize="11"
-            fontWeight="600">
+            fontFamily="Source Sans Pro"
+            fontSize="16"
+            fontWeight="500">
             {row.name}
           </text>
         ))}
+        <circle
+            fill="#e8ab2a"
+            r="8" 
+            cx={TOOLTIP_WIDTH / 2}
+            cy={maleHeight + 23}
+          />
       </g>
       <g transform={`translate(${actualX} ${actualYFemale})`}>
         <path
+          stroke="#9EA2AC"
           fill="#F8F3E6"
           strokeMiterlimit="10"
           d={`M0,0h${TOOLTIP_WIDTH / 2 - 10}l10 -10l10 10
           h${TOOLTIP_WIDTH / 2 - 10}v${femaleHeight}h-${TOOLTIP_WIDTH}z`}
         />
         <text
-          transform="translate(12, 24)"
-          fontFamily="SourceSansPro-Bold, Source Sans Pro"
-          fontSize="12"
+          transform="translate(12, 18)"
+          fontFamily="Source Sans Pro"
+          fontSize="17"
           fontWeight="700">
           Total: {femaleSports.length}
         </text>
         {femaleSports.map((row, i) => (
           <text
             transform={`translate(12, ${18 + (i + 1) * 18})`}
-            fontFamily="SourceSansPro-SemiBold, Source Sans Pro"
-            fontSize="11"
-            fontWeight="600">
+            fontFamily="Source Sans Pro"
+            fontSize="16"
+            fontWeight="500">
             {row.name}
           </text>
         ))}
+          <circle
+            fill="#72b6c6"
+            r="8" 
+            cx={TOOLTIP_WIDTH / 2}
+            cy="-23"
+          />
       </g>
     </>
   );

@@ -9,14 +9,16 @@ export const Index = () => {
       <div className="head-main">
         <SectionTitle>
           Winter Olympics
-          {/* <Link href="https://www.freepik.com/macrovector" className="pic-author">
+          <br />
+          <img src={"/static/logo-olympics.svg"} alt="logo" />
+          <Link href="https://www.freepik.com/macrovector" className="pic-author">
             Remix of athlete set vectors created by macrovector
-          </Link> */}
+          </Link>
         </SectionTitle>
       </div>
       <div className="row-container">
         <MainTitle>Gender Gap in Winter Olympic Games</MainTitle>
-        <MainSubTitle>And list of sports year by year</MainSubTitle>
+        <MainSubTitle>Move over the line to see the list of sports by gender per year</MainSubTitle>
         <WinterOlympicVis />
         <p className="sources-text">
           Sources: <Link href="https://www.sports-reference.com/">Sports reference,</Link>{" "}
