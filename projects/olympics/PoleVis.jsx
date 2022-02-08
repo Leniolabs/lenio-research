@@ -38,7 +38,7 @@ const PoleTooltip = ({ x, y, name, countryCode, record }) => {
       </text>
       <g stroke="#2B4055" strokeMiterlimit="10">
         <image
-          href={`https://www.countryflags.io/${countryCode}/flat/64.png`}
+          href={`/static/olympics/flags/${countryCode.toLowerCase()}.svg`}
           height="48"
           x="315"
           y="7"
