@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
@@ -50,12 +51,7 @@ const WinterOlympicsTooltip = ({ x, yMale, yFemale, data }) => {
             {row.name}
           </text>
         ))}
-        <circle
-            fill="#e8ab2a"
-            r="8" 
-            cx={TOOLTIP_WIDTH / 2}
-            cy={maleHeight + 23}
-          />
+        <circle fill="#e8ab2a" r="8" cx={TOOLTIP_WIDTH / 2} cy={maleHeight + 23} />
       </g>
       <g transform={`translate(${actualX} ${actualYFemale})`}>
         <path
@@ -81,12 +77,7 @@ const WinterOlympicsTooltip = ({ x, yMale, yFemale, data }) => {
             {row.name}
           </text>
         ))}
-          <circle
-            fill="#72b6c6"
-            r="8" 
-            cx={TOOLTIP_WIDTH / 2}
-            cy="-23"
-          />
+        <circle fill="#72b6c6" r="8" cx={TOOLTIP_WIDTH / 2} cy="-23" />
       </g>
     </>
   );
@@ -227,6 +218,7 @@ const WinterOlympicsVis = () => {
       </g>
       <g>
         {xLabels?.map((label) => (
+          // eslint-disable-next-line react/jsx-key
           <g>
             <text
               key={label}
@@ -244,6 +236,20 @@ const WinterOlympicsVis = () => {
           </g>
         ))}
       </g>
+      <text
+        transform="translate(1092 465)"
+        fontSize="18"
+        fill="#595a5a"
+        fontFamily="SourceSansPro-Regular, Source Sans Pro">
+        Men
+      </text>
+      <text
+        transform="translate(1092 498)"
+        fontSize="18"
+        fill="#595a5a"
+        fontFamily="SourceSansPro-Regular, Source Sans Pro">
+        Women
+      </text>
 
       <path fill="#f9f3e5" d={areaTrend} opacity="0.5" />
       <path
@@ -264,6 +270,7 @@ const WinterOlympicsVis = () => {
       {tooltipData && <WinterOlympicsTooltip {...tooltipData}></WinterOlympicsTooltip>}
 
       {xLabels.map((label) => (
+        // eslint-disable-next-line react/jsx-key
         <rect
           x={scaleX(label) - xLabelUnit / 2}
           y={150}
