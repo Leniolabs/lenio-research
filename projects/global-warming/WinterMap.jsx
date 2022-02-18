@@ -134,6 +134,7 @@ export function WinterMap({ region, daysThreshold, year, percentile }) {
       );
 
       return {
+        name: city.name,
         coordinates: [lng, lat],
         light: snow && snow[2] >= daysThreshold
       };

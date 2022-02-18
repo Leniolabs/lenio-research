@@ -3,8 +3,11 @@ import * as THREE from "three";
 import { MercatorCoordinate } from "maplibre-gl";
 
 import { GLTFLoader } from "./GLTFLoader.js";
+import { FontLoader } from "./FontLoader.js";
+import { TextGeometry } from "./TextGeometry.js";
 
 const modelURL = "/static/models/torch.glb";
+const fontURL = "/static/models/droid_sans_regular.typeface.json";
 
 function getSpriteMatrix(sprite, center) {
   const { model, position, altitude } = sprite;
@@ -29,13 +32,19 @@ export function useTorchLayer(map, torches) {
   const mixer = React.useRef([]);
   const objects = React.useRef([]);
   const [model, setModel] = React.useState();
+  const [font, setFont] = React.useState();
   const [mounted, setMounted] = React.useState(false);
 
   React.useEffect(() => {
     let loader = new GLTFLoader();
     loader.load(modelURL, function (obj) {
-      console.log(obj)
+      console.log(obj);
       setModel(obj);
+    });
+
+    const fontLoader = new FontLoader();
+    fontLoader.load(fontURL, function (font) {
+      setFont(font);
     });
   }, []);
 
@@ -83,6 +92,48 @@ export function useTorchLayer(map, torches) {
 
         this.renderer.autoClear = false;
 
+        const fontMaterials = [
+          new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true }), // front
+          new THREE.MeshPhongMaterial({ color: 0xffffff }) // side
+        ];
+
+        const labels = torches.map((torch) => {
+          const scene = new TextGeometry(torch.name || "Hola", {
+            font: font,
+
+            size: 1.5,
+            height: 1,
+            curveSegments: 4,
+
+            bevelThickness: 0.005,
+            bevelSize: 0.01,
+            bevelEnabled: true
+          });
+
+          const textMesh = new THREE.Mesh(scene, fontMaterials);
+
+          scene.applyMatrix4(
+            getSpriteMatrix(
+              {
+                model: this.modelConfig,
+                position: {
+                  lng: torch.coordinates[0] + 0.5,
+                  lat: torch.coordinates[1] + 0.5
+                },
+                altitude: 0
+              },
+              this.center
+            )
+          );
+
+          textMesh.position.z = 0;
+
+          // textMesh.rotation.x = 0;
+          // textMesh.rotation.y = Math.PI * 2;
+
+          return textMesh;
+        });
+
         objects.current = torches.map((torch) => {
           const scene = model.scene.clone();
 
@@ -111,6 +162,9 @@ export function useTorchLayer(map, torches) {
 
           mixer.current.push(new THREE.AnimationMixer(obj));
         });
+        labels.forEach((label) => {
+          this.scene.add(label);
+        });
 
         model.animations.forEach((clip) => {
           mixer.current.forEach((mixer) => {
@@ -129,7 +183,7 @@ export function useTorchLayer(map, torches) {
         this.map.triggerRepaint();
       }
     };
-  }, [id, model]);
+  }, [id, model, font]);
 
   React.useEffect(() => {
     if (map && id && customLayer) {
