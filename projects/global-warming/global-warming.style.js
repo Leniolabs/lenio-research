@@ -390,3 +390,58 @@ export const SourceLink = styled.a`
   color: #2c9faa;
   cursor: pointer;
 `;
+
+export const MapContainer = styled.div`
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: #262626;
+`;
+
+export const ControlsWrapper = styled.div`
+  align-items: end;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 100px;
+  top: 50%;
+  transform: translate(0, -50%);
+  height: 300px;
+  width: max-content;
+  pointer-events: none;
+
+  & > div {
+    pointer-events: all;
+  }
+
+  .counter {
+    width: 600px;
+    @media (max-width: 640px) {
+      order: -1;
+      margin-top: 1rem;
+      width: 90vw;
+    }
+    .year {
+      pointer-events: none;
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin: 0 0 0 1rem;
+    }
+    .player {
+      svg {
+        margin-top: -1rem;
+        max-width: 700px;
+        width: 100%;
+      }
+      .play-btn {
+        cursor: pointer;
+        fill: white;
+        &:hover path,
+        &:focus path {
+          fill: var(--amazongreen);
+        }
+      }
+    }
+  }
+`;

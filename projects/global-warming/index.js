@@ -12,45 +12,38 @@ import {
 import Link from "next/link";
 import { LogoHeaderContainer } from "@components/styled";
 import { HeadLogoContainer } from "@components/styled";
-import { useInView } from "react-intersection-observer";
-import { useState, useEffect } from "react";
-import { data } from "./data";
+
+import { WinterMap } from "./WinterMap";
+import { Controls } from "./Controls";
 
 export const Index = () => {
-  const [playing, setPlaying] = React.useState(false);
-  // const previousTreeCover = React.useRef(newTreeCoverLoss[2020]);
-  const [currentYear, setCurrentYear] = React.useState(2001);
-  const [mounted, setMounted] = useState(false);
-  const { ref, inView } = useInView({
-    threshold: 0
+  const [isPlaying, setIsPlaying] = React.useState(false);
+  const [year, setYear] = React.useState(2005);
+  const [daysThreshold, setDaysThreshold] = React.useState(45);
+  const [region, setRegion] = React.useState({
+    value: "world",
+    label: "World"
   });
 
-  useEffect(() => {
-    if (playing && currentYear === 2040) {
-      setCurrentYear(2001);
+  const handlePlay = () => {
+    setIsPlaying(true);
+  };
+
+  const handlePause = () => {
+    setIsPlaying(false);
+  };
+
+  React.useEffect(() => {
+    if (isPlaying && year === 2099) {
+      setYear(2005);
     }
-    if (playing) {
+    if (isPlaying) {
       const timer = setInterval(() => {
-        setCurrentYear((year) => {
-          const currentIndex = data.findIndex((d) => d.year === year);
-          if (currentIndex + 1 >= data.length) {
-            clearInterval(timer);
-            setPlaying(false);
-            return data[data.length - 1].year;
-          } else {
-            return data[currentIndex + 1].year;
-          }
-        });
-      }, 500);
+        setYear((year) => (year === 2099 ? 2005 : year + 1));
+      }, 250);
       return () => clearInterval(timer);
     }
-  }, [playing]);
-
-  useEffect(() => {
-    if (inView && !mounted) {
-      setMounted(true);
-    }
-  }, [inView]);
+  }, [isPlaying]);
 
   return (
     <Layout>
@@ -101,15 +94,23 @@ export const Index = () => {
           </GithubContainer>
         </HeadLogoContainer>
       </Header>
+      <WinterMap daysThreshold={daysThreshold} region={region} year={year} />
       <MainGlobalWarming>
-        <FirstSection ref={ref}>
+        <FirstSection>
           <h1>Global Warming</h1>
           <h2>Cities where Winter Olympic </h2>
         </FirstSection>
-        <GraphicSection>
-          <div className="map-container">
-          </div>
-        </GraphicSection>
+        <Controls
+          year={year}
+          onYearClick={setYear}
+          region={region}
+          onRegionChange={setRegion}
+          onPlay={handlePlay}
+          onPause={handlePause}
+          isPlaying={isPlaying}
+          daysThreshold={daysThreshold}
+          onDaysThresholdChange={({ value }) => setDaysThreshold(value)}
+        />
       </MainGlobalWarming>
       <Footer>
         <p className="footnote">
@@ -126,7 +127,8 @@ export const Index = () => {
             target="_blank"
             rel="noreferrer">
             Amazon Tipping Point Paper
-          </a>.<br/>
+          </a>
+          .<br />
           Sources:{" "}
           <a href="https://restgis.com" target="_blank" rel="noreferrer">
             RestGis

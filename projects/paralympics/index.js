@@ -17,6 +17,8 @@ export const Index = () => {
   const bestCountriesPerYear = useRef(getOlympicDataToUse(medals, YEAR_OPTIONS, quantityOfBest));
   const [barChartData, setBarChartData] = useState(bestCountriesPerYear.current[`1960`]);
 
+  console.log(YEAR_OPTIONS)
+
   useEffect(() => {
     setBarChartData(bestCountriesPerYear.current[YEAR_OPTIONS[dataIndex].value]);
   }, [dataIndex]);
