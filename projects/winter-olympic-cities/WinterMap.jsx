@@ -6,7 +6,7 @@ import cities from "./cities.json";
 import snow from "./snow.json";
 
 import { useHeatmap, useTorchLayer, useSnowLayer } from "./Layers";
-import { MapContainer } from "./global-warming.style";
+import { MapContainer } from "./winter-olympic-cities.style";
 
 //https://impactlab.org/map/#usmeas=absolute&usyear=2020-2039&gmeas=absolute&gyear=1986-2005&tab=global&gvar=tasmin-under-32F
 

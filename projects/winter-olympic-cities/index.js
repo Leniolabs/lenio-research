@@ -8,7 +8,7 @@ import {
   GraphicSection,
   Footer,
   GithubContainer
-} from "./global-warming.style";
+} from "./winter-olympic-cities.style";
 import Link from "next/link";
 import { LogoHeaderContainer } from "@components/styled";
 import { HeadLogoContainer } from "@components/styled";
@@ -103,8 +103,10 @@ export const Index = () => {
       />
       <MainGlobalWarming>
         <FirstSection>
-          <h1>Global Warming</h1>
-          <h2>Cities where Winter Olympic </h2>
+          <h1>Winter Olympic Host Cities</h1>
+          <h2><strong>Click play: Where the torches go out, the venue cannot host Olympic games.</strong><br></br>
+            Scroll to zoom in and out. Click and drag to change perspective.
+          </h2>
         </FirstSection>
         <Controls
           year={year}
@@ -120,26 +122,14 @@ export const Index = () => {
       </MainGlobalWarming>
       <Footer>
         <p className="footnote">
-          Generated using{" "}
-          <a
-            href="https://www.globalforestwatch.org/map/?map=eyJjZW50ZXIiOnsibGF0IjotMTYuMjM5MTk0OTA4MTU2MjcsImxuZyI6LTQ1LjYyNzkzMzc4MTY0OTEzfSwiem9vbSI6Mi44MTMwODkzNTY0MjUxNzE4LCJkYXRhc2V0cyI6W3siZGF0YXNldCI6InBvbGl0aWNhbC1ib3VuZGFyaWVzIiwibGF5ZXJzIjpbImRpc3B1dGVkLXBvbGl0aWNhbC1ib3VuZGFyaWVzIiwicG9saXRpY2FsLWJvdW5kYXJpZXMiXSwib3BhY2l0eSI6MSwidmlzaWJpbGl0eSI6dHJ1ZX0seyJkYXRhc2V0IjoidHJlZS1jb3Zlci1nYWluIiwibGF5ZXJzIjpbInRyZWUtY292ZXItZ2Fpbi0yMDAxLTIwMTIiXSwib3BhY2l0eSI6MSwidmlzaWJpbGl0eSI6dHJ1ZX0seyJkYXRhc2V0IjoidHJlZS1jb3Zlci1sb3NzIiwibGF5ZXJzIjpbInRyZWUtY292ZXItbG9zcyJdLCJvcGFjaXR5IjoxLCJ2aXNpYmlsaXR5Ijp0cnVlLCJ0aW1lbGluZVBhcmFtcyI6eyJzdGFydERhdGUiOiIyMDAxLTAxLTAxIiwiZW5kRGF0ZSI6IjIwMjAtMTItMzEiLCJ0cmltRW5kRGF0ZSI6IjIwMjAtMTItMzEifX0seyJkYXRhc2V0IjoidHJlZS1jb3ZlciIsImxheWVycyI6WyJ0cmVlLWNvdmVyLTIwMTAiXSwib3BhY2l0eSI6MSwidmlzaWJpbGl0eSI6dHJ1ZX1dfQ%3D%3D&mapPrompts=eyJvcGVuIjp0cnVlLCJzdGVwc0tleSI6InN1YnNjcmliZVRvQXJlYSJ9&menu=eyJkYXRhc2V0Q2F0ZWdvcnkiOiJmb3Jlc3RDaGFuZ2UiLCJtZW51U2VjdGlvbiI6ImRhdGFzZXRzIn0%3D"
-            target="_blank"
-            rel="noreferrer">
-            GlobalForestWatch
-          </a>{" "}
-          data. Circles area calculated at Equator. 2040 Prediction from{" "}
-          <a
-            href="https://www.science.org/doi/10.1126/sciadv.aat2340"
-            target="_blank"
-            rel="noreferrer">
-            Amazon Tipping Point Paper
+          For a geographical area to have enough snow to be suitable for the Winter Olympics, we
+          consider that there must be more than 30 days of temperatures below 0.
+          <br></br>
+          Source:{" "}
+          <a href="https://impactlab.org/" target="_blank" rel="noreferrer">
+            Climate Impact Lab
           </a>
-          .<br />
-          Sources:{" "}
-          <a href="https://restgis.com" target="_blank" rel="noreferrer">
-            RestGis
-          </a>
-          . Created by <a href="https://leniolabs.com">Leniolabs</a>
+          . Created by <a href="https://leniolabs.com">Leniolabs</a>.
         </p>
       </Footer>
     </Layout>

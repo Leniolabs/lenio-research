@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ControlsWrapper } from "../global-warming.style";
+import { ControlsWrapper } from "../winter-olympic-cities.style";
 import { Timeline } from "./Timeline";
 import CustomSelect from "@components/select/select";
 
@@ -17,7 +17,9 @@ export function Controls({
 }) {
   return (
     <ControlsWrapper>
+      <div className="flex-controls">
       <CustomSelect
+        className="winter-select"
         options={[
           {
             value: "world",
@@ -37,7 +39,7 @@ export function Controls({
           }
         ]}
         selectedOption={region}
-        label=""
+        label="Region"
         isDisabled={false}
         onChange={onRegionChange}
         disabledSearch
@@ -45,6 +47,7 @@ export function Controls({
         maxWidth={700}
       />
       <CustomSelect
+        className="winter-select"
         options={[
           {
             value: 0,
@@ -73,13 +76,14 @@ export function Controls({
             }
           })()
         }}
-        label=""
+        label="Probability"
         isDisabled={false}
         onChange={onPercentileChange}
         disabledSearch
         width={300}
         maxWidth={700}
       />
+      </div>
       <Timeline
         isPlaying={isPlaying}
         onPlay={onPlay}

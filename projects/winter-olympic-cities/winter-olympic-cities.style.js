@@ -6,12 +6,8 @@ export const Layout = styled.div`
   color: #fff;
   position: relative;
   display: grid;
-  grid-template-rows: 100px 1fr 100px;
+  grid-template-rows: 100px 1fr 120px;
   min-height: 100vh;
-  @media (max-width: 728px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-  }
   overflow: hidden;
 `;
 
@@ -74,12 +70,9 @@ export const FirstSection = styled.section`
     }
   }
   h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.2rem;
+    font-weight: 500;
     margin-top: 0;
-    @media (max-width: 640px) {
-      font-size: 1.6rem;
-    }
   }
 `;
 
@@ -222,10 +215,14 @@ export const GraphicSection = styled.section`
 
 export const Footer = styled.footer`
   color: #fcfcf4;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
   padding: 1rem;
   z-index: 1;
   .footnote {
     font-size: 1rem;
+    margin: 0;
     text-align: right;
     a {
       color: #3baacd;
@@ -410,27 +407,36 @@ export const ControlsWrapper = styled.div`
   position: absolute;
   display: flex;
   flex-direction: column;
-  right: 100px;
-  top: 50%;
+  right: 20px;
+  bottom: 0;
   transform: translate(0, -50%);
-  height: 300px;
   width: max-content;
   pointer-events: none;
 
   & > div {
     pointer-events: all;
   }
-
+  .winter-select {
+    color: #45486d;
+    cursor: pointer;
+    margin: 1rem 0 0 1rem;
+    max-width: 280px;
+    width: 100%;
+    > div {
+      max-width: 280px;
+      width: 100%;
+    }
+  }
   .counter {
+    text-align: right;
     width: 600px;
     @media (max-width: 640px) {
-      order: -1;
       margin-top: 1rem;
       width: 90vw;
     }
     .year {
       pointer-events: none;
-      font-size: 5rem;
+      font-size: 4rem;
       font-weight: 700;
       line-height: 1;
       margin: 0 0 0 1rem;

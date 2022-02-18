@@ -1,9 +1,9 @@
 export const mockData = [
   {
-    key: "global-warming",
-    link: "global-warming",
-    imgPreview: "/static/global-warming.png",
-    title: "Global Warming",
+    key: "winter-olympic-cities",
+    link: "winter-olympic-cities",
+    imgPreview: "/static/winter-olympic-cities.png",
+    title: "Winter Olympic Cities",
     subtitle: "February 18, 2022",
     description:
       "Interactive map with cities where climate change will not allow future winter Olympics to happen."

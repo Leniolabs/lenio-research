@@ -19,7 +19,8 @@ module.exports = {
       "/paralympics/index": { page: "/paralympics" },
       "/amazon/index": { page: "/amazon" },
       "/soccer/index": { page: "/soccer" },
-      "/winter-olympics/index": { page: "/winter-olympics" }
+      "/winter-olympics/index": { page: "/winter-olympics" },
+      "/winter-olympics-cities/index": { page: "/winter-olympic-cities" }
     };
   }
 };
