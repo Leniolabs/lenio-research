@@ -12,8 +12,8 @@ export function Controls({
   onPause,
   onYearClick,
   year,
-  daysThreshold,
-  onDaysThresholdChange
+  percentile,
+  onPercentileChange
 }) {
   return (
     <ControlsWrapper>
@@ -47,33 +47,35 @@ export function Controls({
       <CustomSelect
         options={[
           {
-            value: 30,
-            label: "30 days"
+            value: 0,
+            label: "1-in-20 Low"
           },
           {
-            value: 45,
-            label: "45 days"
+            value: 1,
+            label: "Median"
           },
           {
-            value: 60,
-            label: "60 days"
-          },
-          {
-            value: 90,
-            label: "90 days"
-          },
-          {
-            value: 120,
-            label: "120 days"
+            value: 2,
+            label: "1-in-20 High"
           }
         ]}
         selectedOption={{
-          value: daysThreshold.toString(),
-          label: `${daysThreshold} days`
+          value: percentile.toString(),
+          label: (() => {
+            switch (percentile) {
+              case 0:
+                return "1-in-20 Low";
+              case 1:
+                return "Median";
+              case 2:
+              default:
+                return "1-in-20 High";
+            }
+          })()
         }}
         label=""
         isDisabled={false}
-        onChange={onDaysThresholdChange}
+        onChange={onPercentileChange}
         disabledSearch
         width={300}
         maxWidth={700}

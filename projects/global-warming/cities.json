@@ -129,12 +129,18 @@
     "name": "Sochi ",
     "coordinates": [39.6549178, 43.6017],
     "population": 10539000,
-    "year": 2010
+    "year": 2014
   },
   {
     "name": "Pyeongchang ",
     "coordinates": [128.2231124, 37.5431899],
     "population": 10539000,
-    "year": 2010
+    "year": 2018
+  },
+  {
+    "name": "Beijing ",
+    "coordinates": [116.383331, 39.916668],
+    "population": 10000,
+    "year": 2022
   }
 ]

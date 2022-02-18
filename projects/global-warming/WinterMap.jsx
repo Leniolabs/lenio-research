@@ -10,7 +10,7 @@ import { MapContainer } from "./global-warming.style";
 
 //https://impactlab.org/map/#usmeas=absolute&usyear=2020-2039&gmeas=absolute&gyear=1986-2005&tab=global&gvar=tasmin-under-32F
 
-export function WinterMap({ region, daysThreshold, year }) {
+export function WinterMap({ region, daysThreshold, year, percentile }) {
   const [map, setMap] = React.useState();
 
   React.useEffect(() => {
@@ -103,39 +103,25 @@ export function WinterMap({ region, daysThreshold, year }) {
   }, [map, region]);
 
   const snowPoints = React.useMemo(() => {
-    return (
-      // "2005_05",
-      //     "2005_50",
-      //     "2005_95",
-      //     "2039_05",
-      //     "2039_50",
-      //     "2039_95",
-      //     "2059_05",
-      //     "2059_50",
-      //     "2059_95",
-      //     "2099_05",
-      //     "2099_50",
-      //     "2099_95",
-      snow.map(([lng, lat, ...rest]) => {
-        const y_2005 = rest[0];
-        const y_2039 = rest[3];
-        const y_2059 = rest[6];
-        const y_2099 = rest[9];
+    return snow.map(([lng, lat, ...rest]) => {
+      const y_2005 = rest[0 + percentile];
+      const y_2039 = rest[3 + percentile];
+      const y_2059 = rest[6 + percentile];
+      const y_2099 = rest[9 + percentile];
 
-        let amount = 0;
+      let amount = 0;
 
-        if (year <= 2039) {
-          amount = scaleLinear().range([y_2005, y_2039]).domain([2005, 2039])(year);
-        } else if (year <= 2059) {
-          amount = scaleLinear().range([y_2039, y_2059]).domain([2039, 2059])(year);
-        } else if (year <= 2099) {
-          amount = scaleLinear().range([y_2059, y_2099]).domain([2059, 2099])(year);
-        }
+      if (year <= 2039) {
+        amount = scaleLinear().range([y_2005, y_2039]).domain([2005, 2039])(year);
+      } else if (year <= 2059) {
+        amount = scaleLinear().range([y_2039, y_2059]).domain([2039, 2059])(year);
+      } else if (year <= 2099) {
+        amount = scaleLinear().range([y_2059, y_2099]).domain([2059, 2099])(year);
+      }
 
-        return [lng, lat, amount];
-      })
-    );
-  }, [year]);
+      return [lng, lat, amount];
+    });
+  }, [year, percentile]);
 
   useSnowLayer(map, daysThreshold, snowPoints);
 

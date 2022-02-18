@@ -18,8 +18,9 @@ import { Controls } from "./Controls";
 
 export const Index = () => {
   const [isPlaying, setIsPlaying] = React.useState(false);
-  const [year, setYear] = React.useState(2005);
-  const [daysThreshold, setDaysThreshold] = React.useState(45);
+  const [year, setYear] = React.useState(2022);
+  const [daysThreshold, setDaysThreshold] = React.useState(30);
+  const [percentile, setPercentile] = React.useState(1);
   const [region, setRegion] = React.useState({
     value: "world",
     label: "World"
@@ -35,11 +36,11 @@ export const Index = () => {
 
   React.useEffect(() => {
     if (isPlaying && year === 2099) {
-      setYear(2005);
+      setYear(2020);
     }
     if (isPlaying) {
       const timer = setInterval(() => {
-        setYear((year) => (year === 2099 ? 2005 : year + 1));
+        setYear((year) => (year === 2099 ? 2020 : year + 1));
       }, 250);
       return () => clearInterval(timer);
     }
@@ -94,7 +95,12 @@ export const Index = () => {
           </GithubContainer>
         </HeadLogoContainer>
       </Header>
-      <WinterMap daysThreshold={daysThreshold} region={region} year={year} />
+      <WinterMap
+        daysThreshold={daysThreshold}
+        region={region}
+        year={year}
+        percentile={percentile}
+      />
       <MainGlobalWarming>
         <FirstSection>
           <h1>Global Warming</h1>
@@ -108,8 +114,8 @@ export const Index = () => {
           onPlay={handlePlay}
           onPause={handlePause}
           isPlaying={isPlaying}
-          daysThreshold={daysThreshold}
-          onDaysThresholdChange={({ value }) => setDaysThreshold(value)}
+          percentile={percentile}
+          onPercentileChange={({ value }) => setPercentile(value)}
         />
       </MainGlobalWarming>
       <Footer>

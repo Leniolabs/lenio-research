@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import { MorphingShape } from "@projects/amazon/components/HowMany";
 
 export const Timeline = ({
-  year = 2059,
+  year = 2022,
   onPlay,
   onPause,
   onYearClick,
   isPlaying = false,
-  fromYear = 2005,
+  fromYear = 2022,
   toYear = 2099
 }) => {
   const handlePlay = React.useCallback(() => {
@@ -84,8 +84,8 @@ export const Timeline = ({
             );
           })}
           {yearBars.map((year, idx) => {
-            if ((year - 5) % 10 > 0) return null;
-            const yearType = (year - 5) % 20 === 0 ? "big" : "small";
+            if ((year - 6) % 8 > 0) return null;
+            const yearType = (year - 6) % 16 === 0 ? "big" : "small";
             return (
               <motion.text
                 key={`text-year-${idx}`}
