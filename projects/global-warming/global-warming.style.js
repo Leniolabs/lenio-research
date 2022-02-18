@@ -12,6 +12,7 @@ export const Layout = styled.div`
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
   }
+  overflow: hidden;
 `;
 
 export const Header = styled.header`
@@ -395,7 +396,13 @@ export const MapContainer = styled.div`
   position: absolute;
   width: 100vw;
   height: 100vh;
+  padding: 0;
+  margin: 0;
   background: #262626;
+
+  .maplibregl-control-container {
+    display: none;
+  }
 `;
 
 export const ControlsWrapper = styled.div`
