@@ -33,7 +33,6 @@ export function useHeatmap(map, snowPoints, daysThreshold) {
         source: id,
         maxZoom: 10,
         paint: {
-          // Increase the heatmap weight based on frequency and property magnitude
           "heatmap-weight": [
             "interpolate",
             ["linear"],
@@ -51,12 +50,7 @@ export function useHeatmap(map, snowPoints, daysThreshold) {
             240 / 60,
             0.05
           ],
-          // Increase the heatmap color weight weight by zoom level
-          // heatmap-intensity is a multiplier on top of heatmap-weight
-          "heatmap-intensity": ["interpolate", ["linear"], ["zoom"], 0, 1, 10, 1],
-          // Color ramp for heatmap.  Domain is 0 (low) to 1 (high).
-          // Begin color ramp at 0-stop with a 0-transparancy color
-          // to create a blur-like effect.
+          "heatmap-intensity": 1.6,
           "heatmap-color": [
             "interpolate",
             ["linear"],
@@ -74,7 +68,6 @@ export function useHeatmap(map, snowPoints, daysThreshold) {
             1,
             "rgb(65, 186, 209)"
           ],
-          // Adjust the heatmap radius by zoom level
           "heatmap-radius": [
             "interpolate",
             ["linear"],
@@ -90,7 +83,6 @@ export function useHeatmap(map, snowPoints, daysThreshold) {
             10,
             1000
           ],
-          // Transition from heatmap to circle layer by zoom level
           "heatmap-opacity": 1
         }
       };
