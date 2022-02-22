@@ -16,6 +16,31 @@ import { HeadLogoContainer } from "@components/styled";
 import { WinterMap } from "./WinterMap";
 import { Controls } from "./Controls";
 
+const getRegionPosition = (region) => {
+  switch (region) {
+    case "NA":
+      return {
+        zoom: 4,
+        center: [-100, 40]
+      };
+    case "EU":
+      return {
+        zoom: 4,
+        center: [27, 48]
+      };
+    case "ASIA":
+      return {
+        zoom: 4,
+        center: [135, 45]
+      };
+    default:
+      return {
+        zoom: 2.3,
+        center: [-35, 0]
+      };
+  }
+};
+
 export const Index = () => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [year, setYear] = React.useState(2022);
@@ -26,12 +51,37 @@ export const Index = () => {
     label: "World"
   });
 
+  const [position, setPosition] = React.useState({
+    center: [-35, 0],
+    zoom: 2.3
+  });
+
   const handlePlay = () => {
     setIsPlaying(true);
   };
 
   const handlePause = () => {
     setIsPlaying(false);
+  };
+
+  const handleRegionChange = (region) => {
+    setRegion(region);
+    setPosition(getRegionPosition(region.value));
+  };
+
+  const handleMapPositionChange = (position) => {
+    const currentRegionPosition = getRegionPosition(region.value);
+
+    if (
+      region.value !== "world" &&
+      (currentRegionPosition.zoom !== position.zoom ||
+        currentRegionPosition.center[0] !== position.center[0] ||
+        currentRegionPosition.center[1] !== position.center[1])
+    )
+      setRegion({
+        value: "world",
+        label: "World"
+      });
   };
 
   React.useEffect(() => {
@@ -97,14 +147,19 @@ export const Index = () => {
       </Header>
       <WinterMap
         daysThreshold={daysThreshold}
-        region={region}
         year={year}
         percentile={percentile}
+        onPositionChange={handleMapPositionChange}
+        position={position}
       />
       <MainGlobalWarming>
         <FirstSection>
           <h1>Winter Olympic Host Cities</h1>
-          <h2><strong>Click play: Where the torches go out, the venue cannot host Olympic games.</strong><br></br>
+          <h2>
+            <strong>
+              Click play: Where the torches go out, the venue cannot host Olympic games.
+            </strong>
+            <br></br>
             Scroll to zoom in and out. Click and drag to change perspective.
           </h2>
         </FirstSection>
@@ -112,7 +167,7 @@ export const Index = () => {
           year={year}
           onYearClick={setYear}
           region={region}
-          onRegionChange={setRegion}
+          onRegionChange={handleRegionChange}
           onPlay={handlePlay}
           onPause={handlePause}
           isPlaying={isPlaying}

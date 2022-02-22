@@ -1,16 +1,17 @@
 import * as React from "react";
-import { Map } from "maplibre-gl";
+import { Map, Popup } from "maplibre-gl";
 import { scaleLinear } from "d3-scale";
+import "maplibre-gl/dist/maplibre-gl.css";
 
 import cities from "./cities.json";
 import snow from "./snow.json";
 
-import { useHeatmap, useTorchLayer, useSnowLayer } from "./Layers";
+import { useHeatmap, useTorchLayer, useSnowLayer, useTooltipLayer } from "./Layers";
 import { MapContainer } from "./winter-olympic-cities.style";
 
 //https://impactlab.org/map/#usmeas=absolute&usyear=2020-2039&gmeas=absolute&gyear=1986-2005&tab=global&gvar=tasmin-under-32F
 
-export function WinterMap({ region, daysThreshold, year, percentile }) {
+export function WinterMap({ region, daysThreshold, year, percentile, position, onPositionChange }) {
   const [map, setMap] = React.useState();
 
   React.useEffect(() => {
@@ -32,22 +33,6 @@ export function WinterMap({ region, daysThreshold, year, percentile }) {
             tiles: ["https://s.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}.png"],
             scheme: "xyz",
             tileSize: 512
-          },
-          cities: {
-            type: "geojson",
-            data: {
-              type: "FeatureCollection",
-              features: cities.map((city) => ({
-                geometry: {
-                  type: "Point",
-                  coordinates: city.coordinates
-                },
-                properties: {
-                  ...city
-                },
-                type: "Feature"
-              }))
-            }
           },
           openmaptiles: {
             url: "https://api.maptiler.com/tiles/v3/tiles.json?key=get_your_own_OpIi9ZULNHzrESv6T2vL",
@@ -72,35 +57,27 @@ export function WinterMap({ region, daysThreshold, year, percentile }) {
   }, []);
 
   React.useEffect(() => {
-    if (map) {
-      switch (region.value) {
-        case "NA":
-          map.flyTo({
-            zoom: 4,
-            center: [-100, 40]
-          });
-          break;
-        case "EU":
-          map.flyTo({
-            zoom: 4,
-            center: [20, 50]
-          });
-          break;
-        case "ASIA":
-          map.flyTo({
-            zoom: 4,
-            center: [125, 40]
-          });
-          break;
-        default:
-          map.flyTo({
-            zoom: 1,
-            center: [-35, 0]
-          });
-          break;
-      }
+    if (onPositionChange) {
+      const handler = (e) => {
+        const { lng, lat } = map.getCenter();
+        const zoom = map.getZoom();
+        onPositionChange({ center: [lng, lat], zoom });
+      };
+
+      map?.on("moveend", handler);
+
+      return () => {
+        map?.off("moveend", handler);
+      };
     }
-  }, [map, region]);
+  }, [map, onPositionChange, region]);
+
+  React.useEffect(() => {
+    if (map) {
+      console.log(position);
+      map.flyTo(position);
+    }
+  }, [map, position]);
 
   const snowPoints = React.useMemo(() => {
     return snow.map(([lng, lat, ...rest]) => {
@@ -134,9 +111,10 @@ export function WinterMap({ region, daysThreshold, year, percentile }) {
       );
 
       return {
-        name: city.name,
+        ...city,
         coordinates: [lng, lat],
-        light: snow && snow[2] >= daysThreshold
+        light: snow && snow[2] >= daysThreshold,
+        days: snow[2]
       };
     });
   }, [cities, snowPoints, daysThreshold]);
@@ -144,6 +122,7 @@ export function WinterMap({ region, daysThreshold, year, percentile }) {
   useTorchLayer(map, torches);
 
   useHeatmap(map, snowPoints, daysThreshold);
+  useTooltipLayer(map, torches);
 
   return <MapContainer id="map-container" />;
 }

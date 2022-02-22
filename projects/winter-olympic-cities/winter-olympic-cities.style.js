@@ -400,6 +400,22 @@ export const MapContainer = styled.div`
   .maplibregl-control-container {
     display: none;
   }
+
+  .maplibregl-popup {
+    pointer-events: none;
+    .maplibregl-popup-content {
+      padding: 10px 10px;
+
+      .tooltip-content {
+        color: black;
+        font-size: 14px;
+
+        .tooltip-title {
+          font-size: 16px;
+        }
+      }
+    }
+  }
 `;
 
 export const ControlsWrapper = styled.div`

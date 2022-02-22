@@ -38,7 +38,6 @@ export function useTorchLayer(map, torches) {
   React.useEffect(() => {
     let loader = new GLTFLoader();
     loader.load(modelURL, function (obj) {
-      console.log(obj);
       setModel(obj);
     });
 
@@ -93,46 +92,48 @@ export function useTorchLayer(map, torches) {
         this.renderer.autoClear = false;
 
         const fontMaterials = [
-          new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true }), // front
-          new THREE.MeshPhongMaterial({ color: 0xffffff }) // side
+          new THREE.MeshPhongMaterial({ color: 0xffffff }) // front
+          // new THREE.MeshPhongMaterial({ color: 0xffffff }) // side
         ];
 
-        const labels = torches.map((torch) => {
-          const scene = new TextGeometry(torch.name || "Hola", {
-            font: font,
+        const labels = torches
+          .filter((torch) => torch.showLabel)
+          .map((torch) => {
+            const scene = new TextGeometry(`${torch.name.trim()} (${torch.year})`, {
+              font: font,
 
-            size: 1.5,
-            height: 1,
-            curveSegments: 4,
+              size: 1.5,
+              height: 0,
+              curveSegments: 4,
 
-            bevelThickness: 0.005,
-            bevelSize: 0.01,
-            bevelEnabled: true
-          });
+              bevelThickness: 0.005,
+              bevelSize: 0.01,
+              bevelEnabled: false
+            });
 
-          const textMesh = new THREE.Mesh(scene, fontMaterials);
+            const textMesh = new THREE.Mesh(scene, fontMaterials);
 
-          scene.applyMatrix4(
-            getSpriteMatrix(
-              {
-                model: this.modelConfig,
-                position: {
-                  lng: torch.coordinates[0] + 0.5,
-                  lat: torch.coordinates[1] + 0.5
+            scene.applyMatrix4(
+              getSpriteMatrix(
+                {
+                  model: {
+                    ...this.modelConfig,
+                    rotate: [Math.PI / 4, 0, -Math.PI / 32]
+                  },
+                  position: {
+                    lng: torch.coordinates[0] + 0.5,
+                    lat: torch.coordinates[1] - 0.25
+                  },
+                  altitude: 0
                 },
-                altitude: 0
-              },
-              this.center
-            )
-          );
+                this.center
+              )
+            );
 
-          textMesh.position.z = 0;
+            textMesh.position.z = 0.007;
 
-          // textMesh.rotation.x = 0;
-          // textMesh.rotation.y = Math.PI * 2;
-
-          return textMesh;
-        });
+            return textMesh;
+          });
 
         objects.current = torches.map((torch) => {
           const scene = model.scene.clone();
