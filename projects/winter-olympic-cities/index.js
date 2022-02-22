@@ -45,7 +45,7 @@ export const Index = () => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [year, setYear] = React.useState(2022);
   const [daysThreshold, setDaysThreshold] = React.useState(30);
-  const [percentile, setPercentile] = React.useState(1);
+  const [percentile, setPercentile] = React.useState(0);
   const [region, setRegion] = React.useState({
     value: "world",
     label: "World"
