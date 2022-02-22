@@ -61,7 +61,7 @@ export const FirstSection = styled.section`
   position: relative;
   z-index: 1;
   h1 {
-    font-size: 3rem;
+    font-size: 2.4rem;
     line-height: 1;
     margin: 0 auto 0.5rem;
     @media (max-width: 640px) {
@@ -70,7 +70,7 @@ export const FirstSection = styled.section`
     }
   }
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 500;
     margin-top: 0;
   }
@@ -435,7 +435,7 @@ export const ControlsWrapper = styled.div`
   .winter-select {
     color: #45486d;
     cursor: pointer;
-    margin: 1rem 0 0 1rem;
+    margin: 1rem 0.5rem 0 1rem;
     max-width: 280px;
     width: 100%;
     > div {

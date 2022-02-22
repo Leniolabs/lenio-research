@@ -177,14 +177,14 @@ export const Index = () => {
       </MainGlobalWarming>
       <Footer>
         <p className="footnote">
-          For a geographical area to have enough snow to be suitable for the Winter Olympics, we
-          consider that there must be more than 30 days of temperatures below 0.
-          <br></br>
           Source:{" "}
           <a href="https://impactlab.org/" target="_blank" rel="noreferrer">
             Climate Impact Lab
           </a>
-          . Created by <a href="https://leniolabs.com">Leniolabs</a>.
+          . Created by <a href="https://leniolabs.com">Leniolabs</a>
+          <br></br>
+          For a geographical area to have enough snow to be suitable for the Winter Olympics, we
+          consider that there must be more than 30 days of temperatures below 0.
         </p>
       </Footer>
     </Layout>
