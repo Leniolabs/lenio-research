@@ -1,5 +1,14 @@
 export const mockData = [
   {
+    key: "winter-olympic-cities",
+    link: "winter-olympic-cities",
+    imgPreview: "/static/winter-olympic-cities.png",
+    title: "Winter Olympic Cities",
+    subtitle: "February 18, 2022",
+    description:
+      "Interactive map with cities where climate change will not allow future winter Olympics to happen."
+  },
+  {
     key: "winter-olympics",
     link: "winter-olympics",
     imgPreview: "/static/winter-olympics.jpg",
