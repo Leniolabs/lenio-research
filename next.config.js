@@ -20,7 +20,7 @@ module.exports = {
       "/amazon/index": { page: "/amazon" },
       "/soccer/index": { page: "/soccer" },
       "/winter-olympics/index": { page: "/winter-olympics" },
-      "/winter-olympics-cities/index": { page: "/winter-olympic-cities" }
+      "/winter-olympic-cities/index": { page: "/winter-olympic-cities" }
     };
   }
 };
