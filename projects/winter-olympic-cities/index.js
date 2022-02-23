@@ -45,7 +45,7 @@ export const Index = () => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [year, setYear] = React.useState(2022);
   const [daysThreshold, setDaysThreshold] = React.useState(30);
-  const [percentile, setPercentile] = React.useState(1);
+  const [percentile, setPercentile] = React.useState(0);
   const [region, setRegion] = React.useState({
     value: "world",
     label: "World"
@@ -58,6 +58,7 @@ export const Index = () => {
 
   const handlePlay = () => {
     setIsPlaying(true);
+    setYear((year) => (year === 2099 ? 2022 : year));
   };
 
   const handlePause = () => {
@@ -86,15 +87,14 @@ export const Index = () => {
 
   React.useEffect(() => {
     if (isPlaying && year === 2099) {
-      setYear(2020);
-    }
-    if (isPlaying) {
-      const timer = setInterval(() => {
-        setYear((year) => (year === 2099 ? 2020 : year + 1));
+      setIsPlaying(false);
+    } else if (isPlaying) {
+      const timer = setTimeout(() => {
+        setYear((year) => (year === 2099 ? 2099 : year + 1));
       }, 250);
-      return () => clearInterval(timer);
+      return () => clearTimeout(timer);
     }
-  }, [isPlaying]);
+  }, [isPlaying, year]);
 
   return (
     <Layout>
