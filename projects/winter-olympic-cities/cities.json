@@ -106,10 +106,10 @@
   },
   {
     "name": "Albertville ",
-    "coordinates": [-93.6784139, 45.236367],
+    "coordinates": [6.3925, 45.675833],
     "population": 10539000,
     "year": 1992,
-    "showLabel": true
+    "showLabel": false
   },
   {
     "name": "Lillehammer ",
