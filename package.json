@@ -17,6 +17,7 @@
 		"framer-motion": "^4.0.3",
 		"jsonwebtoken": "^8.5.1",
 		"maplibre-gl": "^2.1.6",
+		"moment": "^2.29.1",
 		"next": "latest",
 		"postcss": "^8.3.5",
 		"prop-types": "^15.7.2",
