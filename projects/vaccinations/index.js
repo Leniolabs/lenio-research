@@ -17,6 +17,7 @@ import {
 import { COLOR_MAPPERS, COLOR_MAPS, LEGEND_FILTERS } from "../colorMappers";
 import { CountrySelect } from "./components/country-select/countrySelect";
 import { useTracking } from "analytics/context";
+import DownloadButton from "@components/DownloadButton";
 
 const SVG_HEIGHT = 90;
 const SELECT_WIDTH = 270;
@@ -355,9 +356,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
           * Generated through an interpolation using the days in which each country reported its total metrics per hundred inhabitants. 
         </p>
         {!seeMore ? (
-          <a href="/static/data-vaccination.json">
-            <button className="btn download-btn">Download Data</button>
-          </a>
+            <DownloadButton objectToDownload={DATA_MAPPER} fileName='vaccinations.json'>Download Data</DownloadButton>
         ) : (
           <Link href="/vaccinations">
             <a>
