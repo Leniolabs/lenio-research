@@ -128,7 +128,6 @@ export const Index = ({ seeMore = false, animated = false }) => {
 
   React.useEffect(() => {
     if (DATA_MAPPER === {}) return;
-
     if (dataIndex === 0 && DATA_MAPPER[dataName].length > 0) {
       if (firstTimePlay.current && DATA_MAPPER[dataName][options[0]?.value]?.data) {
         setParsedData(
@@ -140,18 +139,6 @@ export const Index = ({ seeMore = false, animated = false }) => {
             countryData
           )
         );
-      } else {
-        const lastIndex = DATA_MAPPER[dataName].length - 1;
-        setParsedData(
-          getParsedData(
-            DATA_MAPPER[dataName][options[lastIndex]?.value]?.data,
-            COLOR_MAPPERS[colorMapper],
-            countryList,
-            legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
-            countryData
-          )
-        );
-        setDataIndex(lastIndex);
       }
     }
   }, [DATA_MAPPER, dataIndex]);
@@ -179,7 +166,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
     }
     setIsPlaying(!isPlaying);
     firstTimePlay.current = false;
-  }, [dataIndex, isPlaying, dataName]);
+  }, [dataIndex, isPlaying, dataName, DATA_MAPPER]);
 
   const onChangeCallback = React.useCallback((option) => {
     logEvent({
@@ -187,8 +174,9 @@ export const Index = ({ seeMore = false, animated = false }) => {
       action: "Changed Date",
       label: option.value
     });
-    setDateChange(option.index);
-  }, []);
+    if(isPlaying) setDateChange(option.index);
+    else setDataIndex(option.index);
+  }, [isPlaying]);
 
   // const onColorMapperChange = React.useCallback((option) => {
   //   logEvent({
@@ -363,7 +351,9 @@ export const Index = ({ seeMore = false, animated = false }) => {
             );
           })}
         </svg>
-
+        <p>
+          * Generated through an interpolation using the days in which each country reported its total metrics per hundred inhabitants. 
+        </p>
         {!seeMore ? (
           <a href="/static/data-vaccination.json">
             <button className="btn download-btn">Download Data</button>
