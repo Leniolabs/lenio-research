@@ -36,11 +36,15 @@ async function getVaccineData() {
   // use context to get the url called
   const BASE_URL = "https://research-vaccines-lambda.s3.amazonaws.com/data/";
   const countryDataR = await fetch(`${BASE_URL}country_data.json`);
-  const countryData = await countryDataR.json();
+  const countries = await countryDataR.json();
   const countryVaccinations = await fetch(
     "https://covid.ourworldindata.org/data/vaccinations/vaccinations.json"
   ).then((res) => res.json());
-  const [vacPer100, fullyVacPer100] = generateDatasets(countryVaccinations, countryData);
+  // Generate Datasets
+  const [vacPer100, fullyVacPer100] = generateDatasets(countryVaccinations, countries);
+  // Keep only countries that are in dataset
+  const validCountries = Object.keys(vacPer100[0].data);
+  const countryData = countries.filter((country) => validCountries.includes(country.name));
   return {
     countryData,
     fullyVacPer100,
