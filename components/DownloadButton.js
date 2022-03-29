@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 const DownloadButton = ({ children, objectToDownload, fileName }) => {
   const download = () => {
     const element = document.createElement("a");
@@ -17,5 +18,10 @@ const DownloadButton = ({ children, objectToDownload, fileName }) => {
       {children}
     </button>
   );
+};
+DownloadButton.propTypes = {
+  children: PropTypes.node.isRequired,
+  objectToDownload: PropTypes.object.isRequired,
+  fileName: PropTypes.string.isRequired
 };
 export default DownloadButton;
