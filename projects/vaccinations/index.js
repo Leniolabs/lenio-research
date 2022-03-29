@@ -169,15 +169,18 @@ export const Index = ({ seeMore = false, animated = false }) => {
     firstTimePlay.current = false;
   }, [dataIndex, isPlaying, dataName, DATA_MAPPER]);
 
-  const onChangeCallback = React.useCallback((option) => {
-    logEvent({
-      category: "Vaccinations",
-      action: "Changed Date",
-      label: option.value
-    });
-    if(isPlaying) setDateChange(option.index);
-    else setDataIndex(option.index);
-  }, [isPlaying]);
+  const onChangeCallback = React.useCallback(
+    (option) => {
+      logEvent({
+        category: "Vaccinations",
+        action: "Changed Date",
+        label: option.value
+      });
+      if (isPlaying) setDateChange(option.index);
+      else setDataIndex(option.index);
+    },
+    [isPlaying]
+  );
 
   // const onColorMapperChange = React.useCallback((option) => {
   //   logEvent({
@@ -353,10 +356,13 @@ export const Index = ({ seeMore = false, animated = false }) => {
           })}
         </svg>
         <p>
-          * Generated through an interpolation using the days in which each country reported its total metrics per hundred inhabitants. 
+          * Generated through an interpolation using the days in which each country reported its
+          total metrics per hundred inhabitants.
         </p>
         {!seeMore ? (
-            <DownloadButton objectToDownload={DATA_MAPPER} fileName='vaccinations.json'>Download Data</DownloadButton>
+          <DownloadButton objectToDownload={DATA_MAPPER} fileName="vaccinations.json">
+            Download Data
+          </DownloadButton>
         ) : (
           <Link href="/vaccinations">
             <a>
