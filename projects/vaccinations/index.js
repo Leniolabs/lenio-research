@@ -18,7 +18,7 @@ import { COLOR_MAPPERS, COLOR_MAPS, LEGEND_FILTERS } from "../colorMappers";
 import { CountrySelect } from "./components/country-select/countrySelect";
 import { useTracking } from "analytics/context";
 import DownloadButton from "@components/DownloadButton";
-import {LoadingSyringe} from "./components/syringe/loading";
+import { LoadingSyringe } from "./components/syringe/loading";
 
 const SVG_HEIGHT = 90;
 const SELECT_WIDTH = 270;
@@ -344,7 +344,9 @@ export const Index = ({ seeMore = false, animated = false }) => {
           <text transform={`translate(1020 ${calculatedHeight + 50})`} fill="#5a60ab">
             100%
           </text>
-          {loading ? (<LoadingSyringe/>) : (
+          {loading ? (
+            <LoadingSyringe />
+          ) : (
             parsedData.map((row) => {
               return (
                 <Syringe
