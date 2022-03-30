@@ -18,6 +18,7 @@ import { COLOR_MAPPERS, COLOR_MAPS, LEGEND_FILTERS } from "../colorMappers";
 import { CountrySelect } from "./components/country-select/countrySelect";
 import { useTracking } from "analytics/context";
 import DownloadButton from "@components/DownloadButton";
+import {LoadingSyringe} from "./components/syringe/loading";
 
 const SVG_HEIGHT = 90;
 const SELECT_WIDTH = 270;
@@ -95,6 +96,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [legendFilter, setLegendFilter] = React.useState(null);
   const [dateChange, setDateChange] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
   const { logEvent } = useTracking();
 
   React.useEffect(() => {
@@ -145,11 +147,13 @@ export const Index = ({ seeMore = false, animated = false }) => {
   }, [DATA_MAPPER, dataIndex]);
 
   React.useEffect(() => {
+    setLoading(true);
     getVaccineData()
       .then((resp) => {
         setCountryData(resp.countryData);
         setFullyVacPer100(resp.fullyVacPer100);
         setVacPer100(resp.vacPer100);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -340,20 +344,22 @@ export const Index = ({ seeMore = false, animated = false }) => {
           <text transform={`translate(1020 ${calculatedHeight + 50})`} fill="#5a60ab">
             100%
           </text>
-          {parsedData.map((row) => {
-            return (
-              <Syringe
-                key={`syringe${row.countryCode}`}
-                animated={animated}
-                index={row.position}
-                color={row.color}
-                country={row.country}
-                percentage={row.value}
-                countryCode={row.countryCode}
-                population={row.population}
-              />
-            );
-          })}
+          {loading ? (<LoadingSyringe/>) : (
+            parsedData.map((row) => {
+              return (
+                <Syringe
+                  key={`syringe${row.countryCode}`}
+                  animated={animated}
+                  index={row.position}
+                  color={row.color}
+                  country={row.country}
+                  percentage={row.value}
+                  countryCode={row.countryCode}
+                  population={row.population}
+                />
+              );
+            })
+          )}
         </svg>
         <p>
           * Generated through an interpolation using the days in which each country reported its
