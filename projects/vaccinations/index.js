@@ -65,7 +65,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
 
   const DATA_MAPPER = React.useMemo(() => {
     if (vacPer100 && fullyVacPer100) {
-      console.log(vacPer100.length, fullyVacPer100.length);
+      // console.log(vacPer100.length, fullyVacPer100.length);
       return {
         fully: fullyVacPer100.length > 0 ? fullyVacPer100 : [],
         "not-fully": vacPer100.length > 0 ? vacPer100 : []
@@ -81,9 +81,9 @@ export const Index = ({ seeMore = false, animated = false }) => {
     return getGroupedOptions(countryOptions);
   }, [countryOptions]);
 
-  React.useEffect(() => {
-    console.log(countryData, countryOptions);
-  }, [countryData, countryOptions]);
+  // React.useEffect(() => {
+  //   console.log(countryData, countryOptions);
+  // }, [countryData, countryOptions]);
 
   const [countryList, setCountryList] = React.useState(
     seeMore ? INTERESTING_COUNTRIES : MORE_COUNTRIES
