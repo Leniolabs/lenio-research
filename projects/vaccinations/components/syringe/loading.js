@@ -15,7 +15,7 @@ import { SVGText } from "../styled";
 const colors = Object.values(CONTINENT_COLOR_MAP);
 export const LoadingSyringe = () => {
     const [percentage, setPercentage] = React.useState(1)
-    const [colorIndex, setColorIndex] = React.useState(0)
+    const [colorIndex, setColorIndex] = React.useState(() => Math.floor(Math.random() * colors.length));
     React.useEffect(() => {
         const interval = setInterval(() => {
             setPercentage(percentage => {
