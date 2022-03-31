@@ -1,5 +1,4 @@
-import * as moment from "moment";
-
+import { format, addDays, differenceInDays, startOfToday, isBefore } from "date-fns";
 export const getParsedData = (data, colorMapper, countryList, legendFilter, countryData) => {
   // debugger;
   let countries = countryData;
@@ -37,31 +36,37 @@ export const generateDatasets = (data, countryData) => {
     // Get days that have a 'vaccinated_per_hundred' metric greater than 0
     const daysWithPerHundredData = data.filter(
       (date) =>
-        date.people_fully_vaccinated_per_hundred >= 0 || date.people_vaccinated_per_hundred >= 0
+        (date.people_fully_vaccinated_per_hundred >= 0 ||
+          date.people_vaccinated_per_hundred >= 0) &&
+        date.date
     );
-    const startFrom = moment("2020-12-01");
-    const endAt = moment().startOf("day");
+    let startFrom = new Date("2020-12-01");
+    const endAt = startOfToday();
     let firstFound = false;
     // Loop through each day
-    while (startFrom.isBefore(endAt)) {
+    while (isBefore(startFrom, endAt)) {
       // Get day format
-      const currentDay = startFrom.format("YYYY-MM-DD");
-      // Create day in hashes if not aren't set
+      const currentDay = format(startFrom, "yyyy-MM-dd");
+      // Create day in hashes if aren't set
       if (!notFullyHash[currentDay]) notFullyHash[currentDay] = {};
       if (!fullyHash[currentDay]) fullyHash[currentDay] = {};
       // If there're remaining landmark days, continue growth
       if (daysWithPerHundredData.length > 0) {
-        const { date, people_vaccinated_per_hundred, people_fully_vaccinated_per_hundred } =
-          daysWithPerHundredData[0];
+        const nextLandmark = daysWithPerHundredData[0];
+        const {
+          date: landmarkDate,
+          people_vaccinated_per_hundred,
+          people_fully_vaccinated_per_hundred
+        } = nextLandmark;
         // If the current day is the same as the next landmark day, update the current stats
-        if (currentDay === date) {
+        if (currentDay === landmarkDate) {
           if (!firstFound) firstFound = true; // Update if the first Landmark is found
           oneDose = people_vaccinated_per_hundred ?? oneDose;
           fully = people_fully_vaccinated_per_hundred ?? fully;
           daysWithPerHundredData.shift();
         } else {
           // If not, Interpolate the data
-          const difference = moment(date).endOf("day").diff(startFrom.clone().endOf("day"), "days");
+          const difference = differenceInDays(new Date(landmarkDate), new Date(currentDay)) || 1;
           const notFullyDifference = (people_vaccinated_per_hundred ?? oneDose) - oneDose; // Add ?? in case the landmark day doesn't have the required metric
           const fullyDifference = (people_fully_vaccinated_per_hundred ?? fully) - fully;
           // Only update after the first landmark has been found
@@ -74,7 +79,7 @@ export const generateDatasets = (data, countryData) => {
       // Add the current day stats to the hashes
       notFullyHash[currentDay][country] = oneDose;
       fullyHash[currentDay][country] = fully;
-      startFrom.add(1, "day");
+      startFrom = addDays(startFrom, 1);
     }
   });
   // Convert {'2020-12-01': {...}, ...} to [{'date': '2020-12-01', 'data': {...}}, ...]

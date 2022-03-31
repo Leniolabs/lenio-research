@@ -17,6 +17,8 @@ import {
 import { COLOR_MAPPERS, COLOR_MAPS, LEGEND_FILTERS } from "../colorMappers";
 import { CountrySelect } from "./components/country-select/countrySelect";
 import { useTracking } from "analytics/context";
+import DownloadButton from "@components/DownloadButton";
+import { LoadingSyringe } from "./components/syringe/loading";
 
 const SVG_HEIGHT = 90;
 const SELECT_WIDTH = 270;
@@ -36,11 +38,15 @@ async function getVaccineData() {
   // use context to get the url called
   const BASE_URL = "https://research-vaccines-lambda.s3.amazonaws.com/data/";
   const countryDataR = await fetch(`${BASE_URL}country_data.json`);
-  const countryData = await countryDataR.json();
+  const countries = await countryDataR.json();
   const countryVaccinations = await fetch(
     "https://covid.ourworldindata.org/data/vaccinations/vaccinations.json"
   ).then((res) => res.json());
-  const [vacPer100, fullyVacPer100] = generateDatasets(countryVaccinations, countryData);
+  // Generate Datasets
+  const [vacPer100, fullyVacPer100] = generateDatasets(countryVaccinations, countries);
+  // Keep only countries that are in dataset
+  const validCountries = Object.keys(vacPer100[0].data);
+  const countryData = countries.filter((country) => validCountries.includes(country.name));
   return {
     countryData,
     fullyVacPer100,
@@ -59,7 +65,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
 
   const DATA_MAPPER = React.useMemo(() => {
     if (vacPer100 && fullyVacPer100) {
-      console.log(vacPer100.length, fullyVacPer100.length);
+      // console.log(vacPer100.length, fullyVacPer100.length);
       return {
         fully: fullyVacPer100.length > 0 ? fullyVacPer100 : [],
         "not-fully": vacPer100.length > 0 ? vacPer100 : []
@@ -75,9 +81,9 @@ export const Index = ({ seeMore = false, animated = false }) => {
     return getGroupedOptions(countryOptions);
   }, [countryOptions]);
 
-  React.useEffect(() => {
-    console.log(countryData, countryOptions);
-  }, [countryData, countryOptions]);
+  // React.useEffect(() => {
+  //   console.log(countryData, countryOptions);
+  // }, [countryData, countryOptions]);
 
   const [countryList, setCountryList] = React.useState(
     seeMore ? INTERESTING_COUNTRIES : MORE_COUNTRIES
@@ -90,6 +96,7 @@ export const Index = ({ seeMore = false, animated = false }) => {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [legendFilter, setLegendFilter] = React.useState(null);
   const [dateChange, setDateChange] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
   const { logEvent } = useTracking();
 
   React.useEffect(() => {
@@ -124,7 +131,6 @@ export const Index = ({ seeMore = false, animated = false }) => {
 
   React.useEffect(() => {
     if (DATA_MAPPER === {}) return;
-
     if (dataIndex === 0 && DATA_MAPPER[dataName].length > 0) {
       if (firstTimePlay.current && DATA_MAPPER[dataName][options[0]?.value]?.data) {
         setParsedData(
@@ -136,28 +142,18 @@ export const Index = ({ seeMore = false, animated = false }) => {
             countryData
           )
         );
-      } else {
-        const lastIndex = DATA_MAPPER[dataName].length - 1;
-        setParsedData(
-          getParsedData(
-            DATA_MAPPER[dataName][options[lastIndex]?.value]?.data,
-            COLOR_MAPPERS[colorMapper],
-            countryList,
-            legendFilter && LEGEND_FILTERS[colorMapper](legendFilter),
-            countryData
-          )
-        );
-        setDataIndex(lastIndex);
       }
     }
   }, [DATA_MAPPER, dataIndex]);
 
   React.useEffect(() => {
+    setLoading(true);
     getVaccineData()
       .then((resp) => {
         setCountryData(resp.countryData);
         setFullyVacPer100(resp.fullyVacPer100);
         setVacPer100(resp.vacPer100);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -175,16 +171,20 @@ export const Index = ({ seeMore = false, animated = false }) => {
     }
     setIsPlaying(!isPlaying);
     firstTimePlay.current = false;
-  }, [dataIndex, isPlaying, dataName]);
+  }, [dataIndex, isPlaying, dataName, DATA_MAPPER]);
 
-  const onChangeCallback = React.useCallback((option) => {
-    logEvent({
-      category: "Vaccinations",
-      action: "Changed Date",
-      label: option.value
-    });
-    setDateChange(option.index);
-  }, []);
+  const onChangeCallback = React.useCallback(
+    (option) => {
+      logEvent({
+        category: "Vaccinations",
+        action: "Changed Date",
+        label: option.value
+      });
+      if (isPlaying) setDateChange(option.index);
+      else setDataIndex(option.index);
+    },
+    [isPlaying]
+  );
 
   // const onColorMapperChange = React.useCallback((option) => {
   //   logEvent({
@@ -344,26 +344,33 @@ export const Index = ({ seeMore = false, animated = false }) => {
           <text transform={`translate(1020 ${calculatedHeight + 50})`} fill="#5a60ab">
             100%
           </text>
-          {parsedData.map((row) => {
-            return (
-              <Syringe
-                key={`syringe${row.countryCode}`}
-                animated={animated}
-                index={row.position}
-                color={row.color}
-                country={row.country}
-                percentage={row.value}
-                countryCode={row.countryCode}
-                population={row.population}
-              />
-            );
-          })}
+          {loading ? (
+            <LoadingSyringe />
+          ) : (
+            parsedData.map((row) => {
+              return (
+                <Syringe
+                  key={`syringe${row.countryCode}`}
+                  animated={animated}
+                  index={row.position}
+                  color={row.color}
+                  country={row.country}
+                  percentage={row.value}
+                  countryCode={row.countryCode}
+                  population={row.population}
+                />
+              );
+            })
+          )}
         </svg>
-
+        <p>
+          * Generated through an interpolation using the days in which each country reported its
+          total metrics per hundred inhabitants.
+        </p>
         {!seeMore ? (
-          <a href="/static/data-vaccination.json">
-            <button className="btn download-btn">Download Data</button>
-          </a>
+          <DownloadButton objectToDownload={DATA_MAPPER} fileName="vaccinations.json">
+            Download Data
+          </DownloadButton>
         ) : (
           <Link href="/vaccinations">
             <a>

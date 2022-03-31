@@ -24,6 +24,12 @@ export const MovingPath = styled.path`
   stroke-width: 2;
   transition: d 0.2s linear;
 `;
+export const LoadingMovingPath = styled.path`
+  fill: ${props => props.color};
+  stroke: #5a60ab;
+  stroke-width: 2;
+  transition: d 0.2s linear;
+`;
 
 export const TSpan = styled.tspan`
   fill: #5a60ab;
