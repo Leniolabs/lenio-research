@@ -18,7 +18,7 @@ export const Presentation = styled.section`
   text-align: center;
 
   @media (min-width: 768px) {
-    margin-bottom: 5rem;
+    margin-bottom: 0rem;
   }
 
   * {
@@ -212,10 +212,13 @@ export const SoccerContainer = styled.div`
   width: 100%;
   height: 100%;
 `;
+export const ButtonImage = styled.img`
+  cursor: pointer;
+`
 
 export const GridInformation = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 `;
 
 export const Button = styled.button`

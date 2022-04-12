@@ -1,4 +1,4 @@
-import React, { useState, useCallback, Fragment } from "react";
+import React, { useState, useCallback, useEffect, Fragment } from "react";
 import PropTypes from "prop-types";
 import {
   Paragraph,
@@ -17,23 +17,34 @@ import {
 } from "../soccer.style";
 import { SoccerField } from "./SoccerField";
 import jwt from "jsonwebtoken";
+import GoalInfo from "./GoalInfo";
 
+export const information = ["received", "shot", "goal"];
+export const getNextInformation = (info, goBack = false) => {
+  const index = information.indexOf(info);
+  if (index === -1) return information[0]
+  if (goBack) {
+    if (index === 0) return information[information.length - 1]
+    return information[index - 1]
+  } else {
+    if (index === information.length - 1) return information[0]
+    return information[index + 1]
+  }
+}
 export const GoalViewer = () => {
   const [goal, setGoal] = useState({});
-
-  const [secretWord, setSecretWord] = useState("");
+  const [secretWord, setSecretWord] = useState("laArepaEsVenezolana26");
   const [field, setField] = useState("received");
   const [searchGoal, setSearchGoal] = useState("");
+  const [goalRecords, setGoalRecords] = useState([]);
 
-  const information = ["received", "shot"];
-
-  const getGoal = async (endpoint) => {
+  const getGoal = async (endpoint, tok = null) => {
     if (!secretWord) {
       alert("Please enter a valid secret word");
     }
     if (secretWord) {
-      const token = jwt.sign({ payload: {} }, secretWord);
-      await fetch(`https://soccer-api.leniolabs.com/${endpoint}`, {
+      const token = tok ?? jwt.sign({ payload: {} }, secretWord);
+      await fetch(`http://localhost:8000/${endpoint}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -52,95 +63,96 @@ export const GoalViewer = () => {
         });
     }
   };
-
-  const onSaveGoal = async () => {
+  const getGoalById = async (goalId) => {
+    if(goalId < 1 || goalId > goalRecords.length) {
+      alert("Can't find goal with id: " + goalId);
+    } else {
+      getGoal(`world/getId/${goalId}`)
+    }
+  }
+  const updateGoal = async ({id, shot, received, goal}) => {
+    setGoalRecords(records => {
+      return records.map(record => {
+        if (record.id === id) {
+          return {
+            ...record,
+            shot,
+            received,
+            goal,
+          };
+        }
+        return record;
+      });
+    })
+  };
+  const onSaveGoal = async (attrs) => {
     if (!secretWord) {
       alert("Please enter a valid secret word");
     }
     if (secretWord) {
-      const token = jwt.sign({ payload: goal }, secretWord);
-      await fetch(`https://soccer-api.leniolabs.com/messi/update/${goal.id}`, {
+      const updatedGoal = {
+        ...goal,
+        ...attrs
+      }
+      const token = jwt.sign({
+        payload: updatedGoal
+      }, secretWord);
+      await fetch(`http://localhost:8000/world/update/${goal.id}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + token
         },
-        body: JSON.stringify(goal)
+        body: JSON.stringify(updatedGoal)
       })
         .then((response) => response.json())
         .catch(() => {
           alert("Error: please contact administrator");
         });
-      await getGoal("messi/latest-to-fill");
+      updateGoal(updatedGoal);
+      await getGoal("world/latest-to-fill", token);
     }
   };
 
-  const onClickField = useCallback(
-    (coords) => {
-      setGoal({
-        ...goal,
-        [field]: coords
-      });
-      setField("shot");
-    },
-    [field, goal]
-  );
-
+  useEffect(() => {
+    async function getGoals() {
+      if (!secretWord) {
+        alert("Please enter a valid secret word");
+      }
+      if (secretWord) {
+        const token = jwt.sign({ payload: {} }, secretWord);
+        await fetch(`http://localhost:8000/world/all`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token
+          }
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data && Object.keys(data).length > 0) {
+              setGoalRecords(data);
+            }
+          })
+          .catch(() => {
+            alert("Error: please contact administrator");
+          });
+      }
+    }
+    getGoals();
+    getGoal('world/latest-to-fill');
+  }, [])
   return (
     <Fragment>
       <div style={{ gridArea: "field" }}>
-        <SoccerField onClick={(coords) => onClickField(coords)} field={field} goal={goal} />
+        <SoccerField onSave={(coords) => onSaveGoal(coords)} onGetGoal={getGoalById} setField={setField} field={field} goal={goal} recordedGoals={goalRecords} />
       </div>
       <div style={{ gridArea: "data", maxWidth: 400 }}>
-        {goal && (
-          <>
-            <Title>
-              #{goal.id ? `${goal.id} |` : "No info"} {goal.Date}
-            </Title>
-            <Subtitle style={{ textAlign: "start" }}>Minute {goal.Minute}</Subtitle>
-            <Paragraph>vs: {goal["Team"]}</Paragraph>
-            <Paragraph>Status Game: {goal["PartialStatus"]}</Paragraph>
-            <Paragraph>Assist by: {goal["Assist"]}</Paragraph>
-            <Paragraph>Type of goal: {goal["Type of goal"]}</Paragraph>
-            <Paragraph>Tournament: {goal["Tournament"]}</Paragraph>
-            <Paragraph>
-              Final game result for FC Barcelona: <b>{goal["Final Result"]}</b>
-            </Paragraph>
-            <GridInformation>
-              {information.map((info) => (
-                <div key={info}>
-                  <input
-                    type="radio"
-                    id={info}
-                    name={info}
-                    checked={info === field}
-                    onChange={() => setField(info)}
-                  />
-                  <ChartTitle onClick={() => setField(info)}>{info}:</ChartTitle>
-                  {goal[info] ? (
-                    <>
-                      {goal[info].map((goal) => (
-                        <SmallParagraph key={goal}>{goal}</SmallParagraph>
-                      ))}
-                    </>
-                  ) : (
-                    <SmallParagraph style={{ fontStyle: "italic" }}>
-                      Missing information
-                    </SmallParagraph>
-                  )}
-                </div>
-              ))}
-            </GridInformation>
-          </>
+        {Object.keys(goal).length && (
+          <GoalInfo goal={goal} />
         )}
-        <Paragraph>
-          {`URL: `}
-          <a href="https://youtu.be/a1-iff3lh2U" rel="noopener noreferrer" target="_blank">
-            https://youtu.be/a1-iff3lh2U
-          </a>
-        </Paragraph>
         <LabelContainer>
-          <label htmlFor={"secret word"}>
+          <label htmlFor={"word-secret"}>
             Enter secret word:
             <Input
               onChange={({ target: { value } }) => {
@@ -156,15 +168,18 @@ export const GoalViewer = () => {
         <GetContainer>
           <ButtonGetLatest
             onClick={() =>
-              getGoal(searchGoal ? `messi/getId/${searchGoal}` : "messi/latest-to-fill")
+              getGoal(searchGoal ? `world/getId/${searchGoal}` : "world/latest-to-fill")
             }>
             {searchGoal ? "Search" : "Get latest to fill"}
           </ButtonGetLatest>
           <Form>
-            <LabelSearch htmlFor={"search goal"}>
+            <LabelSearch htmlFor={"search"}>
               or search for goal #
               <Input
-                onChange={({ target: { value } }) => setSearchGoal(value)}
+                onChange={({ target: { value } }) => {
+                  setSearchGoal(value)
+                  getGoal(`world/getId/${value}`)
+                }}
                 value={searchGoal}
                 type="number"
                 id="search"

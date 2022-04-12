@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     ${"" /* background-color: #fffbf0; */}
+    width: fit-content;
     background-color: #0a061b;
     box-sizing: border-box;
     color: #45486d;
